@@ -1,0 +1,116 @@
+[
+    {
+        "match": "match1",
+        "score": "9-12",
+        "winner": 1,
+        "team1": [
+            "AyB*",
+            "Meso.",
+            "JusticeForAII",
+            "TesserACT",
+            "EmreY"
+        ],
+        "team2": [
+            "MuHasdas",
+            "Eboss",
+            "R\u039bIKU\u30fb\u96f7",
+            "\ud83c\udd81\ud83c\udd71\ud83c\udd89",
+            "\ud83c\udd81\ud83c\udd70\ud83c\udd78\ud83c\udd73\ud83c\udd74\ud83c\udd81"
+        ]
+    },
+    {
+        "match": "match2",
+        "score": "11-12",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "AyB*",
+            "TesserACT",
+            "Meso.",
+            "EmreY"
+        ],
+        "team2": [
+            "MuHasdas",
+            "\ud83c\udd81\ud83c\udd71\ud83c\udd89",
+            "\ud83c\udd81\ud83c\udd70\ud83c\udd78\ud83c\udd73\ud83c\udd74\ud83c\udd81",
+            "R\u039bIKU\u30fb\u96f7",
+            "Eboss"
+        ]
+    },
+    {
+        "match": "match3",
+        "score": "10-12",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "AyB*",
+            "TesserACT",
+            "Meso.",
+            "EmreY"
+        ],
+        "team2": [
+            "\ud83c\udd81\ud83c\udd70\ud83c\udd78\ud83c\udd73\ud83c\udd74\ud83c\udd81",
+            "MuHasdas",
+            "R\u039bIKU\u30fb\u96f7",
+            "Eboss",
+            "\ud83c\udd81\ud83c\udd71\ud83c\udd89"
+        ]
+    },
+    {
+        "match": "match4",
+        "score": "11-12",
+        "winner": 2,
+        "team1": [
+            "AyB*",
+            "TesserACT",
+            "JusticeForAII",
+            "Eboss",
+            "R\u039bIKU\u30fb\u96f7"
+        ],
+        "team2": [
+            "\ud83c\udd81\ud83c\udd70\ud83c\udd78\ud83c\udd73\ud83c\udd74\ud83c\udd81",
+            "MuHasdas",
+            "Meso.",
+            "EmreY",
+            "\ud83c\udd81\ud83c\udd71\ud83c\udd89"
+        ]
+    },
+    {
+        "match": "match5",
+        "score": "9-12",
+        "winner": 1,
+        "team1": [
+            "TesserACT",
+            "AyB*",
+            "JusticeForAII",
+            "Eboss",
+            "R\u039bIKU\u30fb\u96f7"
+        ],
+        "team2": [
+            "Meso.",
+            "MuHasdas",
+            "EmreY",
+            "\ud83c\udd81\ud83c\udd70\ud83c\udd78\ud83c\udd73\ud83c\udd74\ud83c\udd81",
+            "\ud83c\udd81\ud83c\udd71\ud83c\udd89"
+        ]
+    },
+    {
+        "match": "match6",
+        "score": "0-12",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "R\u039bIKU\u30fb\u96f7",
+            "AyB*",
+            "TesserACT",
+            "Eboss"
+        ],
+        "team2": [
+            "\ud83c\udd81\ud83c\udd70\ud83c\udd78\ud83c\udd73\ud83c\udd74\ud83c\udd81",
+            "MuHasdas",
+            "Meso.",
+            "\ud83c\udd81\ud83c\udd71\ud83c\udd89",
+            "EmreY"
+        ]
+    }
+]
