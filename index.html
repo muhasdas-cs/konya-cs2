@@ -78,14 +78,6 @@ tr:hover {
     cursor: pointer;
 }
 
-/* BADGE */
-.badge {
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 12px;
-    background: #1f2937;
-}
-
 /* LOADING */
 .loading {
     text-align: center;
@@ -124,6 +116,7 @@ tr:hover {
 
 <script>
 
+// 🔥 DATA ÇEK
 fetch("./players.json")
 .then(res => {
     if (!res.ok) throw new Error("JSON yüklenemedi");
@@ -165,9 +158,10 @@ fetch("./players.json")
     console.error(err);
 });
 
-/* PROFILE (NEXT STEP) */
+
+// 🔥 PROFILE REDIRECT (EN ÖNEMLİ)
 function openProfile(name){
-    alert(name + " profili yakında 😄🔥");
+    window.location.href = "profile.html?player=" + encodeURIComponent(name);
 }
 
 </script>
