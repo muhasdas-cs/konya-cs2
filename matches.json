@@ -1,19 +1,38 @@
 [
-    {
-        "match": "match6",
-        "score": "0-12",
-        "winner": "team2",
-        "players": [
-            "JusticeForAII",
-            "R\u039bIKU\u30fb\u96f7",
-            "AyB*",
-            "TesserACT",
-            "Eboss",
-            "\ud83c\udd81\ud83c\udd70\ud83c\udd78\ud83c\udd73\ud83c\udd74\ud83c\udd81",
-            "MuHasdas",
-            "Meso.",
-            "\ud83c\udd81\ud83c\udd71\ud83c\udd89",
-            "EmreY"
-        ]
-    }
+{
+"match": "match1",
+"score": "13-11",
+"winner": "team1",
+"players": ["MuHasdas","🆁🅰🅸🅳🅴🆁","🆁🅱🆉","Meso.","EmreY","Eboss","RΛIKU・雷","AyB*","JusticeForAII","TesserACT"]
+},
+{
+"match": "match2",
+"score": "10-13",
+"winner": "team2",
+"players": ["MuHasdas","🆁🅰🅸🅳🅴🆁","🆁🅱🆉","Meso.","EmreY","Eboss","RΛIKU・雷","AyB*","JusticeForAII","TesserACT"]
+},
+{
+"match": "match3",
+"score": "13-9",
+"winner": "team1",
+"players": ["MuHasdas","🆁🅰🅸🅳🅴🆁","🆁🅱🆉","Meso.","EmreY","Eboss","RΛIKU・雷","AyB*","JusticeForAII","TesserACT"]
+},
+{
+"match": "match4",
+"score": "13-11",
+"winner": "team1",
+"players": ["MuHasdas","🆁🅰🅸🅳🅴🆁","🆁🅱🆉","Meso.","EmreY","Eboss","RΛIKU・雷","AyB*","JusticeForAII","TesserACT"]
+},
+{
+"match": "match5",
+"score": "9-13",
+"winner": "team2",
+"players": ["MuHasdas","🆁🅰🅸🅳🅴🆁","🆁🅱🆉","Meso.","EmreY","Eboss","RΛIKU・雷","AyB*","JusticeForAII","TesserACT"]
+},
+{
+"match": "match6",
+"score": "0-13",
+"winner": "team2",
+"players": ["MuHasdas","🆁🅰🅸🅳🅴🆁","🆁🅱🆉","Meso.","EmreY","Eboss","RΛIKU・雷","AyB*","JusticeForAII","TesserACT"]
+}
 ]
