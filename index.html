@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>CS2 Lig</title>
+
+<style>
+body {
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+}
+
+/* HEADER */
+h1 {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(90deg, #111827, #020617);
+    margin: 0;
+    color: #f97316;
+    letter-spacing: 2px;
+}
+
+/* TABLE */
+table {
+    width: 95%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    backdrop-filter: blur(10px);
+}
+
+/* HEADERS */
+th {
+    background: #111827;
+    padding: 14px;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* CELLS */
+td {
+    padding: 14px;
+    border-bottom: 1px solid #1f2937;
+    font-size: 15px;
+}
+
+/* ROW EFFECT */
+tr {
+    transition: 0.25s;
+}
+
+tr:hover {
+    background: rgba(249,115,22,0.08);
+    transform: scale(1.01);
+    box-shadow: 0 0 15px rgba(249,115,22,0.2);
+}
+
+/* RANK COLOR */
+.rank {
+    font-weight: bold;
+    color: #f97316;
+}
+
+/* TOP PLAYERS */
+.top1 {
+    background: linear-gradient(90deg, #f59e0b33, transparent);
+}
+.top2 {
+    background: linear-gradient(90deg, #9ca3af33, transparent);
+}
+.top3 {
+    background: linear-gradient(90deg, #cd7f3233, transparent);
+}
+
+/* PLAYER CLICK */
+.player {
+    cursor: pointer;
+}
+
+/* BADGE */
+.badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    background: #1f2937;
+}
+
+/* LOADING */
+.loading {
+    text-align: center;
+    margin-top: 50px;
+    color: #9ca3af;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🏆 CS2 KONYA LİGİ</h1>
+
+<div id="loading" class="loading">Yükleniyor...</div>
+
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Oyuncu</th>
+<th>ELO</th>
+<th>Rank</th>
+<th>Win%</th>
+<th>Maç</th>
+<th>Win</th>
+<th>K/D</th>
+<th>ADR</th>
+<th>HS%</th>
+<th>Rounds</th>
+</tr>
+</thead>
+
+<tbody id="table"></tbody>
+</table>
+
+<script>
+
+fetch("./players.json")
+.then(res => {
+    if (!res.ok) throw new Error("JSON yüklenemedi");
+    return res.json();
+})
+.then(data => {
+
+    document.getElementById("loading").style.display = "none";
+
+    let table = document.getElementById("table");
+
+    data.forEach((p, i) => {
+
+        let rowClass = "";
+        if(i == 0) rowClass = "top1";
+        else if(i == 1) rowClass = "top2";
+        else if(i == 2) rowClass = "top3";
+
+        table.innerHTML += `
+        <tr class="${rowClass} player" onclick="openProfile('${p.name}')">
+            <td>${i+1}</td>
+            <td>🎮 ${p.name}</td>
+            <td>${p.elo}</td>
+            <td class="rank">${p.rank}</td>
+            <td>%${p.winrate}</td>
+            <td>${p.matches}</td>
+            <td>${p.wins}</td>
+            <td>${p.kd}</td>
+            <td>${p.adr}</td>
+            <td>${p.hs_percent}%</td>
+            <td>${p.rounds}</td>
+        </tr>
+        `;
+    });
+
+})
+.catch(err => {
+    document.getElementById("loading").innerHTML = "❌ Veri yüklenemedi";
+    console.error(err);
+});
+
+/* PROFILE (NEXT STEP) */
+function openProfile(name){
+    alert(name + " profili yakında 😄🔥");
+}
+
+</script>
+
+</body>
+</html>
