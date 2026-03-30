@@ -25,22 +25,24 @@ table {
     width: 95%;
     margin: 30px auto;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 th {
     background: #111827;
     padding: 12px;
     color: #9ca3af;
+    cursor: pointer;
 }
 
 td {
     padding: 12px;
     border-bottom: 1px solid #1f2937;
+    text-align: center;
 }
 
 tr:hover {
     background: rgba(249,115,22,0.08);
-    cursor: pointer;
 }
 
 .rank {
@@ -65,17 +67,17 @@ tr:hover {
 <table>
 <thead>
 <tr>
-<th>#</th>
+<th onclick="sortData('index')">#</th>
 <th>Oyuncu</th>
-<th>ELO</th>
-<th>Rank</th>
-<th>Win%</th>
-<th>Maç</th>
-<th>Win</th>
-<th>K/D</th>
-<th>ADR</th>
-<th>HS%</th>
-<th>Rounds</th>
+<th onclick="sortData('elo')">ELO</th>
+<th onclick="sortData('rank')">Rank</th>
+<th onclick="sortData('winrate')">Win%</th>
+<th onclick="sortData('matches')">Maç</th>
+<th onclick="sortData('wins')">Win</th>
+<th onclick="sortData('kd')">K/D</th>
+<th onclick="sortData('adr')">ADR</th>
+<th onclick="sortData('hs_percent')">HS%</th>
+<th onclick="sortData('rounds')">Rounds</th>
 </tr>
 </thead>
 
@@ -84,17 +86,27 @@ tr:hover {
 
 <script>
 
+let playersData = [];
+let currentSort = "";
+let sortAsc = false;
+
 fetch("./players.json")
 .then(response => response.json())
 .then(data => {
 
     document.getElementById("loading").style.display = "none";
+    playersData = data;
+    renderTable(playersData);
 
-    var table = document.getElementById("table");
+});
+
+function renderTable(data){
+    let table = document.getElementById("table");
+    table.innerHTML = "";
 
     data.forEach(function(p, i){
 
-        var row = "<tr onclick=\"openProfile('" + p.name + "')\">" +
+        let row = "<tr onclick=\"openProfile('" + p.name + "')\">" +
         "<td>" + (i+1) + "</td>" +
         "<td>🎮 " + p.name + "</td>" +
         "<td>" + p.elo + "</td>" +
@@ -110,8 +122,36 @@ fetch("./players.json")
 
         table.innerHTML += row;
     });
+}
 
-});
+function sortData(key){
+
+    if(currentSort === key){
+        sortAsc = !sortAsc;
+    } else {
+        sortAsc = false;
+        currentSort = key;
+    }
+
+    playersData.sort(function(a, b){
+
+        let valA = a[key];
+        let valB = b[key];
+
+        if(key === "rank"){
+            return 0;
+        }
+
+        if(sortAsc){
+            return valA - valB;
+        } else {
+            return valB - valA;
+        }
+
+    });
+
+    renderTable(playersData);
+}
 
 function openProfile(name){
     window.location.href = "profile.html?player=" + encodeURIComponent(name);
