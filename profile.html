@@ -125,26 +125,24 @@ fetch("./players.json")
 
 
 // 🔥 MATCH HISTORY
-fetch("./matches.json")
-.then(res => res.json())
-.then(matches => {
+matches.forEach(m => {
 
-    let container = document.getElementById("history");
+    let result = "";
 
-    matches.forEach(m => {
+    if(m.team1.includes(playerName)){
+        result = (m.winner === "team1") ? "WIN" : "LOSE";
+    }
+    else if(m.team2.includes(playerName)){
+        result = (m.winner === "team2") ? "WIN" : "LOSE";
+    }
 
-        if(m.players.includes(playerName)){
-
-            let result = m.winner === "team1" ? "WIN" : "LOSE";
-
-            container.innerHTML += `
-            <div class="match">
-                ${m.match} | ${m.score} | ${result}
-            </div>
-            `;
-        }
-
-    });
+    if(result !== ""){
+        container.innerHTML += `
+        <div class="match">
+            ${m.match} | ${m.score} | ${result}
+        </div>
+        `;
+    }
 
 });
 
