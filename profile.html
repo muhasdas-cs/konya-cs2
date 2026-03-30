@@ -10,11 +10,22 @@ body {
     background: radial-gradient(circle at top, #0f172a, #020617);
     color: white;
     font-family: Arial, sans-serif;
+    margin: 0;
 }
 
 .header {
-    padding: 40px;
+    padding: 30px;
     text-align: center;
+    background: linear-gradient(90deg, #111827, #020617);
+}
+
+.name {
+    font-size: 26px;
+    color: #f97316;
+}
+
+.elo {
+    margin-top: 10px;
 }
 
 .card {
@@ -22,11 +33,33 @@ body {
     margin: 20px auto;
 }
 
-.match {
+/* STATS GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.stat {
     background: #1f2937;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* MATCHES */
+.match {
+    background: #111827;
     padding: 10px;
-    margin: 5px;
+    margin-top: 8px;
     border-radius: 6px;
+}
+
+/* BACK */
+.back {
+    margin: 15px;
+    cursor: pointer;
+    color: #f97316;
 }
 </style>
 
@@ -34,18 +67,64 @@ body {
 
 <body>
 
+<div class="back" onclick="goBack()">← Geri</div>
+
 <div class="header">
-<h1 id="name"></h1>
+    <div class="name" id="name">Yükleniyor...</div>
+    <div class="elo" id="elo"></div>
 </div>
 
-<div class="card" id="history"></div>
+<div class="card">
+
+```
+<div class="grid">
+
+    <div class="stat"><b id="kd"></b><br>K/D</div>
+    <div class="stat"><b id="winrate"></b><br>Win Rate</div>
+    <div class="stat"><b id="matches"></b><br>Matches</div>
+    <div class="stat"><b id="wins"></b><br>Wins</div>
+    <div class="stat"><b id="adr"></b><br>ADR</div>
+    <div class="stat"><b id="hs"></b><br>HS%</div>
+
+</div>
+
+<h3 style="margin-top:30px;">📜 Match History</h3>
+<div id="history"></div>
+```
+
+</div>
 
 <script>
 
 const params = new URLSearchParams(window.location.search);
 const playerName = params.get("player");
 
-// MATCH HISTORY
+// 🔥 PLAYER DATA
+fetch("./players.json")
+.then(res => res.json())
+.then(data => {
+
+    const p = data.find(x => x.name === playerName);
+
+    if(!p){
+        document.body.innerHTML = "Oyuncu bulunamadı";
+        return;
+    }
+
+    document.getElementById("name").innerText = "🎮 " + p.name;
+    document.getElementById("elo").innerText = p.elo + " ELO (" + p.rank + ")";
+
+    document.getElementById("kd").innerText = p.kd;
+    document.getElementById("winrate").innerText = "%" + p.winrate;
+    document.getElementById("matches").innerText = p.matches;
+    document.getElementById("wins").innerText = p.wins;
+    document.getElementById("adr").innerText = p.adr;
+    document.getElementById("hs").innerText = p.hs_percent + "%";
+
+});
+
+
+// 🔥 MATCH HISTORY
 fetch("./matches.json")
 .then(res => res.json())
 .then(matches => {
@@ -56,9 +135,11 @@ fetch("./matches.json")
 
         if(m.players.includes(playerName)){
 
+            let result = m.winner === "team1" ? "WIN" : "LOSE";
+
             container.innerHTML += `
             <div class="match">
-                ${m.match} | ${m.score}
+                ${m.match} | ${m.score} | ${result}
             </div>
             `;
         }
@@ -67,13 +148,9 @@ fetch("./matches.json")
 
 });
 
-// NAME
-fetch("./players.json")
-.then(res => res.json())
-.then(data => {
-    let p = data.find(x => x.name === playerName);
-    document.getElementById("name").innerText = "🎮 " + p.name;
-});
+function goBack(){
+    window.location.href = "index.html";
+}
 
 </script>
 
