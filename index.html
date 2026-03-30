@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CS2 Lig</title>
+
+<style>
+body {
+    background: #0b0f1a;
+    color: white;
+    font-family: Arial;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    background: #111827;
+    margin: 0;
+    color: #f97316;
+}
+
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th {
+    background: #1f2937;
+    padding: 12px;
+    color: #9ca3af;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #1f2937;
+}
+
+tr:hover {
+    background: #111827;
+    transform: scale(1.01);
+    transition: 0.2s;
+}
+
+.rank {
+    font-weight: bold;
+    color: #f97316;
+}
+
+.top1 {
+    background: linear-gradient(90deg, #f59e0b33, transparent);
+}
+.top2 {
+    background: linear-gradient(90deg, #9ca3af33, transparent);
+}
+.top3 {
+    background: linear-gradient(90deg, #cd7f3233, transparent);
+}
+</style>
+</head>
+
+<body>
+
+<h1>🏆 CS2 KONYA LİGİ</h1>
+
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Oyuncu</th>
+<th>ELO</th>
+<th>Rank</th>
+<th>Win%</th>
+<th>Maç</th>
+<th>Win</th>
+<th>K/D</th>
+<th>ADR</th>
+<th>HS%</th>
+<th>Rounds</th>
+</tr>
+</thead>
+
+<tbody id="table"></tbody>
+</table>
+
+<script>
+fetch("players.json")
+.then(res => res.json())
+.then(data => {
+
+    console.log(data); // DEBUG
+
+    let table = document.getElementById("table");
+
+    data.forEach((p, i) => {
+
+        let rowClass = "";
+        if(i == 0) rowClass = "top1";
+        else if(i == 1) rowClass = "top2";
+        else if(i == 2) rowClass = "top3";
+
+        table.innerHTML += `
+        <tr class="${rowClass}">
+            <td>${i+1}</td>
+            <td>🎮 ${p.name}</td>
+            <td>${p.elo}</td>
+            <td class="rank">${p.rank}</td>
+            <td>%${p.winrate}</td>
+            <td>${p.matches}</td>
+            <td>${p.wins}</td>
+            <td>${p.kd}</td>
+            <td>${p.adr}</td>
+            <td>${p.hs_percent}%</td>
+            <td>${p.rounds}</td>
+        </tr>
+        `;
+    });
+
+});
+</script>
+
+</body>
+</html>
