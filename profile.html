@@ -10,55 +10,23 @@ body {
     background: radial-gradient(circle at top, #0f172a, #020617);
     color: white;
     font-family: Arial, sans-serif;
-    margin: 0;
 }
 
 .header {
     padding: 40px;
     text-align: center;
-    background: linear-gradient(90deg, #111827, #020617);
-}
-
-.name {
-    font-size: 28px;
-    color: #f97316;
-}
-
-.elo {
-    font-size: 20px;
-    margin-top: 10px;
 }
 
 .card {
     width: 80%;
-    margin: 30px auto;
-    background: rgba(17,24,39,0.8);
-    padding: 30px;
-    border-radius: 12px;
+    margin: 20px auto;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.stat {
+.match {
     background: #1f2937;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.stat h2 {
-    margin: 0;
-    color: #f97316;
-}
-
-.back {
-    margin: 20px;
-    cursor: pointer;
-    color: #f97316;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 6px;
 }
 </style>
 
@@ -66,79 +34,46 @@ body {
 
 <body>
 
-<div class="back" onclick="goBack()">← Geri</div>
-
 <div class="header">
-    <div class="name" id="name">Yükleniyor...</div>
-    <div class="elo" id="elo"></div>
+<h1 id="name"></h1>
 </div>
 
-<div class="card">
-    <div class="grid">
-
-    <div class="stat">
-        <h2 id="kd"></h2>
-        <p>K/D</p>
-    </div>
-
-    <div class="stat">
-        <h2 id="winrate"></h2>
-        <p>Win Rate</p>
-    </div>
-
-    <div class="stat">
-        <h2 id="matches"></h2>
-        <p>Matches</p>
-    </div>
-
-    <div class="stat">
-        <h2 id="wins"></h2>
-        <p>Wins</p>
-    </div>
-
-    <div class="stat">
-        <h2 id="adr"></h2>
-        <p>ADR</p>
-    </div>
-
-    <div class="stat">
-        <h2 id="hs"></h2>
-        <p>HS%</p>
-    </div>
-
-</div>
+<div class="card" id="history"></div>
 
 <script>
 
 const params = new URLSearchParams(window.location.search);
 const playerName = params.get("player");
 
-fetch("./players.json")
+// MATCH HISTORY
+fetch("./matches.json")
 .then(res => res.json())
-.then(data => {
+.then(matches => {
 
-    const player = data.find(p => p.name === playerName);
+    let container = document.getElementById("history");
 
-    if(!player){
-        document.body.innerHTML = "Oyuncu bulunamadı";
-        return;
-    }
+    matches.forEach(m => {
 
-    document.getElementById("name").innerText = "🎮 " + player.name;
-    document.getElementById("elo").innerText = player.elo + " ELO (" + player.rank + ")";
+        if(m.players.includes(playerName)){
 
-    document.getElementById("kd").innerText = player.kd;
-    document.getElementById("winrate").innerText = "%" + player.winrate;
-    document.getElementById("matches").innerText = player.matches;
-    document.getElementById("wins").innerText = player.wins;
-    document.getElementById("adr").innerText = player.adr;
-    document.getElementById("hs").innerText = player.hs_percent + "%";
+            container.innerHTML += `
+            <div class="match">
+                ${m.match} | ${m.score}
+            </div>
+            `;
+        }
+
+    });
 
 });
 
-function goBack(){
-    window.location.href = "index.html";
-}
+// NAME
+fetch("./players.json")
+.then(res => res.json())
+.then(data => {
+    let p = data.find(x => x.name === playerName);
+    document.getElementById("name").innerText = "🎮 " + p.name;
+});
 
 </script>
 
