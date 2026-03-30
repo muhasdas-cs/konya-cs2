@@ -25,7 +25,6 @@ table {
     width: 95%;
     margin: 30px auto;
     border-collapse: collapse;
-    table-layout: fixed;
 }
 
 th {
@@ -41,8 +40,14 @@ td {
     text-align: center;
 }
 
+tr {
+    transition: 0.2s;
+}
+
 tr:hover {
-    background: rgba(249,115,22,0.08);
+    background: rgba(249,115,22,0.1);
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgba(249,115,22,0.4);
 }
 
 .rank {
@@ -67,10 +72,10 @@ tr:hover {
 <table>
 <thead>
 <tr>
-<th onclick="sortData('index')">#</th>
+<th>#</th>
 <th>Oyuncu</th>
 <th onclick="sortData('elo')">ELO</th>
-<th onclick="sortData('rank')">Rank</th>
+<th>Rank</th>
 <th onclick="sortData('winrate')">Win%</th>
 <th onclick="sortData('matches')">Maç</th>
 <th onclick="sortData('wins')">Win</th>
@@ -91,36 +96,32 @@ let currentSort = "";
 let sortAsc = false;
 
 fetch("./players.json")
-.then(response => response.json())
+.then(res => res.json())
 .then(data => {
-
     document.getElementById("loading").style.display = "none";
     playersData = data;
     renderTable(playersData);
-
 });
 
 function renderTable(data){
     let table = document.getElementById("table");
     table.innerHTML = "";
 
-    data.forEach(function(p, i){
-
-        let row = "<tr onclick=\"openProfile('" + p.name + "')\">" +
-        "<td>" + (i+1) + "</td>" +
-        "<td>🎮 " + p.name + "</td>" +
-        "<td>" + p.elo + "</td>" +
-        "<td class='rank'>" + p.rank + "</td>" +
-        "<td>%" + p.winrate + "</td>" +
-        "<td>" + p.matches + "</td>" +
-        "<td>" + p.wins + "</td>" +
-        "<td>" + p.kd + "</td>" +
-        "<td>" + p.adr + "</td>" +
-        "<td>" + p.hs_percent + "%</td>" +
-        "<td>" + p.rounds + "</td>" +
-        "</tr>";
-
-        table.innerHTML += row;
+    data.forEach((p, i)=>{
+        table.innerHTML += `
+        <tr onclick="openProfile('${p.name}')">
+            <td>${i+1}</td>
+            <td>🎮 ${p.name}</td>
+            <td>${p.elo}</td>
+            <td class="rank">${p.rank}</td>
+            <td>%${p.winrate}</td>
+            <td>${p.matches}</td>
+            <td>${p.wins}</td>
+            <td>${p.kd}</td>
+            <td>${p.adr}</td>
+            <td>${p.hs_percent}%</td>
+            <td>${p.rounds}</td>
+        </tr>`;
     });
 }
 
@@ -133,21 +134,8 @@ function sortData(key){
         currentSort = key;
     }
 
-    playersData.sort(function(a, b){
-
-        let valA = a[key];
-        let valB = b[key];
-
-        if(key === "rank"){
-            return 0;
-        }
-
-        if(sortAsc){
-            return valA - valB;
-        } else {
-            return valB - valA;
-        }
-
+    playersData.sort((a,b)=>{
+        return sortAsc ? a[key]-b[key] : b[key]-a[key];
     });
 
     renderTable(playersData);
