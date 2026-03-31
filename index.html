@@ -1,9 +1,9 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>CS2 KONYA LİGİ</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 body {
     background: radial-gradient(circle at top, #0f172a, #020617);
@@ -16,6 +16,16 @@ table { width:95%; margin:auto; border-collapse:collapse; }
 th, td { padding:10px; text-align:center; }
 tr:hover { background:rgba(249,115,22,0.1); cursor:pointer; }
 .box { width:90%; margin:auto; margin-top:20px; }
+.match {
+    background:#111827;
+    padding:10px;
+    margin:5px;
+    cursor:pointer;
+    border-radius:6px;
+}
+.match:hover {
+    background:#1f2937;
+}
 </style>
 </head>
 <body>
@@ -43,29 +53,41 @@ tr:hover { background:rgba(249,115,22,0.1); cursor:pointer; }
 </div>
 
 <script>
+
 let players=[];
 
-fetch("players.json").then(r=>r.json()).then(data=>{
+// PLAYERS
+fetch("players.json")
+.then(r=>r.json())
+.then(data=>{
  players=data;
  let t=document.getElementById("table");
+
  data.forEach((p,i)=>{
-  t.innerHTML+=`<tr onclick="go('${p.name}')">
-  <td>${i+1}</td>
-  <td>🔫 ${p.name}</td>
-  <td>${p.elo}</td>
-  <td>%${p.winrate}</td>
-  <td>${p.kd}</td>
-  <td>${p.adr}</td>
+  t.innerHTML+=`
+  <tr onclick="go('${p.name}')">
+    <td>${i+1}</td>
+    <td>🔫 ${p.name}</td>
+    <td>${p.elo}</td>
+    <td>%${p.winrate}</td>
+    <td>${p.kd}</td>
+    <td>${p.adr}</td>
   </tr>`;
  });
 });
 
-fetch("matches.json").then(r=>r.json()).then(ms=>{
+// MATCHES
+fetch("matches.json")
+.then(r=>r.json())
+.then(ms=>{
  let div=document.getElementById("matches");
+
  ms.forEach(m=>{
-  div.innerHTML+=`<div>${m.match} (${m.score})</div>`;<div onclick="openMatch('${m.match}')">
-${m.match} (${m.score})
-</div>});
+  div.innerHTML+=`
+  <div class="match" onclick="openMatch('${m.match}')">
+    ${m.match} (${m.score})
+  </div>`;
+ });
 });
 
 function openMatch(match){
@@ -80,8 +102,12 @@ function makeTeams(type){
  let sorted=[...players].sort((a,b)=>b[type]-a[type]);
  let t1=[],t2=[];
  sorted.forEach((p,i)=>{ (i%2==0?t1:t2).push(p.name); });
- teams.innerHTML="<b>TEAM 1</b><br>"+t1.join("<br>")+"<br><br><b>TEAM 2</b><br>"+t2.join("<br>");
+
+ document.getElementById("teams").innerHTML =
+ "<b>TEAM 1</b><br>"+t1.join("<br>")+"<br><br>"+
+ "<b>TEAM 2</b><br>"+t2.join("<br>");
 }
+
 </script>
 
 </body>
