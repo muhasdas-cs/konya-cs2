@@ -63,9 +63,14 @@ fetch("players.json").then(r=>r.json()).then(data=>{
 fetch("matches.json").then(r=>r.json()).then(ms=>{
  let div=document.getElementById("matches");
  ms.forEach(m=>{
-  div.innerHTML+=`<div>${m.match} (${m.score})</div>`;
- });
+  div.innerHTML+=`<div>${m.match} (${m.score})</div>`;<div onclick="openMatch('${m.match}')">
+${m.match} (${m.score})
+</div>});
 });
+
+function openMatch(match){
+    window.location = "match.html?match=" + match;
+}
 
 function go(name){
  location="profile.html?player="+encodeURIComponent(name);
