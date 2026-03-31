@@ -128,7 +128,7 @@ fetch("data/" + matchName + ".csv")
         let name = c[map["name"]];
         if(!name) return;
 
-        // 🔥 TEAM AUTO DETECT
+        // 💣 TEAM FIX (KRAL NOKTA)
         let team =
             c[map["team"]] ??
             c[map["team_number"]] ??
@@ -147,17 +147,19 @@ fetch("data/" + matchName + ".csv")
 
         let p = { name, k, d, a, adr, hs };
 
-        // 💣 GERÇEK TAKIM AYIRMA
-        if(teamNum === 2){
-            t1.push(p);
-        }
-        else if(teamNum === 3){
-            t2.push(p);
-        }
+        if(teamNum === 2) t1.push(p);
+        else if(teamNum === 3) t2.push(p);
 
     });
 
-    // 🔥 ADR’ye göre sırala
+    // fallback (eğer team okunamazsa)
+    if(t1.length === 0 && t2.length === 0){
+        let all = [...t1, ...t2];
+        all.sort((a,b)=>b.adr-a.adr);
+        t1 = all.slice(0,5);
+        t2 = all.slice(5,10);
+    }
+
     t1.sort((a,b)=>b.adr-a.adr);
     t2.sort((a,b)=>b.adr-a.adr);
 
