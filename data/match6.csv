@@ -1,0 +1,11 @@
+matchid,mapnumber,steamid64,team,name,kills,deaths,damage,assists,enemy5ks,enemy4ks,enemy3ks,enemy2ks,utility_count,utility_damage,utility_successes,utility_enemies,flash_count,flash_successes,health_points_removed_total,health_points_dealt_total,shots_fired_total,shots_on_target_total,v1_count,v1_wins,v2_count,v2_wins,entry_count,entry_wins,equipment_value,money_saved,kill_reward,live_time,head_shot_kills,cash_earned,enemies_flashed
+12,0,76561198354217874,team_JusticeForAII,JusticeForAII,9,12,827,2,0,0,1,2,3,15,1,1,3,1,1290,827,192,27,0,0,3,0,2,0,41700,0,2700,483,4,41250,1
+12,0,76561199517832819,team_JusticeForAII,RΛIKU・雷,8,13,1213,4,0,0,0,1,2,37,1,1,5,3,1300,1213,177,52,0,0,2,0,1,1,42200,0,2400,650,1,49600,4
+12,0,76561198435703957,team_JusticeForAII,AyB*,6,13,801,1,0,0,0,1,0,0,0,0,1,1,1300,801,170,23,0,0,0,0,4,0,40650,0,1900,408,3,51100,1
+12,0,76561198102691612,team_JusticeForAII,TesserACT,4,13,575,1,0,0,0,1,0,0,0,0,6,5,1300,575,87,17,0,0,1,0,1,0,39850,0,1200,429,3,41650,6
+12,0,76561199096988278,team_JusticeForAII,Eboss,3,13,471,3,0,0,0,0,1,1,1,1,2,2,1300,471,132,14,0,0,0,0,5,1,39650,0,700,313,1,51800,3
+12,0,76561198261474000,team_Meso,🆁🅰🅸🅳🅴🆁,23,8,2175,5,1,1,2,2,7,16,2,3,10,9,1091,2175,245,79,0,0,0,0,5,4,60250,0,8100,535,8,54800,14
+12,0,76561198018085677,team_Meso,MuHasdas,13,6,1202,4,0,0,0,3,9,34,2,2,5,3,600,1202,130,21,0,0,0,0,4,3,78100,0,1700,657,3,48650,6
+12,0,76561198276095424,team_Meso,Meso.,10,6,1273,6,0,1,0,2,8,224,4,9,0,0,698,1273,191,37,0,0,0,0,3,3,61400,0,3000,607,4,48500,0
+12,0,76561198101734967,team_Meso,🆁🅱🆉,9,5,841,3,0,0,0,1,4,221,4,6,3,1,651,841,147,25,0,0,0,0,0,0,66750,0,2500,685,2,54000,1
+12,0,76561199195072889,team_Meso,EmreY,9,5,999,3,0,0,0,2,3,8,1,1,5,4,847,999,80,16,0,0,0,0,1,1,51000,0,2700,685,7,45400,6
