@@ -1,0 +1,92 @@
+[
+    {
+        "name": "AyB*",
+        "elo": 1000,
+        "winrate": 0.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 0
+    },
+    {
+        "name": "Meso.",
+        "elo": 1000,
+        "winrate": 50.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 3
+    },
+    {
+        "name": "JusticeForAII",
+        "elo": 1000,
+        "winrate": 0.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 0
+    },
+    {
+        "name": "TesserACT",
+        "elo": 1000,
+        "winrate": 0.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 0
+    },
+    {
+        "name": "EmreY",
+        "elo": 1000,
+        "winrate": 50.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 3
+    },
+    {
+        "name": "MuHasdas",
+        "elo": 1000,
+        "winrate": 100.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 6
+    },
+    {
+        "name": "Eboss",
+        "elo": 1000,
+        "winrate": 50.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 3
+    },
+    {
+        "name": "RΛIKU・雷",
+        "elo": 1000,
+        "winrate": 50.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 3
+    },
+    {
+        "name": "🆁🅱🆉",
+        "elo": 1000,
+        "winrate": 100.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 6
+    },
+    {
+        "name": "🆁🅰🅸🅳🅴🆁",
+        "elo": 1000,
+        "winrate": 100.0,
+        "kd": 1,
+        "adr": 0,
+        "matches": 6,
+        "wins": 6
+    }
+]
