@@ -12,20 +12,29 @@ body {
     font-family: Arial;
 }
 
+.container {
+    width: 95%;
+    margin: auto;
+}
+
 h1 {
     text-align:center;
     color:#f97316;
 }
 
-.team {
-    width:90%;
-    margin:20px auto;
+.team-block {
+    margin-top:30px;
+    border-radius:10px;
+    overflow:hidden;
 }
 
-.team-title {
-    font-size:20px;
-    margin:10px 0;
+.team-header {
+    padding:10px;
+    font-weight:bold;
 }
+
+.team1 { background:#022c22; }
+.team2 { background:#2c0a0a; }
 
 .win { color:#22c55e; }
 .lose { color:#ef4444; }
@@ -42,15 +51,39 @@ th, td {
 
 th {
     background:#111827;
+    font-size:13px;
+}
+
+tr {
+    background:#020617;
 }
 
 tr:nth-child(even){
     background:#1f2937;
 }
 
+.player {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.avatar {
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:#333;
+}
+
 .good { color:#22c55e; }
 .bad { color:#ef4444; }
 .mid { color:#facc15; }
+
+.rating {
+    padding:5px 10px;
+    border-radius:6px;
+    background:#111827;
+}
 
 </style>
 
@@ -58,10 +91,12 @@ tr:nth-child(even){
 
 <body>
 
+<div class="container">
+
 <h1 id="title">Match</h1>
 
-<div class="team">
-<div class="team-title win">TEAM 1</div>
+<div class="team-block team1">
+<div class="team-header win">TEAM 1</div>
 <table>
 <thead>
 <tr>
@@ -69,17 +104,18 @@ tr:nth-child(even){
 <th>K</th>
 <th>D</th>
 <th>A</th>
+<th>K/D</th>
 <th>ADR</th>
 <th>HS%</th>
-<th>K/D</th>
+<th>Rating</th>
 </tr>
 </thead>
 <tbody id="team1"></tbody>
 </table>
 </div>
 
-<div class="team">
-<div class="team-title lose">TEAM 2</div>
+<div class="team-block team2">
+<div class="team-header lose">TEAM 2</div>
 <table>
 <thead>
 <tr>
@@ -87,22 +123,23 @@ tr:nth-child(even){
 <th>K</th>
 <th>D</th>
 <th>A</th>
+<th>K/D</th>
 <th>ADR</th>
 <th>HS%</th>
-<th>K/D</th>
+<th>Rating</th>
 </tr>
 </thead>
 <tbody id="team2"></tbody>
 </table>
 </div>
 
+</div>
+
 <script>
 
 const matchName = new URLSearchParams(location.search).get("match");
-
 document.getElementById("title").innerText = matchName;
 
-// CSV OKUMA
 fetch("data/" + matchName + ".csv")
 .then(res => res.text())
 .then(text => {
@@ -112,43 +149,62 @@ fetch("data/" + matchName + ".csv")
     let t1 = document.getElementById("team1");
     let t2 = document.getElementById("team2");
 
+    let team1Players = [];
+    let team2Players = [];
+
     rows.forEach(r => {
 
         let c = r.split(",");
 
         if(c.length < 30) return;
 
-        let name = c[4];
-        let team = c[2]; // takım id
-        let kills = parseInt(c[5]);
-        let deaths = parseInt(c[6]);
-        let assists = parseInt(c[8]);
-        let adr = parseFloat(c[7]);
-        let hs = parseFloat(c[33]);
+        let p = {
+            name: c[4],
+            team: c[2],
+            k: parseInt(c[5]),
+            d: parseInt(c[6]),
+            a: parseInt(c[8]),
+            adr: parseFloat(c[7]),
+            hs: parseFloat(c[33])
+        };
 
-        let kd = deaths > 0 ? (kills/deaths).toFixed(2) : kills;
-
-        let kdClass = kd >= 1.2 ? "good" : kd < 0.8 ? "bad" : "mid";
-
-        let rowHTML = `
-        <tr>
-            <td>${name}</td>
-            <td>${kills}</td>
-            <td>${deaths}</td>
-            <td>${assists}</td>
-            <td>${adr}</td>
-            <td>${hs}%</td>
-            <td class="${kdClass}">${kd}</td>
-        </tr>
-        `;
-
-        if(team == 2){
-            t1.innerHTML += rowHTML;
-        } else {
-            t2.innerHTML += rowHTML;
-        }
-
+        if(p.team == 2) team1Players.push(p);
+        else team2Players.push(p);
     });
+
+    function render(team, element){
+
+        team.sort((a,b)=> (b.k - b.d) - (a.k - a.d));
+
+        team.forEach(p => {
+
+            let kd = p.d > 0 ? (p.k/p.d).toFixed(2) : p.k;
+            let rating = (p.k*0.7 + p.adr*0.03).toFixed(2);
+
+            let kdClass = kd >= 1.2 ? "good" : kd < 0.8 ? "bad" : "mid";
+
+            element.innerHTML += `
+            <tr>
+                <td>
+                    <div class="player">
+                        <div class="avatar"></div>
+                        ${p.name}
+                    </div>
+                </td>
+                <td>${p.k}</td>
+                <td>${p.d}</td>
+                <td>${p.a}</td>
+                <td class="${kdClass}">${kd}</td>
+                <td>${p.adr}</td>
+                <td>${p.hs}%</td>
+                <td><span class="rating">${rating}</span></td>
+            </tr>
+            `;
+        });
+    }
+
+    render(team1Players, t1);
+    render(team2Players, t2);
 
 });
 
