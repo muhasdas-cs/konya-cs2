@@ -53,7 +53,6 @@ tr:hover {
 .mid { color:#facc15; }
 
 </style>
-
 </head>
 
 <body>
@@ -120,6 +119,8 @@ fetch("data/" + matchName + ".csv")
     let map = {};
     headers.forEach((h, i) => map[h] = i);
 
+    let allPlayers = [];
+
     lines.slice(1).forEach(line => {
 
         if(!line.trim()) return;
@@ -127,7 +128,7 @@ fetch("data/" + matchName + ".csv")
         let c = line.split(",");
 
         let name = c[map["name"]];
-        let team = c[map["team"]];
+        if(!name) return;
 
         let k = parseInt(c[map["kills"]]) || 0;
         let d = parseInt(c[map["deaths"]]) || 0;
@@ -135,16 +136,16 @@ fetch("data/" + matchName + ".csv")
         let adr = parseFloat(c[map["damage"]]) || 0;
         let hs = parseInt(c[map["head_shot_kills"]]) || 0;
 
-        let p = { name, team, k, d, a, adr, hs };
-
-        if(team == "2" || team == 2) t1.push(p);
-        else t2.push(p);
+        allPlayers.push({ name, k, d, a, adr, hs });
 
     });
 
-    // 🔥 DEFAULT SORT (ADR)
-    t1.sort((a,b)=>b.adr-a.adr);
-    t2.sort((a,b)=>b.adr-a.adr);
+    // 🔥 ADR’ye göre sırala
+    allPlayers.sort((a,b)=>b.adr-a.adr);
+
+    // 💣 OTOMATİK TAKIM AYIRMA (5v5)
+    t1 = allPlayers.slice(0,5);
+    t2 = allPlayers.slice(5,10);
 
     render();
 
