@@ -12,78 +12,28 @@ body {
     font-family: Arial;
 }
 
-.container {
-    width: 95%;
-    margin: auto;
-}
+.container { width:95%; margin:auto; }
 
-h1 {
-    text-align:center;
-    color:#f97316;
-}
+h1 { text-align:center; color:#f97316; }
 
-.team-block {
-    margin-top:30px;
-    border-radius:10px;
-    overflow:hidden;
-}
+.team-block { margin-top:30px; border-radius:10px; overflow:hidden; }
 
-.team-header {
-    padding:10px;
-    font-weight:bold;
-}
+.team-header { padding:10px; font-weight:bold; }
 
 .team1 { background:#022c22; }
 .team2 { background:#2c0a0a; }
 
-.win { color:#22c55e; }
-.lose { color:#ef4444; }
+table { width:100%; border-collapse: collapse; }
 
-table {
-    width:100%;
-    border-collapse: collapse;
-}
+th, td { padding:10px; text-align:center; }
 
-th, td {
-    padding:10px;
-    text-align:center;
-}
+th { background:#111827; }
 
-th {
-    background:#111827;
-    font-size:13px;
-}
-
-tr {
-    background:#020617;
-}
-
-tr:nth-child(even){
-    background:#1f2937;
-}
-
-.player {
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.avatar {
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    background:#333;
-}
+tr:nth-child(even){ background:#1f2937; }
 
 .good { color:#22c55e; }
 .bad { color:#ef4444; }
 .mid { color:#facc15; }
-
-.rating {
-    padding:5px 10px;
-    border-radius:6px;
-    background:#111827;
-}
 
 </style>
 
@@ -93,10 +43,10 @@ tr:nth-child(even){
 
 <div class="container">
 
-<h1 id="title">Match</h1>
+<h1 id="title"></h1>
 
 <div class="team-block team1">
-<div class="team-header win">TEAM 1</div>
+<div class="team-header">TEAM 1</div>
 <table>
 <thead>
 <tr>
@@ -107,7 +57,6 @@ tr:nth-child(even){
 <th>K/D</th>
 <th>ADR</th>
 <th>HS%</th>
-<th>Rating</th>
 </tr>
 </thead>
 <tbody id="team1"></tbody>
@@ -115,7 +64,7 @@ tr:nth-child(even){
 </div>
 
 <div class="team-block team2">
-<div class="team-header lose">TEAM 2</div>
+<div class="team-header">TEAM 2</div>
 <table>
 <thead>
 <tr>
@@ -126,7 +75,6 @@ tr:nth-child(even){
 <th>K/D</th>
 <th>ADR</th>
 <th>HS%</th>
-<th>Rating</th>
 </tr>
 </thead>
 <tbody id="team2"></tbody>
@@ -144,67 +92,58 @@ fetch("data/" + matchName + ".csv")
 .then(res => res.text())
 .then(text => {
 
-    let rows = text.split("\\n").slice(1);
+    let lines = text.split("\\n");
+
+    let headers = lines[0].split(",");
 
     let t1 = document.getElementById("team1");
     let t2 = document.getElementById("team2");
 
-    let team1Players = [];
-    let team2Players = [];
-
-    rows.forEach(r => {
-
-        let c = r.split(",");
-
-        if(c.length < 30) return;
-
-        let p = {
-            name: c[4],
-            team: c[2],
-            k: parseInt(c[5]),
-            d: parseInt(c[6]),
-            a: parseInt(c[8]),
-            adr: parseFloat(c[7]),
-            hs: parseFloat(c[33])
-        };
-
-        if(p.team == 2) team1Players.push(p);
-        else team2Players.push(p);
-    });
-
-    function render(team, element){
-
-        team.sort((a,b)=> (b.k - b.d) - (a.k - a.d));
-
-        team.forEach(p => {
-
-            let kd = p.d > 0 ? (p.k/p.d).toFixed(2) : p.k;
-            let rating = (p.k*0.7 + p.adr*0.03).toFixed(2);
-
-            let kdClass = kd >= 1.2 ? "good" : kd < 0.8 ? "bad" : "mid";
-
-            element.innerHTML += `
-            <tr>
-                <td>
-                    <div class="player">
-                        <div class="avatar"></div>
-                        ${p.name}
-                    </div>
-                </td>
-                <td>${p.k}</td>
-                <td>${p.d}</td>
-                <td>${p.a}</td>
-                <td class="${kdClass}">${kd}</td>
-                <td>${p.adr}</td>
-                <td>${p.hs}%</td>
-                <td><span class="rating">${rating}</span></td>
-            </tr>
-            `;
-        });
+    function getIndex(name){
+        return headers.findIndex(h => h.toLowerCase().includes(name));
     }
 
-    render(team1Players, t1);
-    render(team2Players, t2);
+    let nameI = getIndex("name");
+    let teamI = getIndex("team");
+    let kI = getIndex("kill");
+    let dI = getIndex("death");
+    let aI = getIndex("assist");
+    let adrI = getIndex("damage");
+    let hsI = getIndex("hs");
+
+    lines.slice(1).forEach(line => {
+
+        let c = line.split(",");
+        if(c.length < 5) return;
+
+        let name = c[nameI];
+        let team = c[teamI];
+
+        let k = parseInt(c[kI]) || 0;
+        let d = parseInt(c[dI]) || 0;
+        let a = parseInt(c[aI]) || 0;
+        let adr = parseFloat(c[adrI]) || 0;
+        let hs = parseFloat(c[hsI]) || 0;
+
+        let kd = d > 0 ? (k/d).toFixed(2) : k;
+        let kdClass = kd >= 1.2 ? "good" : kd < 0.8 ? "bad" : "mid";
+
+        let row = `
+        <tr>
+            <td>${name}</td>
+            <td>${k}</td>
+            <td>${d}</td>
+            <td>${a}</td>
+            <td class="${kdClass}">${kd}</td>
+            <td>${adr}</td>
+            <td>${hs}%</td>
+        </tr>
+        `;
+
+        if(team == 2) t1.innerHTML += row;
+        else t2.innerHTML += row;
+
+    });
 
 });
 
