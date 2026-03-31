@@ -13,6 +13,16 @@ body {
     margin:0;
 }
 
+.stat {
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.stat:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(249,115,22,0.6);
+}
+
 /* HEADER */
 .header {
     padding: 40px;
@@ -37,6 +47,13 @@ body {
     gap: 20px;
     width: 80%;
     margin: 30px auto;
+    <div class="grid" style="margin-top:20px;">
+    <div class="stat"><b id="kills"></b><br>Kills</div>
+    <div class="stat"><b id="assists"></b><br>Assists</div>
+    <div class="stat"><b id="utility"></b><br>Utility DMG</div>
+    <div class="stat"><b id="flash"></b><br>Flash %</div>
+    <div class="stat"><b id="entry"></b><br>Entry %</div>
+</div>
 }
 
 /* STAT CARD */
@@ -162,8 +179,23 @@ fetch("matches.json")
 
     });
 
+    
 });
 
+fetch("players_extra.json")
+.then(r=>r.json())
+.then(data=>{
+    let p = data.find(x=>x.name===playerName);
+
+    if(!p) return;
+
+    kills.innerText = p.kills;
+    assists.innerText = p.assists;
+    utility.innerText = p.utility_damage;
+    flash.innerText = "%" + p.flash_success_rate;
+    entry.innerText = "%" + p.entry_success_rate;
+});
+    
 </script>
 
 </body>
