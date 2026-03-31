@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -18,18 +17,36 @@ h1 { text-align:center; color:#f97316; }
 
 .team-block { margin-top:30px; border-radius:10px; overflow:hidden; }
 
-.team-header { padding:10px; font-weight:bold; }
+.team-header { padding:12px; font-weight:bold; font-size:18px; }
 
 .team1 { background:#022c22; }
 .team2 { background:#2c0a0a; }
 
 table { width:100%; border-collapse: collapse; }
 
-th, td { padding:10px; text-align:center; }
+th, td { padding:12px; text-align:center; }
 
-th { background:#111827; }
+th {
+    background:#111827;
+    cursor:pointer;
+}
 
 tr:nth-child(even){ background:#1f2937; }
+
+tr:hover {
+    background:#374151;
+    transform: scale(1.01);
+    transition: 0.2s;
+}
+
+.player {
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.player:hover {
+    color:#f97316;
+}
 
 .good { color:#22c55e; }
 .bad { color:#ef4444; }
@@ -51,12 +68,12 @@ tr:nth-child(even){ background:#1f2937; }
 <thead>
 <tr>
 <th>Player</th>
-<th>K</th>
-<th>D</th>
-<th>A</th>
-<th>K/D</th>
-<th>ADR</th>
-<th>HS%</th>
+<th onclick="sortBy('k')">K</th>
+<th onclick="sortBy('d')">D</th>
+<th onclick="sortBy('a')">A</th>
+<th onclick="sortBy('kd')">K/D</th>
+<th onclick="sortBy('adr')">ADR</th>
+<th onclick="sortBy('hs')">HS%</th>
 </tr>
 </thead>
 <tbody id="team1"></tbody>
@@ -69,12 +86,12 @@ tr:nth-child(even){ background:#1f2937; }
 <thead>
 <tr>
 <th>Player</th>
-<th>K</th>
-<th>D</th>
-<th>A</th>
-<th>K/D</th>
-<th>ADR</th>
-<th>HS%</th>
+<th onclick="sortBy('k')">K</th>
+<th onclick="sortBy('d')">D</th>
+<th onclick="sortBy('a')">A</th>
+<th onclick="sortBy('kd')">K/D</th>
+<th onclick="sortBy('adr')">ADR</th>
+<th onclick="sortBy('hs')">HS%</th>
 </tr>
 </thead>
 <tbody id="team2"></tbody>
@@ -85,6 +102,9 @@ tr:nth-child(even){ background:#1f2937; }
 
 <script>
 
+let t1 = [];
+let t2 = [];
+
 const matchName = new URLSearchParams(location.search).get("match");
 document.getElementById("title").innerText = matchName;
 
@@ -92,20 +112,13 @@ fetch("data/" + matchName + ".csv")
 .then(res => res.text())
 .then(text => {
 
-    // ✅ GERÇEK TEMİZLEME
     text = text.replace(/\r/g, "").trim();
 
     let lines = text.split("\n");
-
     let headers = lines[0].split(",").map(h => h.trim());
 
     let map = {};
-    headers.forEach((h, i) => {
-        map[h] = i;
-    });
-
-    let t1 = [];
-    let t2 = [];
+    headers.forEach((h, i) => map[h] = i);
 
     lines.slice(1).forEach(line => {
 
@@ -116,8 +129,6 @@ fetch("data/" + matchName + ".csv")
         let name = c[map["name"]];
         let team = c[map["team"]];
 
-        if(!name) return;
-
         let k = parseInt(c[map["kills"]]) || 0;
         let d = parseInt(c[map["deaths"]]) || 0;
         let a = parseInt(c[map["assists"]]) || 0;
@@ -126,14 +137,28 @@ fetch("data/" + matchName + ".csv")
 
         let p = { name, team, k, d, a, adr, hs };
 
-        if(team == 2) t1.push(p);
+        if(team == "2" || team == 2) t1.push(p);
         else t2.push(p);
 
     });
 
-    function render(team, el){
+    // 🔥 DEFAULT SORT (ADR)
+    t1.sort((a,b)=>b.adr-a.adr);
+    t2.sort((a,b)=>b.adr-a.adr);
 
-        el.innerHTML = ""; // 🧹 temizle
+    render();
+
+});
+
+function render(){
+
+    const el1 = document.getElementById("team1");
+    const el2 = document.getElementById("team2");
+
+    el1.innerHTML = "";
+    el2.innerHTML = "";
+
+    function draw(team, el){
 
         team.forEach(p => {
 
@@ -144,7 +169,7 @@ fetch("data/" + matchName + ".csv")
 
             el.innerHTML += `
             <tr>
-                <td>${p.name}</td>
+                <td class="player" onclick="goProfile('${p.name}')">${p.name}</td>
                 <td>${p.k}</td>
                 <td>${p.d}</td>
                 <td>${p.a}</td>
@@ -154,12 +179,31 @@ fetch("data/" + matchName + ".csv")
             </tr>
             `;
         });
+
     }
 
-    render(t1, document.getElementById("team1"));
-    render(t2, document.getElementById("team2"));
+    draw(t1, el1);
+    draw(t2, el2);
+}
 
-});
+function sortBy(type){
+
+    function sorter(a,b){
+        if(type === "kd"){
+            return (b.k/b.d) - (a.k/a.d);
+        }
+        return b[type] - a[type];
+    }
+
+    t1.sort(sorter);
+    t2.sort(sorter);
+
+    render();
+}
+
+function goProfile(name){
+    window.location.href = "profile.html?player=" + encodeURIComponent(name);
+}
 
 </script>
 
