@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Match</title>
+<style>
+body{background:#020617;color:white;font-family:Arial;}
+</style>
+</head>
+<body>
+
+<h1 id="title"></h1>
+<div id="players"></div>
+
+<script>
+const match = new URLSearchParams(location.search).get("match");
+document.getElementById("title").innerText=match;
+
+fetch("matches.json").then(r=>r.json()).then(m=>{
+ let x=m.find(a=>a.match===match);
+ let html="<h2>Team1</h2>"+x.team1.join("<br>");
+ html+="<h2>Team2</h2>"+x.team2.join("<br>");
+ document.getElementById("players").innerHTML=html;
+});
+</script>
+
+</body>
+</html>

@@ -1,201 +1,42 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Player Profile</title>
-
+<title>Profile</title>
 <style>
-body {
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: white;
-    font-family: Arial;
-    margin:0;
-}
-
-.stat {
-    transition: 0.25s;
-    cursor: pointer;
-}
-
-.stat:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 15px rgba(249,115,22,0.6);
-}
-
-/* HEADER */
-.header {
-    padding: 40px;
-    text-align: center;
-    background: linear-gradient(90deg, #111827, #020617);
-}
-
-.name {
-    font-size: 28px;
-    color: #f97316;
-}
-
-.elo {
-    margin-top: 10px;
-    color: #9ca3af;
-}
-
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-    width: 80%;
-    margin: 30px auto;
-    <div class="grid" style="margin-top:20px;">
-    <div class="stat"><b id="kills"></b><br>Kills</div>
-    <div class="stat"><b id="assists"></b><br>Assists</div>
-    <div class="stat"><b id="utility"></b><br>Utility DMG</div>
-    <div class="stat"><b id="flash"></b><br>Flash %</div>
-    <div class="stat"><b id="entry"></b><br>Entry %</div>
-</div>
-}
-
-/* STAT CARD */
-.stat {
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    transition: 0.25s;
-    cursor: pointer;
-}
-
-/* HOVER EFFECT */
-.stat:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(249,115,22,0.5);
-}
-
-/* FARKLI RENKLER */
-.kd { background: linear-gradient(135deg,#1f2937,#111827); }
-.winrate { background: linear-gradient(135deg,#064e3b,#022c22); }
-.matches { background: linear-gradient(135deg,#1e3a8a,#1e293b); }
-.wins { background: linear-gradient(135deg,#065f46,#022c22); }
-.adr { background: linear-gradient(135deg,#7c2d12,#1f2937); }
-.hs { background: linear-gradient(135deg,#4c1d95,#1f2937); }
-
-.stat b {
-    font-size: 22px;
-    color: #f97316;
-}
-
-/* MATCH */
-.match {
-    background: #111827;
-    margin: 10px auto;
-    padding: 12px;
-    border-radius: 8px;
-    width: 70%;
-    display:flex;
-    justify-content: space-between;
-    transition: 0.2s;
-}
-
-.match:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(249,115,22,0.4);
-}
-
-.win { color:#22c55e; font-weight:bold; }
-.lose { color:#ef4444; font-weight:bold; }
-
+body{background:#020617;color:white;font-family:Arial;}
+.stat{margin:10px;}
+.match{background:#111827;margin:5px;padding:8px;}
 </style>
-
 </head>
-
 <body>
 
-<div class="header">
-    <div class="name" id="name"></div>
-    <div class="elo" id="elo"></div>
-</div>
+<h1 id="name"></h1>
+<div id="stats"></div>
 
-<div class="grid">
-    <div class="stat kd"><b id="kd"></b><br>K/D</div>
-    <div class="stat winrate"><b id="winrate"></b><br>Win Rate</div>
-    <div class="stat matches"><b id="matches"></b><br>Matches</div>
-    <div class="stat wins"><b id="wins"></b><br>Wins</div>
-    <div class="stat adr"><b id="adr"></b><br>ADR</div>
-    <div class="stat hs"><b id="hs"></b><br>HS%</div>
-</div>
-
-<h3 style="text-align:center;">📜 Match History</h3>
+<h2>Match History</h2>
 <div id="history"></div>
 
 <script>
+const player = new URLSearchParams(location.search).get("player");
 
-const playerName = new URLSearchParams(window.location.search).get("player");
-
-// PLAYER
-fetch("players.json")
-.then(r=>r.json())
-.then(data=>{
-    let p = data.find(x=>x.name===playerName);
-
-    name.innerText = "🎮 "+p.name;
-    elo.innerText = p.elo+" ELO ("+p.rank+")";
-
-    kd.innerText = p.kd;
-    winrate.innerText = "%"+p.winrate;
-    matches.innerText = p.matches;
-    wins.innerText = p.wins;
-    adr.innerText = p.adr;
-    hs.innerText = p.hs_percent+"%";
+fetch("players.json").then(r=>r.json()).then(data=>{
+ let p=data.find(x=>x.name===player);
+ document.getElementById("name").innerText=p.name;
+ document.getElementById("stats").innerHTML=
+ `ELO:${p.elo} | Win:${p.winrate}% | KD:${p.kd}`;
 });
 
-// MATCHES
-fetch("matches.json")
-.then(r=>r.json())
-.then(matches=>{
-
-    let div = document.getElementById("history");
-
-    matches.forEach(m=>{
-
-        let result = "";
-        let cls = "";
-
-        if(m.team1.includes(playerName)){
-            result = (m.winner === 1) ? "WIN" : "LOSE";
-        }
-        else if(m.team2.includes(playerName)){
-            result = (m.winner === 2) ? "WIN" : "LOSE";
-        }
-
-        if(result !== ""){
-            cls = result==="WIN" ? "win":"lose";
-
-            div.innerHTML += `
-            <div class="match">
-                <span>${m.match} (${m.score})</span>
-                <span class="${cls}">${result}</span>
-            </div>`;
-        }
-
-    });
-
-    
+fetch("matches.json").then(r=>r.json()).then(m=>{
+ let h="";
+ m.forEach(x=>{
+  let res="";
+  if(x.team1.includes(player)) res = (x.winner==1?"WIN":"LOSE");
+  if(x.team2.includes(player)) res = (x.winner==2?"WIN":"LOSE");
+  if(res) h+=`<div class="match">${x.match} ${x.score} ${res}</div>`;
+ });
+ document.getElementById("history").innerHTML=h;
 });
-
-fetch("players_extra.json")
-.then(r=>r.json())
-.then(data=>{
-    let p = data.find(x=>x.name===playerName);
-
-    if(!p) return;
-
-    kills.innerText = p.kills;
-    assists.innerText = p.assists;
-    utility.innerText = p.utility_damage;
-    flash.innerText = "%" + p.flash_success_rate;
-    entry.innerText = "%" + p.entry_success_rate;
-});
-    
 </script>
 
 </body>
