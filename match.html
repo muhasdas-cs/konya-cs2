@@ -92,14 +92,13 @@ fetch("data/" + matchName + ".csv")
 .then(res => res.text())
 .then(text => {
 
-    // 💣 BOM + boşluk temizleme
-    text = text.replace(/\r/g, "");
-    text = text.trim();
+    // ✅ GERÇEK TEMİZLEME
+    text = text.replace(/\r/g, "").trim();
 
-    let lines = text.split("\\n");
+    let lines = text.split("\n");
+
     let headers = lines[0].split(",").map(h => h.trim());
 
-    // 💣 HEADER MAP
     let map = {};
     headers.forEach((h, i) => {
         map[h] = i;
@@ -133,6 +132,8 @@ fetch("data/" + matchName + ".csv")
     });
 
     function render(team, el){
+
+        el.innerHTML = ""; // 🧹 temizle
 
         team.forEach(p => {
 
