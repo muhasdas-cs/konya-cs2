@@ -17,9 +17,21 @@ h1 {
     color:#f97316;
 }
 
-table {
+.team {
     width:90%;
     margin:20px auto;
+}
+
+.team-title {
+    font-size:20px;
+    margin:10px 0;
+}
+
+.win { color:#22c55e; }
+.lose { color:#ef4444; }
+
+table {
+    width:100%;
     border-collapse: collapse;
 }
 
@@ -36,9 +48,9 @@ tr:nth-child(even){
     background:#1f2937;
 }
 
-.win {
-    color:#22c55e;
-}
+.good { color:#22c55e; }
+.bad { color:#ef4444; }
+.mid { color:#facc15; }
 
 </style>
 
@@ -48,6 +60,8 @@ tr:nth-child(even){
 
 <h1 id="title">Match</h1>
 
+<div class="team">
+<div class="team-title win">TEAM 1</div>
 <table>
 <thead>
 <tr>
@@ -55,52 +69,86 @@ tr:nth-child(even){
 <th>K</th>
 <th>D</th>
 <th>A</th>
-<th>DMG</th>
+<th>ADR</th>
 <th>HS%</th>
+<th>K/D</th>
 </tr>
 </thead>
-
-<tbody id="table"></tbody>
+<tbody id="team1"></tbody>
 </table>
+</div>
+
+<div class="team">
+<div class="team-title lose">TEAM 2</div>
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>K</th>
+<th>D</th>
+<th>A</th>
+<th>ADR</th>
+<th>HS%</th>
+<th>K/D</th>
+</tr>
+</thead>
+<tbody id="team2"></tbody>
+</table>
+</div>
 
 <script>
 
 const matchName = new URLSearchParams(location.search).get("match");
 
-// CSV okuma yerine JSON kullanıyoruz (senin mevcut sistemle uyumlu)
+document.getElementById("title").innerText = matchName;
 
+// CSV OKUMA
 fetch("data/" + matchName + ".csv")
 .then(res => res.text())
-.then(csv => {
+.then(text => {
 
-    let rows = csv.split("\\n").slice(1);
+    let rows = text.split("\\n").slice(1);
 
-    let table = document.getElementById("table");
+    let t1 = document.getElementById("team1");
+    let t2 = document.getElementById("team2");
 
     rows.forEach(r => {
-        let cols = r.split(",");
 
-        if(cols.length < 10) return;
+        let c = r.split(",");
 
-        let name = cols[4];
-        let kills = cols[5];
-        let deaths = cols[6];
-        let assists = cols[8];
-        let dmg = cols[7];
-        let hs = cols[33];
+        if(c.length < 30) return;
 
-        table.innerHTML += `
+        let name = c[4];
+        let team = c[2]; // takım id
+        let kills = parseInt(c[5]);
+        let deaths = parseInt(c[6]);
+        let assists = parseInt(c[8]);
+        let adr = parseFloat(c[7]);
+        let hs = parseFloat(c[33]);
+
+        let kd = deaths > 0 ? (kills/deaths).toFixed(2) : kills;
+
+        let kdClass = kd >= 1.2 ? "good" : kd < 0.8 ? "bad" : "mid";
+
+        let rowHTML = `
         <tr>
             <td>${name}</td>
             <td>${kills}</td>
             <td>${deaths}</td>
             <td>${assists}</td>
-            <td>${dmg}</td>
-            <td>${hs}</td>
-        </tr>`;
-    });
+            <td>${adr}</td>
+            <td>${hs}%</td>
+            <td class="${kdClass}">${kd}</td>
+        </tr>
+        `;
 
-    document.getElementById("title").innerText = matchName;
+        if(team == 2){
+            t1.innerHTML += rowHTML;
+        } else {
+            t2.innerHTML += rowHTML;
+        }
+
+    });
 
 });
 
