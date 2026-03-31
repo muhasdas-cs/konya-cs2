@@ -10,39 +10,82 @@ body {
     background: radial-gradient(circle at top, #0f172a, #020617);
     color: white;
     font-family: Arial;
+    margin:0;
 }
 
+/* HEADER */
 .header {
-    padding: 30px;
+    padding: 40px;
     text-align: center;
+    background: linear-gradient(90deg, #111827, #020617);
 }
 
-.name { color: orange; font-size: 26px; }
+.name {
+    font-size: 28px;
+    color: #f97316;
+}
 
+.elo {
+    margin-top: 10px;
+    color: #9ca3af;
+}
+
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 15px;
+    gap: 20px;
     width: 80%;
-    margin: auto;
+    margin: 30px auto;
 }
 
+/* STAT CARD */
 .stat {
-    background: #1f2937;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 12px;
     text-align: center;
+    transition: 0.25s;
+    cursor: pointer;
 }
 
+/* HOVER EFFECT */
+.stat:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(249,115,22,0.5);
+}
+
+/* FARKLI RENKLER */
+.kd { background: linear-gradient(135deg,#1f2937,#111827); }
+.winrate { background: linear-gradient(135deg,#064e3b,#022c22); }
+.matches { background: linear-gradient(135deg,#1e3a8a,#1e293b); }
+.wins { background: linear-gradient(135deg,#065f46,#022c22); }
+.adr { background: linear-gradient(135deg,#7c2d12,#1f2937); }
+.hs { background: linear-gradient(135deg,#4c1d95,#1f2937); }
+
+.stat b {
+    font-size: 22px;
+    color: #f97316;
+}
+
+/* MATCH */
 .match {
     background: #111827;
-    margin: 8px;
-    padding: 10px;
-    border-radius: 6px;
+    margin: 10px auto;
+    padding: 12px;
+    border-radius: 8px;
+    width: 70%;
+    display:flex;
+    justify-content: space-between;
+    transition: 0.2s;
 }
 
-.win { color: #22c55e; }
-.lose { color: #ef4444; }
+.match:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(249,115,22,0.4);
+}
+
+.win { color:#22c55e; font-weight:bold; }
+.lose { color:#ef4444; font-weight:bold; }
 
 </style>
 
@@ -51,17 +94,17 @@ body {
 <body>
 
 <div class="header">
-    <div id="name"></div>
-    <div id="elo"></div>
+    <div class="name" id="name"></div>
+    <div class="elo" id="elo"></div>
 </div>
 
 <div class="grid">
-    <div class="stat"><b id="kd"></b><br>K/D</div>
-    <div class="stat"><b id="winrate"></b><br>Win%</div>
-    <div class="stat"><b id="matches"></b><br>Matches</div>
-    <div class="stat"><b id="wins"></b><br>Wins</div>
-    <div class="stat"><b id="adr"></b><br>ADR</div>
-    <div class="stat"><b id="hs"></b><br>HS%</div>
+    <div class="stat kd"><b id="kd"></b><br>K/D</div>
+    <div class="stat winrate"><b id="winrate"></b><br>Win Rate</div>
+    <div class="stat matches"><b id="matches"></b><br>Matches</div>
+    <div class="stat wins"><b id="wins"></b><br>Wins</div>
+    <div class="stat adr"><b id="adr"></b><br>ADR</div>
+    <div class="stat hs"><b id="hs"></b><br>HS%</div>
 </div>
 
 <h3 style="text-align:center;">📜 Match History</h3>
@@ -77,8 +120,8 @@ fetch("players.json")
 .then(data=>{
     let p = data.find(x=>x.name===playerName);
 
-    document.getElementById("name").innerText = "🎮 "+p.name;
-    document.getElementById("elo").innerText = p.elo+" ("+p.rank+")";
+    name.innerText = "🎮 "+p.name;
+    elo.innerText = p.elo+" ELO ("+p.rank+")";
 
     kd.innerText = p.kd;
     winrate.innerText = "%"+p.winrate;
@@ -112,7 +155,8 @@ fetch("matches.json")
 
             div.innerHTML += `
             <div class="match">
-                ${m.match} (${m.score}) - <span class="${cls}">${result}</span>
+                <span>${m.match} (${m.score})</span>
+                <span class="${cls}">${result}</span>
             </div>`;
         }
 
