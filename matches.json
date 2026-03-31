@@ -1,7 +1,7 @@
 [
     {
         "match": "match1",
-        "score": "5-5",
+        "score": "0-0",
         "winner": 2,
         "team1": [
             "AyB*",
@@ -20,7 +20,7 @@
     },
     {
         "match": "match2",
-        "score": "5-5",
+        "score": "0-0",
         "winner": 2,
         "team1": [
             "JusticeForAII",
@@ -39,7 +39,7 @@
     },
     {
         "match": "match3",
-        "score": "5-5",
+        "score": "0-0",
         "winner": 2,
         "team1": [
             "JusticeForAII",
@@ -58,7 +58,7 @@
     },
     {
         "match": "match4",
-        "score": "5-5",
+        "score": "0-0",
         "winner": 2,
         "team1": [
             "AyB*",
@@ -77,7 +77,7 @@
     },
     {
         "match": "match5",
-        "score": "5-5",
+        "score": "0-0",
         "winner": 2,
         "team1": [
             "TesserACT",
@@ -96,7 +96,7 @@
     },
     {
         "match": "match6",
-        "score": "5-5",
+        "score": "0-0",
         "winner": 2,
         "team1": [
             "JusticeForAII",

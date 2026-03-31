@@ -1,92 +1,122 @@
 [
     {
-        "name": "AyB*",
-        "elo": 1000,
-        "winrate": 0.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 0
-    },
-    {
-        "name": "Meso.",
-        "elo": 1000,
-        "winrate": 50.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 3
-    },
-    {
-        "name": "JusticeForAII",
-        "elo": 1000,
-        "winrate": 0.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 0
-    },
-    {
-        "name": "TesserACT",
-        "elo": 1000,
-        "winrate": 0.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 0
-    },
-    {
-        "name": "EmreY",
-        "elo": 1000,
-        "winrate": 50.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 3
-    },
-    {
         "name": "MuHasdas",
-        "elo": 1000,
+        "elo": 1163,
+        "rank": "Platinum",
+        "kd": 1.74,
+        "adr": 2266.8,
+        "hs_percent": 34.8,
+        "matches": 6,
+        "wins": 6,
         "winrate": 100.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 6
-    },
-    {
-        "name": "Eboss",
-        "elo": 1000,
-        "winrate": 50.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 3
-    },
-    {
-        "name": "RΛIKU・雷",
-        "elo": 1000,
-        "winrate": 50.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 3
-    },
-    {
-        "name": "🆁🅱🆉",
-        "elo": 1000,
-        "winrate": 100.0,
-        "kd": 1,
-        "adr": 0,
-        "matches": 6,
-        "wins": 6
+        "rounds": 144
     },
     {
         "name": "🆁🅰🅸🅳🅴🆁",
-        "elo": 1000,
-        "winrate": 100.0,
-        "kd": 1,
-        "adr": 0,
+        "elo": 1154,
+        "rank": "Platinum",
+        "kd": 1.24,
+        "adr": 1891.3,
+        "hs_percent": 42.2,
         "matches": 6,
-        "wins": 6
+        "wins": 6,
+        "winrate": 100.0,
+        "rounds": 144
+    },
+    {
+        "name": "🆁🅱🆉",
+        "elo": 1114,
+        "rank": "Platinum",
+        "kd": 0.88,
+        "adr": 1447.7,
+        "hs_percent": 32.4,
+        "matches": 6,
+        "wins": 6,
+        "winrate": 100.0,
+        "rounds": 144
+    },
+    {
+        "name": "Meso.",
+        "elo": 1042,
+        "rank": "Platinum",
+        "kd": 1.02,
+        "adr": 1787.8,
+        "hs_percent": 49.0,
+        "matches": 6,
+        "wins": 3,
+        "winrate": 50.0,
+        "rounds": 144
+    },
+    {
+        "name": "EmreY",
+        "elo": 1034,
+        "rank": "Platinum",
+        "kd": 0.67,
+        "adr": 1488.0,
+        "hs_percent": 61.5,
+        "matches": 6,
+        "wins": 3,
+        "winrate": 50.0,
+        "rounds": 144
+    },
+    {
+        "name": "Eboss",
+        "elo": 1021,
+        "rank": "Platinum",
+        "kd": 0.73,
+        "adr": 1480.5,
+        "hs_percent": 55.4,
+        "matches": 6,
+        "wins": 3,
+        "winrate": 50.0,
+        "rounds": 144
+    },
+    {
+        "name": "RΛIKU・雷",
+        "elo": 1010,
+        "rank": "Platinum",
+        "kd": 0.84,
+        "adr": 1539.7,
+        "hs_percent": 25.0,
+        "matches": 6,
+        "wins": 3,
+        "winrate": 50.0,
+        "rounds": 144
+    },
+    {
+        "name": "AyB*",
+        "elo": 942,
+        "rank": "Gold",
+        "kd": 1.22,
+        "adr": 1941.7,
+        "hs_percent": 35.4,
+        "matches": 6,
+        "wins": 0,
+        "winrate": 0.0,
+        "rounds": 144
+    },
+    {
+        "name": "JusticeForAII",
+        "elo": 924,
+        "rank": "Gold",
+        "kd": 1.03,
+        "adr": 1726.8,
+        "hs_percent": 31.2,
+        "matches": 6,
+        "wins": 0,
+        "winrate": 0.0,
+        "rounds": 144
+    },
+    {
+        "name": "TesserACT",
+        "elo": 924,
+        "rank": "Gold",
+        "kd": 0.79,
+        "adr": 1540.7,
+        "hs_percent": 41.7,
+        "matches": 6,
+        "wins": 0,
+        "winrate": 0.0,
+        "rounds": 144
     }
 ]
