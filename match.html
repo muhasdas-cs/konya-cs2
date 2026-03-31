@@ -119,8 +119,6 @@ fetch("data/" + matchName + ".csv")
     let map = {};
     headers.forEach((h, i) => map[h] = i);
 
-    let allPlayers = [];
-
     lines.slice(1).forEach(line => {
 
         if(!line.trim()) return;
@@ -130,22 +128,38 @@ fetch("data/" + matchName + ".csv")
         let name = c[map["name"]];
         if(!name) return;
 
+        // 🔥 TEAM AUTO DETECT
+        let team =
+            c[map["team"]] ??
+            c[map["team_number"]] ??
+            c[map["team_num"]] ??
+            c[map["teamid"]] ??
+            c[map["side"]] ??
+            "";
+
+        let teamNum = Number(team);
+
         let k = parseInt(c[map["kills"]]) || 0;
         let d = parseInt(c[map["deaths"]]) || 0;
         let a = parseInt(c[map["assists"]]) || 0;
         let adr = parseFloat(c[map["damage"]]) || 0;
         let hs = parseInt(c[map["head_shot_kills"]]) || 0;
 
-        allPlayers.push({ name, k, d, a, adr, hs });
+        let p = { name, k, d, a, adr, hs };
+
+        // 💣 GERÇEK TAKIM AYIRMA
+        if(teamNum === 2){
+            t1.push(p);
+        }
+        else if(teamNum === 3){
+            t2.push(p);
+        }
 
     });
 
     // 🔥 ADR’ye göre sırala
-    allPlayers.sort((a,b)=>b.adr-a.adr);
-
-    // 💣 OTOMATİK TAKIM AYIRMA (5v5)
-    t1 = allPlayers.slice(0,5);
-    t2 = allPlayers.slice(5,10);
+    t1.sort((a,b)=>b.adr-a.adr);
+    t2.sort((a,b)=>b.adr-a.adr);
 
     render();
 
