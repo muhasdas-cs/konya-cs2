@@ -119,6 +119,8 @@ fetch("data/" + matchName + ".csv")
     let map = {};
     headers.forEach((h, i) => map[h] = i);
 
+    let players = [];
+
     lines.slice(1).forEach(line => {
 
         if(!line.trim()) return;
@@ -128,16 +130,14 @@ fetch("data/" + matchName + ".csv")
         let name = c[map["name"]];
         if(!name) return;
 
-        // 💣 TEAM FIX (KRAL NOKTA)
-        let team =
+        // 🔥 TEAM DEĞERİNİ NE VARSA AL
+        let rawTeam =
             c[map["team"]] ??
             c[map["team_number"]] ??
             c[map["team_num"]] ??
             c[map["teamid"]] ??
             c[map["side"]] ??
-            "";
-
-        let teamNum = Number(team);
+            "unknown";
 
         let k = parseInt(c[map["kills"]]) || 0;
         let d = parseInt(c[map["deaths"]]) || 0;
@@ -145,21 +145,29 @@ fetch("data/" + matchName + ".csv")
         let adr = parseFloat(c[map["damage"]]) || 0;
         let hs = parseInt(c[map["head_shot_kills"]]) || 0;
 
-        let p = { name, k, d, a, adr, hs };
-
-        if(teamNum === 2) t1.push(p);
-        else if(teamNum === 3) t2.push(p);
+        players.push({ name, k, d, a, adr, hs, team: rawTeam });
 
     });
 
-    // fallback (eğer team okunamazsa)
-    if(t1.length === 0 && t2.length === 0){
-        let all = [...t1, ...t2];
-        all.sort((a,b)=>b.adr-a.adr);
-        t1 = all.slice(0,5);
-        t2 = all.slice(5,10);
+    // 💣 GERÇEK TAKIM AYIRMA (DİNAMİK)
+    let uniqueTeams = [...new Set(players.map(p => p.team))];
+
+    if(uniqueTeams.length >= 2){
+
+        let teamA = uniqueTeams[0];
+        let teamB = uniqueTeams[1];
+
+        t1 = players.filter(p => p.team == teamA);
+        t2 = players.filter(p => p.team == teamB);
+
+    } else {
+        // fallback
+        players.sort((a,b)=>b.adr-a.adr);
+        t1 = players.slice(0,5);
+        t2 = players.slice(5,10);
     }
 
+    // sıralama
     t1.sort((a,b)=>b.adr-a.adr);
     t2.sort((a,b)=>b.adr-a.adr);
 
