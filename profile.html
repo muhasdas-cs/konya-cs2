@@ -48,6 +48,34 @@ fetch("players.json").then(r=>r.json()).then(data=>{
  adr.innerText=p.adr;
  hs.innerText=p.hs_percent+"%";
 });
+javascript
+fetch("matches.json")
+.then(r=>r.json())
+.then(matches=>{
+    let div=document.getElementById("history");
+
+    matches.forEach(m=>{
+        let result="";
+        let cls="";
+
+        if(m.team1.includes(playerName)){
+            result=(m.winner===1)?"WIN":"LOSE";
+        }
+        else if(m.team2.includes(playerName)){
+            result=(m.winner===2)?"WIN":"LOSE";
+        }
+
+        if(result!==""){
+            cls=result==="WIN"?"win":"lose";
+
+            div.innerHTML+=`
+            <div class="match">
+                ${m.match} (${m.score})
+                <span class="${cls}">${result}</span>
+            </div>`;
+        }
+    });
+});
 
 fetch("matches.json").then(r=>r.json()).then(ms=>{
  ms.forEach(m=>{
