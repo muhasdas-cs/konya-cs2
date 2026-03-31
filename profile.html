@@ -9,182 +9,116 @@
 body {
     background: radial-gradient(circle at top, #0f172a, #020617);
     color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
+    font-family: Arial;
 }
 
-/* HEADER */
 .header {
-    padding: 40px;
+    padding: 30px;
     text-align: center;
-    background: linear-gradient(90deg, #111827, #020617);
 }
 
-.name {
-    font-size: 28px;
-    color: #f97316;
-}
+.name { color: orange; font-size: 26px; }
 
-.elo {
-    margin-top: 10px;
-    color: #9ca3af;
-}
-
-/* CARD */
-.card {
-    width: 80%;
-    margin: 20px auto;
-}
-
-/* STATS GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+    width: 80%;
+    margin: auto;
 }
 
-/* STAT BOX */
 .stat {
     background: #1f2937;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 8px;
     text-align: center;
-    transition: 0.2s;
 }
 
-.stat:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(249,115,22,0.4);
-}
-
-.stat b {
-    font-size: 20px;
-    color: #f97316;
-}
-
-/* MATCH HISTORY */
 .match {
     background: #111827;
+    margin: 8px;
     padding: 10px;
-    margin-top: 10px;
     border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
 }
 
-.win {
-    color: #22c55e;
-}
+.win { color: #22c55e; }
+.lose { color: #ef4444; }
 
-.lose {
-    color: #ef4444;
-}
-
-/* BACK */
-.back {
-    margin: 15px;
-    cursor: pointer;
-    color: #f97316;
-}
 </style>
 
 </head>
 
 <body>
 
-<div class="back" onclick="goBack()">← Geri</div>
-
 <div class="header">
-    <div class="name" id="name">Yükleniyor...</div>
-    <div class="elo" id="elo"></div>
+    <div id="name"></div>
+    <div id="elo"></div>
 </div>
 
-<div class="card">
-
-```
-<!-- STATS -->
 <div class="grid">
     <div class="stat"><b id="kd"></b><br>K/D</div>
-    <div class="stat"><b id="winrate"></b><br>Win Rate</div>
+    <div class="stat"><b id="winrate"></b><br>Win%</div>
     <div class="stat"><b id="matches"></b><br>Matches</div>
     <div class="stat"><b id="wins"></b><br>Wins</div>
     <div class="stat"><b id="adr"></b><br>ADR</div>
     <div class="stat"><b id="hs"></b><br>HS%</div>
 </div>
 
-<!-- HISTORY -->
-<h3 style="margin-top:30px;">📜 Match History</h3>
+<h3 style="text-align:center;">📜 Match History</h3>
 <div id="history"></div>
-```
-
-</div>
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
-const playerName = params.get("player");
+const playerName = new URLSearchParams(window.location.search).get("player");
 
-// 🔥 PLAYER DATA
-fetch("./players.json")
-.then(res => res.json())
-.then(data => {
+// PLAYER
+fetch("players.json")
+.then(r=>r.json())
+.then(data=>{
+    let p = data.find(x=>x.name===playerName);
 
-    const p = data.find(x => x.name === playerName);
+    document.getElementById("name").innerText = "🎮 "+p.name;
+    document.getElementById("elo").innerText = p.elo+" ("+p.rank+")";
 
-    if(!p){
-        document.body.innerHTML = "Oyuncu bulunamadı";
-        return;
-    }
-
-    document.getElementById("name").innerText = "🎮 " + p.name;
-    document.getElementById("elo").innerText = p.elo + " ELO (" + p.rank + ")";
-
-    document.getElementById("kd").innerText = p.kd;
-    document.getElementById("winrate").innerText = "%" + p.winrate;
-    document.getElementById("matches").innerText = p.matches;
-    document.getElementById("wins").innerText = p.wins;
-    document.getElementById("adr").innerText = p.adr;
-    document.getElementById("hs").innerText = p.hs_percent + "%";
-
+    kd.innerText = p.kd;
+    winrate.innerText = "%"+p.winrate;
+    matches.innerText = p.matches;
+    wins.innerText = p.wins;
+    adr.innerText = p.adr;
+    hs.innerText = p.hs_percent+"%";
 });
 
-// 🔥 MATCH HISTORY (DOĞRU)
-fetch("./matches.json")
-.then(res => res.json())
-.then(matches => {
+// MATCHES
+fetch("matches.json")
+.then(r=>r.json())
+.then(matches=>{
 
-    let container = document.getElementById("history");
+    let div = document.getElementById("history");
 
-    matches.forEach(m => {
+    matches.forEach(m=>{
 
         let result = "";
-        let className = "";
+        let cls = "";
 
-        if(m.team1 && m.team1.includes(playerName)){
-            result = (m.winner === "team1") ? "WIN" : "LOSE";
+        if(m.team1.includes(playerName)){
+            result = (m.winner === 1) ? "WIN" : "LOSE";
         }
-        else if(m.team2 && m.team2.includes(playerName)){
-            result = (m.winner === "team2") ? "WIN" : "LOSE";
+        else if(m.team2.includes(playerName)){
+            result = (m.winner === 2) ? "WIN" : "LOSE";
         }
 
         if(result !== ""){
-            className = result === "WIN" ? "win" : "lose";
+            cls = result==="WIN" ? "win":"lose";
 
-            container.innerHTML += `
+            div.innerHTML += `
             <div class="match">
-                <span>${m.match} (${m.score})</span>
-                <span class="${className}">${result}</span>
-            </div>
-            `;
+                ${m.match} (${m.score}) - <span class="${cls}">${result}</span>
+            </div>`;
         }
 
     });
 
 });
-
-function goBack(){
-    window.location.href = "index.html";
-}
 
 </script>
 
