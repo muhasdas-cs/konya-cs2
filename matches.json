@@ -1,0 +1,230 @@
+[
+    {
+        "match": "match1",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "AyB*",
+            "Meso.",
+            "JusticeForAII",
+            "TesserACT",
+            "EmreY"
+        ],
+        "team2": [
+            "MuHasdas",
+            "Eboss",
+            "RΛIKU・雷",
+            "🆁🅱🆉",
+            "🆁🅰🅸🅳🅴🆁"
+        ]
+    },
+    {
+        "match": "match2",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "AyB*",
+            "TesserACT",
+            "Meso.",
+            "EmreY"
+        ],
+        "team2": [
+            "MuHasdas",
+            "🆁🅱🆉",
+            "🆁🅰🅸🅳🅴🆁",
+            "RΛIKU・雷",
+            "Eboss"
+        ]
+    },
+    {
+        "match": "match3",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "AyB*",
+            "TesserACT",
+            "Meso.",
+            "EmreY"
+        ],
+        "team2": [
+            "🆁🅰🅸🅳🅴🆁",
+            "MuHasdas",
+            "RΛIKU・雷",
+            "Eboss",
+            "🆁🅱🆉"
+        ]
+    },
+    {
+        "match": "match4",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "AyB*",
+            "TesserACT",
+            "JusticeForAII",
+            "Eboss",
+            "RΛIKU・雷"
+        ],
+        "team2": [
+            "🆁🅰🅸🅳🅴🆁",
+            "MuHasdas",
+            "Meso.",
+            "EmreY",
+            "🆁🅱🆉"
+        ]
+    },
+    {
+        "match": "match5",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "TesserACT",
+            "AyB*",
+            "JusticeForAII",
+            "Eboss",
+            "RΛIKU・雷"
+        ],
+        "team2": [
+            "Meso.",
+            "MuHasdas",
+            "EmreY",
+            "🆁🅰🅸🅳🅴🆁",
+            "🆁🅱🆉"
+        ]
+    },
+    {
+        "match": "match6",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "RΛIKU・雷",
+            "AyB*",
+            "TesserACT",
+            "Eboss"
+        ],
+        "team2": [
+            "🆁🅰🅸🅳🅴🆁",
+            "MuHasdas",
+            "Meso.",
+            "🆁🅱🆉",
+            "EmreY"
+        ]
+    },
+    {
+        "match": "match_data_map0_11",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "TesserACT",
+            "AyB*",
+            "JusticeForAII",
+            "Eboss",
+            "RΛIKU・雷"
+        ],
+        "team2": [
+            "Meso.",
+            "MuHasdas",
+            "EmreY",
+            "🆁🅰🅸🅳🅴🆁",
+            "🆁🅱🆉"
+        ]
+    },
+    {
+        "match": "match_data_map0_12",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "RΛIKU・雷",
+            "AyB*",
+            "TesserACT",
+            "Eboss"
+        ],
+        "team2": [
+            "🆁🅰🅸🅳🅴🆁",
+            "MuHasdas",
+            "Meso.",
+            "🆁🅱🆉",
+            "EmreY"
+        ]
+    },
+    {
+        "match": "match_data_map0_3",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "AyB*",
+            "Meso.",
+            "JusticeForAII",
+            "TesserACT",
+            "EmreY"
+        ],
+        "team2": [
+            "MuHasdas",
+            "Eboss",
+            "RΛIKU・雷",
+            "🆁🅱🆉",
+            "🆁🅰🅸🅳🅴🆁"
+        ]
+    },
+    {
+        "match": "match_data_map0_4",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "AyB*",
+            "TesserACT",
+            "Meso.",
+            "EmreY"
+        ],
+        "team2": [
+            "MuHasdas",
+            "🆁🅱🆉",
+            "🆁🅰🅸🅳🅴🆁",
+            "RΛIKU・雷",
+            "Eboss"
+        ]
+    },
+    {
+        "match": "match_data_map0_5",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "JusticeForAII",
+            "AyB*",
+            "TesserACT",
+            "Meso.",
+            "EmreY"
+        ],
+        "team2": [
+            "🆁🅰🅸🅳🅴🆁",
+            "MuHasdas",
+            "RΛIKU・雷",
+            "Eboss",
+            "🆁🅱🆉"
+        ]
+    },
+    {
+        "match": "match_data_map0_9",
+        "score": "0-0",
+        "winner": 2,
+        "team1": [
+            "AyB*",
+            "TesserACT",
+            "JusticeForAII",
+            "Eboss",
+            "RΛIKU・雷"
+        ],
+        "team2": [
+            "🆁🅰🅸🅳🅴🆁",
+            "MuHasdas",
+            "Meso.",
+            "EmreY",
+            "🆁🅱🆉"
+        ]
+    }
+]
