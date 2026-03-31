@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Match Detail</title>
+
+<style>
+body {
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: white;
+    font-family: Arial;
+}
+
+h1 {
+    text-align:center;
+    color:#f97316;
+}
+
+table {
+    width:90%;
+    margin:20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding:10px;
+    text-align:center;
+}
+
+th {
+    background:#111827;
+}
+
+tr:nth-child(even){
+    background:#1f2937;
+}
+
+.win {
+    color:#22c55e;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="title">Match</h1>
+
+<table>
+<thead>
+<tr>
+<th>Player</th>
+<th>K</th>
+<th>D</th>
+<th>A</th>
+<th>DMG</th>
+<th>HS%</th>
+</tr>
+</thead>
+
+<tbody id="table"></tbody>
+</table>
+
+<script>
+
+const matchName = new URLSearchParams(location.search).get("match");
+
+// CSV okuma yerine JSON kullanıyoruz (senin mevcut sistemle uyumlu)
+
+fetch("data/" + matchName + ".csv")
+.then(res => res.text())
+.then(csv => {
+
+    let rows = csv.split("\\n").slice(1);
+
+    let table = document.getElementById("table");
+
+    rows.forEach(r => {
+        let cols = r.split(",");
+
+        if(cols.length < 10) return;
+
+        let name = cols[4];
+        let kills = cols[5];
+        let deaths = cols[6];
+        let assists = cols[8];
+        let dmg = cols[7];
+        let hs = cols[33];
+
+        table.innerHTML += `
+        <tr>
+            <td>${name}</td>
+            <td>${kills}</td>
+            <td>${deaths}</td>
+            <td>${assists}</td>
+            <td>${dmg}</td>
+            <td>${hs}</td>
+        </tr>`;
+    });
+
+    document.getElementById("title").innerText = matchName;
+
+});
+
+</script>
+
+</body>
+</html>
