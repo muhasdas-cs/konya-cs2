@@ -31,24 +31,9 @@ th { background:#111827; }
 
 tr:nth-child(even){ background:#1f2937; }
 
-.player { display:flex; align-items:center; gap:10px; }
-
-.avatar {
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    background:#333;
-}
-
 .good { color:#22c55e; }
 .bad { color:#ef4444; }
 .mid { color:#facc15; }
-
-.rating {
-    padding:5px 10px;
-    border-radius:6px;
-    background:#111827;
-}
 
 </style>
 
@@ -72,7 +57,6 @@ tr:nth-child(even){ background:#1f2937; }
 <th>K/D</th>
 <th>ADR</th>
 <th>HS%</th>
-<th>Rating</th>
 </tr>
 </thead>
 <tbody id="team1"></tbody>
@@ -91,7 +75,6 @@ tr:nth-child(even){ background:#1f2937; }
 <th>K/D</th>
 <th>ADR</th>
 <th>HS%</th>
-<th>Rating</th>
 </tr>
 </thead>
 <tbody id="team2"></tbody>
@@ -109,69 +92,70 @@ fetch("data/" + matchName + ".csv")
 .then(res => res.text())
 .then(text => {
 
+    // 💣 BOM + boşluk temizleme
+    text = text.replace(/\\r/g, "");
+
     let lines = text.split("\\n");
-    let headers = lines[0].split(",");
+    let headers = lines[0].split(",").map(h => h.trim());
 
-    function i(col){
-        return headers.indexOf(col);
-    }
+    // 💣 HEADER MAP
+    let map = {};
+    headers.forEach((h, i) => {
+        map[h] = i;
+    });
 
-    let team1 = [];
-    let team2 = [];
+    let t1 = [];
+    let t2 = [];
 
     lines.slice(1).forEach(line => {
 
+        if(!line.trim()) return;
+
         let c = line.split(",");
-        if(c.length < 10) return;
 
-        let p = {
-            name: c[i("name")],
-            team: c[i("team")],
-            k: parseInt(c[i("kills")]) || 0,
-            d: parseInt(c[i("deaths")]) || 0,
-            a: parseInt(c[i("assists")]) || 0,
-            adr: parseFloat(c[i("damage")]) || 0,
-            hs: parseInt(c[i("head_shot_kills")]) || 0
-        };
+        let name = c[map["name"]];
+        let team = c[map["team"]];
 
-        if(p.team == 2) team1.push(p);
-        else team2.push(p);
+        if(!name) return;
+
+        let k = parseInt(c[map["kills"]]) || 0;
+        let d = parseInt(c[map["deaths"]]) || 0;
+        let a = parseInt(c[map["assists"]]) || 0;
+        let adr = parseFloat(c[map["damage"]]) || 0;
+        let hs = parseInt(c[map["head_shot_kills"]]) || 0;
+
+        let p = { name, team, k, d, a, adr, hs };
+
+        if(team == 2) t1.push(p);
+        else t2.push(p);
+
     });
 
     function render(team, el){
-
-        team.sort((a,b)=> (b.k - b.d) - (a.k - a.d));
 
         team.forEach(p => {
 
             let kd = p.d > 0 ? (p.k/p.d).toFixed(2) : p.k;
             let hsPercent = p.k > 0 ? ((p.hs/p.k)*100).toFixed(1) : 0;
-            let rating = (p.k*0.7 + p.adr*0.03).toFixed(2);
 
             let kdClass = kd >= 1.2 ? "good" : kd < 0.8 ? "bad" : "mid";
 
             el.innerHTML += `
             <tr>
-                <td>
-                    <div class="player">
-                        <div class="avatar"></div>
-                        ${p.name}
-                    </div>
-                </td>
+                <td>${p.name}</td>
                 <td>${p.k}</td>
                 <td>${p.d}</td>
                 <td>${p.a}</td>
                 <td class="${kdClass}">${kd}</td>
                 <td>${p.adr}</td>
                 <td>${hsPercent}%</td>
-                <td><span class="rating">${rating}</span></td>
             </tr>
             `;
         });
     }
 
-    render(team1, document.getElementById("team1"));
-    render(team2, document.getElementById("team2"));
+    render(t1, document.getElementById("team1"));
+    render(t2, document.getElementById("team2"));
 
 });
 
