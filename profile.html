@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body {background:#020617;color:white;font-family:Arial;margin:0;}
+.header{text-align:center;padding:30px;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:80%;margin:auto;}
+.stat{background:#1f2937;padding:15px;border-radius:8px;text-align:center;}
+.match{background:#111827;margin:10px;padding:10px;border-radius:6px;}
+.win{color:#22c55e}.lose{color:#ef4444}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h2 id="name"></h2>
+<div id="elo"></div>
+<div id="level"></div>
+</div>
+
+<div class="grid">
+<div class="stat"><b id="kd"></b><br>KD</div>
+<div class="stat"><b id="winrate"></b><br>Win%</div>
+<div class="stat"><b id="matches"></b><br>Matches</div>
+<div class="stat"><b id="wins"></b><br>Wins</div>
+<div class="stat"><b id="adr"></b><br>ADR</div>
+<div class="stat"><b id="hs"></b><br>HS%</div>
+</div>
+
+<h3 style="text-align:center">Match History</h3>
+<div id="history"></div>
+
+<script>
+const player=new URLSearchParams(location.search).get("player");
+
+fetch("players.json").then(r=>r.json()).then(data=>{
+ let p=data.find(x=>x.name===player);
+ name.innerText=p.name;
+ elo.innerText=p.elo+" ("+p.rank+")";
+ level.innerText="Level "+Math.floor(p.elo/100);
+ kd.innerText=p.kd;
+ winrate.innerText="%"+p.winrate;
+ matches.innerText=p.matches;
+ wins.innerText=p.wins;
+ adr.innerText=p.adr;
+ hs.innerText=p.hs_percent+"%";
+});
+
+fetch("matches.json").then(r=>r.json()).then(ms=>{
+ ms.forEach(m=>{
+  let res="";
+  if(m.team1.includes(player)) res=(m.winner===1?"WIN":"LOSE");
+  if(m.team2.includes(player)) res=(m.winner===2?"WIN":"LOSE");
+  if(res){
+    history.innerHTML+=`<div class="match">${m.match} (${m.score}) <span class="${res==="WIN"?"win":"lose"}">${res}</span></div>`;
+  }
+ });
+});
+</script>
+
+</body>
+</html>
