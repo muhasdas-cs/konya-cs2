@@ -15,11 +15,9 @@ body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
-
   background:
     linear-gradient(rgba(2,6,23,.82), rgba(2,6,23,.88)),
     url('bg.jpg');
-
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
@@ -29,14 +27,8 @@ body{
 .header h1{margin:0; color:var(--orange); letter-spacing:.8px; font-size:34px}
 .sub{color:var(--muted); margin-top:8px}
 .toolbar{display:flex; gap:10px; justify-content:space-between; align-items:center; margin:22px 0}
-.search{
-  flex:1; background:rgba(17,24,39,.85); border:1px solid var(--line);
-  color:white; border-radius:12px; padding:13px 15px; outline:none;
-}
-.card{
-  background:rgba(17,24,39,.88); border:1px solid var(--line);
-  border-radius:18px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,.25);
-}
+.search{flex:1; background:rgba(17,24,39,.85); border:1px solid var(--line); color:white; border-radius:12px; padding:13px 15px; outline:none}
+.card{background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,.25)}
 table{width:100%; border-collapse:collapse}
 th,td{padding:14px 12px; text-align:center; border-bottom:1px solid rgba(38,50,71,.7)}
 th{background:#0b1220; color:#cbd5e1; cursor:pointer; user-select:none; font-size:13px}
@@ -47,138 +39,43 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 .good{color:var(--green)} .bad{color:var(--red)} .mid{color:var(--yellow)}
 .section-title{margin:34px 0 14px; font-size:24px}
 .matches{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px}
-.match-card{
-  background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:16px;
-  padding:14px; transition:.18s; cursor:pointer;
-}
+.match-card{background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:16px; padding:14px; transition:.18s; cursor:pointer}
 .match-card:hover{transform:translateY(-3px); border-color:var(--orange); box-shadow:0 0 18px rgba(249,115,22,.25)}
 .match-top{display:flex; justify-content:space-between; gap:10px; align-items:center}
 .match-name{font-weight:900; color:white}
 .score{font-weight:900; color:var(--orange); font-size:20px}
 .meta{color:var(--muted); font-size:13px; margin-top:8px}
 .winner{margin-top:10px; color:var(--green); font-weight:800}
-
-/* TEAM BUILDER */
-.team-builder{
-  margin:28px 0 10px;
-  background:rgba(17,24,39,.88);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:18px;
-  box-shadow:0 18px 50px rgba(0,0,0,.25);
-}
-.builder-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.builder-title{
-  font-size:24px;
-  font-weight:900;
-  color:#fb923c;
-}
-.builder-sub{
-  color:var(--muted);
-  margin-top:5px;
-  font-size:13px;
-}
-.builder-controls{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.select-mode,.build-btn,.clear-btn,.toggle-btn{
-  border:1px solid var(--line);
-  color:white;
-  background:#0b1220;
-  border-radius:12px;
-  padding:11px 13px;
-  font-weight:800;
-  cursor:pointer;
-  transition:.18s;
-}
-.select-mode:hover,.build-btn:hover,.clear-btn:hover,.toggle-btn:hover{
-  border-color:var(--orange);
-  transform:translateY(-2px);
-}
-.build-btn{
-  background:linear-gradient(135deg,#f97316,#c2410c);
-  border-color:#fb923c;
-}
-.clear-btn{ background:rgba(239,68,68,.13); }
-.selected-count{
-  margin:14px 0 10px;
-  color:#cbd5e1;
-  font-weight:800;
-}
-.player-pills{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-  gap:10px;
-}
-.player-pill{
-  background:rgba(15,23,42,.95);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:11px;
-  cursor:pointer;
-  transition:.18s;
-}
-.player-pill:hover{
-  transform:translateY(-2px);
-  border-color:#fb923c;
-  background:rgba(249,115,22,.13);
-}
-.player-pill.active{
-  border-color:#22c55e;
-  background:rgba(34,197,94,.14);
-  box-shadow:0 0 18px rgba(34,197,94,.18);
-}
-.pill-name{ font-weight:900; }
-.pill-stat{ margin-top:5px; color:var(--muted); font-size:12px; }
-.builder-message{
-  margin-top:12px;
-  color:#facc15;
-  font-weight:800;
-}
-.teams-output{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:14px;
-  margin-top:16px;
-}
-.generated-team{
-  background:rgba(2,6,23,.5);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:14px;
-}
-.generated-team h3{ margin:0 0 10px; color:#fb923c; }
-.team-line{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  padding:8px 0;
-  border-bottom:1px solid rgba(38,50,71,.55);
-}
-.team-line:last-child{ border-bottom:0; }
-.team-avg{
-  margin-top:10px;
-  font-weight:900;
-  color:#22c55e;
-}
-.matches-toggle-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  margin:34px 0 14px;
-}
-.matches-toggle-row .section-title{ margin:0; }
-.matches.collapsed{ display:none; }
-
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin:0 0 14px}
+.filter-btn{border:1px solid var(--line);color:white;background:#0b1220;border-radius:12px;padding:11px 14px;font-weight:900;cursor:pointer;transition:.18s}
+.filter-btn:hover{border-color:var(--orange);transform:translateY(-2px)}
+.filter-btn.active{background:linear-gradient(135deg,#f97316,#c2410c);border-color:#fb923c}
+.team-builder{margin:28px 0 10px;background:rgba(17,24,39,.88);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.builder-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.builder-title{font-size:24px;font-weight:900;color:#fb923c}
+.builder-sub{color:var(--muted);margin-top:5px;font-size:13px}
+.builder-controls{display:flex;gap:10px;flex-wrap:wrap}
+.select-mode,.build-btn,.clear-btn,.toggle-btn{border:1px solid var(--line);color:white;background:#0b1220;border-radius:12px;padding:11px 13px;font-weight:800;cursor:pointer;transition:.18s}
+.select-mode:hover,.build-btn:hover,.clear-btn:hover,.toggle-btn:hover{border-color:var(--orange);transform:translateY(-2px)}
+.build-btn{background:linear-gradient(135deg,#f97316,#c2410c);border-color:#fb923c}
+.clear-btn{background:rgba(239,68,68,.13)}
+.selected-count{margin:14px 0 10px;color:#cbd5e1;font-weight:800}
+.player-pills{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.player-pill{background:rgba(15,23,42,.95);border:1px solid var(--line);border-radius:14px;padding:11px;cursor:pointer;transition:.18s}
+.player-pill:hover{transform:translateY(-2px);border-color:#fb923c;background:rgba(249,115,22,.13)}
+.player-pill.active{border-color:#22c55e;background:rgba(34,197,94,.14);box-shadow:0 0 18px rgba(34,197,94,.18)}
+.pill-name{font-weight:900}
+.pill-stat{margin-top:5px;color:var(--muted);font-size:12px}
+.builder-message{margin-top:12px;color:#facc15;font-weight:800}
+.teams-output{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:16px}
+.generated-team{background:rgba(2,6,23,.5);border:1px solid var(--line);border-radius:18px;padding:14px}
+.generated-team h3{margin:0 0 10px;color:#fb923c}
+.team-line{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid rgba(38,50,71,.55)}
+.team-line:last-child{border-bottom:0}
+.team-avg{margin-top:10px;font-weight:900;color:#22c55e}
+.matches-toggle-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:34px 0 14px}
+.matches-toggle-row .section-title{margin:0}
+.matches.collapsed{display:none}
 @media(max-width:720px){
   th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8){display:none}
   .header h1{font-size:26px}
@@ -194,6 +91,11 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 
   <div class="toolbar">
     <input id="search" class="search" placeholder="Oyuncu ara...">
+  </div>
+
+  <div class="filter-row">
+    <button id="allStatsBtn" class="filter-btn active" onclick="setStatsMode('all')">Tüm Maçlar</button>
+    <button id="last10StatsBtn" class="filter-btn" onclick="setStatsMode('last10')">Son 10 Maç</button>
   </div>
 
   <div class="card">
@@ -230,6 +132,11 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
       </div>
     </div>
 
+    <div class="filter-row" style="justify-content:flex-start;margin-top:14px;">
+      <button id="builderAllBtn" class="filter-btn active" onclick="setBuilderMode('all')">Tüm Maçlar</button>
+      <button id="builderLast10Btn" class="filter-btn" onclick="setBuilderMode('last10')">Son 10 Maç</button>
+    </div>
+
     <div id="selectedCount" class="selected-count">Seçilen oyuncu: 0/10</div>
     <div id="builderMessage" class="builder-message"></div>
     <div id="playerPills" class="player-pills"></div>
@@ -244,34 +151,118 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 </div>
 
 <script>
-
 const NAME_FIX = {
   "steam_301208272": "RAİDER",
   "301208272": "RAİDER",
   "steam_141469239": "RBZ",
   "141469239": "RBZ"
 };
-function displayName(name){
-  return NAME_FIX[name] || name;
-}
+function displayName(name){ return NAME_FIX[name] || name; }
 
-let players = [];
+let allPlayers = [];
+let currentPlayers = [];
 let filtered = [];
+let matchesData = [];
+let matchDetailsData = [];
+let last10Players = [];
+let selectedPlayers = [];
 let currentSort = "adr";
 let asc = false;
+let statsMode = "all";
+let builderMode = "all";
 
 Promise.all([
   fetch("players.json").then(r=>r.json()),
-  fetch("matches.json").then(r=>r.json())
-]).then(([p,m])=>{
-  players = p || [];
-  filtered = [...players];
+  fetch("matches.json").then(r=>r.json()),
+  fetch("match_details.json").then(r=>r.json()).catch(()=>[])
+]).then(([p,m,d])=>{
+  allPlayers = p || [];
+  matchesData = m || [];
+  matchDetailsData = d || [];
+  last10Players = buildLast10Players(allPlayers, matchDetailsData);
+  currentPlayers = allPlayers;
+  filtered = [...currentPlayers];
   sortBy("adr", true);
   renderBuilderPlayers();
-  renderMatches(m || []);
+  renderMatches(matchesData);
 });
 
-function safe(v, fallback=""){ return (v===undefined || v===null) ? fallback : v; }
+function safe(v, fallback=""){ return (v===undefined || v===null || Number.isNaN(v)) ? fallback : v; }
+
+function matchNumber(matchName){
+  const nums = String(matchName || "").match(/\d+/g);
+  if(!nums || !nums.length) return 0;
+  return Number(nums[0]);
+}
+
+function matchRoundsFromScore(score){
+  const parts = String(score || "").split("-");
+  if(parts.length !== 2) return 0;
+  return Number(parts[0] || 0) + Number(parts[1] || 0);
+}
+
+function buildLast10Players(players, details){
+  return players.map(base=>{
+    let appearances = [];
+
+    (details || []).forEach(m=>{
+      const teamPlayers = [...(m.team1_players || []), ...(m.team2_players || [])];
+      const found = teamPlayers.find(p => p.name === base.name || displayName(p.name) === displayName(base.name));
+      if(found){
+        appearances.push({
+          match: m.match,
+          rounds: Number(m.rounds || matchRoundsFromScore(m.score) || 0),
+          kills: Number(found.kills || 0),
+          deaths: Number(found.deaths || 0),
+          damage: Number(found.damage || 0),
+          hs: Number(found.headshot_kills || 0)
+        });
+      }
+    });
+
+    appearances.sort((a,b)=>matchNumber(b.match)-matchNumber(a.match));
+    const last = appearances.slice(0,10);
+
+    const kills = last.reduce((s,x)=>s+x.kills,0);
+    const deaths = last.reduce((s,x)=>s+x.deaths,0);
+    const damage = last.reduce((s,x)=>s+x.damage,0);
+    const hs = last.reduce((s,x)=>s+x.hs,0);
+    const rounds = last.reduce((s,x)=>s+x.rounds,0);
+
+    return {
+      ...base,
+      kd: deaths ? Number((kills/deaths).toFixed(2)) : kills,
+      adr: rounds ? Number((damage/rounds).toFixed(1)) : 0,
+      matches: last.length,
+      hs_percent: kills ? Number(((hs/kills)*100).toFixed(1)) : 0,
+      rounds: rounds
+    };
+  });
+}
+
+function setStatsMode(mode){
+  statsMode = mode;
+  document.getElementById("allStatsBtn").classList.toggle("active", mode === "all");
+  document.getElementById("last10StatsBtn").classList.toggle("active", mode === "last10");
+
+  currentPlayers = mode === "all" ? allPlayers : last10Players;
+  const q = document.getElementById("search").value.toLowerCase().trim();
+  filtered = currentPlayers.filter(p => displayName(String(p.name||"")).toLowerCase().includes(q) || String(p.name||"").toLowerCase().includes(q));
+  sortBy(currentSort, true);
+}
+
+function setBuilderMode(mode){
+  builderMode = mode;
+  document.getElementById("builderAllBtn").classList.toggle("active", mode === "all");
+  document.getElementById("builderLast10Btn").classList.toggle("active", mode === "last10");
+
+  selectedPlayers = [];
+  document.getElementById("teamsOutput").innerHTML = "";
+  showBuilderMessage("");
+  renderBuilderPlayers();
+}
+
+function playersForBuilder(){ return builderMode === "all" ? allPlayers : last10Players; }
 
 function renderPlayers(){
   const body = document.getElementById("playersBody");
@@ -294,18 +285,22 @@ function renderPlayers(){
 function renderMatches(matches){
   const el = document.getElementById("matches");
   el.innerHTML = "";
-  matches.slice().reverse().forEach(m=>{
-    const winnerName = m.winner == 1 ? m.team1_name : (m.winner == 2 ? m.team2_name : "Berabere");
-    el.innerHTML += `
-      <div class="match-card" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'">
-        <div class="match-top">
-          <div class="match-name">${m.match}</div>
-          <div class="score">${m.score}</div>
-        </div>
-        <div class="meta">${safe(m.map,"")} ${m.timestamp ? "• " + m.timestamp : ""}</div>
-        <div class="winner">Kazanan: ${winnerName}</div>
-      </div>`;
-  });
+
+  matches
+    .slice()
+    .sort((a,b)=>matchNumber(b.match)-matchNumber(a.match))
+    .forEach(m=>{
+      const winnerName = m.winner == 1 ? m.team1_name : (m.winner == 2 ? m.team2_name : "Berabere");
+      el.innerHTML += `
+        <div class="match-card" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'">
+          <div class="match-top">
+            <div class="match-name">${m.match}</div>
+            <div class="score">${m.score}</div>
+          </div>
+          <div class="meta">${safe(m.map,"")} ${m.timestamp ? "• " + m.timestamp : ""}</div>
+          <div class="winner">Kazanan: ${winnerName}</div>
+        </div>`;
+    });
 }
 
 function sortBy(key, forceDesc=false){
@@ -322,20 +317,17 @@ function sortBy(key, forceDesc=false){
 
 document.getElementById("search").addEventListener("input", e=>{
   const q = e.target.value.toLowerCase().trim();
-  filtered = players.filter(p => displayName(String(p.name||"")).toLowerCase().includes(q) || String(p.name||"").toLowerCase().includes(q));
+  filtered = currentPlayers.filter(p => displayName(String(p.name||"")).toLowerCase().includes(q) || String(p.name||"").toLowerCase().includes(q));
   sortBy(currentSort, true);
 });
-
-
-let selectedPlayers = [];
 
 function renderBuilderPlayers(){
   const el = document.getElementById("playerPills");
   if(!el) return;
 
-  const sorted = [...players].sort((a,b)=>Number(b.adr||0)-Number(a.adr||0));
+  const pool = playersForBuilder().slice().sort((a,b)=>Number(b.adr||0)-Number(a.adr||0));
 
-  el.innerHTML = sorted.map(p=>{
+  el.innerHTML = pool.map(p=>{
     const active = selectedPlayers.some(x=>x.name === p.name) ? "active" : "";
     return `
       <div class="player-pill ${active}" onclick="togglePlayer('${encodeURIComponent(p.name)}')">
@@ -349,7 +341,7 @@ function renderBuilderPlayers(){
 
 function togglePlayer(encodedName){
   const name = decodeURIComponent(encodedName);
-  const p = players.find(x=>x.name === name);
+  const p = playersForBuilder().find(x=>x.name === name);
   if(!p) return;
 
   const exists = selectedPlayers.some(x=>x.name === name);
@@ -493,7 +485,6 @@ function toggleMatches(){
     btn.innerText = "Maçları Gizle";
   }
 }
-
 
 function goProfile(name){ location.href = "profile.html?player=" + name; }
 </script>
