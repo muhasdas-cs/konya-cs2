@@ -96,6 +96,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
   <div class="filter-row">
     <button id="allStatsBtn" class="filter-btn active" onclick="setStatsMode('all')">Tüm Maçlar</button>
     <button id="last10StatsBtn" class="filter-btn" onclick="setStatsMode('last10')">Son 10 Maç</button>
+    <button id="last20StatsBtn" class="filter-btn" onclick="setStatsMode('last20')">Son 20 Maç</button>
   </div>
 
   <div class="card">
@@ -137,6 +138,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
     <div class="filter-row" style="justify-content:flex-start;margin-top:14px;">
       <button id="builderAllBtn" class="filter-btn active" onclick="setBuilderMode('all')">Tüm Maçlar</button>
       <button id="builderLast10Btn" class="filter-btn" onclick="setBuilderMode('last10')">Son 10 Maç</button>
+      <button id="builderLast20Btn" class="filter-btn" onclick="setBuilderMode('last20')">Son 20 Maç</button>
     </div>
 
     <div id="selectedCount" class="selected-count">Seçilen oyuncu: 0/10</div>
@@ -168,6 +170,7 @@ let filtered = [];
 let matchesData = [];
 let matchDetailsData = [];
 let last10Players = [];
+let last20Players = [];
 let selectedPlayers = [];
 let currentSort = "adr";
 let asc = false;
@@ -188,6 +191,10 @@ Promise.all([
   last10Players = buildLast10Players(allPlayers, matchDetailsData);
   const last10Awards = buildHtmlAwards(last10Players, getLast10Details(matchDetailsData));
   last10Players = enrichPlayersWithAwards(last10Players, last10Awards);
+
+  last20Players = buildLast20Players(allPlayers, matchDetailsData);
+  const last20Awards = buildHtmlAwards(last20Players, getLast20Details(matchDetailsData));
+  last20Players = enrichPlayersWithAwards(last20Players, last20Awards);
 
   currentPlayers = allPlayers;
   filtered = [...currentPlayers];
@@ -368,21 +375,37 @@ function enrichPlayersWithAwards(players, awards){
   });
 }
 
-function getLast10Details(details){
+function getLimitedDetails(details, limit){
   return (details || [])
     .slice()
     .sort((a,b)=>matchNumber(b.match)-matchNumber(a.match))
-    .slice(0,10);
+    .slice(0,limit);
 }
 
 function getLast10Details(details){
+  return getLimitedDetails(details, 10);
+}
+
+function getLast20Details(details){
+  return getLimitedDetails(details, 20);
+}
+
+function getLimitedDetails(details, limit){
   return (details || [])
     .slice()
     .sort((a,b)=>matchNumber(b.match)-matchNumber(a.match))
-    .slice(0,10);
+    .slice(0,limit);
 }
 
-function buildLast10Players(players, details){
+function getLast10Details(details){
+  return getLimitedDetails(details, 10);
+}
+
+function getLast20Details(details){
+  return getLimitedDetails(details, 20);
+}
+
+function buildLimitedPlayers(players, details, limit){
   return players.map(base=>{
     let appearances = [];
 
@@ -402,7 +425,7 @@ function buildLast10Players(players, details){
     });
 
     appearances.sort((a,b)=>matchNumber(b.match)-matchNumber(a.match));
-    const last = appearances.slice(0,10);
+    const last = appearances.slice(0,limit);
 
     const kills = last.reduce((s,x)=>s+x.kills,0);
     const deaths = last.reduce((s,x)=>s+x.deaths,0);
@@ -421,12 +444,21 @@ function buildLast10Players(players, details){
   });
 }
 
+function buildLast10Players(players, details){
+  return buildLimitedPlayers(players, details, 10);
+}
+
+function buildLast20Players(players, details){
+  return buildLimitedPlayers(players, details, 20);
+}
+
 function setStatsMode(mode){
   statsMode = mode;
   document.getElementById("allStatsBtn").classList.toggle("active", mode === "all");
   document.getElementById("last10StatsBtn").classList.toggle("active", mode === "last10");
+  document.getElementById("last20StatsBtn").classList.toggle("active", mode === "last20");
 
-  currentPlayers = mode === "all" ? allPlayers : last10Players;
+  currentPlayers = mode === "all" ? allPlayers : (mode === "last20" ? last20Players : last10Players);
   const q = document.getElementById("search").value.toLowerCase().trim();
   filtered = currentPlayers.filter(p => displayName(String(p.name||"")).toLowerCase().includes(q) || String(p.name||"").toLowerCase().includes(q));
   sortBy(currentSort, true);
@@ -436,6 +468,7 @@ function setBuilderMode(mode){
   builderMode = mode;
   document.getElementById("builderAllBtn").classList.toggle("active", mode === "all");
   document.getElementById("builderLast10Btn").classList.toggle("active", mode === "last10");
+  document.getElementById("builderLast20Btn").classList.toggle("active", mode === "last20");
 
   selectedPlayers = [];
   document.getElementById("teamsOutput").innerHTML = "";
@@ -443,7 +476,7 @@ function setBuilderMode(mode){
   renderBuilderPlayers();
 }
 
-function playersForBuilder(){ return builderMode === "all" ? allPlayers : last10Players; }
+function playersForBuilder(){ return builderMode === "all" ? allPlayers : (builderMode === "last20" ? last20Players : last10Players); }
 
 function renderPlayers(){
   const body = document.getElementById("playersBody");
