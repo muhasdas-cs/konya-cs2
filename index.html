@@ -428,7 +428,8 @@ function buildLimitedPlayers(players, details, limit){
           kills: Number(found.kills || 0),
           deaths: Number(found.deaths || 0),
           damage: Number(found.damage || 0),
-          hs: Number(found.headshot_kills || 0)
+          hs: Number(found.headshot_kills || 0),
+          round_edo: Number(found.mvps || found.round_edo || 0)
         });
       }
     });
@@ -441,6 +442,7 @@ function buildLimitedPlayers(players, details, limit){
     const damage = last.reduce((s,x)=>s+x.damage,0);
     const hs = last.reduce((s,x)=>s+x.hs,0);
     const rounds = last.reduce((s,x)=>s+x.rounds,0);
+    const roundEdo = last.reduce((s,x)=>s+Number(x.round_edo || 0),0);
 
     return {
       ...base,
@@ -448,6 +450,8 @@ function buildLimitedPlayers(players, details, limit){
       adr: rounds ? Number((damage/rounds).toFixed(1)) : 0,
       matches: last.length,
       hs_percent: kills ? Number(((hs/kills)*100).toFixed(1)) : 0,
+      round_edo: roundEdo,
+      mvps: roundEdo,
       rounds: rounds
     };
   });
