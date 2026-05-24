@@ -57,6 +57,128 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 .score{font-weight:900; color:var(--orange); font-size:20px}
 .meta{color:var(--muted); font-size:13px; margin-top:8px}
 .winner{margin-top:10px; color:var(--green); font-weight:800}
+
+/* TEAM BUILDER */
+.team-builder{
+  margin:28px 0 10px;
+  background:rgba(17,24,39,.88);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 18px 50px rgba(0,0,0,.25);
+}
+.builder-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.builder-title{
+  font-size:24px;
+  font-weight:900;
+  color:#fb923c;
+}
+.builder-sub{
+  color:var(--muted);
+  margin-top:5px;
+  font-size:13px;
+}
+.builder-controls{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.select-mode,.build-btn,.clear-btn,.toggle-btn{
+  border:1px solid var(--line);
+  color:white;
+  background:#0b1220;
+  border-radius:12px;
+  padding:11px 13px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.18s;
+}
+.select-mode:hover,.build-btn:hover,.clear-btn:hover,.toggle-btn:hover{
+  border-color:var(--orange);
+  transform:translateY(-2px);
+}
+.build-btn{
+  background:linear-gradient(135deg,#f97316,#c2410c);
+  border-color:#fb923c;
+}
+.clear-btn{ background:rgba(239,68,68,.13); }
+.selected-count{
+  margin:14px 0 10px;
+  color:#cbd5e1;
+  font-weight:800;
+}
+.player-pills{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:10px;
+}
+.player-pill{
+  background:rgba(15,23,42,.95);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:11px;
+  cursor:pointer;
+  transition:.18s;
+}
+.player-pill:hover{
+  transform:translateY(-2px);
+  border-color:#fb923c;
+  background:rgba(249,115,22,.13);
+}
+.player-pill.active{
+  border-color:#22c55e;
+  background:rgba(34,197,94,.14);
+  box-shadow:0 0 18px rgba(34,197,94,.18);
+}
+.pill-name{ font-weight:900; }
+.pill-stat{ margin-top:5px; color:var(--muted); font-size:12px; }
+.builder-message{
+  margin-top:12px;
+  color:#facc15;
+  font-weight:800;
+}
+.teams-output{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:14px;
+  margin-top:16px;
+}
+.generated-team{
+  background:rgba(2,6,23,.5);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+}
+.generated-team h3{ margin:0 0 10px; color:#fb923c; }
+.team-line{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(38,50,71,.55);
+}
+.team-line:last-child{ border-bottom:0; }
+.team-avg{
+  margin-top:10px;
+  font-weight:900;
+  color:#22c55e;
+}
+.matches-toggle-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin:34px 0 14px;
+}
+.matches-toggle-row .section-title{ margin:0; }
+.matches.collapsed{ display:none; }
+
 @media(max-width:720px){
   th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8){display:none}
   .header h1{font-size:26px}
@@ -91,8 +213,34 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
     </table>
   </div>
 
-  <h2 class="section-title">🎮 Maçlar</h2>
-  <div id="matches" class="matches"></div>
+  <div class="team-builder">
+    <div class="builder-head">
+      <div>
+        <div class="builder-title">⚖️ Takım Kurucu</div>
+        <div class="builder-sub">10 oyuncu seç, ADR veya K/D kriterini seç, dengeli 5v5 oluştur.</div>
+      </div>
+      <div class="builder-controls">
+        <select id="balanceMode" class="select-mode">
+          <option value="">Kriter seç</option>
+          <option value="adr">ADR'ye göre</option>
+          <option value="kd">K/D'ye göre</option>
+        </select>
+        <button class="build-btn" onclick="buildTeams()">Oluştur</button>
+        <button class="clear-btn" onclick="clearSelection()">Temizle</button>
+      </div>
+    </div>
+
+    <div id="selectedCount" class="selected-count">Seçilen oyuncu: 0/10</div>
+    <div id="builderMessage" class="builder-message"></div>
+    <div id="playerPills" class="player-pills"></div>
+    <div id="teamsOutput" class="teams-output"></div>
+  </div>
+
+  <div class="matches-toggle-row">
+    <h2 class="section-title">🎮 Maçlar</h2>
+    <button id="matchesToggle" class="toggle-btn" onclick="toggleMatches()">Maçları Göster</button>
+  </div>
+  <div id="matches" class="matches collapsed"></div>
 </div>
 
 <script>
@@ -119,6 +267,7 @@ Promise.all([
   players = p || [];
   filtered = [...players];
   sortBy("adr", true);
+  renderBuilderPlayers();
   renderMatches(m || []);
 });
 
@@ -176,6 +325,175 @@ document.getElementById("search").addEventListener("input", e=>{
   filtered = players.filter(p => displayName(String(p.name||"")).toLowerCase().includes(q) || String(p.name||"").toLowerCase().includes(q));
   sortBy(currentSort, true);
 });
+
+
+let selectedPlayers = [];
+
+function renderBuilderPlayers(){
+  const el = document.getElementById("playerPills");
+  if(!el) return;
+
+  const sorted = [...players].sort((a,b)=>Number(b.adr||0)-Number(a.adr||0));
+
+  el.innerHTML = sorted.map(p=>{
+    const active = selectedPlayers.some(x=>x.name === p.name) ? "active" : "";
+    return `
+      <div class="player-pill ${active}" onclick="togglePlayer('${encodeURIComponent(p.name)}')">
+        <div class="pill-name">🔫 ${displayName(p.name)}</div>
+        <div class="pill-stat">ADR: ${p.adr || 0} • K/D: ${p.kd || 0}</div>
+      </div>`;
+  }).join("");
+
+  updateSelectedCount();
+}
+
+function togglePlayer(encodedName){
+  const name = decodeURIComponent(encodedName);
+  const p = players.find(x=>x.name === name);
+  if(!p) return;
+
+  const exists = selectedPlayers.some(x=>x.name === name);
+
+  if(exists){
+    selectedPlayers = selectedPlayers.filter(x=>x.name !== name);
+  }else{
+    if(selectedPlayers.length >= 10){
+      showBuilderMessage("En fazla 10 oyuncu seçebilirsin kankam.");
+      return;
+    }
+    selectedPlayers.push(p);
+  }
+
+  document.getElementById("teamsOutput").innerHTML = "";
+  showBuilderMessage("");
+  renderBuilderPlayers();
+}
+
+function updateSelectedCount(){
+  const el = document.getElementById("selectedCount");
+  if(el) el.innerText = `Seçilen oyuncu: ${selectedPlayers.length}/10`;
+}
+
+function showBuilderMessage(msg){
+  const el = document.getElementById("builderMessage");
+  if(el) el.innerText = msg;
+}
+
+function clearSelection(){
+  selectedPlayers = [];
+  document.getElementById("teamsOutput").innerHTML = "";
+  showBuilderMessage("");
+  renderBuilderPlayers();
+}
+
+function shuffleArray(arr){
+  const copy = [...arr];
+  for(let i=copy.length-1;i>0;i--){
+    const j = Math.floor(Math.random() * (i+1));
+    [copy[i],copy[j]] = [copy[j],copy[i]];
+  }
+  return copy;
+}
+
+function teamScore(team, mode){
+  return team.reduce((sum,p)=>sum + Number(p[mode] || 0), 0);
+}
+
+function teamAverage(team, mode){
+  if(!team.length) return 0;
+  return teamScore(team, mode) / team.length;
+}
+
+function buildTeams(){
+  const mode = document.getElementById("balanceMode").value;
+
+  if(!mode){
+    showBuilderMessage("Önce ADR veya K/D kriterini seçmelisin.");
+    return;
+  }
+
+  if(selectedPlayers.length !== 10){
+    showBuilderMessage("Takım kurmak için tam 10 oyuncu seçmelisin.");
+    return;
+  }
+
+  showBuilderMessage("");
+
+  const shuffled = shuffleArray(selectedPlayers);
+  const sorted = shuffled.sort((a,b)=>Number(b[mode]||0)-Number(a[mode]||0));
+
+  let teamA = [];
+  let teamB = [];
+
+  sorted.forEach(p=>{
+    if(teamA.length >= 5){ teamB.push(p); return; }
+    if(teamB.length >= 5){ teamA.push(p); return; }
+
+    const scoreA = teamScore(teamA, mode);
+    const scoreB = teamScore(teamB, mode);
+
+    if(scoreA <= scoreB) teamA.push(p);
+    else teamB.push(p);
+  });
+
+  for(let attempt=0; attempt<25; attempt++){
+    const ai = Math.floor(Math.random()*5);
+    const bi = Math.floor(Math.random()*5);
+
+    const newA = [...teamA];
+    const newB = [...teamB];
+
+    [newA[ai], newB[bi]] = [newB[bi], newA[ai]];
+
+    const oldDiff = Math.abs(teamAverage(teamA, mode) - teamAverage(teamB, mode));
+    const newDiff = Math.abs(teamAverage(newA, mode) - teamAverage(newB, mode));
+
+    if(newDiff <= oldDiff + 0.05){
+      teamA = newA;
+      teamB = newB;
+    }
+  }
+
+  renderGeneratedTeams(teamA, teamB, mode);
+}
+
+function renderGeneratedTeams(teamA, teamB, mode){
+  const label = mode === "adr" ? "ADR" : "K/D";
+  const avgA = teamAverage(teamA, mode).toFixed(mode === "adr" ? 1 : 2);
+  const avgB = teamAverage(teamB, mode).toFixed(mode === "adr" ? 1 : 2);
+
+  function renderTeam(title, team, avg){
+    return `
+      <div class="generated-team">
+        <h3>${title}</h3>
+        ${team.map(p=>`
+          <div class="team-line">
+            <span>${displayName(p.name)}</span>
+            <b>${label}: ${p[mode] || 0}</b>
+          </div>
+        `).join("")}
+        <div class="team-avg">Ortalama ${label}: ${avg}</div>
+      </div>`;
+  }
+
+  document.getElementById("teamsOutput").innerHTML =
+    renderTeam("🟢 Team A", teamA, avgA) +
+    renderTeam("🔴 Team B", teamB, avgB);
+}
+
+function toggleMatches(){
+  const matchesEl = document.getElementById("matches");
+  const btn = document.getElementById("matchesToggle");
+
+  matchesEl.classList.toggle("collapsed");
+
+  if(matchesEl.classList.contains("collapsed")){
+    btn.innerText = "Maçları Göster";
+  }else{
+    btn.innerText = "Maçları Gizle";
+  }
+}
+
 
 function goProfile(name){ location.href = "profile.html?player=" + name; }
 </script>
