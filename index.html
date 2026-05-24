@@ -141,6 +141,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <option value="">Kriter seç</option>
           <option value="adr">ADR'ye göre</option>
           <option value="kd">K/D'ye göre</option>
+          <option value="overall">Overall'a göre</option>
         </select>
         <select id="edoBalanceMode" class="select-mode">
           <option value="without">EDO'suz</option>
@@ -618,7 +619,7 @@ function renderBuilderPlayers(){
     return `
       <div class="player-pill ${active}" onclick="togglePlayer('${encodeURIComponent(p.name)}')">
         <div class="pill-name">🔫 ${displayName(p.name)}</div>
-        <div class="pill-stat">ADR: ${p.adr || 0} • K/D: ${p.kd || 0} • MVP: ${p.edo || 0} • EDO: ${p.round_edo ?? p.mvps ?? 0}</div>
+        <div class="pill-stat">Overall: ${p.overall || 0} • ADR: ${p.adr || 0} • K/D: ${p.kd || 0} • EDO: ${p.round_edo ?? p.mvps ?? 0}</div>
       </div>`;
   }).join("");
 
@@ -685,6 +686,7 @@ function playerBalanceValue(p, mode){
   // ADR büyük ölçekli, K/D küçük ölçekli olduğu için EDO etkisini ölçeğe göre ekliyoruz.
   if(mode === "adr") return base + (edoRate * 15);
   if(mode === "kd") return base + (edoRate * 0.25);
+  if(mode === "overall") return base + (includeEdo ? edoRate * 2 : 0);
 
   return base;
 }
@@ -752,7 +754,7 @@ function buildTeams(){
 }
 
 function renderGeneratedTeams(teamA, teamB, mode){
-  const label = mode === "adr" ? "ADR" : "K/D";
+  const label = mode === "adr" ? "ADR" : (mode === "kd" ? "K/D" : "Overall");
   const includeEdo = document.getElementById("edoBalanceMode")?.value === "with";
   const avgA = teamAverage(teamA, mode).toFixed(mode === "adr" ? 1 : 2);
   const avgB = teamAverage(teamB, mode).toFixed(mode === "adr" ? 1 : 2);

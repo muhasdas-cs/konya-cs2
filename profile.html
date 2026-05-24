@@ -30,6 +30,37 @@ body{
   background:linear-gradient(135deg,rgba(249,115,22,.18),rgba(17,24,39,.95));
   border:1px solid var(--line); border-radius:22px; padding:26px; box-shadow:0 18px 60px rgba(0,0,0,.28);
 }
+.hero.overall-bronze{background:linear-gradient(135deg,rgba(120,72,38,.28),rgba(17,24,39,.95));border-color:#92400e}
+.hero.overall-silver{background:linear-gradient(135deg,rgba(148,163,184,.24),rgba(17,24,39,.95));border-color:#94a3b8}
+.hero.overall-gold{background:linear-gradient(135deg,rgba(250,204,21,.24),rgba(17,24,39,.95));border-color:#facc15}
+.hero.overall-platinum{background:linear-gradient(135deg,rgba(34,211,238,.22),rgba(17,24,39,.95));border-color:#22d3ee}
+.hero.overall-diamond{background:linear-gradient(135deg,rgba(96,165,250,.25),rgba(17,24,39,.95));border-color:#60a5fa}
+.hero.overall-immortal{background:linear-gradient(135deg,rgba(168,85,247,.28),rgba(17,24,39,.95));border-color:#a855f7}
+.overall-badge{
+  display:inline-block;
+  color:white;
+  background:linear-gradient(135deg,#f97316,#c2410c);
+  border:1px solid #fb923c;
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:14px;
+  font-weight:900;
+}
+.rank-badge{
+  display:inline-block;
+  color:white;
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:14px;
+  font-weight:900;
+  border:1px solid var(--line);
+}
+.rank-bronze{background:rgba(120,72,38,.45);border-color:#92400e}
+.rank-silver{background:rgba(148,163,184,.35);border-color:#94a3b8}
+.rank-gold{background:rgba(250,204,21,.28);border-color:#facc15}
+.rank-platinum{background:rgba(34,211,238,.25);border-color:#22d3ee}
+.rank-diamond{background:rgba(96,165,250,.30);border-color:#60a5fa}
+.rank-immortal{background:rgba(168,85,247,.35);border-color:#a855f7}
 .name{font-size:34px; font-weight:900; color:#fb923c; display:flex; align-items:center; gap:12px; flex-wrap:wrap}
 .steam-link{
   display:inline-block;
@@ -83,7 +114,7 @@ body{
 <div class="container">
   <div class="back" onclick="location.href='index.html'">← Geri</div>
 
-  <div class="hero">
+  <div class="hero" id="heroCard">
     <div class="name" id="name">Yükleniyor...</div>
     <div class="meta" id="meta"></div>
     <div class="filter-row">
@@ -180,6 +211,57 @@ function playerMvpScore(p){
   );
 }
 
+
+function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
+
+function normalize(v,min,max){
+  const n = (Number(v || 0) - min) / (max - min);
+  return clamp(n,0,1);
+}
+
+function overallRank(score){
+  if(score < 45) return "Bronze";
+  if(score < 60) return "Silver";
+  if(score < 72) return "Gold";
+  if(score < 84) return "Platinum";
+  if(score < 92) return "Diamond";
+  return "Immortal";
+}
+
+function rankClass(rank){
+  return "rank-" + String(rank || "Bronze").toLowerCase();
+}
+
+function heroClass(rank){
+  return "overall-" + String(rank || "Bronze").toLowerCase();
+}
+
+function calculateOverallFromStats(st){
+  const adrScore = normalize(st.adr, 45, 115);
+  const kdScore = normalize(st.kd, 0.55, 1.75);
+
+  const matches = Math.max(Number(st.matches || 1), 1);
+  const edoPerMatch = Number(st.roundEdo || 0) / matches;
+  const edoScore = normalize(edoPerMatch, 0, 3.2);
+
+  const clutchTotal = Number(st.clutchCount || 0);
+  const clutchWins = Number(st.clutchWins || 0);
+  const clutchScore = clutchTotal ? clutchWins / clutchTotal : 0;
+
+  const entryTotal = Number(st.entryCount || 0);
+  const entryWins = Number(st.entryWins || 0);
+  const entryScore = entryTotal ? entryWins / entryTotal : 0;
+
+  const total =
+    adrScore * 35 +
+    edoScore * 25 +
+    kdScore * 20 +
+    entryScore * 10 +
+    clutchScore * 10;
+
+  return Math.round(total);
+}
+
 function collectPlayerMatches(limitMode){
   let appearances = [];
 
@@ -251,6 +333,9 @@ function calcStatsFromAppearances(appearances){
     rounds, kills, deaths, assists, damage,
     kd, adr, hsPercent, utilityDamage,
     flashRate, entryRate,
+    entryCount, entryWins,
+    clutchWins: c1Wins + c2Wins,
+    clutchCount: c1Count + c2Count,
     clutch1: `${c1Wins}/${c1Count}`,
     clutch2: `${c2Wins}/${c2Count}`,
     clutchTotal: `${c1Wins+c2Wins}/${c1Count+c2Count}`,
@@ -272,10 +357,17 @@ function renderProfile(mode){
 
   const appearances = collectPlayerMatches(mode);
   const st = calcStatsFromAppearances(appearances);
+  const overall = calculateOverallFromStats(st);
+  const rank = overallRank(overall);
 
-  document.getElementById("meta").innerText = `${st.matches} maç • ${st.rounds} round`;
+  const hero = document.getElementById("heroCard");
+  hero.className = "hero " + heroClass(rank);
+
+  document.getElementById("meta").innerHTML = `${st.matches} maç • ${st.rounds} round • <span class="overall-badge">⚡ Overall ${overall}</span> <span class="rank-badge ${rankClass(rank)}">${rank}</span>`;
 
   const stats = [
+    ["Overall", "⚡ " + overall],
+    ["Rank", rank],
     ["K/D", st.kd], ["ADR", st.adr], ["Matches", st.matches],
     ["HS%", st.hsPercent + "%"], ["Kills", st.kills],
     ["Assists", st.assists], ["Deaths", st.deaths],
