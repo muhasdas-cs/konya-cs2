@@ -89,6 +89,7 @@ body{
     <div class="filter-row">
       <button id="allProfileBtn" class="filter-btn active" onclick="setProfileMode('all')">Tüm Maçlar</button>
       <button id="last10ProfileBtn" class="filter-btn" onclick="setProfileMode('last10')">Son 10 Maç</button>
+      <button id="last20ProfileBtn" class="filter-btn" onclick="setProfileMode('last20')">Son 20 Maç</button>
     </div>
     <div class="grid" id="stats"></div>
   </div>
@@ -107,6 +108,22 @@ const NAME_FIX = {
 };
 function displayName(name){
   return NAME_FIX[name] || name;
+}
+
+function steamProfileUrl(steamId){
+  if(!steamId) return "";
+
+  const id = String(steamId).trim();
+
+  // SteamID64 zaten geldiyse aynen kullan
+  if(id.length >= 16 && id.startsWith("7656119")){
+    return "https://steamcommunity.com/profiles/" + id;
+  }
+
+  // MatchZy çıktısındaki account id -> SteamID64
+  const base = BigInt("76561197960265728");
+  const accountId = BigInt(id);
+  return "https://steamcommunity.com/profiles/" + (base + accountId).toString();
 }
 
 const playerName = new URLSearchParams(location.search).get("player");
@@ -134,7 +151,7 @@ Promise.all([
   document.title = shown + " Profili";
 
   const steamButton = profilePlayer.steam_id
-    ? `<a class="steam-link" target="_blank" href="https://steamcommunity.com/profiles/${profilePlayer.steam_id}">Steam Profili</a>`
+    ? `<a class="steam-link" target="_blank" href="${steamProfileUrl(profilePlayer.steam_id)}">Steam Profili</a>`
     : "";
 
   document.getElementById("name").innerHTML = `🔫 ${shown} ${steamButton}`;
@@ -179,6 +196,7 @@ function collectPlayerMatches(limitMode){
   appearances.sort((a,b)=>matchNumber(b.match.match)-matchNumber(a.match.match));
 
   if(limitMode === "last10") return appearances.slice(0,10);
+  if(limitMode === "last20") return appearances.slice(0,20);
   return appearances;
 }
 
@@ -249,6 +267,7 @@ function renderProfile(mode){
 
   document.getElementById("allProfileBtn").classList.toggle("active", mode === "all");
   document.getElementById("last10ProfileBtn").classList.toggle("active", mode === "last10");
+  document.getElementById("last20ProfileBtn").classList.toggle("active", mode === "last20");
 
   const appearances = collectPlayerMatches(mode);
   const st = calcStatsFromAppearances(appearances);
