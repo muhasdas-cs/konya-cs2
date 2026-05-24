@@ -19,6 +19,8 @@
         "entry_success_rate": 54.3,
         "clutch_1v1": "11/22",
         "clutch_1v2": "4/25",
+        "round_edo": 115,
+        "mvps": 115,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -29,6 +31,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1801,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.31
             },
             {
@@ -40,6 +44,8 @@
                 "deaths": 12,
                 "assists": 1,
                 "damage": 685,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.42
             },
             {
@@ -51,6 +57,8 @@
                 "deaths": 10,
                 "assists": 5,
                 "damage": 1591,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.6
             },
             {
@@ -62,6 +70,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 2190,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.12
             },
             {
@@ -73,6 +83,8 @@
                 "deaths": 17,
                 "assists": 8,
                 "damage": 1643,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.59
             },
             {
@@ -84,6 +96,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1436,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.08
             },
             {
@@ -95,6 +109,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 1638,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.0
             },
             {
@@ -106,6 +122,8 @@
                 "deaths": 14,
                 "assists": 6,
                 "damage": 1587,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.93
             },
             {
@@ -117,6 +135,8 @@
                 "deaths": 18,
                 "assists": 12,
                 "damage": 2293,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.22
             },
             {
@@ -128,6 +148,8 @@
                 "deaths": 12,
                 "assists": 6,
                 "damage": 1881,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 1.5
             },
             {
@@ -139,6 +161,8 @@
                 "deaths": 13,
                 "assists": 7,
                 "damage": 1768,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.15
             },
             {
@@ -150,6 +174,8 @@
                 "deaths": 16,
                 "assists": 3,
                 "damage": 1325,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.75
             },
             {
@@ -161,6 +187,8 @@
                 "deaths": 12,
                 "assists": 1,
                 "damage": 1321,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.5
             },
             {
@@ -172,6 +200,8 @@
                 "deaths": 12,
                 "assists": 4,
                 "damage": 1367,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.17
             },
             {
@@ -183,6 +213,8 @@
                 "deaths": 18,
                 "assists": 6,
                 "damage": 2092,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.11
             },
             {
@@ -194,6 +226,8 @@
                 "deaths": 12,
                 "assists": 6,
                 "damage": 1744,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.17
             },
             {
@@ -205,6 +239,8 @@
                 "deaths": 11,
                 "assists": 2,
                 "damage": 1345,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.55
             },
             {
@@ -216,6 +252,8 @@
                 "deaths": 13,
                 "assists": 8,
                 "damage": 2647,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.85
             },
             {
@@ -227,6 +265,8 @@
                 "deaths": 10,
                 "assists": 4,
                 "damage": 1492,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.4
             },
             {
@@ -238,6 +278,8 @@
                 "deaths": 17,
                 "assists": 3,
                 "damage": 1422,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.76
             },
             {
@@ -249,6 +291,8 @@
                 "deaths": 12,
                 "assists": 1,
                 "damage": 1358,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.0
             },
             {
@@ -260,6 +304,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 1594,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.93
             },
             {
@@ -271,6 +317,8 @@
                 "deaths": 16,
                 "assists": 3,
                 "damage": 1759,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.06
             },
             {
@@ -282,6 +330,8 @@
                 "deaths": 16,
                 "assists": 3,
                 "damage": 1463,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.75
             },
             {
@@ -293,6 +343,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1355,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.53
             },
             {
@@ -304,6 +356,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 1339,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.86
             },
             {
@@ -315,6 +369,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1853,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.25
             },
             {
@@ -326,6 +382,8 @@
                 "deaths": 14,
                 "assists": 8,
                 "damage": 1733,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.14
             },
             {
@@ -337,6 +395,8 @@
                 "deaths": 22,
                 "assists": 10,
                 "damage": 3340,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 1.32
             },
             {
@@ -348,6 +408,8 @@
                 "deaths": 13,
                 "assists": 7,
                 "damage": 1985,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.31
             },
             {
@@ -359,6 +421,8 @@
                 "deaths": 17,
                 "assists": 9,
                 "damage": 2083,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.24
             },
             {
@@ -370,6 +434,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1717,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.31
             },
             {
@@ -381,6 +447,8 @@
                 "deaths": 25,
                 "assists": 10,
                 "damage": 2362,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 0.8
             },
             {
@@ -392,6 +460,8 @@
                 "deaths": 16,
                 "assists": 7,
                 "damage": 2344,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.19
             },
             {
@@ -403,6 +473,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1791,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.19
             },
             {
@@ -414,6 +486,8 @@
                 "deaths": 11,
                 "assists": 4,
                 "damage": 2343,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 2.27
             },
             {
@@ -425,6 +499,8 @@
                 "deaths": 22,
                 "assists": 7,
                 "damage": 2467,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 1.14
             },
             {
@@ -436,6 +512,8 @@
                 "deaths": 15,
                 "assists": 11,
                 "damage": 1811,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.13
             },
             {
@@ -447,6 +525,8 @@
                 "deaths": 18,
                 "assists": 2,
                 "damage": 1893,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.11
             },
             {
@@ -458,6 +538,8 @@
                 "deaths": 9,
                 "assists": 5,
                 "damage": 1314,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.11
             },
             {
@@ -469,6 +551,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 2206,
+                "round_edo": 7,
+                "mvps": 7,
                 "kd": 1.79
             },
             {
@@ -480,6 +564,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 2233,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.47
             },
             {
@@ -491,6 +577,8 @@
                 "deaths": 18,
                 "assists": 3,
                 "damage": 2215,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.33
             }
         ]
@@ -515,6 +603,8 @@
         "entry_success_rate": 42.0,
         "clutch_1v1": "2/5",
         "clutch_1v2": "0/5",
+        "round_edo": 31,
+        "mvps": 31,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -525,6 +615,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 1940,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.88
             },
             {
@@ -536,6 +628,8 @@
                 "deaths": 12,
                 "assists": 3,
                 "damage": 370,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.17
             },
             {
@@ -547,6 +641,8 @@
                 "deaths": 10,
                 "assists": 3,
                 "damage": 1045,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.9
             },
             {
@@ -558,6 +654,8 @@
                 "deaths": 19,
                 "assists": 5,
                 "damage": 1505,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.74
             },
             {
@@ -569,6 +667,8 @@
                 "deaths": 14,
                 "assists": 6,
                 "damage": 1569,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.93
             },
             {
@@ -580,6 +680,8 @@
                 "deaths": 12,
                 "assists": 5,
                 "damage": 1867,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.58
             },
             {
@@ -591,6 +693,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1363,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             },
             {
@@ -602,6 +706,8 @@
                 "deaths": 16,
                 "assists": 2,
                 "damage": 698,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.31
             },
             {
@@ -613,6 +719,8 @@
                 "deaths": 12,
                 "assists": 6,
                 "damage": 1389,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.17
             },
             {
@@ -624,6 +732,8 @@
                 "deaths": 10,
                 "assists": 4,
                 "damage": 1674,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.7
             },
             {
@@ -635,6 +745,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 1855,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.27
             },
             {
@@ -646,6 +758,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1216,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.41
             },
             {
@@ -657,6 +771,8 @@
                 "deaths": 17,
                 "assists": 4,
                 "damage": 1678,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.94
             },
             {
@@ -668,6 +784,8 @@
                 "deaths": 18,
                 "assists": 6,
                 "damage": 1719,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.78
             }
         ]
@@ -692,6 +810,8 @@
         "entry_success_rate": 48.4,
         "clutch_1v1": "0/4",
         "clutch_1v2": "0/5",
+        "round_edo": 7,
+        "mvps": 7,
         "match_history": [
             {
                 "match": "matchzy_53_0",
@@ -702,6 +822,8 @@
                 "deaths": 17,
                 "assists": 2,
                 "damage": 1545,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.0
             },
             {
@@ -713,6 +835,8 @@
                 "deaths": 18,
                 "assists": 3,
                 "damage": 2316,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.17
             },
             {
@@ -724,6 +848,8 @@
                 "deaths": 16,
                 "assists": 5,
                 "damage": 1508,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.69
             },
             {
@@ -735,6 +861,8 @@
                 "deaths": 20,
                 "assists": 8,
                 "damage": 1879,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.7
             },
             {
@@ -746,6 +874,8 @@
                 "deaths": 12,
                 "assists": 7,
                 "damage": 1625,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.08
             },
             {
@@ -757,6 +887,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 1846,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             }
         ]
@@ -781,6 +913,8 @@
         "entry_success_rate": 45.2,
         "clutch_1v1": "5/19",
         "clutch_1v2": "4/19",
+        "round_edo": 45,
+        "mvps": 45,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -791,6 +925,8 @@
                 "deaths": 17,
                 "assists": 6,
                 "damage": 1716,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.76
             },
             {
@@ -802,6 +938,8 @@
                 "deaths": 4,
                 "assists": 3,
                 "damage": 955,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 2.25
             },
             {
@@ -813,6 +951,8 @@
                 "deaths": 15,
                 "assists": 4,
                 "damage": 515,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.33
             },
             {
@@ -824,6 +964,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1162,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.38
             },
             {
@@ -835,6 +977,8 @@
                 "deaths": 15,
                 "assists": 5,
                 "damage": 1016,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.33
             },
             {
@@ -846,6 +990,8 @@
                 "deaths": 9,
                 "assists": 5,
                 "damage": 941,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.67
             },
             {
@@ -857,6 +1003,8 @@
                 "deaths": 15,
                 "assists": 4,
                 "damage": 729,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.33
             },
             {
@@ -868,6 +1016,8 @@
                 "deaths": 12,
                 "assists": 4,
                 "damage": 918,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.75
             },
             {
@@ -879,6 +1029,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 1301,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.69
             },
             {
@@ -890,6 +1042,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1045,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.44
             },
             {
@@ -901,6 +1055,8 @@
                 "deaths": 2,
                 "assists": 0,
                 "damage": 0,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.0
             },
             {
@@ -912,6 +1068,8 @@
                 "deaths": 15,
                 "assists": 10,
                 "damage": 1882,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.87
             },
             {
@@ -923,6 +1081,8 @@
                 "deaths": 14,
                 "assists": 2,
                 "damage": 479,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.21
             },
             {
@@ -934,6 +1094,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 914,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.64
             },
             {
@@ -945,6 +1107,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 1163,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.71
             },
             {
@@ -956,6 +1120,8 @@
                 "deaths": 13,
                 "assists": 4,
                 "damage": 1321,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.92
             },
             {
@@ -967,6 +1133,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1203,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.5
             },
             {
@@ -978,6 +1146,8 @@
                 "deaths": 17,
                 "assists": 8,
                 "damage": 1423,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.94
             },
             {
@@ -989,6 +1159,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 1356,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.67
             },
             {
@@ -1000,6 +1172,8 @@
                 "deaths": 13,
                 "assists": 6,
                 "damage": 1029,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.54
             },
             {
@@ -1011,6 +1185,8 @@
                 "deaths": 16,
                 "assists": 10,
                 "damage": 1286,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.44
             },
             {
@@ -1022,6 +1198,8 @@
                 "deaths": 11,
                 "assists": 8,
                 "damage": 935,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.91
             },
             {
@@ -1033,6 +1211,8 @@
                 "deaths": 18,
                 "assists": 11,
                 "damage": 1704,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.0
             },
             {
@@ -1044,6 +1224,8 @@
                 "deaths": 17,
                 "assists": 6,
                 "damage": 1617,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.71
             },
             {
@@ -1055,6 +1237,8 @@
                 "deaths": 10,
                 "assists": 4,
                 "damage": 876,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.6
             },
             {
@@ -1066,6 +1250,8 @@
                 "deaths": 13,
                 "assists": 4,
                 "damage": 1685,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.15
             },
             {
@@ -1077,6 +1263,8 @@
                 "deaths": 35,
                 "assists": 12,
                 "damage": 3140,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.66
             },
             {
@@ -1088,6 +1276,8 @@
                 "deaths": 21,
                 "assists": 7,
                 "damage": 1225,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.38
             },
             {
@@ -1099,6 +1289,8 @@
                 "deaths": 14,
                 "assists": 6,
                 "damage": 1115,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.79
             },
             {
@@ -1110,6 +1302,8 @@
                 "deaths": 23,
                 "assists": 7,
                 "damage": 2717,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.0
             },
             {
@@ -1121,6 +1315,8 @@
                 "deaths": 13,
                 "assists": 6,
                 "damage": 1276,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.08
             },
             {
@@ -1132,6 +1328,8 @@
                 "deaths": 22,
                 "assists": 7,
                 "damage": 2387,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.82
             },
             {
@@ -1143,6 +1341,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 912,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.64
             },
             {
@@ -1154,6 +1354,8 @@
                 "deaths": 15,
                 "assists": 7,
                 "damage": 1745,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.87
             },
             {
@@ -1165,6 +1367,8 @@
                 "deaths": 19,
                 "assists": 8,
                 "damage": 1421,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.37
             },
             {
@@ -1176,6 +1380,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 1999,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.06
             }
         ]
@@ -1200,6 +1406,8 @@
         "entry_success_rate": 56.5,
         "clutch_1v1": "6/9",
         "clutch_1v2": "1/4",
+        "round_edo": 19,
+        "mvps": 19,
         "match_history": [
             {
                 "match": "matchzy_46_0",
@@ -1210,6 +1418,8 @@
                 "deaths": 13,
                 "assists": 6,
                 "damage": 1747,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.15
             },
             {
@@ -1221,6 +1431,8 @@
                 "deaths": 14,
                 "assists": 2,
                 "damage": 1733,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.14
             },
             {
@@ -1232,6 +1444,8 @@
                 "deaths": 11,
                 "assists": 5,
                 "damage": 1229,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.91
             },
             {
@@ -1243,6 +1457,8 @@
                 "deaths": 24,
                 "assists": 8,
                 "damage": 2421,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.08
             },
             {
@@ -1254,6 +1470,8 @@
                 "deaths": 15,
                 "assists": 8,
                 "damage": 1657,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.87
             },
             {
@@ -1265,6 +1483,8 @@
                 "deaths": 11,
                 "assists": 7,
                 "damage": 1938,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.73
             },
             {
@@ -1276,6 +1496,8 @@
                 "deaths": 24,
                 "assists": 9,
                 "damage": 1719,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.62
             },
             {
@@ -1287,6 +1509,8 @@
                 "deaths": 16,
                 "assists": 11,
                 "damage": 1536,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.62
             },
             {
@@ -1298,6 +1522,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 2551,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.56
             }
         ]
@@ -1322,6 +1548,8 @@
         "entry_success_rate": 28.6,
         "clutch_1v1": "1/1",
         "clutch_1v2": "0/1",
+        "round_edo": 3,
+        "mvps": 3,
         "match_history": [
             {
                 "match": "matchzy_57_0",
@@ -1332,6 +1560,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 893,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.64
             },
             {
@@ -1343,6 +1573,8 @@
                 "deaths": 15,
                 "assists": 4,
                 "damage": 1994,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.27
             }
         ]
@@ -1367,6 +1599,8 @@
         "entry_success_rate": 37.3,
         "clutch_1v1": "2/6",
         "clutch_1v2": "1/9",
+        "round_edo": 18,
+        "mvps": 18,
         "match_history": [
             {
                 "match": "matchzy_46_0",
@@ -1377,6 +1611,8 @@
                 "deaths": 18,
                 "assists": 6,
                 "damage": 1140,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.39
             },
             {
@@ -1388,6 +1624,8 @@
                 "deaths": 16,
                 "assists": 3,
                 "damage": 1429,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.88
             },
             {
@@ -1399,6 +1637,8 @@
                 "deaths": 18,
                 "assists": 4,
                 "damage": 1564,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.83
             },
             {
@@ -1410,6 +1650,8 @@
                 "deaths": 24,
                 "assists": 10,
                 "damage": 2800,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.04
             },
             {
@@ -1421,6 +1663,8 @@
                 "deaths": 11,
                 "assists": 9,
                 "damage": 1717,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.18
             },
             {
@@ -1432,6 +1676,8 @@
                 "deaths": 19,
                 "assists": 2,
                 "damage": 805,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.26
             },
             {
@@ -1443,6 +1689,8 @@
                 "deaths": 21,
                 "assists": 8,
                 "damage": 1984,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.86
             },
             {
@@ -1454,6 +1702,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1433,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.75
             },
             {
@@ -1465,6 +1715,8 @@
                 "deaths": 19,
                 "assists": 4,
                 "damage": 2392,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.42
             },
             {
@@ -1476,6 +1728,8 @@
                 "deaths": 13,
                 "assists": 0,
                 "damage": 1178,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.0
             },
             {
@@ -1487,6 +1741,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1465,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.75
             }
         ]
@@ -1511,6 +1767,8 @@
         "entry_success_rate": 46.2,
         "clutch_1v1": "13/29",
         "clutch_1v2": "4/31",
+        "round_edo": 59,
+        "mvps": 59,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -1521,6 +1779,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 1778,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.23
             },
             {
@@ -1532,6 +1792,8 @@
                 "deaths": 11,
                 "assists": 2,
                 "damage": 802,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.73
             },
             {
@@ -1543,6 +1805,8 @@
                 "deaths": 12,
                 "assists": 10,
                 "damage": 1324,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.83
             },
             {
@@ -1554,6 +1818,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 1387,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.86
             },
             {
@@ -1565,6 +1831,8 @@
                 "deaths": 17,
                 "assists": 4,
                 "damage": 720,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.18
             },
             {
@@ -1576,6 +1844,8 @@
                 "deaths": 14,
                 "assists": 1,
                 "damage": 430,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.43
             },
             {
@@ -1587,6 +1857,8 @@
                 "deaths": 11,
                 "assists": 7,
                 "damage": 1386,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.09
             },
             {
@@ -1598,6 +1870,8 @@
                 "deaths": 17,
                 "assists": 9,
                 "damage": 1408,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.53
             },
             {
@@ -1609,6 +1883,8 @@
                 "deaths": 22,
                 "assists": 8,
                 "damage": 2499,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.95
             },
             {
@@ -1620,6 +1896,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 1509,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.88
             },
             {
@@ -1631,6 +1909,8 @@
                 "deaths": 15,
                 "assists": 2,
                 "damage": 1884,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.07
             },
             {
@@ -1642,6 +1922,8 @@
                 "deaths": 14,
                 "assists": 2,
                 "damage": 942,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.86
             },
             {
@@ -1653,6 +1935,8 @@
                 "deaths": 17,
                 "assists": 3,
                 "damage": 1763,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.76
             },
             {
@@ -1664,6 +1948,8 @@
                 "deaths": 5,
                 "assists": 0,
                 "damage": 489,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.0
             },
             {
@@ -1675,6 +1961,8 @@
                 "deaths": 17,
                 "assists": 4,
                 "damage": 1064,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.71
             },
             {
@@ -1686,6 +1974,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1759,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.08
             },
             {
@@ -1697,6 +1987,8 @@
                 "deaths": 17,
                 "assists": 10,
                 "damage": 2246,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.94
             },
             {
@@ -1708,6 +2000,8 @@
                 "deaths": 9,
                 "assists": 3,
                 "damage": 1362,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.33
             },
             {
@@ -1719,6 +2013,8 @@
                 "deaths": 9,
                 "assists": 4,
                 "damage": 1303,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.44
             },
             {
@@ -1730,6 +2026,8 @@
                 "deaths": 17,
                 "assists": 10,
                 "damage": 1728,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.71
             },
             {
@@ -1741,6 +2039,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1424,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.65
             },
             {
@@ -1752,6 +2052,8 @@
                 "deaths": 22,
                 "assists": 6,
                 "damage": 1687,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.73
             },
             {
@@ -1763,6 +2065,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 1176,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.79
             },
             {
@@ -1774,6 +2078,8 @@
                 "deaths": 13,
                 "assists": 0,
                 "damage": 1204,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.08
             },
             {
@@ -1785,6 +2091,8 @@
                 "deaths": 16,
                 "assists": 7,
                 "damage": 1129,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.44
             },
             {
@@ -1796,6 +2104,8 @@
                 "deaths": 34,
                 "assists": 11,
                 "damage": 3261,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.79
             },
             {
@@ -1807,6 +2117,8 @@
                 "deaths": 17,
                 "assists": 8,
                 "damage": 987,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.35
             },
             {
@@ -1818,6 +2130,8 @@
                 "deaths": 17,
                 "assists": 4,
                 "damage": 1274,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.59
             },
             {
@@ -1829,6 +2143,8 @@
                 "deaths": 16,
                 "assists": 2,
                 "damage": 624,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.31
             },
             {
@@ -1840,6 +2156,8 @@
                 "deaths": 24,
                 "assists": 4,
                 "damage": 1678,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.62
             },
             {
@@ -1851,6 +2169,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 1772,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.33
             },
             {
@@ -1862,6 +2182,8 @@
                 "deaths": 12,
                 "assists": 1,
                 "damage": 1278,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.25
             },
             {
@@ -1873,6 +2195,8 @@
                 "deaths": 17,
                 "assists": 3,
                 "damage": 1362,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.65
             },
             {
@@ -1884,6 +2208,8 @@
                 "deaths": 24,
                 "assists": 5,
                 "damage": 2195,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.88
             },
             {
@@ -1895,6 +2221,8 @@
                 "deaths": 15,
                 "assists": 4,
                 "damage": 1548,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.93
             },
             {
@@ -1906,6 +2234,8 @@
                 "deaths": 18,
                 "assists": 8,
                 "damage": 2007,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.89
             },
             {
@@ -1917,6 +2247,8 @@
                 "deaths": 12,
                 "assists": 8,
                 "damage": 1414,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.92
             },
             {
@@ -1928,6 +2260,8 @@
                 "deaths": 17,
                 "assists": 10,
                 "damage": 1254,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.41
             },
             {
@@ -1939,6 +2273,8 @@
                 "deaths": 17,
                 "assists": 2,
                 "damage": 2096,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.24
             },
             {
@@ -1950,6 +2286,8 @@
                 "deaths": 15,
                 "assists": 4,
                 "damage": 1711,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.07
             }
         ]
@@ -1974,6 +2312,8 @@
         "entry_success_rate": 21.1,
         "clutch_1v1": "1/4",
         "clutch_1v2": "0/2",
+        "round_edo": 8,
+        "mvps": 8,
         "match_history": [
             {
                 "match": "matchzy_42_0",
@@ -1984,6 +2324,8 @@
                 "deaths": 13,
                 "assists": 6,
                 "damage": 1214,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.08
             },
             {
@@ -1995,6 +2337,8 @@
                 "deaths": 10,
                 "assists": 5,
                 "damage": 1240,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.2
             },
             {
@@ -2006,6 +2350,8 @@
                 "deaths": 15,
                 "assists": 3,
                 "damage": 1511,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.0
             },
             {
@@ -2017,6 +2363,8 @@
                 "deaths": 36,
                 "assists": 10,
                 "damage": 2274,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.58
             }
         ]
@@ -2041,6 +2389,8 @@
         "entry_success_rate": 50.0,
         "clutch_1v1": "14/26",
         "clutch_1v2": "2/14",
+        "round_edo": 80,
+        "mvps": 80,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -2051,6 +2401,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 1927,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.57
             },
             {
@@ -2062,6 +2414,8 @@
                 "deaths": 5,
                 "assists": 6,
                 "damage": 1273,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 2.0
             },
             {
@@ -2073,6 +2427,8 @@
                 "deaths": 16,
                 "assists": 3,
                 "damage": 990,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.5
             },
             {
@@ -2084,6 +2440,8 @@
                 "deaths": 12,
                 "assists": 6,
                 "damage": 1253,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.92
             },
             {
@@ -2095,6 +2453,8 @@
                 "deaths": 19,
                 "assists": 7,
                 "damage": 2250,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.05
             },
             {
@@ -2106,6 +2466,8 @@
                 "deaths": 13,
                 "assists": 3,
                 "damage": 1898,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.38
             },
             {
@@ -2117,6 +2479,8 @@
                 "deaths": 10,
                 "assists": 7,
                 "damage": 1714,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.5
             },
             {
@@ -2128,6 +2492,8 @@
                 "deaths": 11,
                 "assists": 8,
                 "damage": 927,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.55
             },
             {
@@ -2139,6 +2505,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 1080,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.77
             },
             {
@@ -2150,6 +2518,8 @@
                 "deaths": 15,
                 "assists": 8,
                 "damage": 1396,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.8
             },
             {
@@ -2161,6 +2531,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 2077,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.31
             },
             {
@@ -2172,6 +2544,8 @@
                 "deaths": 11,
                 "assists": 3,
                 "damage": 888,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.91
             },
             {
@@ -2183,6 +2557,8 @@
                 "deaths": 11,
                 "assists": 1,
                 "damage": 1110,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.27
             },
             {
@@ -2194,6 +2570,8 @@
                 "deaths": 16,
                 "assists": 5,
                 "damage": 1597,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.88
             },
             {
@@ -2205,6 +2583,8 @@
                 "deaths": 9,
                 "assists": 5,
                 "damage": 1048,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.78
             },
             {
@@ -2216,6 +2596,8 @@
                 "deaths": 16,
                 "assists": 5,
                 "damage": 1384,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.81
             },
             {
@@ -2227,6 +2609,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 1023,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.85
             },
             {
@@ -2238,6 +2622,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 2163,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.12
             },
             {
@@ -2249,6 +2635,8 @@
                 "deaths": 15,
                 "assists": 3,
                 "damage": 1371,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.73
             },
             {
@@ -2260,6 +2648,8 @@
                 "deaths": 17,
                 "assists": 8,
                 "damage": 1642,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.82
             },
             {
@@ -2271,6 +2661,8 @@
                 "deaths": 16,
                 "assists": 1,
                 "damage": 1290,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             },
             {
@@ -2282,6 +2674,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 890,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.43
             },
             {
@@ -2293,6 +2687,8 @@
                 "deaths": 18,
                 "assists": 0,
                 "damage": 1983,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.11
             },
             {
@@ -2304,6 +2700,8 @@
                 "deaths": 12,
                 "assists": 6,
                 "damage": 1386,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.08
             },
             {
@@ -2315,6 +2713,8 @@
                 "deaths": 21,
                 "assists": 7,
                 "damage": 2264,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.05
             },
             {
@@ -2326,6 +2726,8 @@
                 "deaths": 14,
                 "assists": 7,
                 "damage": 2037,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.57
             },
             {
@@ -2337,6 +2739,8 @@
                 "deaths": 13,
                 "assists": 3,
                 "damage": 1249,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.0
             },
             {
@@ -2348,6 +2752,8 @@
                 "deaths": 16,
                 "assists": 1,
                 "damage": 1095,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.62
             },
             {
@@ -2359,6 +2765,8 @@
                 "deaths": 33,
                 "assists": 12,
                 "damage": 3077,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 0.79
             },
             {
@@ -2370,6 +2778,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1495,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.08
             },
             {
@@ -2381,6 +2791,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1626,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.94
             },
             {
@@ -2392,6 +2804,8 @@
                 "deaths": 13,
                 "assists": 7,
                 "damage": 2121,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.54
             },
             {
@@ -2403,6 +2817,8 @@
                 "deaths": 21,
                 "assists": 6,
                 "damage": 2725,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.1
             },
             {
@@ -2414,6 +2830,8 @@
                 "deaths": 18,
                 "assists": 6,
                 "damage": 1685,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.72
             },
             {
@@ -2425,6 +2843,8 @@
                 "deaths": 16,
                 "assists": 2,
                 "damage": 1323,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.75
             },
             {
@@ -2436,6 +2856,8 @@
                 "deaths": 18,
                 "assists": 10,
                 "damage": 1617,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.44
             },
             {
@@ -2447,6 +2869,8 @@
                 "deaths": 23,
                 "assists": 3,
                 "damage": 1952,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.78
             },
             {
@@ -2458,6 +2882,8 @@
                 "deaths": 14,
                 "assists": 2,
                 "damage": 1446,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.07
             },
             {
@@ -2469,6 +2895,8 @@
                 "deaths": 19,
                 "assists": 3,
                 "damage": 1778,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.68
             },
             {
@@ -2480,6 +2908,8 @@
                 "deaths": 14,
                 "assists": 1,
                 "damage": 1131,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.57
             },
             {
@@ -2491,6 +2921,8 @@
                 "deaths": 15,
                 "assists": 7,
                 "damage": 1759,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.07
             },
             {
@@ -2502,6 +2934,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 1616,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.71
             },
             {
@@ -2513,6 +2947,8 @@
                 "deaths": 18,
                 "assists": 5,
                 "damage": 1777,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.89
             }
         ]
@@ -2537,6 +2973,8 @@
         "entry_success_rate": 45.9,
         "clutch_1v1": "5/11",
         "clutch_1v2": "2/11",
+        "round_edo": 48,
+        "mvps": 48,
         "match_history": [
             {
                 "match": "matchzy_13_0",
@@ -2547,6 +2985,8 @@
                 "deaths": 13,
                 "assists": 7,
                 "damage": 1191,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.62
             },
             {
@@ -2558,6 +2998,8 @@
                 "deaths": 15,
                 "assists": 2,
                 "damage": 2414,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.6
             },
             {
@@ -2569,6 +3011,8 @@
                 "deaths": 13,
                 "assists": 6,
                 "damage": 1441,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.0
             },
             {
@@ -2580,6 +3024,8 @@
                 "deaths": 11,
                 "assists": 5,
                 "damage": 1676,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.36
             },
             {
@@ -2591,6 +3037,8 @@
                 "deaths": 18,
                 "assists": 5,
                 "damage": 2065,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.0
             },
             {
@@ -2602,6 +3050,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 1846,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.21
             },
             {
@@ -2613,6 +3063,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1392,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.62
             },
             {
@@ -2624,6 +3076,8 @@
                 "deaths": 23,
                 "assists": 9,
                 "damage": 2018,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.52
             },
             {
@@ -2635,6 +3089,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 1464,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.62
             },
             {
@@ -2646,6 +3102,8 @@
                 "deaths": 14,
                 "assists": 8,
                 "damage": 2045,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.36
             },
             {
@@ -2657,6 +3115,8 @@
                 "deaths": 13,
                 "assists": 8,
                 "damage": 1276,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.85
             },
             {
@@ -2668,6 +3128,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 2227,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.33
             },
             {
@@ -2679,6 +3141,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 1337,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.71
             },
             {
@@ -2690,6 +3154,8 @@
                 "deaths": 18,
                 "assists": 4,
                 "damage": 2091,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.22
             },
             {
@@ -2701,6 +3167,8 @@
                 "deaths": 15,
                 "assists": 4,
                 "damage": 1618,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.93
             },
             {
@@ -2712,6 +3180,8 @@
                 "deaths": 17,
                 "assists": 6,
                 "damage": 2433,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.12
             },
             {
@@ -2723,6 +3193,8 @@
                 "deaths": 14,
                 "assists": 6,
                 "damage": 1748,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.93
             },
             {
@@ -2734,6 +3206,8 @@
                 "deaths": 18,
                 "assists": 5,
                 "damage": 1453,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.56
             },
             {
@@ -2745,6 +3219,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 783,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.46
             },
             {
@@ -2756,6 +3232,8 @@
                 "deaths": 15,
                 "assists": 5,
                 "damage": 1529,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.0
             },
             {
@@ -2767,6 +3245,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1435,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.92
             },
             {
@@ -2778,6 +3258,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 2200,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.18
             },
             {
@@ -2789,6 +3271,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1463,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.94
             },
             {
@@ -2800,6 +3284,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 725,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.54
             },
             {
@@ -2811,6 +3297,8 @@
                 "deaths": 12,
                 "assists": 7,
                 "damage": 1976,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.58
             },
             {
@@ -2822,6 +3310,8 @@
                 "deaths": 23,
                 "assists": 9,
                 "damage": 2105,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.78
             }
         ]
@@ -2846,6 +3336,8 @@
         "entry_success_rate": 53.4,
         "clutch_1v1": "4/9",
         "clutch_1v2": "5/9",
+        "round_edo": 67,
+        "mvps": 67,
         "match_history": [
             {
                 "match": "matchzy_13_0",
@@ -2856,6 +3348,8 @@
                 "deaths": 11,
                 "assists": 3,
                 "damage": 1801,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.55
             },
             {
@@ -2867,6 +3361,8 @@
                 "deaths": 20,
                 "assists": 7,
                 "damage": 1851,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.9
             },
             {
@@ -2878,6 +3374,8 @@
                 "deaths": 17,
                 "assists": 4,
                 "damage": 2147,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.35
             },
             {
@@ -2889,6 +3387,8 @@
                 "deaths": 16,
                 "assists": 7,
                 "damage": 1059,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.38
             },
             {
@@ -2900,6 +3400,8 @@
                 "deaths": 13,
                 "assists": 4,
                 "damage": 2383,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 2.0
             },
             {
@@ -2911,6 +3413,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 2539,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 2.07
             },
             {
@@ -2922,6 +3426,8 @@
                 "deaths": 20,
                 "assists": 5,
                 "damage": 1806,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.95
             },
             {
@@ -2933,6 +3439,8 @@
                 "deaths": 17,
                 "assists": 3,
                 "damage": 1172,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.65
             },
             {
@@ -2944,6 +3452,8 @@
                 "deaths": 17,
                 "assists": 10,
                 "damage": 1019,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.71
             },
             {
@@ -2955,6 +3465,8 @@
                 "deaths": 15,
                 "assists": 10,
                 "damage": 1177,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.47
             },
             {
@@ -2966,6 +3478,8 @@
                 "deaths": 15,
                 "assists": 5,
                 "damage": 1914,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.07
             },
             {
@@ -2977,6 +3491,8 @@
                 "deaths": 16,
                 "assists": 7,
                 "damage": 1767,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             },
             {
@@ -2988,6 +3504,8 @@
                 "deaths": 15,
                 "assists": 7,
                 "damage": 1489,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.07
             },
             {
@@ -2999,6 +3517,8 @@
                 "deaths": 17,
                 "assists": 6,
                 "damage": 1610,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             },
             {
@@ -3010,6 +3530,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1924,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.62
             },
             {
@@ -3021,6 +3543,8 @@
                 "deaths": 9,
                 "assists": 6,
                 "damage": 1932,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.89
             },
             {
@@ -3032,6 +3556,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 947,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.53
             },
             {
@@ -3043,6 +3569,8 @@
                 "deaths": 22,
                 "assists": 12,
                 "damage": 3530,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.5
             },
             {
@@ -3054,6 +3582,8 @@
                 "deaths": 19,
                 "assists": 5,
                 "damage": 1325,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.58
             },
             {
@@ -3065,6 +3595,8 @@
                 "deaths": 12,
                 "assists": 3,
                 "damage": 1182,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.92
             },
             {
@@ -3076,6 +3608,8 @@
                 "deaths": 18,
                 "assists": 5,
                 "damage": 2254,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.11
             },
             {
@@ -3087,6 +3621,8 @@
                 "deaths": 37,
                 "assists": 8,
                 "damage": 3448,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.89
             },
             {
@@ -3098,6 +3634,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 2539,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.41
             },
             {
@@ -3109,6 +3647,8 @@
                 "deaths": 15,
                 "assists": 1,
                 "damage": 1409,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.8
             },
             {
@@ -3120,6 +3660,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1713,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.0
             },
             {
@@ -3131,6 +3673,8 @@
                 "deaths": 23,
                 "assists": 7,
                 "damage": 2042,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.83
             },
             {
@@ -3142,6 +3686,8 @@
                 "deaths": 20,
                 "assists": 3,
                 "damage": 1656,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.65
             }
         ]
@@ -3166,6 +3712,8 @@
         "entry_success_rate": 65.9,
         "clutch_1v1": "9/32",
         "clutch_1v2": "16/53",
+        "round_edo": 151,
+        "mvps": 151,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -3176,6 +3724,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1934,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.94
             },
             {
@@ -3187,6 +3737,8 @@
                 "deaths": 5,
                 "assists": 3,
                 "damage": 1152,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 2.6
             },
             {
@@ -3198,6 +3750,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 1679,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.14
             },
             {
@@ -3209,6 +3763,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 2156,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.0
             },
             {
@@ -3220,6 +3776,8 @@
                 "deaths": 13,
                 "assists": 4,
                 "damage": 1946,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.77
             },
             {
@@ -3231,6 +3789,8 @@
                 "deaths": 6,
                 "assists": 6,
                 "damage": 1570,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 3.17
             },
             {
@@ -3242,6 +3802,8 @@
                 "deaths": 16,
                 "assists": 5,
                 "damage": 1138,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.62
             },
             {
@@ -3253,6 +3815,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 1743,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.21
             },
             {
@@ -3264,6 +3828,8 @@
                 "deaths": 16,
                 "assists": 2,
                 "damage": 1996,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.25
             },
             {
@@ -3275,6 +3841,8 @@
                 "deaths": 18,
                 "assists": 7,
                 "damage": 2065,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.06
             },
             {
@@ -3286,6 +3854,8 @@
                 "deaths": 14,
                 "assists": 6,
                 "damage": 2422,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.57
             },
             {
@@ -3297,6 +3867,8 @@
                 "deaths": 11,
                 "assists": 4,
                 "damage": 1882,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.45
             },
             {
@@ -3308,6 +3880,8 @@
                 "deaths": 11,
                 "assists": 6,
                 "damage": 2259,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 2.0
             },
             {
@@ -3319,6 +3893,8 @@
                 "deaths": 3,
                 "assists": 2,
                 "damage": 468,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.0
             },
             {
@@ -3330,6 +3906,8 @@
                 "deaths": 10,
                 "assists": 6,
                 "damage": 2424,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 2.0
             },
             {
@@ -3341,6 +3919,8 @@
                 "deaths": 17,
                 "assists": 8,
                 "damage": 2360,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.94
             },
             {
@@ -3352,6 +3932,8 @@
                 "deaths": 15,
                 "assists": 2,
                 "damage": 1488,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.93
             },
             {
@@ -3363,6 +3945,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 1251,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.79
             },
             {
@@ -3374,6 +3958,8 @@
                 "deaths": 19,
                 "assists": 3,
                 "damage": 1347,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.68
             },
             {
@@ -3385,6 +3971,8 @@
                 "deaths": 15,
                 "assists": 5,
                 "damage": 1621,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.93
             },
             {
@@ -3396,6 +3984,8 @@
                 "deaths": 14,
                 "assists": 2,
                 "damage": 2489,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.5
             },
             {
@@ -3407,6 +3997,8 @@
                 "deaths": 16,
                 "assists": 1,
                 "damage": 1491,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.69
             },
             {
@@ -3418,6 +4010,8 @@
                 "deaths": 16,
                 "assists": 11,
                 "damage": 2434,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.06
             },
             {
@@ -3429,6 +4023,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 2206,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.43
             },
             {
@@ -3440,6 +4036,8 @@
                 "deaths": 17,
                 "assists": 9,
                 "damage": 2616,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.29
             },
             {
@@ -3451,6 +4049,8 @@
                 "deaths": 16,
                 "assists": 5,
                 "damage": 1292,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.69
             },
             {
@@ -3462,6 +4062,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1854,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.15
             },
             {
@@ -3473,6 +4075,8 @@
                 "deaths": 9,
                 "assists": 3,
                 "damage": 2651,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 3.56
             },
             {
@@ -3484,6 +4088,8 @@
                 "deaths": 13,
                 "assists": 8,
                 "damage": 2419,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.62
             },
             {
@@ -3495,6 +4101,8 @@
                 "deaths": 19,
                 "assists": 4,
                 "damage": 2057,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.11
             },
             {
@@ -3506,6 +4114,8 @@
                 "deaths": 19,
                 "assists": 7,
                 "damage": 2298,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.95
             },
             {
@@ -3517,6 +4127,8 @@
                 "deaths": 14,
                 "assists": 9,
                 "damage": 1680,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.64
             },
             {
@@ -3528,6 +4140,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 3315,
+                "round_edo": 8,
+                "mvps": 8,
                 "kd": 2.07
             },
             {
@@ -3539,6 +4153,8 @@
                 "deaths": 31,
                 "assists": 12,
                 "damage": 5594,
+                "round_edo": 7,
+                "mvps": 7,
                 "kd": 1.71
             },
             {
@@ -3550,6 +4166,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 3173,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 2.69
             },
             {
@@ -3561,6 +4179,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 2761,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.86
             },
             {
@@ -3572,6 +4192,8 @@
                 "deaths": 12,
                 "assists": 8,
                 "damage": 2489,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.58
             },
             {
@@ -3583,6 +4205,8 @@
                 "deaths": 22,
                 "assists": 11,
                 "damage": 3541,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.41
             },
             {
@@ -3594,6 +4218,8 @@
                 "deaths": 13,
                 "assists": 7,
                 "damage": 3397,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 2.46
             },
             {
@@ -3605,6 +4231,8 @@
                 "deaths": 14,
                 "assists": 2,
                 "damage": 2862,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 2.0
             },
             {
@@ -3616,6 +4244,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 2386,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.64
             },
             {
@@ -3627,6 +4257,8 @@
                 "deaths": 17,
                 "assists": 9,
                 "damage": 3737,
+                "round_edo": 9,
+                "mvps": 9,
                 "kd": 1.94
             },
             {
@@ -3638,6 +4270,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 2208,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.31
             },
             {
@@ -3649,6 +4283,8 @@
                 "deaths": 19,
                 "assists": 4,
                 "damage": 2228,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.11
             },
             {
@@ -3660,6 +4296,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 2211,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.14
             },
             {
@@ -3671,6 +4309,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1819,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.06
             },
             {
@@ -3682,6 +4322,8 @@
                 "deaths": 13,
                 "assists": 1,
                 "damage": 1738,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.54
             },
             {
@@ -3693,6 +4335,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 2352,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.06
             }
         ]
@@ -3717,6 +4361,8 @@
         "entry_success_rate": 55.4,
         "clutch_1v1": "7/16",
         "clutch_1v2": "6/16",
+        "round_edo": 64,
+        "mvps": 64,
         "match_history": [
             {
                 "match": "matchzy_27_0",
@@ -3727,6 +4373,8 @@
                 "deaths": 9,
                 "assists": 1,
                 "damage": 1908,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 2.33
             },
             {
@@ -3738,6 +4386,8 @@
                 "deaths": 15,
                 "assists": 7,
                 "damage": 2396,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 1.47
             },
             {
@@ -3749,6 +4399,8 @@
                 "deaths": 11,
                 "assists": 9,
                 "damage": 2022,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.73
             },
             {
@@ -3760,6 +4412,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 1772,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.14
             },
             {
@@ -3771,6 +4425,8 @@
                 "deaths": 7,
                 "assists": 8,
                 "damage": 1722,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 2.29
             },
             {
@@ -3782,6 +4438,8 @@
                 "deaths": 12,
                 "assists": 6,
                 "damage": 1842,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.5
             },
             {
@@ -3793,6 +4451,8 @@
                 "deaths": 9,
                 "assists": 6,
                 "damage": 1712,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.89
             },
             {
@@ -3804,6 +4464,8 @@
                 "deaths": 15,
                 "assists": 4,
                 "damage": 2522,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.33
             },
             {
@@ -3815,6 +4477,8 @@
                 "deaths": 5,
                 "assists": 1,
                 "damage": 2204,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 5.2
             },
             {
@@ -3826,6 +4490,8 @@
                 "deaths": 15,
                 "assists": 1,
                 "damage": 1577,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.07
             },
             {
@@ -3837,6 +4503,8 @@
                 "deaths": 36,
                 "assists": 14,
                 "damage": 5478,
+                "round_edo": 9,
+                "mvps": 9,
                 "kd": 1.25
             },
             {
@@ -3848,6 +4516,8 @@
                 "deaths": 13,
                 "assists": 13,
                 "damage": 2123,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.23
             },
             {
@@ -3859,6 +4529,8 @@
                 "deaths": 20,
                 "assists": 9,
                 "damage": 2700,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.2
             },
             {
@@ -3870,6 +4542,8 @@
                 "deaths": 15,
                 "assists": 4,
                 "damage": 2090,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.4
             },
             {
@@ -3881,6 +4555,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 1814,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.0
             },
             {
@@ -3892,6 +4568,8 @@
                 "deaths": 8,
                 "assists": 4,
                 "damage": 1857,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 2.75
             },
             {
@@ -3903,6 +4581,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1911,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.06
             }
         ]
@@ -3927,6 +4607,8 @@
         "entry_success_rate": 42.3,
         "clutch_1v1": "6/19",
         "clutch_1v2": "4/23",
+        "round_edo": 49,
+        "mvps": 49,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -3937,6 +4619,8 @@
                 "deaths": 11,
                 "assists": 3,
                 "damage": 1460,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.27
             },
             {
@@ -3948,6 +4632,8 @@
                 "deaths": 12,
                 "assists": 2,
                 "damage": 1139,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.67
             },
             {
@@ -3959,6 +4645,8 @@
                 "deaths": 9,
                 "assists": 2,
                 "damage": 1593,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.78
             },
             {
@@ -3970,6 +4658,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 1348,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.53
             },
             {
@@ -3981,6 +4671,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1155,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.59
             },
             {
@@ -3992,6 +4684,8 @@
                 "deaths": 14,
                 "assists": 1,
                 "damage": 1247,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.86
             },
             {
@@ -4003,6 +4697,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 1565,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.31
             },
             {
@@ -4014,6 +4710,8 @@
                 "deaths": 13,
                 "assists": 3,
                 "damage": 1347,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.0
             },
             {
@@ -4025,6 +4723,8 @@
                 "deaths": 17,
                 "assists": 8,
                 "damage": 2043,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.18
             },
             {
@@ -4036,6 +4736,8 @@
                 "deaths": 17,
                 "assists": 2,
                 "damage": 1711,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.82
             },
             {
@@ -4047,6 +4749,8 @@
                 "deaths": 16,
                 "assists": 3,
                 "damage": 922,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.44
             },
             {
@@ -4058,6 +4762,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 1358,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.93
             },
             {
@@ -4069,6 +4775,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1086,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.5
             },
             {
@@ -4080,6 +4788,8 @@
                 "deaths": 15,
                 "assists": 3,
                 "damage": 878,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.47
             },
             {
@@ -4091,6 +4801,8 @@
                 "deaths": 19,
                 "assists": 8,
                 "damage": 1853,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.68
             },
             {
@@ -4102,6 +4814,8 @@
                 "deaths": 13,
                 "assists": 4,
                 "damage": 1255,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.77
             },
             {
@@ -4113,6 +4827,8 @@
                 "deaths": 15,
                 "assists": 3,
                 "damage": 1403,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.33
             },
             {
@@ -4124,6 +4840,8 @@
                 "deaths": 18,
                 "assists": 5,
                 "damage": 1289,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.39
             },
             {
@@ -4135,6 +4853,8 @@
                 "deaths": 10,
                 "assists": 5,
                 "damage": 1007,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.0
             },
             {
@@ -4146,6 +4866,8 @@
                 "deaths": 14,
                 "assists": 8,
                 "damage": 1666,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.21
             },
             {
@@ -4157,6 +4879,8 @@
                 "deaths": 12,
                 "assists": 2,
                 "damage": 648,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.5
             },
             {
@@ -4168,6 +4892,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1625,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.82
             },
             {
@@ -4179,6 +4905,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1487,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             },
             {
@@ -4190,6 +4918,8 @@
                 "deaths": 16,
                 "assists": 2,
                 "damage": 1388,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.88
             },
             {
@@ -4201,6 +4931,8 @@
                 "deaths": 22,
                 "assists": 7,
                 "damage": 2144,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.73
             },
             {
@@ -4212,6 +4944,8 @@
                 "deaths": 14,
                 "assists": 6,
                 "damage": 1679,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.07
             },
             {
@@ -4223,6 +4957,8 @@
                 "deaths": 18,
                 "assists": 8,
                 "damage": 1926,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.83
             },
             {
@@ -4234,6 +4970,8 @@
                 "deaths": 13,
                 "assists": 3,
                 "damage": 1037,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.77
             },
             {
@@ -4245,6 +4983,8 @@
                 "deaths": 15,
                 "assists": 3,
                 "damage": 1492,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.93
             },
             {
@@ -4256,6 +4996,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1828,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.12
             },
             {
@@ -4267,6 +5009,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1356,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.56
             }
         ]
@@ -4291,6 +5035,8 @@
         "entry_success_rate": 73.3,
         "clutch_1v1": "2/4",
         "clutch_1v2": "1/2",
+        "round_edo": 12,
+        "mvps": 12,
         "match_history": [
             {
                 "match": "matchzy_46_0",
@@ -4301,6 +5047,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1400,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.59
             },
             {
@@ -4312,6 +5060,8 @@
                 "deaths": 19,
                 "assists": 9,
                 "damage": 1764,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.74
             },
             {
@@ -4323,6 +5073,8 @@
                 "deaths": 16,
                 "assists": 2,
                 "damage": 1683,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             },
             {
@@ -4334,6 +5086,8 @@
                 "deaths": 18,
                 "assists": 9,
                 "damage": 2281,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.33
             },
             {
@@ -4345,6 +5099,8 @@
                 "deaths": 11,
                 "assists": 6,
                 "damage": 1844,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.45
             }
         ]
@@ -4369,6 +5125,8 @@
         "entry_success_rate": 52.2,
         "clutch_1v1": "1/6",
         "clutch_1v2": "1/3",
+        "round_edo": 8,
+        "mvps": 8,
         "match_history": [
             {
                 "match": "matchzy_13_0",
@@ -4379,6 +5137,8 @@
                 "deaths": 17,
                 "assists": 4,
                 "damage": 859,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.53
             },
             {
@@ -4390,6 +5150,8 @@
                 "deaths": 14,
                 "assists": 2,
                 "damage": 1668,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.36
             },
             {
@@ -4401,6 +5163,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 1590,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.93
             },
             {
@@ -4412,6 +5176,8 @@
                 "deaths": 8,
                 "assists": 2,
                 "damage": 1800,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 2.38
             },
             {
@@ -4423,6 +5189,8 @@
                 "deaths": 16,
                 "assists": 2,
                 "damage": 1852,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.31
             }
         ]
@@ -4447,6 +5215,8 @@
         "entry_success_rate": 38.1,
         "clutch_1v1": "7/23",
         "clutch_1v2": "11/30",
+        "round_edo": 56,
+        "mvps": 56,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -4457,6 +5227,8 @@
                 "deaths": 15,
                 "assists": 2,
                 "damage": 697,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.33
             },
             {
@@ -4468,6 +5240,8 @@
                 "deaths": 5,
                 "assists": 3,
                 "damage": 827,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.8
             },
             {
@@ -4479,6 +5253,8 @@
                 "deaths": 11,
                 "assists": 4,
                 "damage": 1897,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.82
             },
             {
@@ -4490,6 +5266,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 1262,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.56
             },
             {
@@ -4501,6 +5279,8 @@
                 "deaths": 22,
                 "assists": 5,
                 "damage": 2191,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.95
             },
             {
@@ -4512,6 +5292,8 @@
                 "deaths": 14,
                 "assists": 6,
                 "damage": 1270,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.57
             },
             {
@@ -4523,6 +5305,8 @@
                 "deaths": 9,
                 "assists": 3,
                 "damage": 1218,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.22
             },
             {
@@ -4534,6 +5318,8 @@
                 "deaths": 12,
                 "assists": 4,
                 "damage": 1063,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.83
             },
             {
@@ -4545,6 +5331,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 996,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.85
             },
             {
@@ -4556,6 +5344,8 @@
                 "deaths": 14,
                 "assists": 6,
                 "damage": 1068,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.5
             },
             {
@@ -4567,6 +5357,8 @@
                 "deaths": 18,
                 "assists": 6,
                 "damage": 1361,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.67
             },
             {
@@ -4578,6 +5370,8 @@
                 "deaths": 13,
                 "assists": 3,
                 "damage": 1490,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.92
             },
             {
@@ -4589,6 +5383,8 @@
                 "deaths": 9,
                 "assists": 0,
                 "damage": 530,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.44
             },
             {
@@ -4600,6 +5396,8 @@
                 "deaths": 17,
                 "assists": 1,
                 "damage": 1369,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.76
             },
             {
@@ -4611,6 +5409,8 @@
                 "deaths": 12,
                 "assists": 2,
                 "damage": 816,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.92
             },
             {
@@ -4622,6 +5422,8 @@
                 "deaths": 15,
                 "assists": 3,
                 "damage": 1255,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.73
             },
             {
@@ -4633,6 +5435,8 @@
                 "deaths": 10,
                 "assists": 4,
                 "damage": 1242,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.1
             },
             {
@@ -4644,6 +5448,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1607,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.23
             },
             {
@@ -4655,6 +5461,8 @@
                 "deaths": 16,
                 "assists": 3,
                 "damage": 1417,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.94
             },
             {
@@ -4666,6 +5474,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1465,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.06
             },
             {
@@ -4677,6 +5487,8 @@
                 "deaths": 10,
                 "assists": 4,
                 "damage": 1256,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.9
             },
             {
@@ -4688,6 +5500,8 @@
                 "deaths": 11,
                 "assists": 8,
                 "damage": 1149,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.64
             },
             {
@@ -4699,6 +5513,8 @@
                 "deaths": 13,
                 "assists": 7,
                 "damage": 1384,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.77
             },
             {
@@ -4710,6 +5526,8 @@
                 "deaths": 15,
                 "assists": 2,
                 "damage": 1857,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.27
             },
             {
@@ -4721,6 +5539,8 @@
                 "deaths": 22,
                 "assists": 8,
                 "damage": 1485,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.45
             },
             {
@@ -4732,6 +5552,8 @@
                 "deaths": 12,
                 "assists": 1,
                 "damage": 1307,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.83
             },
             {
@@ -4743,6 +5565,8 @@
                 "deaths": 13,
                 "assists": 3,
                 "damage": 687,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.38
             },
             {
@@ -4754,6 +5578,8 @@
                 "deaths": 12,
                 "assists": 2,
                 "damage": 1389,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.25
             },
             {
@@ -4765,6 +5591,8 @@
                 "deaths": 31,
                 "assists": 8,
                 "damage": 3315,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.03
             },
             {
@@ -4776,6 +5604,8 @@
                 "deaths": 12,
                 "assists": 4,
                 "damage": 1193,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.92
             },
             {
@@ -4787,6 +5617,8 @@
                 "deaths": 13,
                 "assists": 7,
                 "damage": 2066,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.31
             },
             {
@@ -4798,6 +5630,8 @@
                 "deaths": 15,
                 "assists": 2,
                 "damage": 1508,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.93
             },
             {
@@ -4809,6 +5643,8 @@
                 "deaths": 22,
                 "assists": 3,
                 "damage": 2382,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.0
             },
             {
@@ -4820,6 +5656,8 @@
                 "deaths": 14,
                 "assists": 9,
                 "damage": 2078,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.21
             },
             {
@@ -4831,6 +5669,8 @@
                 "deaths": 17,
                 "assists": 4,
                 "damage": 1109,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.41
             },
             {
@@ -4842,6 +5682,8 @@
                 "deaths": 15,
                 "assists": 8,
                 "damage": 1667,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.87
             },
             {
@@ -4853,6 +5695,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 1534,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.75
             }
         ]
@@ -4877,6 +5721,8 @@
         "entry_success_rate": 45.6,
         "clutch_1v1": "6/29",
         "clutch_1v2": "7/30",
+        "round_edo": 96,
+        "mvps": 96,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -4887,6 +5733,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 1482,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.71
             },
             {
@@ -4898,6 +5746,8 @@
                 "deaths": 8,
                 "assists": 5,
                 "damage": 1783,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 2.25
             },
             {
@@ -4909,6 +5759,8 @@
                 "deaths": 11,
                 "assists": 0,
                 "damage": 1350,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.18
             },
             {
@@ -4920,6 +5772,8 @@
                 "deaths": 15,
                 "assists": 2,
                 "damage": 1990,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.4
             },
             {
@@ -4931,6 +5785,8 @@
                 "deaths": 15,
                 "assists": 0,
                 "damage": 2081,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.47
             },
             {
@@ -4942,6 +5798,8 @@
                 "deaths": 16,
                 "assists": 7,
                 "damage": 1179,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.31
             },
             {
@@ -4953,6 +5811,8 @@
                 "deaths": 13,
                 "assists": 8,
                 "damage": 1486,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.85
             },
             {
@@ -4964,6 +5824,8 @@
                 "deaths": 16,
                 "assists": 7,
                 "damage": 2435,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 1.31
             },
             {
@@ -4975,6 +5837,8 @@
                 "deaths": 13,
                 "assists": 5,
                 "damage": 1652,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.0
             },
             {
@@ -4986,6 +5850,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 2834,
+                "round_edo": 6,
+                "mvps": 6,
                 "kd": 1.47
             },
             {
@@ -4997,6 +5863,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 1716,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.81
             },
             {
@@ -5008,6 +5876,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1074,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.44
             },
             {
@@ -5019,6 +5889,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 1481,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.86
             },
             {
@@ -5030,6 +5902,8 @@
                 "deaths": 19,
                 "assists": 5,
                 "damage": 1689,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.74
             },
             {
@@ -5041,6 +5915,8 @@
                 "deaths": 13,
                 "assists": 4,
                 "damage": 1574,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.08
             },
             {
@@ -5052,6 +5928,8 @@
                 "deaths": 16,
                 "assists": 8,
                 "damage": 1827,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.19
             },
             {
@@ -5063,6 +5941,8 @@
                 "deaths": 13,
                 "assists": 2,
                 "damage": 2171,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.54
             },
             {
@@ -5074,6 +5954,8 @@
                 "deaths": 9,
                 "assists": 0,
                 "damage": 2379,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.22
             },
             {
@@ -5085,6 +5967,8 @@
                 "deaths": 13,
                 "assists": 9,
                 "damage": 2055,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.62
             },
             {
@@ -5096,6 +5980,8 @@
                 "deaths": 10,
                 "assists": 6,
                 "damage": 2148,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 2.4
             },
             {
@@ -5107,6 +5993,8 @@
                 "deaths": 14,
                 "assists": 7,
                 "damage": 1955,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.36
             },
             {
@@ -5118,6 +6006,8 @@
                 "deaths": 9,
                 "assists": 8,
                 "damage": 1835,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.89
             },
             {
@@ -5129,6 +6019,8 @@
                 "deaths": 19,
                 "assists": 10,
                 "damage": 1897,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.63
             },
             {
@@ -5140,6 +6032,8 @@
                 "deaths": 16,
                 "assists": 5,
                 "damage": 1641,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             },
             {
@@ -5151,6 +6045,8 @@
                 "deaths": 19,
                 "assists": 8,
                 "damage": 2448,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.16
             },
             {
@@ -5162,6 +6058,8 @@
                 "deaths": 14,
                 "assists": 8,
                 "damage": 2285,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.36
             },
             {
@@ -5173,6 +6071,8 @@
                 "deaths": 10,
                 "assists": 3,
                 "damage": 981,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.1
             },
             {
@@ -5184,6 +6084,8 @@
                 "deaths": 15,
                 "assists": 9,
                 "damage": 1348,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.6
             },
             {
@@ -5195,6 +6097,8 @@
                 "deaths": 14,
                 "assists": 2,
                 "damage": 1705,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.0
             },
             {
@@ -5206,6 +6110,8 @@
                 "deaths": 22,
                 "assists": 8,
                 "damage": 1939,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.82
             },
             {
@@ -5217,6 +6123,8 @@
                 "deaths": 13,
                 "assists": 8,
                 "damage": 2144,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.54
             },
             {
@@ -5228,6 +6136,8 @@
                 "deaths": 14,
                 "assists": 1,
                 "damage": 942,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.5
             },
             {
@@ -5239,6 +6149,8 @@
                 "deaths": 16,
                 "assists": 7,
                 "damage": 1793,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.94
             },
             {
@@ -5250,6 +6162,8 @@
                 "deaths": 30,
                 "assists": 6,
                 "damage": 4276,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.4
             },
             {
@@ -5261,6 +6175,8 @@
                 "deaths": 16,
                 "assists": 3,
                 "damage": 940,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.56
             },
             {
@@ -5272,6 +6188,8 @@
                 "deaths": 16,
                 "assists": 6,
                 "damage": 1455,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.69
             },
             {
@@ -5283,6 +6201,8 @@
                 "deaths": 16,
                 "assists": 2,
                 "damage": 1511,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.88
             },
             {
@@ -5294,6 +6214,8 @@
                 "deaths": 23,
                 "assists": 4,
                 "damage": 2025,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.78
             },
             {
@@ -5305,6 +6227,8 @@
                 "deaths": 16,
                 "assists": 5,
                 "damage": 1480,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 1.0
             },
             {
@@ -5316,6 +6240,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1215,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.75
             },
             {
@@ -5327,6 +6253,8 @@
                 "deaths": 15,
                 "assists": 7,
                 "damage": 2315,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 1.4
             },
             {
@@ -5338,6 +6266,8 @@
                 "deaths": 14,
                 "assists": 5,
                 "damage": 1885,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.64
             }
         ]
@@ -5362,6 +6292,8 @@
         "entry_success_rate": 52.0,
         "clutch_1v1": "7/20",
         "clutch_1v2": "3/18",
+        "round_edo": 68,
+        "mvps": 68,
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -5372,6 +6304,8 @@
                 "deaths": 14,
                 "assists": 3,
                 "damage": 1647,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.21
             },
             {
@@ -5383,6 +6317,8 @@
                 "deaths": 12,
                 "assists": 1,
                 "damage": 494,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.33
             },
             {
@@ -5394,6 +6330,8 @@
                 "deaths": 13,
                 "assists": 7,
                 "damage": 1513,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.15
             },
             {
@@ -5405,6 +6343,8 @@
                 "deaths": 16,
                 "assists": 5,
                 "damage": 1732,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.94
             },
             {
@@ -5416,6 +6356,8 @@
                 "deaths": 12,
                 "assists": 7,
                 "damage": 2898,
+                "round_edo": 5,
+                "mvps": 5,
                 "kd": 2.33
             },
             {
@@ -5427,6 +6369,8 @@
                 "deaths": 9,
                 "assists": 4,
                 "damage": 1484,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.56
             },
             {
@@ -5438,6 +6382,8 @@
                 "deaths": 15,
                 "assists": 6,
                 "damage": 1445,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.67
             },
             {
@@ -5449,6 +6395,8 @@
                 "deaths": 14,
                 "assists": 1,
                 "damage": 822,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.57
             },
             {
@@ -5460,6 +6408,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 1533,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.21
             },
             {
@@ -5471,6 +6421,8 @@
                 "deaths": 21,
                 "assists": 3,
                 "damage": 1799,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.86
             },
             {
@@ -5482,6 +6434,8 @@
                 "deaths": 16,
                 "assists": 4,
                 "damage": 1913,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.31
             },
             {
@@ -5493,6 +6447,8 @@
                 "deaths": 13,
                 "assists": 4,
                 "damage": 1667,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.23
             },
             {
@@ -5504,6 +6460,8 @@
                 "deaths": 9,
                 "assists": 6,
                 "damage": 2115,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 2.56
             },
             {
@@ -5515,6 +6473,8 @@
                 "deaths": 14,
                 "assists": 4,
                 "damage": 1577,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.86
             },
             {
@@ -5526,6 +6486,8 @@
                 "deaths": 15,
                 "assists": 1,
                 "damage": 941,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.27
             },
             {
@@ -5537,6 +6499,8 @@
                 "deaths": 12,
                 "assists": 3,
                 "damage": 1963,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.83
             },
             {
@@ -5548,6 +6512,8 @@
                 "deaths": 13,
                 "assists": 3,
                 "damage": 2134,
+                "round_edo": 7,
+                "mvps": 7,
                 "kd": 1.54
             },
             {
@@ -5559,6 +6525,8 @@
                 "deaths": 17,
                 "assists": 4,
                 "damage": 1496,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 0.82
             },
             {
@@ -5570,6 +6538,8 @@
                 "deaths": 13,
                 "assists": 4,
                 "damage": 1722,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 1.38
             },
             {
@@ -5581,6 +6551,8 @@
                 "deaths": 9,
                 "assists": 5,
                 "damage": 1753,
+                "round_edo": 3,
+                "mvps": 3,
                 "kd": 2.0
             },
             {
@@ -5592,6 +6564,8 @@
                 "deaths": 17,
                 "assists": 7,
                 "damage": 1192,
+                "round_edo": 0,
+                "mvps": 0,
                 "kd": 0.59
             },
             {
@@ -5603,6 +6577,8 @@
                 "deaths": 18,
                 "assists": 6,
                 "damage": 1365,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.56
             },
             {
@@ -5614,6 +6590,8 @@
                 "deaths": 20,
                 "assists": 4,
                 "damage": 2457,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 1.25
             },
             {
@@ -5625,6 +6603,8 @@
                 "deaths": 17,
                 "assists": 6,
                 "damage": 1666,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.88
             },
             {
@@ -5636,6 +6616,8 @@
                 "deaths": 11,
                 "assists": 7,
                 "damage": 1571,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 1.09
             },
             {
@@ -5647,6 +6629,8 @@
                 "deaths": 17,
                 "assists": 5,
                 "damage": 1165,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.53
             },
             {
@@ -5658,6 +6642,8 @@
                 "deaths": 38,
                 "assists": 5,
                 "damage": 3368,
+                "round_edo": 4,
+                "mvps": 4,
                 "kd": 0.89
             },
             {
@@ -5669,6 +6655,8 @@
                 "deaths": 20,
                 "assists": 3,
                 "damage": 1798,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.85
             },
             {
@@ -5680,6 +6668,8 @@
                 "deaths": 20,
                 "assists": 4,
                 "damage": 1600,
+                "round_edo": 2,
+                "mvps": 2,
                 "kd": 0.7
             },
             {
@@ -5691,6 +6681,8 @@
                 "deaths": 19,
                 "assists": 8,
                 "damage": 1910,
+                "round_edo": 1,
+                "mvps": 1,
                 "kd": 0.89
             }
         ]
