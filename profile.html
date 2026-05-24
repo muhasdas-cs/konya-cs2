@@ -1,120 +1,86 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oyuncu Profili</title>
 <style>
-:root{
-  --bg:#020617; --card:#111827; --card2:#172033; --line:#263247;
-  --orange:#f97316; --green:#22c55e; --red:#ef4444; --yellow:#facc15;
-  --muted:#9ca3af; --text:#f8fafc;
-}
-*{box-sizing:border-box}
-body{
-  margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--text);
-  background:radial-gradient(circle at top,#172554 0,#020617 45%,#020617 100%);
-}
-.container{width:min(1150px,94%); margin:0 auto; padding:24px 0 60px}
-.back{display:inline-block; color:#fb923c; font-weight:800; margin-bottom:16px; cursor:pointer}
-.hero{
-  background:linear-gradient(135deg,rgba(249,115,22,.18),rgba(17,24,39,.95));
-  border:1px solid var(--line); border-radius:22px; padding:26px; box-shadow:0 18px 60px rgba(0,0,0,.28);
-}
-.name{font-size:34px; font-weight:900; color:#fb923c}
-.meta{margin-top:8px; color:#cbd5e1; font-weight:700}
-.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:18px}
-.stat{
-  background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:16px;
-  padding:16px; text-align:center; transition:.18s;
-}
-.stat:hover{transform:translateY(-3px); border-color:#fb923c}
-.value{font-size:24px; font-weight:900}
-.label{color:var(--muted); margin-top:6px}
-.section-title{margin:30px 0 14px}
-.history{display:grid; gap:10px}
-.match{
-  background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:16px;
-  padding:14px; display:grid; grid-template-columns:1fr auto auto; gap:12px; align-items:center;
-  cursor:pointer; transition:.18s;
-}
-.match:hover{transform:translateY(-2px); border-color:#fb923c}
-.badge{font-weight:900; padding:7px 10px; border-radius:999px}
-.win{background:rgba(34,197,94,.16); color:var(--green)}
-.lose{background:rgba(239,68,68,.16); color:var(--red)}
-.draw{background:rgba(250,204,21,.16); color:var(--yellow)}
-.small{color:var(--muted); font-size:13px}
+:root{--bg:#020617;--card:#111827;--line:#263247;--orange:#f97316;--green:#22c55e;--red:#ef4444;--yellow:#facc15;--muted:#9ca3af;--text:#f8fafc}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at top,#172554 0,#020617 45%,#020617 100%)}
+.container{width:min(1150px,94%);margin:0 auto;padding:24px 0 60px}.back{display:inline-block;color:#fb923c;font-weight:800;margin-bottom:16px;cursor:pointer}
+.hero{background:linear-gradient(135deg,rgba(249,115,22,.18),rgba(17,24,39,.95));border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 18px 60px rgba(0,0,0,.28)}
+.name{font-size:34px;font-weight:900;color:#fb923c}.meta{margin-top:8px;color:#cbd5e1;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:18px}.stat{background:rgba(17,24,39,.88);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center;transition:.18s}.stat:hover{transform:translateY(-3px);border-color:#fb923c}.value{font-size:24px;font-weight:900}.label{color:var(--muted);margin-top:6px}
+.section-title{margin:30px 0 14px}.history{display:grid;gap:10px}.match{background:rgba(17,24,39,.88);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;cursor:pointer;transition:.18s}.match:hover{transform:translateY(-2px);border-color:#fb923c}.badge{font-weight:900;padding:7px 10px;border-radius:999px}.win{background:rgba(34,197,94,.16);color:var(--green)}.lose{background:rgba(239,68,68,.16);color:var(--red)}.draw{background:rgba(250,204,21,.16);color:var(--yellow)}.small{color:var(--muted);font-size:13px}
 @media(max-width:650px){.match{grid-template-columns:1fr}.name{font-size:26px}}
 </style>
 </head>
 <body>
 <div class="container">
   <div class="back" onclick="location.href='index.html'">← Geri</div>
-
-  <div class="hero">
-    <div class="name" id="name">Yükleniyor...</div>
-    <div class="meta" id="meta"></div>
-    <div class="grid" id="stats"></div>
-  </div>
-
-  <h2 class="section-title">📜 Match History</h2>
-  <div id="history" class="history"></div>
+  <div class="hero"><div class="name" id="name">Yükleniyor...</div><div class="meta" id="meta"></div><div class="grid" id="stats"></div></div>
+  <h2 class="section-title">📜 Match History</h2><div id="history" class="history"></div>
 </div>
-
 <script>
-const NAME_MAP = {
-  "steam_301208272": "RAİDER",
-  "steam_141469239": "RBZ"
-};
 
+const NAME_FIX = {
+  "steam_301208272": "RAİDER",
+  "301208272": "RAİDER",
+  "steam_141469239": "RBZ",
+  "141469239": "RBZ"
+};
 function displayName(name){
-  return NAME_MAP[name] || name;
+  return NAME_FIX[name] || name;
+}
+function samePlayer(a,b){
+  return displayName(a) === displayName(b) || a === b;
 }
 
-const playerName = new URLSearchParams(location.search).get("player");
+const playerName=new URLSearchParams(location.search).get("player");
 
 Promise.all([
-  fetch("players.json").then(r=>r.json()),
-  fetch("players_extra.json").then(r=>r.json())
-]).then(([players, extras])=>{
-  const p = players.find(x=>x.name === playerName);
-  const e = extras.find(x=>x.name === playerName);
+ fetch("players.json").then(r=>r.json()),
+ fetch("players_extra.json").then(r=>r.json()),
+ fetch("matches.json").then(r=>r.json())
+]).then(([players,extras,matches])=>{
+ const p=players.find(x=>x.name===playerName);
+ const e=extras.find(x=>x.name===playerName);
+ if(!p){document.getElementById("name").innerText="Oyuncu bulunamadı";return;}
 
-  if(!p){
-    document.getElementById("name").innerText = "Oyuncu bulunamadı";
-    return;
-  }
+ const shown=displayName(p.name);
+ document.title=shown+" Profili";
+ document.getElementById("name").innerText="🔫 "+shown;
+ document.getElementById("meta").innerText=`${p.elo} ELO • ${p.rank} • ${p.matches} maç`;
 
-  document.title = displayName(p.name) + " Profili";
-  document.getElementById("name").innerText = "🔫 " + displayName(p.name);
-  document.getElementById("meta").innerText = `${p.elo} ELO • ${p.rank} • ${p.matches} maç`;
+ const ex=e||{};
+ const stats=[["K/D",p.kd],["ADR",p.adr],["Win Rate","%"+p.winrate],["Matches",p.matches],["Wins",p.wins],["HS%",p.hs_percent+"%"],["Kills",ex.kills||0],["Assists",ex.assists||0],["Deaths",ex.deaths||0],["Utility DMG",ex.utility_damage||0],["Flash Başarı","%"+(ex.flash_success_rate||0)],["Entry Başarı","%"+(ex.entry_success_rate||0)]];
+ document.getElementById("stats").innerHTML=stats.map(s=>`<div class="stat"><div class="value">${s[1]}</div><div class="label">${s[0]}</div></div>`).join("");
 
-  const ex = e || {};
-  const stats = [
-    ["K/D", p.kd], ["ADR", p.adr], ["Win Rate", "%" + p.winrate],
-    ["Matches", p.matches], ["Wins", p.wins], ["HS%", p.hs_percent + "%"],
-    ["Kills", ex.kills || 0], ["Assists", ex.assists || 0], ["Deaths", ex.deaths || 0],
-    ["Utility DMG", ex.utility_damage || 0], ["Flash Başarı", "%" + (ex.flash_success_rate || 0)],
-    ["Entry Başarı", "%" + (ex.entry_success_rate || 0)]
-  ];
+ const history=(ex.match_history||[]).slice().reverse();
+ const matchMap={};
+ (matches||[]).forEach(m=>matchMap[m.match]=m);
 
-  document.getElementById("stats").innerHTML = stats.map(s=>`
-    <div class="stat"><div class="value">${s[1]}</div><div class="label">${s[0]}</div></div>
-  `).join("");
+ document.getElementById("history").innerHTML=history.map(h=>{
+   const m=matchMap[h.match];
+   let result=h.result || "DRAW";
+   let team=h.team;
 
-  const history = (ex.match_history || []).slice().reverse();
-  document.getElementById("history").innerHTML = history.map(m=>{
-    const cls = m.result === "WIN" ? "win" : (m.result === "LOSE" ? "lose" : "draw");
-    return `
-      <div class="match" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'">
-        <div>
-          <b>${m.match}</b> <span class="small">(${m.score})</span>
-          <div class="small">K/D/A: ${m.kills}/${m.deaths}/${m.assists} • DMG: ${m.damage} • KD: ${m.kd}</div>
-        </div>
-        <div class="badge ${cls}">${m.result}</div>
-        <div class="small">Team ${m.team}</div>
-      </div>`;
-  }).join("");
+   // KRİTİK FIX: result artık players_extra'dan değil, matches.json winner/team listelerinden hesaplanıyor.
+   if(m){
+     const inTeam1=(m.team1||[]).some(n=>samePlayer(n,playerName));
+     const inTeam2=(m.team2||[]).some(n=>samePlayer(n,playerName));
+     if(inTeam1){ team=1; result=(m.winner==1?"WIN":"LOSE"); }
+     else if(inTeam2){ team=2; result=(m.winner==2?"WIN":"LOSE"); }
+     if(m.winner==0) result="DRAW";
+   }
+
+   const cls=result==="WIN"?"win":(result==="LOSE"?"lose":"draw");
+   const score=m?m.score:h.score;
+   return `<div class="match" onclick="location.href='match.html?match=${encodeURIComponent(h.match)}'">
+     <div><b>${h.match}</b> <span class="small">(${score})</span>
+     <div class="small">K/D/A: ${h.kills}/${h.deaths}/${h.assists} • DMG: ${h.damage} • KD: ${h.kd}</div></div>
+     <div class="badge ${cls}">${result}</div><div class="small">Team ${team}</div>
+   </div>`;
+ }).join("");
 });
 </script>
 </body>

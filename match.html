@@ -1,146 +1,45 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Match Detail</title>
 <style>
-:root{
-  --bg:#020617; --card:#111827; --card2:#172033; --line:#263247;
-  --orange:#f97316; --green:#22c55e; --red:#ef4444; --yellow:#facc15;
-  --muted:#9ca3af; --text:#f8fafc;
-}
-*{box-sizing:border-box}
-body{
-  margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--text);
-  background:radial-gradient(circle at top,#172554 0,#020617 45%,#020617 100%);
-}
-.container{width:min(1250px,96%); margin:0 auto; padding:24px 0 60px}
-.back{display:inline-block; color:#fb923c; font-weight:800; margin-bottom:16px; cursor:pointer}
-.header{
-  background:linear-gradient(135deg,rgba(249,115,22,.18),rgba(17,24,39,.96));
-  border:1px solid var(--line); border-radius:22px; padding:22px; text-align:center;
-}
-.title{font-size:30px; color:#fb923c; font-weight:900}
-.score{font-size:42px; font-weight:900; margin-top:10px}
-.meta{color:#cbd5e1; margin-top:8px}
-.winner{color:var(--green); font-weight:900; margin-top:10px}
-.team-card{
-  margin-top:22px; background:rgba(17,24,39,.9); border:1px solid var(--line);
-  border-radius:18px; overflow:hidden;
-}
-.team-head{
-  display:flex; justify-content:space-between; align-items:center; gap:12px;
-  padding:14px 18px; font-weight:900; background:#0b1220;
-}
-.team1 .team-head{border-left:6px solid var(--green)}
-.team2 .team-head{border-left:6px solid var(--red)}
-table{width:100%; border-collapse:collapse}
-th,td{padding:12px 10px; text-align:center; border-bottom:1px solid rgba(38,50,71,.75)}
-th{color:#cbd5e1; cursor:pointer; background:#101827; font-size:13px}
-tbody tr{transition:.18s}
-tbody tr:hover{background:rgba(249,115,22,.12); cursor:pointer}
-.player{text-align:left; font-weight:900}
-.good{color:var(--green)} .bad{color:var(--red)} .mid{color:var(--yellow)}
-@media(max-width:760px){
-  th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8),th:nth-child(9),td:nth-child(9){display:none}
-  .score{font-size:32px}
-}
+:root{--bg:#020617;--card:#111827;--line:#263247;--orange:#f97316;--green:#22c55e;--red:#ef4444;--yellow:#facc15;--muted:#9ca3af;--text:#f8fafc}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at top,#172554 0,#020617 45%,#020617 100%)}
+.container{width:min(1250px,96%);margin:0 auto;padding:24px 0 60px}.back{display:inline-block;color:#fb923c;font-weight:800;margin-bottom:16px;cursor:pointer}
+.header{background:linear-gradient(135deg,rgba(249,115,22,.18),rgba(17,24,39,.96));border:1px solid var(--line);border-radius:22px;padding:22px;text-align:center}.title{font-size:30px;color:#fb923c;font-weight:900}.score{font-size:42px;font-weight:900;margin-top:10px}.meta{color:#cbd5e1;margin-top:8px}.winner{color:var(--green);font-weight:900;margin-top:10px}
+.team-card{margin-top:22px;background:rgba(17,24,39,.9);border:1px solid var(--line);border-radius:18px;overflow:hidden}.team-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;font-weight:900;background:#0b1220}.team1 .team-head{border-left:6px solid var(--green)}.team2 .team-head{border-left:6px solid var(--red)}
+table{width:100%;border-collapse:collapse}th,td{padding:12px 10px;text-align:center;border-bottom:1px solid rgba(38,50,71,.75)}th{color:#cbd5e1;cursor:pointer;background:#101827;font-size:13px}tbody tr{transition:.18s}tbody tr:hover{background:rgba(249,115,22,.12);cursor:pointer}.player{text-align:left;font-weight:900}.good{color:var(--green)}.bad{color:var(--red)}.mid{color:var(--yellow)}
+@media(max-width:760px){th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8),th:nth-child(9),td:nth-child(9){display:none}.score{font-size:32px}}
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="back" onclick="location.href='index.html'">← Geri</div>
-  <div class="header">
-    <div class="title" id="title">Match</div>
-    <div class="score" id="score"></div>
-    <div class="meta" id="meta"></div>
-    <div class="winner" id="winner"></div>
-  </div>
-
-  <div class="team-card team1">
-    <div class="team-head"><span id="team1Name">Team 1</span><span id="team1Score"></span></div>
-    <table>
-      <thead><tr>
-        <th class="player">Oyuncu</th><th onclick="sortTeam(1,'kills')">K</th><th onclick="sortTeam(1,'deaths')">D</th>
-        <th onclick="sortTeam(1,'assists')">A</th><th onclick="sortTeam(1,'kd')">K/D</th><th onclick="sortTeam(1,'damage')">DMG</th>
-        <th onclick="sortTeam(1,'hs_percent')">HS%</th><th onclick="sortTeam(1,'utility_damage')">Util</th><th onclick="sortTeam(1,'entry_count')">Entry</th>
-      </tr></thead>
-      <tbody id="team1Body"></tbody>
-    </table>
-  </div>
-
-  <div class="team-card team2">
-    <div class="team-head"><span id="team2Name">Team 2</span><span id="team2Score"></span></div>
-    <table>
-      <thead><tr>
-        <th class="player">Oyuncu</th><th onclick="sortTeam(2,'kills')">K</th><th onclick="sortTeam(2,'deaths')">D</th>
-        <th onclick="sortTeam(2,'assists')">A</th><th onclick="sortTeam(2,'kd')">K/D</th><th onclick="sortTeam(2,'damage')">DMG</th>
-        <th onclick="sortTeam(2,'hs_percent')">HS%</th><th onclick="sortTeam(2,'utility_damage')">Util</th><th onclick="sortTeam(2,'entry_count')">Entry</th>
-      </tr></thead>
-      <tbody id="team2Body"></tbody>
-    </table>
-  </div>
+<div class="back" onclick="location.href='index.html'">← Geri</div>
+<div class="header"><div class="title" id="title">Match</div><div class="score" id="score"></div><div class="meta" id="meta"></div><div class="winner" id="winner"></div></div>
+<div class="team-card team1"><div class="team-head"><span id="team1Name">Team 1</span><span id="team1Score"></span></div><table><thead><tr><th class="player">Oyuncu</th><th onclick="sortTeam(1,'kills')">K</th><th onclick="sortTeam(1,'deaths')">D</th><th onclick="sortTeam(1,'assists')">A</th><th onclick="sortTeam(1,'kd')">K/D</th><th onclick="sortTeam(1,'damage')">DMG</th><th onclick="sortTeam(1,'hs_percent')">HS%</th><th onclick="sortTeam(1,'utility_damage')">Util</th><th onclick="sortTeam(1,'entry_count')">Entry</th></tr></thead><tbody id="team1Body"></tbody></table></div>
+<div class="team-card team2"><div class="team-head"><span id="team2Name">Team 2</span><span id="team2Score"></span></div><table><thead><tr><th class="player">Oyuncu</th><th onclick="sortTeam(2,'kills')">K</th><th onclick="sortTeam(2,'deaths')">D</th><th onclick="sortTeam(2,'assists')">A</th><th onclick="sortTeam(2,'kd')">K/D</th><th onclick="sortTeam(2,'damage')">DMG</th><th onclick="sortTeam(2,'hs_percent')">HS%</th><th onclick="sortTeam(2,'utility_damage')">Util</th><th onclick="sortTeam(2,'entry_count')">Entry</th></tr></thead><tbody id="team2Body"></tbody></table></div>
 </div>
-
 <script>
-const NAME_MAP = {
+
+const NAME_FIX = {
   "steam_301208272": "RAİDER",
-  "steam_141469239": "RBZ"
+  "301208272": "RAİDER",
+  "steam_141469239": "RBZ",
+  "141469239": "RBZ"
 };
-
 function displayName(name){
-  return NAME_MAP[name] || name;
+  return NAME_FIX[name] || name;
+}
+function samePlayer(a,b){
+  return displayName(a) === displayName(b) || a === b;
 }
 
-const matchName = new URLSearchParams(location.search).get("match");
-let matchData = null;
-let asc = {1:false,2:false};
-
-fetch("match_details.json").then(r=>r.json()).then(data=>{
-  matchData = data.find(x=>x.match === matchName);
-  if(!matchData){
-    document.getElementById("title").innerText = "Maç bulunamadı";
-    return;
-  }
-  render();
-});
-
-function render(){
-  const m = matchData;
-  document.title = m.match;
-  document.getElementById("title").innerText = m.match;
-  document.getElementById("score").innerText = m.score;
-  document.getElementById("meta").innerText = `${m.map || ""} ${m.timestamp ? "• " + m.timestamp : ""}`;
-  document.getElementById("team1Name").innerText = `${m.team1_name || "Team 1"} ${m.team1_side ? "(" + m.team1_side + ")" : ""}`;
-  document.getElementById("team2Name").innerText = `${m.team2_name || "Team 2"} ${m.team2_side ? "(" + m.team2_side + ")" : ""}`;
-  document.getElementById("team1Score").innerText = m.team1_score;
-  document.getElementById("team2Score").innerText = m.team2_score;
-  document.getElementById("winner").innerText = m.winner == 1 ? `Kazanan: ${m.team1_name}` : (m.winner == 2 ? `Kazanan: ${m.team2_name}` : "Berabere");
-
-  drawTeam(m.team1_players || [], "team1Body");
-  drawTeam(m.team2_players || [], "team2Body");
-}
-
-function drawTeam(players, bodyId){
-  const body = document.getElementById(bodyId);
-  body.innerHTML = players.map(p=>{
-    const kdClass = p.kd >= 1.15 ? "good" : (p.kd < .85 ? "bad" : "mid");
-    return `<tr onclick="location.href='profile.html?player=${encodeURIComponent(p.name)}'">
-      <td class="player">🔫 ${displayName(p.name)}</td>
-      <td>${p.kills}</td><td>${p.deaths}</td><td>${p.assists}</td>
-      <td class="${kdClass}">${p.kd}</td><td>${p.damage}</td><td>${p.hs_percent}%</td>
-      <td>${p.utility_damage}</td><td>${p.entry_wins}/${p.entry_count}</td>
-    </tr>`;
-  }).join("");
-}
-
-function sortTeam(teamNo, key){
-  const arr = teamNo === 1 ? matchData.team1_players : matchData.team2_players;
-  asc[teamNo] = !asc[teamNo];
-  arr.sort((a,b)=> asc[teamNo] ? (a[key]||0)-(b[key]||0) : (b[key]||0)-(a[key]||0));
-  drawTeam(arr, teamNo === 1 ? "team1Body" : "team2Body");
-}
+const matchName=new URLSearchParams(location.search).get("match");let matchData=null;let asc={1:false,2:false};
+fetch("match_details.json").then(r=>r.json()).then(data=>{matchData=data.find(x=>x.match===matchName);if(!matchData){document.getElementById("title").innerText="Maç bulunamadı";return;}render();});
+function render(){const m=matchData;document.title=m.match;document.getElementById("title").innerText=m.match;document.getElementById("score").innerText=m.score;document.getElementById("meta").innerText=`${m.map||""} ${m.timestamp?"• "+m.timestamp:""}`;document.getElementById("team1Name").innerText=`${m.team1_name||"Team 1"} ${m.team1_side?"("+m.team1_side+")":""}`;document.getElementById("team2Name").innerText=`${m.team2_name||"Team 2"} ${m.team2_side?"("+m.team2_side+")":""}`;document.getElementById("team1Score").innerText=m.team1_score;document.getElementById("team2Score").innerText=m.team2_score;document.getElementById("winner").innerText=m.winner==1?`Kazanan: ${m.team1_name}`:(m.winner==2?`Kazanan: ${m.team2_name}`:"Berabere");drawTeam(m.team1_players||[],"team1Body");drawTeam(m.team2_players||[],"team2Body");}
+function drawTeam(players,bodyId){const body=document.getElementById(bodyId);body.innerHTML=players.map(p=>{const kdClass=p.kd>=1.15?"good":(p.kd<.85?"bad":"mid");return `<tr onclick="location.href='profile.html?player=${encodeURIComponent(p.name)}'"><td class="player">🔫 ${displayName(p.name)}</td><td>${p.kills}</td><td>${p.deaths}</td><td>${p.assists}</td><td class="${kdClass}">${p.kd}</td><td>${p.damage}</td><td>${p.hs_percent}%</td><td>${p.utility_damage}</td><td>${p.entry_wins}/${p.entry_count}</td></tr>`;}).join("");}
+function sortTeam(teamNo,key){const arr=teamNo===1?matchData.team1_players:matchData.team2_players;asc[teamNo]=!asc[teamNo];arr.sort((a,b)=>asc[teamNo]?(a[key]||0)-(b[key]||0):(b[key]||0)-(a[key]||0));drawTeam(arr,teamNo===1?"team1Body":"team2Body");}
 </script>
 </body>
 </html>
