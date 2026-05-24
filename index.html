@@ -1,151 +1,173 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CS2 Konya Ligi</title>
-
 <style>
-body {
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
+:root{
+  --bg:#050914; --card:#111827; --card2:#172033; --line:#263247;
+  --orange:#f97316; --green:#22c55e; --red:#ef4444; --yellow:#facc15;
+  --muted:#9ca3af; --text:#f8fafc;
 }
-
-h1 {
-    text-align: center;
-    padding: 25px;
-    background: linear-gradient(90deg, #111827, #020617);
-    margin: 0;
-    color: #f97316;
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--text);
+  background:radial-gradient(circle at top,#172554 0,#020617 42%,#020617 100%);
 }
-
-table {
-    width: 95%;
-    margin: 30px auto;
-    border-collapse: collapse;
+.container{width:min(1200px,94%); margin:0 auto; padding:26px 0 60px}
+.header{text-align:center; padding:22px 0 18px}
+.header h1{margin:0; color:var(--orange); letter-spacing:.8px; font-size:34px}
+.sub{color:var(--muted); margin-top:8px}
+.toolbar{display:flex; gap:10px; justify-content:space-between; align-items:center; margin:22px 0}
+.search{
+  flex:1; background:rgba(17,24,39,.85); border:1px solid var(--line);
+  color:white; border-radius:12px; padding:13px 15px; outline:none;
 }
-
-th {
-    background: #111827;
-    padding: 12px;
-    color: #9ca3af;
-    cursor: pointer;
+.card{
+  background:rgba(17,24,39,.88); border:1px solid var(--line);
+  border-radius:18px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,.25);
 }
-
-td {
-    padding: 12px;
-    border-bottom: 1px solid #1f2937;
-    text-align: center;
+table{width:100%; border-collapse:collapse}
+th,td{padding:14px 12px; text-align:center; border-bottom:1px solid rgba(38,50,71,.7)}
+th{background:#0b1220; color:#cbd5e1; cursor:pointer; user-select:none; font-size:13px}
+td{font-weight:700}
+tr{transition:.18s}
+tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:pointer}
+.player{text-align:left}
+.rank{color:var(--orange)}
+.good{color:var(--green)} .bad{color:var(--red)} .mid{color:var(--yellow)}
+.section-title{margin:34px 0 14px; font-size:24px}
+.matches{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px}
+.match-card{
+  background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:16px;
+  padding:14px; transition:.18s; cursor:pointer;
 }
-
-tr {
-    transition: 0.2s;
-}
-
-tr:hover {
-    background: rgba(249,115,22,0.1);
-    transform: scale(1.01);
-    box-shadow: 0 0 10px rgba(249,115,22,0.4);
-}
-
-.rank {
-    color: #f97316;
-    font-weight: bold;
-}
-
-.loading {
-    text-align: center;
-    margin-top: 40px;
+.match-card:hover{transform:translateY(-3px); border-color:var(--orange); box-shadow:0 0 18px rgba(249,115,22,.25)}
+.match-top{display:flex; justify-content:space-between; gap:10px; align-items:center}
+.match-name{font-weight:900; color:white}
+.score{font-weight:900; color:var(--orange); font-size:20px}
+.meta{color:var(--muted); font-size:13px; margin-top:8px}
+.winner{margin-top:10px; color:var(--green); font-weight:800}
+@media(max-width:720px){
+  th:nth-child(4),td:nth-child(4),th:nth-child(8),td:nth-child(8),th:nth-child(9),td:nth-child(9){display:none}
+  .header h1{font-size:26px}
 }
 </style>
-
 </head>
-
 <body>
+<div class="container">
+  <div class="header">
+    <h1>🏆 CS2 KONYA LİGİ</h1>
+    <div class="sub">Oyuncu sıralaması, maç geçmişi ve detaylı istatistikler</div>
+  </div>
 
-<h1>🏆 CS2 KONYA LİGİ</h1>
+  <div class="toolbar">
+    <input id="search" class="search" placeholder="Oyuncu ara...">
+  </div>
 
-<div id="loading" class="loading">Yükleniyor...</div>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class="player">Oyuncu</th>
+          <th onclick="sortBy('elo')">ELO</th>
+          <th>Rank</th>
+          <th onclick="sortBy('winrate')">Win%</th>
+          <th onclick="sortBy('matches')">Maç</th>
+          <th onclick="sortBy('wins')">Win</th>
+          <th onclick="sortBy('kd')">K/D</th>
+          <th onclick="sortBy('adr')">ADR</th>
+          <th onclick="sortBy('hs_percent')">HS%</th>
+          <th onclick="sortBy('rounds')">Rounds</th>
+        </tr>
+      </thead>
+      <tbody id="playersBody"></tbody>
+    </table>
+  </div>
 
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Oyuncu</th>
-<th onclick="sortData('elo')">ELO</th>
-<th>Rank</th>
-<th onclick="sortData('winrate')">Win%</th>
-<th onclick="sortData('matches')">Maç</th>
-<th onclick="sortData('wins')">Win</th>
-<th onclick="sortData('kd')">K/D</th>
-<th onclick="sortData('adr')">ADR</th>
-<th onclick="sortData('hs_percent')">HS%</th>
-<th onclick="sortData('rounds')">Rounds</th>
-</tr>
-</thead>
-
-<tbody id="table"></tbody>
-</table>
+  <h2 class="section-title">🎮 Maçlar</h2>
+  <div id="matches" class="matches"></div>
+</div>
 
 <script>
+let players = [];
+let filtered = [];
+let currentSort = "elo";
+let asc = false;
 
-let playersData = [];
-let currentSort = "";
-let sortAsc = false;
-
-fetch("./players.json")
-.then(res => res.json())
-.then(data => {
-    document.getElementById("loading").style.display = "none";
-    playersData = data;
-    renderTable(playersData);
+Promise.all([
+  fetch("players.json").then(r=>r.json()),
+  fetch("matches.json").then(r=>r.json())
+]).then(([p,m])=>{
+  players = p || [];
+  filtered = [...players];
+  renderPlayers();
+  renderMatches(m || []);
 });
 
-function renderTable(data){
-    let table = document.getElementById("table");
-    table.innerHTML = "";
+function safe(v, fallback=""){ return (v===undefined || v===null) ? fallback : v; }
 
-    data.forEach((p, i)=>{
-        table.innerHTML += `
-        <tr onclick="openProfile('${p.name}')">
-            <td>${i+1}</td>
-            <td>🎮 ${p.name}</td>
-            <td>${p.elo}</td>
-            <td class="rank">${p.rank}</td>
-            <td>%${p.winrate}</td>
-            <td>${p.matches}</td>
-            <td>${p.wins}</td>
-            <td>${p.kd}</td>
-            <td>${p.adr}</td>
-            <td>${p.hs_percent}%</td>
-            <td>${p.rounds}</td>
-        </tr>`;
-    });
+function renderPlayers(){
+  const body = document.getElementById("playersBody");
+  body.innerHTML = "";
+  filtered.forEach((p,i)=>{
+    const kdClass = p.kd >= 1.15 ? "good" : (p.kd < .85 ? "bad" : "mid");
+    const wrClass = p.winrate >= 55 ? "good" : (p.winrate < 45 ? "bad" : "mid");
+    body.innerHTML += `
+      <tr onclick="goProfile('${encodeURIComponent(p.name)}')">
+        <td>${i+1}</td>
+        <td class="player">🔫 ${safe(p.name)}</td>
+        <td>${safe(p.elo)}</td>
+        <td class="rank">${safe(p.rank)}</td>
+        <td class="${wrClass}">%${safe(p.winrate,0)}</td>
+        <td>${safe(p.matches,0)}</td>
+        <td>${safe(p.wins,0)}</td>
+        <td class="${kdClass}">${safe(p.kd,0)}</td>
+        <td>${safe(p.adr,0)}</td>
+        <td>${safe(p.hs_percent,0)}%</td>
+        <td>${safe(p.rounds,0)}</td>
+      </tr>`;
+  });
 }
 
-function sortData(key){
-
-    if(currentSort === key){
-        sortAsc = !sortAsc;
-    } else {
-        sortAsc = false;
-        currentSort = key;
-    }
-
-    playersData.sort((a,b)=>{
-        return sortAsc ? a[key]-b[key] : b[key]-a[key];
-    });
-
-    renderTable(playersData);
+function renderMatches(matches){
+  const el = document.getElementById("matches");
+  el.innerHTML = "";
+  matches.slice().reverse().forEach(m=>{
+    const winnerName = m.winner == 1 ? m.team1_name : (m.winner == 2 ? m.team2_name : "Berabere");
+    el.innerHTML += `
+      <div class="match-card" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'">
+        <div class="match-top">
+          <div class="match-name">${m.match}</div>
+          <div class="score">${m.score}</div>
+        </div>
+        <div class="meta">${safe(m.map,"")} ${m.timestamp ? "• " + m.timestamp : ""}</div>
+        <div class="winner">Kazanan: ${winnerName}</div>
+      </div>`;
+  });
 }
 
-function openProfile(name){
-    window.location.href = "profile.html?player=" + encodeURIComponent(name);
+function sortBy(key){
+  if(currentSort === key) asc = !asc; else { currentSort = key; asc = false; }
+  filtered.sort((a,b)=>{
+    const av = typeof a[key] === "string" ? a[key].toLowerCase() : Number(a[key]||0);
+    const bv = typeof b[key] === "string" ? b[key].toLowerCase() : Number(b[key]||0);
+    if(av < bv) return asc ? -1 : 1;
+    if(av > bv) return asc ? 1 : -1;
+    return 0;
+  });
+  renderPlayers();
 }
 
+document.getElementById("search").addEventListener("input", e=>{
+  const q = e.target.value.toLowerCase().trim();
+  filtered = players.filter(p => String(p.name||"").toLowerCase().includes(q));
+  sortBy(currentSort);
+});
+
+function goProfile(name){ location.href = "profile.html?player=" + name; }
 </script>
-
 </body>
 </html>
