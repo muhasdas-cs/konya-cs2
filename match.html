@@ -84,6 +84,15 @@ tbody tr:hover{background:rgba(249,115,22,.12); cursor:pointer}
 </div>
 
 <script>
+const NAME_MAP = {
+  "steam_301208272": "RAİDER",
+  "steam_141469239": "RBZ"
+};
+
+function displayName(name){
+  return NAME_MAP[name] || name;
+}
+
 const matchName = new URLSearchParams(location.search).get("match");
 let matchData = null;
 let asc = {1:false,2:false};
@@ -118,7 +127,7 @@ function drawTeam(players, bodyId){
   body.innerHTML = players.map(p=>{
     const kdClass = p.kd >= 1.15 ? "good" : (p.kd < .85 ? "bad" : "mid");
     return `<tr onclick="location.href='profile.html?player=${encodeURIComponent(p.name)}'">
-      <td class="player">🔫 ${p.name}</td>
+      <td class="player">🔫 ${displayName(p.name)}</td>
       <td>${p.kills}</td><td>${p.deaths}</td><td>${p.assists}</td>
       <td class="${kdClass}">${p.kd}</td><td>${p.damage}</td><td>${p.hs_percent}%</td>
       <td>${p.utility_damage}</td><td>${p.entry_wins}/${p.entry_count}</td>

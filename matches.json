@@ -1036,51 +1036,6 @@
         ]
     },
     {
-        "match": "matchzy_51_0",
-        "matchid": "51",
-        "timestamp": "2026-05-23 19:39:01",
-        "map": "de_dust2",
-        "score": "0-3",
-        "team1_score": 0,
-        "team2_score": 3,
-        "winner": 2,
-        "team1_name": "team_RΛIKU雷",
-        "team2_name": "team_Jassarez",
-        "team1": [
-            "RIKU",
-            "AyB"
-        ],
-        "team2": [
-            "Jassarez",
-            "EmreY"
-        ]
-    },
-    {
-        "match": "matchzy_52_0",
-        "matchid": "52",
-        "timestamp": "2026-05-23 19:43:48",
-        "map": "de_dust2",
-        "score": "0-1",
-        "team1_score": 0,
-        "team2_score": 1,
-        "winner": 2,
-        "team1_name": "team_AyB",
-        "team2_name": "team_EmreY",
-        "team1": [
-            "RIKU",
-            "AyB",
-            "Meso",
-            "Gararki"
-        ],
-        "team2": [
-            "Jassarez",
-            "EmreY",
-            "poizon",
-            "JusticeForAII",
-            "elbombas15Saniye"
-        ]
-    },
-    {
         "match": "matchzy_53_0",
         "matchid": "53",
         "timestamp": "2026-05-23 20:23:05",
@@ -1260,32 +1215,6 @@
             "TesserACT",
             "JusticeForAII",
             "Meso"
-        ]
-    },
-    {
-        "match": "matchzy_6_0",
-        "matchid": "6",
-        "timestamp": "2026-03-28 22:33:51",
-        "map": "de_dust2",
-        "score": "1-0",
-        "team1_score": 1,
-        "team2_score": 0,
-        "winner": 1,
-        "team1_name": "team_Meso",
-        "team2_name": "team_RΛIKU雷",
-        "team1": [
-            "AyB",
-            "EmreY",
-            "TesserACT",
-            "JusticeForAII",
-            "Meso"
-        ],
-        "team2": [
-            "steam_141469239",
-            "Eboss",
-            "steam_301208272",
-            "MuHasdas",
-            "RIKU"
         ]
     },
     {

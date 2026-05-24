@@ -3,11 +3,11 @@
         "name": "AyB",
         "steam_id": "475438229",
         "kills": 719,
-        "deaths": 641,
-        "assists": 236,
-        "damage": 77982,
-        "kd": 1.12,
-        "adr": 87.2,
+        "deaths": 637,
+        "assists": 235,
+        "damage": 77826,
+        "kd": 1.13,
+        "adr": 87.5,
         "hs_percent": 31.3,
         "utility_damage": 2934,
         "utility_count": 237,
@@ -18,7 +18,7 @@
         "entry_count": 164,
         "entry_success_rate": 54.3,
         "clutch_1v1": "11/22",
-        "clutch_1v2": "4/27",
+        "clutch_1v2": "4/25",
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -406,28 +406,6 @@
                 "kd": 1.19
             },
             {
-                "match": "matchzy_51_0",
-                "score": "0-3",
-                "team": 1,
-                "result": "LOSE",
-                "kills": 0,
-                "deaths": 2,
-                "assists": 0,
-                "damage": 82,
-                "kd": 0.0
-            },
-            {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 1,
-                "result": "LOSE",
-                "kills": 0,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
-            },
-            {
                 "match": "matchzy_53_0",
                 "score": "12-8",
                 "team": 1,
@@ -505,17 +483,6 @@
                 "kd": 1.47
             },
             {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 1,
-                "result": "WIN",
-                "kills": 0,
-                "deaths": 1,
-                "assists": 1,
-                "damage": 74,
-                "kd": 0.0
-            },
-            {
                 "match": "matchzy_9_0",
                 "score": "11-12",
                 "team": 1,
@@ -532,11 +499,11 @@
         "name": "Eboss",
         "steam_id": "1136722550",
         "kills": 166,
-        "deaths": 206,
+        "deaths": 205,
         "assists": 66,
         "damage": 19888,
         "kd": 0.81,
-        "adr": 72.3,
+        "adr": 72.6,
         "hs_percent": 47.6,
         "utility_damage": 532,
         "utility_count": 81,
@@ -693,17 +660,6 @@
                 "kd": 0.94
             },
             {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 2,
-                "result": "LOSE",
-                "kills": 0,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
-            },
-            {
                 "match": "matchzy_9_0",
                 "score": "11-12",
                 "team": 1,
@@ -724,7 +680,7 @@
         "assists": 32,
         "damage": 10719,
         "kd": 0.91,
-        "adr": 78.8,
+        "adr": 79.4,
         "hs_percent": 42.9,
         "utility_damage": 136,
         "utility_count": 5,
@@ -737,17 +693,6 @@
         "clutch_1v1": "0/4",
         "clutch_1v2": "0/5",
         "match_history": [
-            {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 2,
-                "result": "WIN",
-                "kills": 0,
-                "deaths": 0,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
-            },
             {
                 "match": "matchzy_53_0",
                 "score": "12-8",
@@ -819,21 +764,21 @@
     {
         "name": "EmreY",
         "steam_id": "1234807161",
-        "kills": 379,
+        "kills": 375,
         "deaths": 545,
-        "assists": 216,
-        "damage": 47521,
-        "kd": 0.7,
-        "adr": 62.4,
-        "hs_percent": 53.3,
+        "assists": 215,
+        "damage": 47108,
+        "kd": 0.69,
+        "adr": 62.3,
+        "hs_percent": 53.1,
         "utility_damage": 2764,
         "utility_count": 225,
         "utility_successes": 68,
-        "flash_count": 408,
-        "flash_success_rate": 67.9,
-        "enemies_flashed": 459,
-        "entry_count": 86,
-        "entry_success_rate": 46.5,
+        "flash_count": 405,
+        "flash_success_rate": 68.1,
+        "enemies_flashed": 458,
+        "entry_count": 84,
+        "entry_success_rate": 45.2,
         "clutch_1v1": "5/19",
         "clutch_1v2": "4/19",
         "match_history": [
@@ -1146,28 +1091,6 @@
                 "kd": 0.38
             },
             {
-                "match": "matchzy_51_0",
-                "score": "0-3",
-                "team": 2,
-                "result": "WIN",
-                "kills": 3,
-                "deaths": 0,
-                "assists": 0,
-                "damage": 249,
-                "kd": 3.0
-            },
-            {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 2,
-                "result": "WIN",
-                "kills": 0,
-                "deaths": 0,
-                "assists": 0,
-                "damage": 15,
-                "kd": 0.0
-            },
-            {
                 "match": "matchzy_53_0",
                 "score": "12-8",
                 "team": 1,
@@ -1245,17 +1168,6 @@
                 "kd": 0.37
             },
             {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 1,
-                "result": "WIN",
-                "kills": 1,
-                "deaths": 0,
-                "assists": 1,
-                "damage": 149,
-                "kd": 1.0
-            },
-            {
                 "match": "matchzy_9_0",
                 "score": "11-12",
                 "team": 2,
@@ -1272,11 +1184,11 @@
         "name": "Gararki",
         "steam_id": "61818139",
         "kills": 149,
-        "deaths": 145,
+        "deaths": 144,
         "assists": 60,
         "damage": 16531,
         "kd": 1.03,
-        "adr": 78.3,
+        "adr": 78.7,
         "hs_percent": 46.3,
         "utility_damage": 1445,
         "utility_count": 117,
@@ -1343,17 +1255,6 @@
                 "assists": 8,
                 "damage": 1657,
                 "kd": 0.87
-            },
-            {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 1,
-                "result": "LOSE",
-                "kills": 0,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
             },
             {
                 "match": "matchzy_53_0",
@@ -1449,21 +1350,21 @@
     {
         "name": "Jassarez",
         "steam_id": "60037131",
-        "kills": 163,
+        "kills": 161,
         "deaths": 191,
-        "assists": 61,
-        "damage": 18265,
-        "kd": 0.85,
-        "adr": 72.2,
-        "hs_percent": 41.1,
+        "assists": 58,
+        "damage": 17907,
+        "kd": 0.84,
+        "adr": 71.9,
+        "hs_percent": 41.0,
         "utility_damage": 632,
         "utility_count": 61,
         "utility_successes": 19,
         "flash_count": 116,
         "flash_success_rate": 44.0,
         "enemies_flashed": 76,
-        "entry_count": 61,
-        "entry_success_rate": 39.3,
+        "entry_count": 59,
+        "entry_success_rate": 37.3,
         "clutch_1v1": "2/6",
         "clutch_1v2": "1/9",
         "match_history": [
@@ -1521,28 +1422,6 @@
                 "assists": 9,
                 "damage": 1717,
                 "kd": 1.18
-            },
-            {
-                "match": "matchzy_51_0",
-                "score": "0-3",
-                "team": 2,
-                "result": "WIN",
-                "kills": 2,
-                "deaths": 0,
-                "assists": 1,
-                "damage": 251,
-                "kd": 2.0
-            },
-            {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 2,
-                "result": "WIN",
-                "kills": 0,
-                "deaths": 0,
-                "assists": 2,
-                "damage": 107,
-                "kd": 0.0
             },
             {
                 "match": "matchzy_53_0",
@@ -1615,21 +1494,21 @@
     {
         "name": "JusticeForAII",
         "steam_id": "393952146",
-        "kills": 515,
-        "deaths": 633,
+        "kills": 510,
+        "deaths": 632,
         "assists": 200,
-        "damage": 59187,
+        "damage": 58864,
         "kd": 0.81,
-        "adr": 68.6,
-        "hs_percent": 37.3,
+        "adr": 68.4,
+        "hs_percent": 37.5,
         "utility_damage": 4971,
         "utility_count": 449,
         "utility_successes": 148,
         "flash_count": 251,
         "flash_success_rate": 63.3,
         "enemies_flashed": 252,
-        "entry_count": 120,
-        "entry_success_rate": 46.7,
+        "entry_count": 119,
+        "entry_success_rate": 46.2,
         "clutch_1v1": "13/29",
         "clutch_1v2": "4/31",
         "match_history": [
@@ -1986,17 +1865,6 @@
                 "kd": 1.25
             },
             {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 2,
-                "result": "WIN",
-                "kills": 2,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 153,
-                "kd": 2.0
-            },
-            {
                 "match": "matchzy_53_0",
                 "score": "12-8",
                 "team": 2,
@@ -2072,17 +1940,6 @@
                 "assists": 2,
                 "damage": 2096,
                 "kd": 1.24
-            },
-            {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 1,
-                "result": "WIN",
-                "kills": 3,
-                "deaths": 0,
-                "assists": 0,
-                "damage": 170,
-                "kd": 3.0
             },
             {
                 "match": "matchzy_9_0",
@@ -2168,11 +2025,11 @@
         "name": "Meso",
         "steam_id": "315829696",
         "kills": 603,
-        "deaths": 662,
+        "deaths": 660,
         "assists": 206,
         "damage": 68333,
         "kd": 0.91,
-        "adr": 74.3,
+        "adr": 74.4,
         "hs_percent": 49.6,
         "utility_damage": 4577,
         "utility_count": 259,
@@ -2180,8 +2037,8 @@
         "flash_count": 173,
         "flash_success_rate": 90.2,
         "enemies_flashed": 269,
-        "entry_count": 139,
-        "entry_success_rate": 49.6,
+        "entry_count": 138,
+        "entry_success_rate": 50.0,
         "clutch_1v1": "14/26",
         "clutch_1v2": "2/14",
         "match_history": [
@@ -2571,17 +2428,6 @@
                 "kd": 0.75
             },
             {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 1,
-                "result": "LOSE",
-                "kills": 0,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
-            },
-            {
                 "match": "matchzy_53_0",
                 "score": "12-8",
                 "team": 2,
@@ -2657,17 +2503,6 @@
                 "assists": 7,
                 "damage": 1616,
                 "kd": 0.71
-            },
-            {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 1,
-                "result": "WIN",
-                "kills": 0,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
             },
             {
                 "match": "matchzy_9_0",
@@ -3319,7 +3154,7 @@
         "assists": 250,
         "damage": 106199,
         "kd": 1.37,
-        "adr": 104.7,
+        "adr": 104.8,
         "hs_percent": 42.6,
         "utility_damage": 5872,
         "utility_count": 458,
@@ -3850,17 +3685,6 @@
                 "kd": 1.54
             },
             {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 2,
-                "result": "LOSE",
-                "kills": 0,
-                "deaths": 0,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
-            },
-            {
                 "match": "matchzy_9_0",
                 "score": "11-12",
                 "team": 2,
@@ -3876,12 +3700,12 @@
     {
         "name": "poizon",
         "steam_id": "365362563",
-        "kills": 355,
+        "kills": 353,
         "deaths": 237,
         "assists": 103,
-        "damage": 37773,
-        "kd": 1.5,
-        "adr": 101.0,
+        "damage": 37650,
+        "kd": 1.49,
+        "adr": 100.9,
         "hs_percent": 41.1,
         "utility_damage": 2565,
         "utility_count": 192,
@@ -4016,17 +3840,6 @@
                 "kd": 1.25
             },
             {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 2,
-                "result": "WIN",
-                "kills": 2,
-                "deaths": 0,
-                "assists": 0,
-                "damage": 123,
-                "kd": 2.0
-            },
-            {
                 "match": "matchzy_53_0",
                 "score": "12-8",
                 "team": 1,
@@ -4097,23 +3910,23 @@
     {
         "name": "RIKU",
         "steam_id": "1557567091",
-        "kills": 378,
-        "deaths": 471,
+        "kills": 376,
+        "deaths": 466,
         "assists": 134,
-        "damage": 44078,
-        "kd": 0.8,
-        "adr": 69.6,
-        "hs_percent": 31.5,
+        "damage": 43935,
+        "kd": 0.81,
+        "adr": 70.0,
+        "hs_percent": 31.6,
         "utility_damage": 4056,
         "utility_count": 288,
         "utility_successes": 109,
         "flash_count": 200,
         "flash_success_rate": 58.0,
         "enemies_flashed": 173,
-        "entry_count": 100,
-        "entry_success_rate": 41.0,
+        "entry_count": 97,
+        "entry_success_rate": 42.3,
         "clutch_1v1": "6/19",
-        "clutch_1v2": "4/24",
+        "clutch_1v2": "4/23",
         "match_history": [
             {
                 "match": "matchzy_11_0",
@@ -4369,28 +4182,6 @@
                 "kd": 0.88
             },
             {
-                "match": "matchzy_51_0",
-                "score": "0-3",
-                "team": 1,
-                "result": "LOSE",
-                "kills": 0,
-                "deaths": 3,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
-            },
-            {
-                "match": "matchzy_52_0",
-                "score": "0-1",
-                "team": 1,
-                "result": "LOSE",
-                "kills": 1,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 91,
-                "kd": 1.0
-            },
-            {
                 "match": "matchzy_53_0",
                 "score": "12-8",
                 "team": 1,
@@ -4466,17 +4257,6 @@
                 "assists": 6,
                 "damage": 1828,
                 "kd": 1.12
-            },
-            {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 2,
-                "result": "LOSE",
-                "kills": 1,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 52,
-                "kd": 1.0
             },
             {
                 "match": "matchzy_9_0",
@@ -4651,11 +4431,11 @@
         "name": "steam_141469239",
         "steam_id": "141469239",
         "kills": 463,
-        "deaths": 534,
+        "deaths": 533,
         "assists": 164,
         "damage": 52407,
         "kd": 0.87,
-        "adr": 66.8,
+        "adr": 66.9,
         "hs_percent": 30.9,
         "utility_damage": 3352,
         "utility_count": 212,
@@ -4663,8 +4443,8 @@
         "flash_count": 186,
         "flash_success_rate": 67.2,
         "enemies_flashed": 205,
-        "entry_count": 98,
-        "entry_success_rate": 37.8,
+        "entry_count": 97,
+        "entry_success_rate": 38.1,
         "clutch_1v1": "7/23",
         "clutch_1v2": "11/30",
         "match_history": [
@@ -5065,17 +4845,6 @@
                 "kd": 0.87
             },
             {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 2,
-                "result": "LOSE",
-                "kills": 0,
-                "deaths": 1,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
-            },
-            {
                 "match": "matchzy_9_0",
                 "score": "11-12",
                 "team": 2,
@@ -5091,13 +4860,13 @@
     {
         "name": "steam_301208272",
         "steam_id": "301208272",
-        "kills": 680,
-        "deaths": 638,
-        "assists": 228,
-        "damage": 76639,
+        "kills": 679,
+        "deaths": 637,
+        "assists": 227,
+        "damage": 76401,
         "kd": 1.07,
-        "adr": 87.2,
-        "hs_percent": 34.9,
+        "adr": 87.0,
+        "hs_percent": 34.8,
         "utility_damage": 2421,
         "utility_count": 304,
         "utility_successes": 100,
@@ -5561,17 +5330,6 @@
                 "kd": 1.4
             },
             {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 2,
-                "result": "LOSE",
-                "kills": 1,
-                "deaths": 1,
-                "assists": 1,
-                "damage": 238,
-                "kd": 1.0
-            },
-            {
                 "match": "matchzy_9_0",
                 "score": "11-12",
                 "team": 2,
@@ -5592,7 +5350,7 @@
         "assists": 134,
         "damage": 50740,
         "kd": 1.02,
-        "adr": 80.3,
+        "adr": 80.4,
         "hs_percent": 37.9,
         "utility_damage": 1044,
         "utility_count": 66,
@@ -5923,17 +5681,6 @@
                 "assists": 4,
                 "damage": 1600,
                 "kd": 0.7
-            },
-            {
-                "match": "matchzy_6_0",
-                "score": "1-0",
-                "team": 1,
-                "result": "WIN",
-                "kills": 0,
-                "deaths": 0,
-                "assists": 0,
-                "damage": 0,
-                "kd": 0.0
             },
             {
                 "match": "matchzy_9_0",

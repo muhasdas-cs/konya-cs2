@@ -62,6 +62,15 @@ body{
 </div>
 
 <script>
+const NAME_MAP = {
+  "steam_301208272": "RAİDER",
+  "steam_141469239": "RBZ"
+};
+
+function displayName(name){
+  return NAME_MAP[name] || name;
+}
+
 const playerName = new URLSearchParams(location.search).get("player");
 
 Promise.all([
@@ -76,8 +85,8 @@ Promise.all([
     return;
   }
 
-  document.title = p.name + " Profili";
-  document.getElementById("name").innerText = "🔫 " + p.name;
+  document.title = displayName(p.name) + " Profili";
+  document.getElementById("name").innerText = "🔫 " + displayName(p.name);
   document.getElementById("meta").innerText = `${p.elo} ELO • ${p.rank} • ${p.matches} maç`;
 
   const ex = e || {};

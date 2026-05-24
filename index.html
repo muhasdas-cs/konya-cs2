@@ -92,6 +92,15 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 </div>
 
 <script>
+const NAME_MAP = {
+  "steam_301208272": "RAİDER",
+  "steam_141469239": "RBZ"
+};
+
+function displayName(name){
+  return NAME_MAP[name] || name;
+}
+
 let players = [];
 let filtered = [];
 let currentSort = "elo";
@@ -118,7 +127,7 @@ function renderPlayers(){
     body.innerHTML += `
       <tr onclick="goProfile('${encodeURIComponent(p.name)}')">
         <td>${i+1}</td>
-        <td class="player">🔫 ${safe(p.name)}</td>
+        <td class="player">🔫 ${safe(displayName(p.name))}</td>
         <td>${safe(p.elo)}</td>
         <td class="rank">${safe(p.rank)}</td>
         <td class="${wrClass}">%${safe(p.winrate,0)}</td>
@@ -163,7 +172,7 @@ function sortBy(key){
 
 document.getElementById("search").addEventListener("input", e=>{
   const q = e.target.value.toLowerCase().trim();
-  filtered = players.filter(p => String(p.name||"").toLowerCase().includes(q));
+  filtered = players.filter(p => (String(p.name||"") + " " + String(displayName(p.name)||"")).toLowerCase().includes(q));
   sortBy(currentSort);
 });
 
