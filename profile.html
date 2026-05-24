@@ -30,7 +30,33 @@ body{
   background:linear-gradient(135deg,rgba(249,115,22,.18),rgba(17,24,39,.95));
   border:1px solid var(--line); border-radius:22px; padding:26px; box-shadow:0 18px 60px rgba(0,0,0,.28);
 }
-.name{font-size:34px; font-weight:900; color:#fb923c}
+.name{font-size:34px; font-weight:900; color:#fb923c; display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.steam-link{
+  display:inline-block;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  border:1px solid #60a5fa;
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:14px;
+  font-weight:900;
+  transition:.18s;
+}
+.steam-link:hover{transform:translateY(-2px); box-shadow:0 0 18px rgba(96,165,250,.35)}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 0}
+.filter-btn{
+  border:1px solid var(--line);
+  color:white;
+  background:#0b1220;
+  border-radius:12px;
+  padding:11px 14px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.18s;
+}
+.filter-btn:hover{border-color:var(--orange);transform:translateY(-2px)}
+.filter-btn.active{background:linear-gradient(135deg,#f97316,#c2410c);border-color:#fb923c}
 .meta{margin-top:8px; color:#cbd5e1; font-weight:700}
 .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:18px}
 .stat{
@@ -60,6 +86,10 @@ body{
   <div class="hero">
     <div class="name" id="name">Yükleniyor...</div>
     <div class="meta" id="meta"></div>
+    <div class="filter-row">
+      <button id="allProfileBtn" class="filter-btn active" onclick="setProfileMode('all')">Tüm Maçlar</button>
+      <button id="last10ProfileBtn" class="filter-btn" onclick="setProfileMode('last10')">Son 10 Maç</button>
+    </div>
     <div class="grid" id="stats"></div>
   </div>
 
@@ -81,44 +111,168 @@ function displayName(name){
 
 const playerName = new URLSearchParams(location.search).get("player");
 
+let profilePlayer = null;
+let profileExtra = null;
+let matchDetails = [];
+let profileMode = "all";
+
 Promise.all([
   fetch("players.json").then(r=>r.json()),
-  fetch("players_extra.json").then(r=>r.json())
-]).then(([players, extras])=>{
-  const p = players.find(x=>x.name === playerName);
-  const e = extras.find(x=>x.name === playerName);
+  fetch("players_extra.json").then(r=>r.json()),
+  fetch("match_details.json").then(r=>r.json()).catch(()=>[])
+]).then(([players, extras, details])=>{
+  profilePlayer = players.find(x=>x.name === playerName);
+  profileExtra = extras.find(x=>x.name === playerName);
+  matchDetails = details || [];
 
-  if(!p){
+  if(!profilePlayer){
     document.getElementById("name").innerText = "Oyuncu bulunamadı";
     return;
   }
 
-  const shown = displayName(p.name);
+  const shown = displayName(profilePlayer.name);
   document.title = shown + " Profili";
-  document.getElementById("name").innerText = "🔫 " + shown;
-  document.getElementById("meta").innerText = `${p.matches} maç • ${p.rounds} round`;
 
-  const ex = e || {};
+  const steamButton = profilePlayer.steam_id
+    ? `<a class="steam-link" target="_blank" href="https://steamcommunity.com/profiles/${profilePlayer.steam_id}">Steam Profili</a>`
+    : "";
+
+  document.getElementById("name").innerHTML = `🔫 ${shown} ${steamButton}`;
+  renderProfile("all");
+});
+
+function matchNumber(matchName){
+  const nums = String(matchName || "").match(/\d+/g);
+  if(!nums || !nums.length) return 0;
+  return Number(nums[0]);
+}
+
+function matchRoundsFromScore(score){
+  const parts = String(score || "").split("-");
+  if(parts.length !== 2) return 0;
+  return Number(parts[0] || 0) + Number(parts[1] || 0);
+}
+
+function playerMvpScore(p){
+  const clutchWins = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
+  return (
+    Number(p.kills || 0) * 2 +
+    Number(p.assists || 0) +
+    Number(p.damage || 0) / 100 +
+    Number(p.entry_wins || 0) * 2 +
+    clutchWins * 3 -
+    Number(p.deaths || 0)
+  );
+}
+
+function collectPlayerMatches(limitMode){
+  let appearances = [];
+
+  (matchDetails || []).forEach(m=>{
+    const all = [...(m.team1_players || []), ...(m.team2_players || [])];
+    const found = all.find(p => p.name === playerName || displayName(p.name) === displayName(playerName));
+    if(found){
+      appearances.push({match:m, player:found});
+    }
+  });
+
+  appearances.sort((a,b)=>matchNumber(b.match.match)-matchNumber(a.match.match));
+
+  if(limitMode === "last10") return appearances.slice(0,10);
+  return appearances;
+}
+
+function calcStatsFromAppearances(appearances){
+  let kills = 0, deaths = 0, assists = 0, damage = 0, hs = 0, rounds = 0;
+  let utilityDamage = 0, flashCount = 0, flashSuccess = 0, entryCount = 0, entryWins = 0;
+  let c1Count = 0, c1Wins = 0, c2Count = 0, c2Wins = 0;
+  let edo = 0;
+
+  appearances.forEach(({match, player})=>{
+    kills += Number(player.kills || 0);
+    deaths += Number(player.deaths || 0);
+    assists += Number(player.assists || 0);
+    damage += Number(player.damage || 0);
+    hs += Number(player.headshot_kills || 0);
+    rounds += Number(match.rounds || matchRoundsFromScore(match.score) || 0);
+
+    utilityDamage += Number(player.utility_damage || 0);
+    flashCount += Number(player.flash_count || 0);
+    flashSuccess += Number(player.flash_successes || 0);
+    entryCount += Number(player.entry_count || 0);
+    entryWins += Number(player.entry_wins || 0);
+
+    c1Count += Number(player.clutch_1v1_count || 0);
+    c1Wins += Number(player.clutch_1v1_wins || 0);
+    c2Count += Number(player.clutch_1v2_count || 0);
+    c2Wins += Number(player.clutch_1v2_wins || 0);
+
+    const all = [...(match.team1_players || []), ...(match.team2_players || [])];
+    let best = null;
+    let bestScore = -999999;
+
+    all.forEach(p=>{
+      const score = playerMvpScore(p);
+      if(score > bestScore){
+        bestScore = score;
+        best = p.name;
+      }
+    });
+
+    if(best === player.name) edo += 1;
+  });
+
+  const kd = deaths ? Number((kills/deaths).toFixed(2)) : kills;
+  const adr = rounds ? Number((damage/rounds).toFixed(1)) : 0;
+  const hsPercent = kills ? Number(((hs/kills)*100).toFixed(1)) : 0;
+  const flashRate = flashCount ? Number(((flashSuccess/flashCount)*100).toFixed(1)) : 0;
+  const entryRate = entryCount ? Number(((entryWins/entryCount)*100).toFixed(1)) : 0;
+
+  return {
+    matches: appearances.length,
+    rounds, kills, deaths, assists, damage,
+    kd, adr, hsPercent, utilityDamage,
+    flashRate, entryRate,
+    clutch1: `${c1Wins}/${c1Count}`,
+    clutch2: `${c2Wins}/${c2Count}`,
+    clutchTotal: `${c1Wins+c2Wins}/${c1Count+c2Count}`,
+    edo
+  };
+}
+
+function setProfileMode(mode){
+  renderProfile(mode);
+}
+
+function renderProfile(mode){
+  profileMode = mode;
+
+  document.getElementById("allProfileBtn").classList.toggle("active", mode === "all");
+  document.getElementById("last10ProfileBtn").classList.toggle("active", mode === "last10");
+
+  const appearances = collectPlayerMatches(mode);
+  const st = calcStatsFromAppearances(appearances);
+
+  document.getElementById("meta").innerText = `${st.matches} maç • ${st.rounds} round`;
+
   const stats = [
-    ["K/D", p.kd], ["ADR", p.adr], ["Matches", p.matches],
-    ["HS%", p.hs_percent + "%"], ["Kills", ex.kills || 0],
-    ["Assists", ex.assists || 0], ["Deaths", ex.deaths || 0],
-    ["Utility DMG", ex.utility_damage || 0],
-    ["Flash Başarı", "%" + (ex.flash_success_rate || 0)],
-    ["Entry Başarı", "%" + (ex.entry_success_rate || 0)]
+    ["K/D", st.kd], ["ADR", st.adr], ["Matches", st.matches],
+    ["HS%", st.hsPercent + "%"], ["Kills", st.kills],
+    ["Assists", st.assists], ["Deaths", st.deaths],
+    ["EDO", "🏅 " + st.edo],
+    ["1v1 Clutch", st.clutch1],
+    ["1v2 Clutch", st.clutch2],
+    ["Toplam Clutch", st.clutchTotal],
+    ["Utility DMG", st.utilityDamage],
+    ["Flash Başarı", "%" + st.flashRate],
+    ["Entry Başarı", "%" + st.entryRate]
   ];
 
   document.getElementById("stats").innerHTML = stats.map(s=>`
     <div class="stat"><div class="value">${s[1]}</div><div class="label">${s[0]}</div></div>
   `).join("");
 
-  function matchNumber(matchName){
-    const nums = String(matchName || "").match(/\d+/g);
-    if(!nums || !nums.length) return 0;
-    return Number(nums[0]);
-  }
-
-  const history = (ex.match_history || [])
+  const history = (profileExtra?.match_history || [])
     .slice()
     .sort((a,b)=>matchNumber(b.match)-matchNumber(a.match));
 
@@ -132,7 +286,7 @@ Promise.all([
         <div class="score-pill">${m.score}</div>
       </div>`;
   }).join("");
-});
+}
 </script>
 </body>
 </html>

@@ -77,7 +77,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 .matches-toggle-row .section-title{margin:0}
 .matches.collapsed{display:none}
 @media(max-width:720px){
-  th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8){display:none}
+  th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8),th:nth-child(9),td:nth-child(9){display:none}
   .header h1{font-size:26px}
 }
 </style>
@@ -108,6 +108,8 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <th onclick="sortBy('kd')">K/D</th>
           <th onclick="sortBy('matches')">Maç</th>
           <th onclick="sortBy('hs_percent')">HS%</th>
+          <th onclick="sortBy('edo')">EDO</th>
+          <th onclick="sortBy('clutch_rate')">Clutch</th>
           <th onclick="sortBy('rounds')">Rounds</th>
         </tr>
       </thead>
@@ -176,10 +178,16 @@ Promise.all([
   fetch("matches.json").then(r=>r.json()),
   fetch("match_details.json").then(r=>r.json()).catch(()=>[])
 ]).then(([p,m,d])=>{
-  allPlayers = p || [];
   matchesData = m || [];
   matchDetailsData = d || [];
+
+  const allAwards = buildHtmlAwards(p || [], matchDetailsData);
+  allPlayers = enrichPlayersWithAwards(p || [], allAwards);
+
   last10Players = buildLast10Players(allPlayers, matchDetailsData);
+  const last10Awards = buildHtmlAwards(last10Players, getLast10Details(matchDetailsData));
+  last10Players = enrichPlayersWithAwards(last10Players, last10Awards);
+
   currentPlayers = allPlayers;
   filtered = [...currentPlayers];
   sortBy("adr", true);
@@ -199,6 +207,178 @@ function matchRoundsFromScore(score){
   const parts = String(score || "").split("-");
   if(parts.length !== 2) return 0;
   return Number(parts[0] || 0) + Number(parts[1] || 0);
+}
+
+function clutchText(wins, count){
+  return `${wins || 0}/${count || 0}`;
+}
+
+function clutchRate(wins, count){
+  return count ? Number(((wins / count) * 100).toFixed(1)) : 0;
+}
+
+function playerMvpScore(p){
+  const clutchWins = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
+  return (
+    Number(p.kills || 0) * 2 +
+    Number(p.assists || 0) +
+    Number(p.damage || 0) / 100 +
+    Number(p.entry_wins || 0) * 2 +
+    clutchWins * 3 -
+    Number(p.deaths || 0)
+  );
+}
+
+function buildHtmlAwards(players, details){
+  const map = {};
+  (players || []).forEach(p=>{
+    map[p.name] = {edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
+  });
+
+  (details || []).forEach(m=>{
+    const all = [...(m.team1_players || []), ...(m.team2_players || [])];
+    if(!all.length) return;
+
+    let best = null;
+    let bestScore = -999999;
+
+    all.forEach(p=>{
+      const key = p.name;
+      if(!map[key]) map[key] = {edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
+
+      const cw = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
+      const cc = Number(p.clutch_1v1_count || 0) + Number(p.clutch_1v2_count || 0);
+      map[key].clutch_wins += cw;
+      map[key].clutch_count += cc;
+
+      const score = playerMvpScore(p);
+      if(score > bestScore){
+        bestScore = score;
+        best = key;
+      }
+    });
+
+    if(best && map[best]) map[best].edo += 1;
+  });
+
+  Object.keys(map).forEach(k=>{
+    map[k].clutch_rate = clutchRate(map[k].clutch_wins, map[k].clutch_count);
+    map[k].clutch_text = clutchText(map[k].clutch_wins, map[k].clutch_count);
+  });
+
+  return map;
+}
+
+function enrichPlayersWithAwards(players, awards){
+  return (players || []).map(p=>{
+    const a = awards[p.name] || {};
+    return {
+      ...p,
+      edo: a.edo || 0,
+      clutch_wins: a.clutch_wins || 0,
+      clutch_count: a.clutch_count || 0,
+      clutch_rate: a.clutch_rate || 0,
+      clutch_text: a.clutch_text || "0/0"
+    };
+  });
+}
+
+function clutchText(wins, count){
+  return `${wins || 0}/${count || 0}`;
+}
+
+function clutchRate(wins, count){
+  return count ? Number(((wins / count) * 100).toFixed(1)) : 0;
+}
+
+function playerMvpScore(p){
+  const clutchWins = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
+  return (
+    Number(p.kills || 0) * 2 +
+    Number(p.assists || 0) +
+    Number(p.damage || 0) / 100 +
+    Number(p.entry_wins || 0) * 2 +
+    clutchWins * 3 -
+    Number(p.deaths || 0)
+  );
+}
+
+function buildHtmlAwards(players, details){
+  const map = {};
+
+  (players || []).forEach(p=>{
+    map[p.name] = {
+      edo:0,
+      clutch_wins:0,
+      clutch_count:0,
+      clutch_rate:0,
+      clutch_text:"0/0"
+    };
+  });
+
+  (details || []).forEach(m=>{
+    const all = [...(m.team1_players || []), ...(m.team2_players || [])];
+    if(!all.length) return;
+
+    let best = null;
+    let bestScore = -999999;
+
+    all.forEach(p=>{
+      const key = p.name;
+      if(!map[key]){
+        map[key] = {edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
+      }
+
+      const cw = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
+      const cc = Number(p.clutch_1v1_count || 0) + Number(p.clutch_1v2_count || 0);
+
+      map[key].clutch_wins += cw;
+      map[key].clutch_count += cc;
+
+      const score = playerMvpScore(p);
+      if(score > bestScore){
+        bestScore = score;
+        best = key;
+      }
+    });
+
+    if(best && map[best]) map[best].edo += 1;
+  });
+
+  Object.keys(map).forEach(k=>{
+    map[k].clutch_rate = clutchRate(map[k].clutch_wins, map[k].clutch_count);
+    map[k].clutch_text = clutchText(map[k].clutch_wins, map[k].clutch_count);
+  });
+
+  return map;
+}
+
+function enrichPlayersWithAwards(players, awards){
+  return (players || []).map(p=>{
+    const a = awards[p.name] || {};
+    return {
+      ...p,
+      edo: a.edo || 0,
+      clutch_wins: a.clutch_wins || 0,
+      clutch_count: a.clutch_count || 0,
+      clutch_rate: a.clutch_rate || 0,
+      clutch_text: a.clutch_text || "0/0"
+    };
+  });
+}
+
+function getLast10Details(details){
+  return (details || [])
+    .slice()
+    .sort((a,b)=>matchNumber(b.match)-matchNumber(a.match))
+    .slice(0,10);
+}
+
+function getLast10Details(details){
+  return (details || [])
+    .slice()
+    .sort((a,b)=>matchNumber(b.match)-matchNumber(a.match))
+    .slice(0,10);
 }
 
 function buildLast10Players(players, details){
@@ -277,6 +457,8 @@ function renderPlayers(){
         <td class="${kdClass}">${safe(p.kd,0)}</td>
         <td>${safe(p.matches,0)}</td>
         <td>${safe(p.hs_percent,0)}%</td>
+        <td>🏅 ${safe(p.edo,0)}</td>
+        <td>${safe(p.clutch_text,"0/0")}</td>
         <td>${safe(p.rounds,0)}</td>
       </tr>`;
   });
