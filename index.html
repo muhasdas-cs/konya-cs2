@@ -37,6 +37,16 @@ tr{transition:.18s}
 tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:pointer}
 .player{text-align:left}
 .good{color:var(--green)} .bad{color:var(--red)} .mid{color:var(--yellow)}
+.rank-badge{
+  display:inline-block;
+  margin-top:4px;
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:rgba(249,115,22,.16);
+  color:#fb923c;
+  font-weight:900;
+}
 .section-title{margin:34px 0 14px; font-size:24px}
 .matches{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px}
 .match-card{background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:16px; padding:14px; transition:.18s; cursor:pointer}
@@ -113,6 +123,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <th onclick="sortBy('round_edo')">Round EDO</th>
           <th onclick="sortBy('clutch_rate')">Clutch</th>
           <th onclick="sortBy('rounds')">Rounds</th>
+          <th onclick="sortBy('overall')">Overall</th>
         </tr>
       </thead>
       <tbody id="playersBody"></tbody>
@@ -191,24 +202,88 @@ Promise.all([
   matchDetailsData = d || [];
 
   const allAwards = buildHtmlAwards(p || [], matchDetailsData);
-  allPlayers = enrichPlayersWithAwards(p || [], allAwards);
+  allPlayers = enrichOverall(enrichPlayersWithAwards(p || [], allAwards));
 
   last10Players = buildLast10Players(allPlayers, matchDetailsData);
   const last10Awards = buildHtmlAwards(last10Players, getLast10Details(matchDetailsData));
-  last10Players = enrichPlayersWithAwards(last10Players, last10Awards);
+  last10Players = enrichOverall(enrichPlayersWithAwards(last10Players, last10Awards));
 
   last20Players = buildLast20Players(allPlayers, matchDetailsData);
   const last20Awards = buildHtmlAwards(last20Players, getLast20Details(matchDetailsData));
-  last20Players = enrichPlayersWithAwards(last20Players, last20Awards);
+  last20Players = enrichOverall(enrichPlayersWithAwards(last20Players, last20Awards));
 
   currentPlayers = allPlayers;
   filtered = [...currentPlayers];
-  sortBy("adr", true);
+  sortBy("overall", true);
   renderBuilderPlayers();
   renderMatches(matchesData);
 });
 
 function safe(v, fallback=""){ return (v===undefined || v===null || Number.isNaN(v)) ? fallback : v; }
+
+function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
+
+function normalize(v,min,max){
+  const n = (Number(v || 0) - min) / (max - min);
+  return clamp(n,0,1);
+}
+
+function clutchScore(p){
+  const wins = Number(p.clutch_wins || 0);
+  const count = Number(p.clutch_count || 0);
+  if(!count) return 0;
+  return wins / count;
+}
+
+function entryScore(p){
+  const wins = Number(p.entry_wins || 0);
+  const count = Number(p.entry_count || 0);
+  if(!count) return 0;
+  return wins / count;
+}
+
+function overallRank(score){
+  if(score < 45) return "Bronze";
+  if(score < 60) return "Silver";
+  if(score < 72) return "Gold";
+  if(score < 84) return "Platinum";
+  if(score < 92) return "Diamond";
+  return "Immortal";
+}
+
+function calculateOverall(p){
+  const adrScore = normalize(p.adr, 45, 115);
+  const kdScore = normalize(p.kd, 0.55, 1.75);
+
+  const matches = Math.max(Number(p.matches || 1), 1);
+  const edoPerMatch = Number(p.round_edo ?? p.mvps ?? 0) / matches;
+  const edoScore = normalize(edoPerMatch, 0, 3.2);
+
+  const clutch = clutchScore(p);
+  const entry = entryScore(p);
+
+  const total =
+    adrScore * 35 +
+    edoScore * 25 +
+    kdScore * 20 +
+    entry * 10 +
+    clutch * 10;
+
+  return Math.round(total);
+}
+
+function enrichOverall(players){
+  return (players || []).map(p=>{
+    const overall = calculateOverall(p);
+    return {
+      ...p,
+      overall,
+      elo: overall,
+      rank: overallRank(overall)
+    };
+  });
+}
+
 
 function matchNumber(matchName){
   const nums = String(matchName || "").match(/\d+/g);
@@ -248,7 +323,7 @@ function buildHtmlAwards(players, details){
   (players || []).forEach(p=>{
     map[p.name] = {
       edo:0,
-      round_edo:0,
+      round_edo:Number(p.round_edo || p.mvps || 0),
       clutch_wins:0,
       clutch_count:0,
       clutch_rate:0,
@@ -392,7 +467,11 @@ function buildLimitedPlayers(players, details, limit){
           deaths: Number(found.deaths || 0),
           damage: Number(found.damage || 0),
           hs: Number(found.headshot_kills || 0),
-          round_edo: Number(found.round_edo || found.mvps || 0)
+          round_edo: Number(found.round_edo || found.mvps || 0),
+          entry_count: Number(found.entry_count || 0),
+          entry_wins: Number(found.entry_wins || 0),
+          clutch_wins: Number(found.clutch_1v1_wins || 0) + Number(found.clutch_1v2_wins || 0),
+          clutch_count: Number(found.clutch_1v1_count || 0) + Number(found.clutch_1v2_count || 0)
         });
       }
     });
@@ -406,6 +485,10 @@ function buildLimitedPlayers(players, details, limit){
     const hs = last.reduce((s,x)=>s+x.hs,0);
     const rounds = last.reduce((s,x)=>s+x.rounds,0);
     const roundEdo = last.reduce((s,x)=>s+Number(x.round_edo || 0),0);
+    const entryCount = last.reduce((s,x)=>s+Number(x.entry_count || 0),0);
+    const entryWins = last.reduce((s,x)=>s+Number(x.entry_wins || 0),0);
+    const clutchCount = last.reduce((s,x)=>s+Number(x.clutch_count || 0),0);
+    const clutchWins = last.reduce((s,x)=>s+Number(x.clutch_wins || 0),0);
 
     return {
       ...base,
@@ -415,6 +498,12 @@ function buildLimitedPlayers(players, details, limit){
       hs_percent: kills ? Number(((hs/kills)*100).toFixed(1)) : 0,
       round_edo: roundEdo,
       mvps: roundEdo,
+      entry_count: entryCount,
+      entry_wins: entryWins,
+      clutch_count: clutchCount,
+      clutch_wins: clutchWins,
+      clutch_rate: clutchCount ? Number(((clutchWins / clutchCount) * 100).toFixed(1)) : 0,
+      clutch_text: `${clutchWins}/${clutchCount}`,
       rounds: rounds
     };
   });
@@ -471,6 +560,10 @@ function renderPlayers(){
         <td>⭐ ${safe(p.round_edo ?? p.mvps,0)}</td>
         <td>${safe(p.clutch_text,"0/0")}</td>
         <td>${safe(p.rounds,0)}</td>
+        <td>
+          <div>⚡ ${safe(p.overall,0)}</div>
+          <div class="rank-badge">${safe(p.rank,"Bronze")}</div>
+        </td>
       </tr>`;
   });
 }
