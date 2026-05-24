@@ -248,7 +248,7 @@ function buildHtmlAwards(players, details){
   (players || []).forEach(p=>{
     map[p.name] = {
       edo:0,
-      round_edo:Number(p.round_edo || p.mvps || 0),
+      round_edo:0,
       clutch_wins:0,
       clutch_count:0,
       clutch_rate:0,
