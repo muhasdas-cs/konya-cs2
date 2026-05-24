@@ -1,453 +1,21 @@
 [
     {
-        "match": "matchzy_11_0",
-        "matchid": "11",
-        "timestamp": "2026-03-29 00:02:51",
-        "map": "de_dust2",
-        "score": "9-12",
-        "team1_score": 9,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_Meso",
-        "team2_name": "team_JusticeForAII",
-        "team1": [
-            "steam_141469239",
-            "steam_301208272",
-            "EmreY",
-            "MuHasdas",
-            "Meso"
-        ],
-        "team2": [
-            "Eboss",
-            "AyB",
-            "TesserACT",
-            "RIKU",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_12_0",
-        "matchid": "12",
-        "timestamp": "2026-03-29 00:29:30",
-        "map": "de_dust2",
-        "score": "0-12",
-        "team1_score": 0,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_JusticeForAII",
-        "team2_name": "team_Meso",
-        "team1": [
-            "steam_141469239",
-            "steam_301208272",
-            "EmreY",
-            "MuHasdas",
-            "Meso"
-        ],
-        "team2": [
-            "Eboss",
-            "AyB",
-            "TesserACT",
-            "RIKU",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_13_0",
-        "matchid": "13",
-        "timestamp": "2026-04-11 20:18:41",
-        "map": "de_dust2",
-        "score": "5-12",
-        "team1_score": 5,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_MEST",
-        "team2_name": "team_RΛIKU雷",
-        "team1": [
-            "RIKU",
-            "mevsel",
-            "steam_301208272",
-            "AyB",
-            "JusticeForAII"
-        ],
-        "team2": [
-            "MEST",
-            "MuHasdas",
-            "SS",
-            "EmreY",
-            "TesserACT"
-        ]
-    },
-    {
-        "match": "matchzy_14_0",
-        "matchid": "14",
-        "timestamp": "2026-04-11 21:07:45",
-        "map": "de_dust2",
-        "score": "10-12",
-        "team1_score": 10,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_EmreY",
-        "team2_name": "team_JusticeForAII",
-        "team1": [
-            "MEST",
-            "MuHasdas",
-            "SS",
-            "EmreY",
-            "TesserACT"
-        ],
-        "team2": [
-            "RIKU",
-            "mevsel",
-            "steam_301208272",
-            "AyB",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_15_0",
-        "matchid": "15",
-        "timestamp": "2026-04-11 21:52:42",
-        "map": "de_dust2",
-        "score": "8-12",
-        "team1_score": 8,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_AyB",
-        "team2_name": "team_MuHasdas",
-        "team1": [
-            "MEST",
-            "MuHasdas",
-            "SS",
-            "EmreY",
-            "TesserACT"
-        ],
-        "team2": [
-            "RIKU",
-            "mevsel",
-            "steam_301208272",
-            "AyB",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_16_0",
-        "matchid": "16",
-        "timestamp": "2026-04-11 22:20:12",
-        "map": "de_dust2",
-        "score": "4-12",
-        "team1_score": 4,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_AyB",
-        "team2_name": "team_MuHasdas",
-        "team1": [
-            "MEST",
-            "MuHasdas",
-            "SS",
-            "EmreY",
-            "TesserACT"
-        ],
-        "team2": [
-            "RIKU",
-            "mevsel",
-            "steam_301208272",
-            "AyB",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_17_0",
-        "matchid": "17",
-        "timestamp": "2026-04-11 23:03:58",
-        "map": "de_dust2",
-        "score": "8-12",
-        "team1_score": 8,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_MuHasdas",
-        "team2_name": "team_AyB",
-        "team1": [
-            "RIKU",
-            "mevsel",
-            "steam_301208272",
-            "AyB",
-            "JusticeForAII"
-        ],
-        "team2": [
-            "MEST",
-            "MuHasdas",
-            "SS",
-            "EmreY",
-            "TesserACT"
-        ]
-    },
-    {
-        "match": "matchzy_20_0",
-        "matchid": "20",
-        "timestamp": "2026-04-18 20:25:56",
-        "map": "de_dust2",
-        "score": "12-7",
-        "team1_score": 12,
-        "team2_score": 7,
-        "winner": 1,
-        "team1_name": "team_MuHasdas",
-        "team2_name": "team_Meso",
-        "team1": [
-            "MuHasdas",
-            "MEST",
-            "TesserACT",
-            "steam_141469239"
-        ],
-        "team2": [
-            "Meso",
-            "steam_301208272"
-        ]
-    },
-    {
-        "match": "matchzy_21_0",
-        "matchid": "21",
-        "timestamp": "2026-04-18 20:56:31",
-        "map": "de_dust2",
-        "score": "12-7",
-        "team1_score": 12,
-        "team2_score": 7,
-        "winner": 1,
-        "team1_name": "team_mevsel",
-        "team2_name": "team_JusticeForAII",
-        "team1": [
-            "Meso",
-            "AyB",
-            "steam_301208272",
-            "RIKU",
-            "mevsel"
-        ],
-        "team2": [
-            "MuHasdas",
-            "MEST",
-            "TesserACT",
-            "steam_141469239",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_22_0",
-        "matchid": "22",
-        "timestamp": "2026-04-18 21:47:29",
-        "map": "de_dust2",
-        "score": "12-15",
-        "team1_score": 12,
-        "team2_score": 15,
-        "winner": 2,
-        "team1_name": "team_JusticeForAII",
-        "team2_name": "team_mevsel",
-        "team1": [
-            "Meso",
-            "AyB",
-            "steam_301208272",
-            "RIKU",
-            "mevsel"
-        ],
-        "team2": [
-            "MuHasdas",
-            "MEST",
-            "TesserACT",
-            "steam_141469239",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_23_0",
-        "matchid": "23",
-        "timestamp": "2026-04-18 22:32:25",
-        "map": "de_dust2",
-        "score": "9-12",
-        "team1_score": 9,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_",
-        "team2_name": "team_mevsel",
-        "team1": [
-            "Meso",
-            "AyB",
-            "steam_301208272",
-            "RIKU",
-            "mevsel"
-        ],
-        "team2": [
-            "MuHasdas",
-            "MEST",
-            "TesserACT",
-            "steam_141469239",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_24_0",
-        "matchid": "24",
-        "timestamp": "2026-04-18 23:37:49",
-        "map": "de_dust2",
-        "score": "12-7",
-        "team1_score": 12,
-        "team2_score": 7,
-        "winner": 1,
-        "team1_name": "team_",
-        "team2_name": "team_mevsel",
-        "team1": [
-            "Meso",
-            "MuHasdas",
-            "MEST",
-            "TesserACT",
-            "steam_141469239"
-        ],
-        "team2": [
-            "AyB",
-            "steam_301208272",
-            "RIKU",
-            "JusticeForAII",
-            "mevsel"
-        ]
-    },
-    {
-        "match": "matchzy_25_0",
-        "matchid": "25",
-        "timestamp": "2026-04-19 00:09:49",
-        "map": "de_dust2",
-        "score": "5-12",
-        "team1_score": 5,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_mevsel",
-        "team2_name": "team_",
-        "team1": [
-            "AyB",
-            "steam_301208272",
-            "RIKU",
-            "JusticeForAII",
-            "mevsel"
-        ],
-        "team2": [
-            "Meso",
-            "MuHasdas",
-            "MEST",
-            "TesserACT",
-            "steam_141469239"
-        ]
-    },
-    {
-        "match": "matchzy_26_0",
-        "matchid": "26",
-        "timestamp": "2026-04-19 00:48:35",
-        "map": "de_dust2",
-        "score": "9-12",
-        "team1_score": 9,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_mevsel",
-        "team2_name": "team_",
-        "team1": [
-            "AyB",
-            "steam_301208272",
-            "RIKU",
-            "JusticeForAII",
-            "mevsel"
-        ],
-        "team2": [
-            "Meso",
-            "MuHasdas",
-            "MEST",
-            "TesserACT",
-            "steam_141469239"
-        ]
-    },
-    {
-        "match": "matchzy_27_0",
-        "matchid": "27",
-        "timestamp": "2026-04-25 21:31:32",
-        "map": "de_dust2",
-        "score": "5-12",
-        "team1_score": 5,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_",
-        "team2_name": "team_Eboss",
-        "team1": [
-            "Eboss",
-            "poizon",
-            "MuHasdas",
-            "MEST",
-            "EmreY"
-        ],
-        "team2": [
-            "Meso",
-            "steam_141469239",
-            "RIKU",
-            "steam_301208272",
-            "AyB"
-        ]
-    },
-    {
-        "match": "matchzy_28_0",
-        "matchid": "28",
-        "timestamp": "2026-04-25 22:19:14",
-        "map": "de_dust2",
-        "score": "11-12",
-        "team1_score": 11,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_AyB",
-        "team2_name": "team_EmreY",
-        "team1": [
-            "Meso",
-            "steam_141469239",
-            "RIKU",
-            "steam_301208272",
-            "AyB"
-        ],
-        "team2": [
-            "Eboss",
-            "poizon",
-            "MuHasdas",
-            "MEST",
-            "EmreY"
-        ]
-    },
-    {
-        "match": "matchzy_29_0",
-        "matchid": "29",
-        "timestamp": "2026-04-25 22:54:25",
-        "map": "de_dust2",
-        "score": "12-7",
-        "team1_score": 12,
-        "team2_score": 7,
-        "winner": 1,
-        "team1_name": "team_AyB",
-        "team2_name": "team_EmreY",
-        "team1": [
-            "poizon",
-            "Meso",
-            "RIKU",
-            "steam_301208272",
-            "AyB"
-        ],
-        "team2": [
-            "Eboss",
-            "MuHasdas",
-            "steam_141469239",
-            "MEST",
-            "EmreY"
-        ]
-    },
-    {
         "match": "matchzy_2_0",
         "matchid": "2",
         "timestamp": "2026-03-28 20:04:07",
         "map": "de_dust2",
-        "score": "7-12",
+        "score": "7-13",
+        "raw_score": "7-12",
+        "score_corrected": true,
         "team1_score": 7,
-        "team2_score": 12,
+        "team2_score": 13,
+        "raw_team1_score": 7,
+        "raw_team2_score": 12,
         "winner": 2,
-        "team1_name": "team_TesserACT",
-        "team2_name": "team_Eboss",
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_TesserACT",
+        "original_team2_name": "team_Eboss",
         "team1": [
             "MuHasdas",
             "RIKU",
@@ -464,250 +32,22 @@
         ]
     },
     {
-        "match": "matchzy_31_0",
-        "matchid": "31",
-        "timestamp": "2026-04-25 23:42:39",
-        "map": "de_dust2",
-        "score": "11-12",
-        "team1_score": 11,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_Eboss",
-        "team2_name": "team_AyB",
-        "team1": [
-            "AyB",
-            "steam_301208272",
-            "Meso",
-            "RIKU",
-            "poizon"
-        ],
-        "team2": [
-            "steam_141469239",
-            "Eboss",
-            "EmreY",
-            "MEST",
-            "MuHasdas"
-        ]
-    },
-    {
-        "match": "matchzy_32_0",
-        "matchid": "32",
-        "timestamp": "2026-04-26 00:18:20",
-        "map": "de_dust2",
-        "score": "4-12",
-        "team1_score": 4,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_",
-        "team2_name": "team_poizon",
-        "team1": [
-            "AyB",
-            "steam_301208272",
-            "Meso",
-            "RIKU",
-            "poizon"
-        ],
-        "team2": [
-            "steam_141469239",
-            "Eboss",
-            "EmreY",
-            "MEST",
-            "MuHasdas"
-        ]
-    },
-    {
-        "match": "matchzy_33_0",
-        "matchid": "33",
-        "timestamp": "2026-04-26 00:58:11",
-        "map": "de_dust2",
-        "score": "7-12",
-        "team1_score": 7,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_",
-        "team2_name": "team_poizon",
-        "team1": [
-            "steam_301208272",
-            "steam_141469239",
-            "Eboss",
-            "RIKU",
-            "poizon"
-        ],
-        "team2": [
-            "AyB",
-            "Meso",
-            "EmreY",
-            "MEST",
-            "MuHasdas"
-        ]
-    },
-    {
-        "match": "matchzy_34_0",
-        "matchid": "34",
-        "timestamp": "2026-04-26 01:27:30",
-        "map": "de_dust2",
-        "score": "4-12",
-        "team1_score": 4,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_MuHasdas",
-        "team2_name": "team_",
-        "team1": [
-            "AyB",
-            "Meso",
-            "EmreY",
-            "MEST",
-            "MuHasdas"
-        ],
-        "team2": [
-            "steam_301208272",
-            "steam_141469239",
-            "Eboss",
-            "RIKU",
-            "poizon"
-        ]
-    },
-    {
-        "match": "matchzy_35_0",
-        "matchid": "35",
-        "timestamp": "2026-04-30 20:18:37",
-        "map": "de_dust2",
-        "score": "9-12",
-        "team1_score": 9,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_",
-        "team2_name": "team_EmreY",
-        "team1": [
-            "EmreY",
-            "MEST",
-            "MuHasdas",
-            "TesserACT",
-            "mevsel"
-        ],
-        "team2": [
-            "steam_141469239",
-            "steam_301208272",
-            "Meso",
-            "AyB",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_36_0",
-        "matchid": "36",
-        "timestamp": "2026-04-30 20:58:22",
-        "map": "de_dust2",
-        "score": "9-12",
-        "team1_score": 9,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_JusticeForAII",
-        "team2_name": "team_mevsel",
-        "team1": [
-            "steam_141469239",
-            "steam_301208272",
-            "Meso",
-            "AyB",
-            "JusticeForAII"
-        ],
-        "team2": [
-            "EmreY",
-            "MEST",
-            "MuHasdas",
-            "TesserACT",
-            "mevsel"
-        ]
-    },
-    {
-        "match": "matchzy_37_0",
-        "matchid": "37",
-        "timestamp": "2026-04-30 21:50:19",
-        "map": "de_dust2",
-        "score": "11-12",
-        "team1_score": 11,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_mevsel",
-        "team2_name": "team_MuHasdas",
-        "team1": [
-            "EmreY",
-            "MEST",
-            "Meso",
-            "AyB",
-            "MuHasdas"
-        ],
-        "team2": [
-            "steam_141469239",
-            "steam_301208272",
-            "JusticeForAII",
-            "TesserACT",
-            "mevsel"
-        ]
-    },
-    {
-        "match": "matchzy_38_0",
-        "matchid": "38",
-        "timestamp": "2026-04-30 22:28:30",
-        "map": "de_dust2",
-        "score": "7-12",
-        "team1_score": 7,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_MuHasdas",
-        "team2_name": "team_mevsel",
-        "team1": [
-            "steam_141469239",
-            "steam_301208272",
-            "JusticeForAII",
-            "TesserACT",
-            "mevsel"
-        ],
-        "team2": [
-            "EmreY",
-            "MEST",
-            "Meso",
-            "AyB",
-            "MuHasdas"
-        ]
-    },
-    {
-        "match": "matchzy_39_0",
-        "matchid": "39",
-        "timestamp": "2026-04-30 23:02:34",
-        "map": "de_dust2",
-        "score": "4-12",
-        "team1_score": 4,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_EmreY",
-        "team2_name": "team_",
-        "team1": [
-            "EmreY",
-            "MEST",
-            "Meso",
-            "AyB",
-            "MuHasdas"
-        ],
-        "team2": [
-            "steam_141469239",
-            "TesserACT",
-            "mevsel",
-            "steam_301208272",
-            "JusticeForAII"
-        ]
-    },
-    {
         "match": "matchzy_3_0",
         "matchid": "3",
         "timestamp": "2026-03-28 20:46:47",
         "map": "de_dust2",
-        "score": "9-12",
+        "score": "9-13",
+        "raw_score": "9-12",
+        "score_corrected": true,
         "team1_score": 9,
-        "team2_score": 12,
+        "team2_score": 13,
+        "raw_team1_score": 9,
+        "raw_team2_score": 12,
         "winner": 2,
-        "team1_name": "team_AyB",
-        "team2_name": "team_Eboss",
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_AyB",
+        "original_team2_name": "team_Eboss",
         "team1": [
             "AyB",
             "EmreY",
@@ -721,266 +61,6 @@
             "steam_301208272",
             "MuHasdas",
             "RIKU"
-        ]
-    },
-    {
-        "match": "matchzy_40_0",
-        "matchid": "40",
-        "timestamp": "2026-04-30 23:42:15",
-        "map": "de_dust2",
-        "score": "7-12",
-        "team1_score": 7,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_JusticeForAII",
-        "team2_name": "team_Meso",
-        "team1": [
-            "Meso",
-            "MuHasdas",
-            "AyB",
-            "EmreY",
-            "MEST"
-        ],
-        "team2": [
-            "JusticeForAII",
-            "mevsel",
-            "steam_141469239",
-            "steam_301208272",
-            "TesserACT"
-        ]
-    },
-    {
-        "match": "matchzy_41_0",
-        "matchid": "41",
-        "timestamp": "2026-05-01 00:37:44",
-        "map": "de_dust2",
-        "score": "13-15",
-        "team1_score": 13,
-        "team2_score": 15,
-        "winner": 2,
-        "team1_name": "team_TesserACT",
-        "team2_name": "team_MEST",
-        "team1": [
-            "JusticeForAII",
-            "mevsel",
-            "steam_141469239",
-            "steam_301208272",
-            "TesserACT"
-        ],
-        "team2": [
-            "Meso",
-            "MuHasdas",
-            "AyB",
-            "EmreY",
-            "MEST"
-        ]
-    },
-    {
-        "match": "matchzy_42_0",
-        "matchid": "42",
-        "timestamp": "2026-05-09 21:08:34",
-        "map": "de_dust2",
-        "score": "9-12",
-        "team1_score": 9,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_TesserACT",
-        "team2_name": "team_",
-        "team1": [
-            "steam_301208272",
-            "steam_141469239",
-            "Meso",
-            "MuHasdas",
-            "JusticeForAII"
-        ],
-        "team2": [
-            "poizon",
-            "EmreY",
-            "TesserACT",
-            "MasterRoshi",
-            "mevsel"
-        ]
-    },
-    {
-        "match": "matchzy_43_0",
-        "matchid": "43",
-        "timestamp": "2026-05-09 21:46:05",
-        "map": "de_dust2",
-        "score": "4-12",
-        "team1_score": 4,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_JusticeForAII",
-        "team2_name": "team_mevsel",
-        "team1": [
-            "poizon",
-            "EmreY",
-            "TesserACT",
-            "MasterRoshi",
-            "mevsel"
-        ],
-        "team2": [
-            "steam_301208272",
-            "steam_141469239",
-            "Meso",
-            "MuHasdas",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_44_0",
-        "matchid": "44",
-        "timestamp": "2026-05-09 22:26:54",
-        "map": "de_dust2",
-        "score": "12-10",
-        "team1_score": 12,
-        "team2_score": 10,
-        "winner": 1,
-        "team1_name": "team_JusticeForAII",
-        "team2_name": "team_mevsel",
-        "team1": [
-            "steam_301208272",
-            "steam_141469239",
-            "Meso",
-            "MuHasdas",
-            "JusticeForAII"
-        ],
-        "team2": [
-            "poizon",
-            "EmreY",
-            "TesserACT",
-            "MasterRoshi",
-            "mevsel"
-        ]
-    },
-    {
-        "match": "matchzy_45_0",
-        "matchid": "45",
-        "timestamp": "2026-05-10 00:05:35",
-        "map": "de_dust2",
-        "score": "24-22",
-        "team1_score": 24,
-        "team2_score": 22,
-        "winner": 1,
-        "team1_name": "team_Meso",
-        "team2_name": "team_poizon",
-        "team1": [
-            "poizon",
-            "EmreY",
-            "TesserACT",
-            "mevsel",
-            "MasterRoshi"
-        ],
-        "team2": [
-            "JusticeForAII",
-            "steam_141469239",
-            "Meso",
-            "steam_301208272",
-            "MuHasdas"
-        ]
-    },
-    {
-        "match": "matchzy_46_0",
-        "matchid": "46",
-        "timestamp": "2026-05-19 19:57:09",
-        "map": "de_dust2",
-        "score": "12-9",
-        "team1_score": 12,
-        "team2_score": 9,
-        "winner": 1,
-        "team1_name": "team_",
-        "team2_name": "team_",
-        "team1": [
-            "steam_301208272",
-            "MuHasdas",
-            "Soez",
-            "Jassarez",
-            "JusticeForAII"
-        ],
-        "team2": [
-            "steam_141469239",
-            "Meso",
-            "AyB",
-            "Gararki",
-            "mevsel"
-        ]
-    },
-    {
-        "match": "matchzy_47_0",
-        "matchid": "47",
-        "timestamp": "2026-05-19 20:42:56",
-        "map": "de_dust2",
-        "score": "12-11",
-        "team1_score": 12,
-        "team2_score": 11,
-        "winner": 1,
-        "team1_name": "team_mevsel",
-        "team2_name": "team_JusticeForAII",
-        "team1": [
-            "steam_141469239",
-            "Meso",
-            "AyB",
-            "Gararki",
-            "mevsel"
-        ],
-        "team2": [
-            "steam_301208272",
-            "MuHasdas",
-            "Soez",
-            "Jassarez",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_48_0",
-        "matchid": "48",
-        "timestamp": "2026-05-19 21:21:46",
-        "map": "de_dust2",
-        "score": "8-12",
-        "team1_score": 8,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_JusticeForAII",
-        "team2_name": "team_mevsel",
-        "team1": [
-            "steam_301208272",
-            "MuHasdas",
-            "Soez",
-            "Jassarez",
-            "JusticeForAII"
-        ],
-        "team2": [
-            "steam_141469239",
-            "Meso",
-            "AyB",
-            "Gararki",
-            "mevsel"
-        ]
-    },
-    {
-        "match": "matchzy_49_0",
-        "matchid": "49",
-        "timestamp": "2026-05-19 22:24:15",
-        "map": "de_dust2",
-        "score": "15-14",
-        "team1_score": 15,
-        "team2_score": 14,
-        "winner": 1,
-        "team1_name": "team_mevsel",
-        "team2_name": "team_JusticeForAII",
-        "team1": [
-            "steam_141469239",
-            "Meso",
-            "AyB",
-            "Gararki",
-            "mevsel"
-        ],
-        "team2": [
-            "steam_301208272",
-            "MuHasdas",
-            "Soez",
-            "Jassarez",
-            "JusticeForAII"
         ]
     },
     {
@@ -988,12 +68,18 @@
         "matchid": "4",
         "timestamp": "2026-03-28 21:34:46",
         "map": "de_dust2",
-        "score": "11-12",
+        "score": "11-13",
+        "raw_score": "11-12",
+        "score_corrected": true,
         "team1_score": 11,
-        "team2_score": 12,
+        "team2_score": 13,
+        "raw_team1_score": 11,
+        "raw_team2_score": 12,
         "winner": 2,
-        "team1_name": "team_RΛIKU雷",
-        "team2_name": "team_Meso",
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_RΛIKU雷",
+        "original_team2_name": "team_Meso",
         "team1": [
             "steam_141469239",
             "Eboss",
@@ -1010,198 +96,22 @@
         ]
     },
     {
-        "match": "matchzy_50_0",
-        "matchid": "50",
-        "timestamp": "2026-05-19 23:06:55",
-        "map": "de_dust2",
-        "score": "9-12",
-        "team1_score": 9,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_mevsel",
-        "team2_name": "team_MuHasdas",
-        "team1": [
-            "steam_141469239",
-            "Meso",
-            "AyB",
-            "Gararki",
-            "mevsel"
-        ],
-        "team2": [
-            "steam_301208272",
-            "MuHasdas",
-            "Soez",
-            "Jassarez",
-            "JusticeForAII"
-        ]
-    },
-    {
-        "match": "matchzy_53_0",
-        "matchid": "53",
-        "timestamp": "2026-05-23 20:23:05",
-        "map": "de_dust2",
-        "score": "12-8",
-        "team1_score": 12,
-        "team2_score": 8,
-        "winner": 1,
-        "team1_name": "team_AyB",
-        "team2_name": "team_Meso",
-        "team1": [
-            "AyB",
-            "RIKU",
-            "Gararki",
-            "poizon",
-            "EmreY"
-        ],
-        "team2": [
-            "Meso",
-            "elbombas15Saniye",
-            "JusticeForAII",
-            "MuHasdas",
-            "Jassarez"
-        ]
-    },
-    {
-        "match": "matchzy_54_0",
-        "matchid": "54",
-        "timestamp": "2026-05-23 21:19:46",
-        "map": "de_dust2",
-        "score": "15-14",
-        "team1_score": 15,
-        "team2_score": 14,
-        "winner": 1,
-        "team1_name": "team_Jassarez",
-        "team2_name": "team_EmreY",
-        "team1": [
-            "Meso",
-            "elbombas15Saniye",
-            "JusticeForAII",
-            "MuHasdas",
-            "Jassarez"
-        ],
-        "team2": [
-            "AyB",
-            "RIKU",
-            "Gararki",
-            "poizon",
-            "EmreY"
-        ]
-    },
-    {
-        "match": "matchzy_55_0",
-        "matchid": "55",
-        "timestamp": "2026-05-23 21:57:23",
-        "map": "de_dust2",
-        "score": "12-8",
-        "team1_score": 12,
-        "team2_score": 8,
-        "winner": 1,
-        "team1_name": "team_EmreY",
-        "team2_name": "team_Jassarez",
-        "team1": [
-            "AyB",
-            "RIKU",
-            "Gararki",
-            "poizon",
-            "EmreY"
-        ],
-        "team2": [
-            "Meso",
-            "elbombas15Saniye",
-            "JusticeForAII",
-            "MuHasdas",
-            "Jassarez"
-        ]
-    },
-    {
-        "match": "matchzy_56_0",
-        "matchid": "56",
-        "timestamp": "2026-05-23 22:50:08",
-        "map": "de_dust2",
-        "score": "12-15",
-        "team1_score": 12,
-        "team2_score": 15,
-        "winner": 2,
-        "team1_name": "team_Jassarez",
-        "team2_name": "team_EmreY",
-        "team1": [
-            "Meso",
-            "elbombas15Saniye",
-            "JusticeForAII",
-            "MuHasdas",
-            "Jassarez"
-        ],
-        "team2": [
-            "AyB",
-            "RIKU",
-            "Gararki",
-            "poizon",
-            "EmreY"
-        ]
-    },
-    {
-        "match": "matchzy_57_0",
-        "matchid": "57",
-        "timestamp": "2026-05-23 23:32:51",
-        "map": "de_dust2",
-        "score": "5-12",
-        "team1_score": 5,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "team_EmreY",
-        "team2_name": "team_Jassarez",
-        "team1": [
-            "RIKU",
-            "Meso",
-            "MuHasdas",
-            "EmreY",
-            "hanzala"
-        ],
-        "team2": [
-            "AyB",
-            "elbombas15Saniye",
-            "JusticeForAII",
-            "poizon",
-            "Jassarez"
-        ]
-    },
-    {
-        "match": "matchzy_58_0",
-        "matchid": "58",
-        "timestamp": "2026-05-24 00:09:38",
-        "map": "de_dust2",
-        "score": "12-10",
-        "team1_score": 12,
-        "team2_score": 10,
-        "winner": 1,
-        "team1_name": "team_Jassarez",
-        "team2_name": "team__hanzala",
-        "team1": [
-            "AyB",
-            "elbombas15Saniye",
-            "JusticeForAII",
-            "poizon",
-            "Jassarez"
-        ],
-        "team2": [
-            "RIKU",
-            "Meso",
-            "MuHasdas",
-            "EmreY",
-            "hanzala"
-        ]
-    },
-    {
         "match": "matchzy_5_0",
         "matchid": "5",
         "timestamp": "2026-03-28 22:23:07",
         "map": "de_dust2",
-        "score": "10-12",
-        "team1_score": 10,
-        "team2_score": 12,
-        "winner": 2,
-        "team1_name": "Team Ayb",
-        "team2_name": "Team MuHasdas",
+        "score": "13-10",
+        "raw_score": "12-10",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 10,
+        "raw_team1_score": 12,
+        "raw_team2_score": 10,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "Team MuHasdas",
+        "original_team2_name": "Team Ayb",
         "team1": [
             "steam_141469239",
             "Eboss",
@@ -1222,12 +132,18 @@
         "matchid": "9",
         "timestamp": "2026-03-28 23:23:56",
         "map": "de_dust2",
-        "score": "11-12",
+        "score": "11-13",
+        "raw_score": "11-12",
+        "score_corrected": true,
         "team1_score": 11,
-        "team2_score": 12,
+        "team2_score": 13,
+        "raw_team1_score": 11,
+        "raw_team2_score": 12,
         "winner": 2,
-        "team1_name": "team_JusticeForAII",
-        "team2_name": "team_Meso",
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_JusticeForAII",
+        "original_team2_name": "team_Meso",
         "team1": [
             "Eboss",
             "AyB",
@@ -1241,6 +157,1378 @@
             "EmreY",
             "MuHasdas",
             "Meso"
+        ]
+    },
+    {
+        "match": "matchzy_11_0",
+        "matchid": "11",
+        "timestamp": "2026-03-29 00:02:51",
+        "map": "de_dust2",
+        "score": "9-13",
+        "raw_score": "9-12",
+        "score_corrected": true,
+        "team1_score": 9,
+        "team2_score": 13,
+        "raw_team1_score": 9,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_Meso",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "steam_141469239",
+            "steam_301208272",
+            "EmreY",
+            "MuHasdas",
+            "Meso"
+        ],
+        "team2": [
+            "Eboss",
+            "AyB",
+            "TesserACT",
+            "RIKU",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_12_0",
+        "matchid": "12",
+        "timestamp": "2026-03-29 00:29:30",
+        "map": "de_dust2",
+        "score": "13-0",
+        "raw_score": "12-0",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 0,
+        "raw_team1_score": 12,
+        "raw_team2_score": 0,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_Meso",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "steam_141469239",
+            "steam_301208272",
+            "EmreY",
+            "MuHasdas",
+            "Meso"
+        ],
+        "team2": [
+            "Eboss",
+            "AyB",
+            "TesserACT",
+            "RIKU",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_13_0",
+        "matchid": "13",
+        "timestamp": "2026-04-11 20:18:41",
+        "map": "de_dust2",
+        "score": "13-5",
+        "raw_score": "12-5",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 5,
+        "raw_team1_score": 12,
+        "raw_team2_score": 5,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_RΛIKU雷",
+        "original_team2_name": "team_MEST",
+        "team1": [
+            "RIKU",
+            "mevsel",
+            "steam_301208272",
+            "AyB",
+            "JusticeForAII"
+        ],
+        "team2": [
+            "MEST",
+            "MuHasdas",
+            "SS",
+            "EmreY",
+            "TesserACT"
+        ]
+    },
+    {
+        "match": "matchzy_14_0",
+        "matchid": "14",
+        "timestamp": "2026-04-11 21:07:45",
+        "map": "de_dust2",
+        "score": "10-13",
+        "raw_score": "10-12",
+        "score_corrected": true,
+        "team1_score": 10,
+        "team2_score": 13,
+        "raw_team1_score": 10,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_EmreY",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "MEST",
+            "MuHasdas",
+            "SS",
+            "EmreY",
+            "TesserACT"
+        ],
+        "team2": [
+            "RIKU",
+            "mevsel",
+            "steam_301208272",
+            "AyB",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_15_0",
+        "matchid": "15",
+        "timestamp": "2026-04-11 21:52:42",
+        "map": "de_dust2",
+        "score": "13-8",
+        "raw_score": "12-8",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 8,
+        "raw_team1_score": 12,
+        "raw_team2_score": 8,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_MuHasdas",
+        "original_team2_name": "team_AyB",
+        "team1": [
+            "MEST",
+            "MuHasdas",
+            "SS",
+            "EmreY",
+            "TesserACT"
+        ],
+        "team2": [
+            "RIKU",
+            "mevsel",
+            "steam_301208272",
+            "AyB",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_16_0",
+        "matchid": "16",
+        "timestamp": "2026-04-11 22:20:12",
+        "map": "de_dust2",
+        "score": "13-4",
+        "raw_score": "12-4",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 4,
+        "raw_team1_score": 12,
+        "raw_team2_score": 4,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_MuHasdas",
+        "original_team2_name": "team_AyB",
+        "team1": [
+            "MEST",
+            "MuHasdas",
+            "SS",
+            "EmreY",
+            "TesserACT"
+        ],
+        "team2": [
+            "RIKU",
+            "mevsel",
+            "steam_301208272",
+            "AyB",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_17_0",
+        "matchid": "17",
+        "timestamp": "2026-04-11 23:03:58",
+        "map": "de_dust2",
+        "score": "13-8",
+        "raw_score": "12-8",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 8,
+        "raw_team1_score": 12,
+        "raw_team2_score": 8,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_AyB",
+        "original_team2_name": "team_MuHasdas",
+        "team1": [
+            "RIKU",
+            "mevsel",
+            "steam_301208272",
+            "AyB",
+            "JusticeForAII"
+        ],
+        "team2": [
+            "MEST",
+            "MuHasdas",
+            "SS",
+            "EmreY",
+            "TesserACT"
+        ]
+    },
+    {
+        "match": "matchzy_20_0",
+        "matchid": "20",
+        "timestamp": "2026-04-18 20:25:56",
+        "map": "de_dust2",
+        "score": "13-7",
+        "raw_score": "12-7",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 7,
+        "raw_team1_score": 12,
+        "raw_team2_score": 7,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_MuHasdas",
+        "original_team2_name": "team_Meso",
+        "team1": [
+            "MuHasdas",
+            "MEST",
+            "TesserACT",
+            "steam_141469239"
+        ],
+        "team2": [
+            "Meso",
+            "steam_301208272"
+        ]
+    },
+    {
+        "match": "matchzy_21_0",
+        "matchid": "21",
+        "timestamp": "2026-04-18 20:56:31",
+        "map": "de_dust2",
+        "score": "13-7",
+        "raw_score": "12-7",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 7,
+        "raw_team1_score": 12,
+        "raw_team2_score": 7,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "Meso",
+            "AyB",
+            "steam_301208272",
+            "RIKU",
+            "mevsel"
+        ],
+        "team2": [
+            "MuHasdas",
+            "MEST",
+            "TesserACT",
+            "steam_141469239",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_22_0",
+        "matchid": "22",
+        "timestamp": "2026-04-18 21:47:29",
+        "map": "de_dust2",
+        "score": "16-12",
+        "raw_score": "15-12",
+        "score_corrected": true,
+        "team1_score": 16,
+        "team2_score": 12,
+        "raw_team1_score": 15,
+        "raw_team2_score": 12,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "Meso",
+            "AyB",
+            "steam_301208272",
+            "RIKU",
+            "mevsel"
+        ],
+        "team2": [
+            "MuHasdas",
+            "MEST",
+            "TesserACT",
+            "steam_141469239",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_23_0",
+        "matchid": "23",
+        "timestamp": "2026-04-18 22:32:25",
+        "map": "de_dust2",
+        "score": "13-9",
+        "raw_score": "12-9",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 9,
+        "raw_team1_score": 12,
+        "raw_team2_score": 9,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_",
+        "team1": [
+            "Meso",
+            "AyB",
+            "steam_301208272",
+            "RIKU",
+            "mevsel"
+        ],
+        "team2": [
+            "MuHasdas",
+            "MEST",
+            "TesserACT",
+            "steam_141469239",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_24_0",
+        "matchid": "24",
+        "timestamp": "2026-04-18 23:37:49",
+        "map": "de_dust2",
+        "score": "13-7",
+        "raw_score": "12-7",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 7,
+        "raw_team1_score": 12,
+        "raw_team2_score": 7,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_mevsel",
+        "team1": [
+            "Meso",
+            "MuHasdas",
+            "MEST",
+            "TesserACT",
+            "steam_141469239"
+        ],
+        "team2": [
+            "AyB",
+            "steam_301208272",
+            "RIKU",
+            "JusticeForAII",
+            "mevsel"
+        ]
+    },
+    {
+        "match": "matchzy_25_0",
+        "matchid": "25",
+        "timestamp": "2026-04-19 00:09:49",
+        "map": "de_dust2",
+        "score": "5-13",
+        "raw_score": "5-12",
+        "score_corrected": true,
+        "team1_score": 5,
+        "team2_score": 13,
+        "raw_team1_score": 5,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_",
+        "team1": [
+            "AyB",
+            "steam_301208272",
+            "RIKU",
+            "JusticeForAII",
+            "mevsel"
+        ],
+        "team2": [
+            "Meso",
+            "MuHasdas",
+            "MEST",
+            "TesserACT",
+            "steam_141469239"
+        ]
+    },
+    {
+        "match": "matchzy_26_0",
+        "matchid": "26",
+        "timestamp": "2026-04-19 00:48:35",
+        "map": "de_dust2",
+        "score": "9-13",
+        "raw_score": "9-12",
+        "score_corrected": true,
+        "team1_score": 9,
+        "team2_score": 13,
+        "raw_team1_score": 9,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_",
+        "team1": [
+            "AyB",
+            "steam_301208272",
+            "RIKU",
+            "JusticeForAII",
+            "mevsel"
+        ],
+        "team2": [
+            "Meso",
+            "MuHasdas",
+            "MEST",
+            "TesserACT",
+            "steam_141469239"
+        ]
+    },
+    {
+        "match": "matchzy_27_0",
+        "matchid": "27",
+        "timestamp": "2026-04-25 21:31:32",
+        "map": "de_dust2",
+        "score": "13-5",
+        "raw_score": "12-5",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 5,
+        "raw_team1_score": 12,
+        "raw_team2_score": 5,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_Eboss",
+        "original_team2_name": "team_",
+        "team1": [
+            "Eboss",
+            "poizon",
+            "MuHasdas",
+            "MEST",
+            "EmreY"
+        ],
+        "team2": [
+            "Meso",
+            "steam_141469239",
+            "RIKU",
+            "steam_301208272",
+            "AyB"
+        ]
+    },
+    {
+        "match": "matchzy_28_0",
+        "matchid": "28",
+        "timestamp": "2026-04-25 22:19:14",
+        "map": "de_dust2",
+        "score": "11-13",
+        "raw_score": "11-12",
+        "score_corrected": true,
+        "team1_score": 11,
+        "team2_score": 13,
+        "raw_team1_score": 11,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_AyB",
+        "original_team2_name": "team_EmreY",
+        "team1": [
+            "Meso",
+            "steam_141469239",
+            "RIKU",
+            "steam_301208272",
+            "AyB"
+        ],
+        "team2": [
+            "Eboss",
+            "poizon",
+            "MuHasdas",
+            "MEST",
+            "EmreY"
+        ]
+    },
+    {
+        "match": "matchzy_29_0",
+        "matchid": "29",
+        "timestamp": "2026-04-25 22:54:25",
+        "map": "de_dust2",
+        "score": "13-7",
+        "raw_score": "12-7",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 7,
+        "raw_team1_score": 12,
+        "raw_team2_score": 7,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_AyB",
+        "original_team2_name": "team_EmreY",
+        "team1": [
+            "poizon",
+            "Meso",
+            "RIKU",
+            "steam_301208272",
+            "AyB"
+        ],
+        "team2": [
+            "Eboss",
+            "MuHasdas",
+            "steam_141469239",
+            "MEST",
+            "EmreY"
+        ]
+    },
+    {
+        "match": "matchzy_31_0",
+        "matchid": "31",
+        "timestamp": "2026-04-25 23:42:39",
+        "map": "de_dust2",
+        "score": "13-11",
+        "raw_score": "12-11",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 11,
+        "raw_team1_score": 12,
+        "raw_team2_score": 11,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_AyB",
+        "original_team2_name": "team_Eboss",
+        "team1": [
+            "AyB",
+            "steam_301208272",
+            "Meso",
+            "RIKU",
+            "poizon"
+        ],
+        "team2": [
+            "steam_141469239",
+            "Eboss",
+            "EmreY",
+            "MEST",
+            "MuHasdas"
+        ]
+    },
+    {
+        "match": "matchzy_32_0",
+        "matchid": "32",
+        "timestamp": "2026-04-26 00:18:20",
+        "map": "de_dust2",
+        "score": "13-4",
+        "raw_score": "12-4",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 4,
+        "raw_team1_score": 12,
+        "raw_team2_score": 4,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_poizon",
+        "original_team2_name": "team_",
+        "team1": [
+            "AyB",
+            "steam_301208272",
+            "Meso",
+            "RIKU",
+            "poizon"
+        ],
+        "team2": [
+            "steam_141469239",
+            "Eboss",
+            "EmreY",
+            "MEST",
+            "MuHasdas"
+        ]
+    },
+    {
+        "match": "matchzy_33_0",
+        "matchid": "33",
+        "timestamp": "2026-04-26 00:58:11",
+        "map": "de_dust2",
+        "score": "13-7",
+        "raw_score": "12-7",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 7,
+        "raw_team1_score": 12,
+        "raw_team2_score": 7,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_poizon",
+        "original_team2_name": "team_",
+        "team1": [
+            "steam_301208272",
+            "steam_141469239",
+            "Eboss",
+            "RIKU",
+            "poizon"
+        ],
+        "team2": [
+            "AyB",
+            "Meso",
+            "EmreY",
+            "MEST",
+            "MuHasdas"
+        ]
+    },
+    {
+        "match": "matchzy_34_0",
+        "matchid": "34",
+        "timestamp": "2026-04-26 01:27:30",
+        "map": "de_dust2",
+        "score": "4-13",
+        "raw_score": "4-12",
+        "score_corrected": true,
+        "team1_score": 4,
+        "team2_score": 13,
+        "raw_team1_score": 4,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_MuHasdas",
+        "original_team2_name": "team_",
+        "team1": [
+            "AyB",
+            "Meso",
+            "EmreY",
+            "MEST",
+            "MuHasdas"
+        ],
+        "team2": [
+            "steam_301208272",
+            "steam_141469239",
+            "Eboss",
+            "RIKU",
+            "poizon"
+        ]
+    },
+    {
+        "match": "matchzy_35_0",
+        "matchid": "35",
+        "timestamp": "2026-04-30 20:18:37",
+        "map": "de_dust2",
+        "score": "13-9",
+        "raw_score": "12-9",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 9,
+        "raw_team1_score": 12,
+        "raw_team2_score": 9,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_EmreY",
+        "original_team2_name": "team_",
+        "team1": [
+            "EmreY",
+            "MEST",
+            "MuHasdas",
+            "TesserACT",
+            "mevsel"
+        ],
+        "team2": [
+            "steam_141469239",
+            "steam_301208272",
+            "Meso",
+            "AyB",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_36_0",
+        "matchid": "36",
+        "timestamp": "2026-04-30 20:58:22",
+        "map": "de_dust2",
+        "score": "9-13",
+        "raw_score": "9-12",
+        "score_corrected": true,
+        "team1_score": 9,
+        "team2_score": 13,
+        "raw_team1_score": 9,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_JusticeForAII",
+        "original_team2_name": "team_mevsel",
+        "team1": [
+            "steam_141469239",
+            "steam_301208272",
+            "Meso",
+            "AyB",
+            "JusticeForAII"
+        ],
+        "team2": [
+            "EmreY",
+            "MEST",
+            "MuHasdas",
+            "TesserACT",
+            "mevsel"
+        ]
+    },
+    {
+        "match": "matchzy_37_0",
+        "matchid": "37",
+        "timestamp": "2026-04-30 21:50:19",
+        "map": "de_dust2",
+        "score": "13-11",
+        "raw_score": "12-11",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 11,
+        "raw_team1_score": 12,
+        "raw_team2_score": 11,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_MuHasdas",
+        "original_team2_name": "team_mevsel",
+        "team1": [
+            "EmreY",
+            "MEST",
+            "Meso",
+            "AyB",
+            "MuHasdas"
+        ],
+        "team2": [
+            "steam_141469239",
+            "steam_301208272",
+            "JusticeForAII",
+            "TesserACT",
+            "mevsel"
+        ]
+    },
+    {
+        "match": "matchzy_38_0",
+        "matchid": "38",
+        "timestamp": "2026-04-30 22:28:30",
+        "map": "de_dust2",
+        "score": "13-7",
+        "raw_score": "12-7",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 7,
+        "raw_team1_score": 12,
+        "raw_team2_score": 7,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_MuHasdas",
+        "team1": [
+            "steam_141469239",
+            "steam_301208272",
+            "JusticeForAII",
+            "TesserACT",
+            "mevsel"
+        ],
+        "team2": [
+            "EmreY",
+            "MEST",
+            "Meso",
+            "AyB",
+            "MuHasdas"
+        ]
+    },
+    {
+        "match": "matchzy_39_0",
+        "matchid": "39",
+        "timestamp": "2026-04-30 23:02:34",
+        "map": "de_dust2",
+        "score": "4-13",
+        "raw_score": "4-12",
+        "score_corrected": true,
+        "team1_score": 4,
+        "team2_score": 13,
+        "raw_team1_score": 4,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_EmreY",
+        "original_team2_name": "team_",
+        "team1": [
+            "EmreY",
+            "MEST",
+            "Meso",
+            "AyB",
+            "MuHasdas"
+        ],
+        "team2": [
+            "steam_141469239",
+            "TesserACT",
+            "mevsel",
+            "steam_301208272",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_40_0",
+        "matchid": "40",
+        "timestamp": "2026-04-30 23:42:15",
+        "map": "de_dust2",
+        "score": "13-7",
+        "raw_score": "12-7",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 7,
+        "raw_team1_score": 12,
+        "raw_team2_score": 7,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_Meso",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "Meso",
+            "MuHasdas",
+            "AyB",
+            "EmreY",
+            "MEST"
+        ],
+        "team2": [
+            "JusticeForAII",
+            "mevsel",
+            "steam_141469239",
+            "steam_301208272",
+            "TesserACT"
+        ]
+    },
+    {
+        "match": "matchzy_41_0",
+        "matchid": "41",
+        "timestamp": "2026-05-01 00:37:44",
+        "map": "de_dust2",
+        "score": "13-16",
+        "raw_score": "13-15",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 16,
+        "raw_team1_score": 13,
+        "raw_team2_score": 15,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_TesserACT",
+        "original_team2_name": "team_MEST",
+        "team1": [
+            "JusticeForAII",
+            "mevsel",
+            "steam_141469239",
+            "steam_301208272",
+            "TesserACT"
+        ],
+        "team2": [
+            "Meso",
+            "MuHasdas",
+            "AyB",
+            "EmreY",
+            "MEST"
+        ]
+    },
+    {
+        "match": "matchzy_42_0",
+        "matchid": "42",
+        "timestamp": "2026-05-09 21:08:34",
+        "map": "de_dust2",
+        "score": "13-9",
+        "raw_score": "12-9",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 9,
+        "raw_team1_score": 12,
+        "raw_team2_score": 9,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_TesserACT",
+        "team1": [
+            "steam_301208272",
+            "steam_141469239",
+            "Meso",
+            "MuHasdas",
+            "JusticeForAII"
+        ],
+        "team2": [
+            "poizon",
+            "EmreY",
+            "TesserACT",
+            "MasterRoshi",
+            "mevsel"
+        ]
+    },
+    {
+        "match": "matchzy_43_0",
+        "matchid": "43",
+        "timestamp": "2026-05-09 21:46:05",
+        "map": "de_dust2",
+        "score": "13-4",
+        "raw_score": "12-4",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 4,
+        "raw_team1_score": 12,
+        "raw_team2_score": 4,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "poizon",
+            "EmreY",
+            "TesserACT",
+            "MasterRoshi",
+            "mevsel"
+        ],
+        "team2": [
+            "steam_301208272",
+            "steam_141469239",
+            "Meso",
+            "MuHasdas",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_44_0",
+        "matchid": "44",
+        "timestamp": "2026-05-09 22:26:54",
+        "map": "de_dust2",
+        "score": "13-10",
+        "raw_score": "12-10",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 10,
+        "raw_team1_score": 12,
+        "raw_team2_score": 10,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_JusticeForAII",
+        "original_team2_name": "team_mevsel",
+        "team1": [
+            "steam_301208272",
+            "steam_141469239",
+            "Meso",
+            "MuHasdas",
+            "JusticeForAII"
+        ],
+        "team2": [
+            "poizon",
+            "EmreY",
+            "TesserACT",
+            "MasterRoshi",
+            "mevsel"
+        ]
+    },
+    {
+        "match": "matchzy_45_0",
+        "matchid": "45",
+        "timestamp": "2026-05-10 00:05:35",
+        "map": "de_dust2",
+        "score": "22-25",
+        "raw_score": "22-24",
+        "score_corrected": true,
+        "team1_score": 22,
+        "team2_score": 25,
+        "raw_team1_score": 22,
+        "raw_team2_score": 24,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_poizon",
+        "original_team2_name": "team_Meso",
+        "team1": [
+            "poizon",
+            "EmreY",
+            "TesserACT",
+            "mevsel",
+            "MasterRoshi"
+        ],
+        "team2": [
+            "JusticeForAII",
+            "steam_141469239",
+            "Meso",
+            "steam_301208272",
+            "MuHasdas"
+        ]
+    },
+    {
+        "match": "matchzy_46_0",
+        "matchid": "46",
+        "timestamp": "2026-05-19 19:57:09",
+        "map": "de_dust2",
+        "score": "9-13",
+        "raw_score": "9-12",
+        "score_corrected": true,
+        "team1_score": 9,
+        "team2_score": 13,
+        "raw_team1_score": 9,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_",
+        "team1": [
+            "steam_301208272",
+            "MuHasdas",
+            "Soez",
+            "Jassarez",
+            "JusticeForAII"
+        ],
+        "team2": [
+            "steam_141469239",
+            "Meso",
+            "AyB",
+            "Gararki",
+            "mevsel"
+        ]
+    },
+    {
+        "match": "matchzy_47_0",
+        "matchid": "47",
+        "timestamp": "2026-05-19 20:42:56",
+        "map": "de_dust2",
+        "score": "13-11",
+        "raw_score": "12-11",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 11,
+        "raw_team1_score": 12,
+        "raw_team2_score": 11,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "steam_141469239",
+            "Meso",
+            "AyB",
+            "Gararki",
+            "mevsel"
+        ],
+        "team2": [
+            "steam_301208272",
+            "MuHasdas",
+            "Soez",
+            "Jassarez",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_48_0",
+        "matchid": "48",
+        "timestamp": "2026-05-19 21:21:46",
+        "map": "de_dust2",
+        "score": "8-13",
+        "raw_score": "8-12",
+        "score_corrected": true,
+        "team1_score": 8,
+        "team2_score": 13,
+        "raw_team1_score": 8,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_JusticeForAII",
+        "original_team2_name": "team_mevsel",
+        "team1": [
+            "steam_301208272",
+            "MuHasdas",
+            "Soez",
+            "Jassarez",
+            "JusticeForAII"
+        ],
+        "team2": [
+            "steam_141469239",
+            "Meso",
+            "AyB",
+            "Gararki",
+            "mevsel"
+        ]
+    },
+    {
+        "match": "matchzy_49_0",
+        "matchid": "49",
+        "timestamp": "2026-05-19 22:24:15",
+        "map": "de_dust2",
+        "score": "16-14",
+        "raw_score": "15-14",
+        "score_corrected": true,
+        "team1_score": 16,
+        "team2_score": 14,
+        "raw_team1_score": 15,
+        "raw_team2_score": 14,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_JusticeForAII",
+        "team1": [
+            "steam_141469239",
+            "Meso",
+            "AyB",
+            "Gararki",
+            "mevsel"
+        ],
+        "team2": [
+            "steam_301208272",
+            "MuHasdas",
+            "Soez",
+            "Jassarez",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_50_0",
+        "matchid": "50",
+        "timestamp": "2026-05-19 23:06:55",
+        "map": "de_dust2",
+        "score": "9-13",
+        "raw_score": "9-12",
+        "score_corrected": true,
+        "team1_score": 9,
+        "team2_score": 13,
+        "raw_team1_score": 9,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_mevsel",
+        "original_team2_name": "team_MuHasdas",
+        "team1": [
+            "steam_141469239",
+            "Meso",
+            "AyB",
+            "Gararki",
+            "mevsel"
+        ],
+        "team2": [
+            "steam_301208272",
+            "MuHasdas",
+            "Soez",
+            "Jassarez",
+            "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_53_0",
+        "matchid": "53",
+        "timestamp": "2026-05-23 20:23:05",
+        "map": "de_dust2",
+        "score": "13-8",
+        "raw_score": "12-8",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 8,
+        "raw_team1_score": 12,
+        "raw_team2_score": 8,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_AyB",
+        "original_team2_name": "team_Meso",
+        "team1": [
+            "AyB",
+            "RIKU",
+            "Gararki",
+            "poizon",
+            "EmreY"
+        ],
+        "team2": [
+            "Meso",
+            "elbombas15Saniye",
+            "JusticeForAII",
+            "MuHasdas",
+            "Jassarez"
+        ]
+    },
+    {
+        "match": "matchzy_54_0",
+        "matchid": "54",
+        "timestamp": "2026-05-23 21:19:46",
+        "map": "de_dust2",
+        "score": "16-14",
+        "raw_score": "15-14",
+        "score_corrected": true,
+        "team1_score": 16,
+        "team2_score": 14,
+        "raw_team1_score": 15,
+        "raw_team2_score": 14,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_Jassarez",
+        "original_team2_name": "team_EmreY",
+        "team1": [
+            "Meso",
+            "elbombas15Saniye",
+            "JusticeForAII",
+            "MuHasdas",
+            "Jassarez"
+        ],
+        "team2": [
+            "AyB",
+            "RIKU",
+            "Gararki",
+            "poizon",
+            "EmreY"
+        ]
+    },
+    {
+        "match": "matchzy_55_0",
+        "matchid": "55",
+        "timestamp": "2026-05-23 21:57:23",
+        "map": "de_dust2",
+        "score": "13-8",
+        "raw_score": "12-8",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 8,
+        "raw_team1_score": 12,
+        "raw_team2_score": 8,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_EmreY",
+        "original_team2_name": "team_Jassarez",
+        "team1": [
+            "AyB",
+            "RIKU",
+            "Gararki",
+            "poizon",
+            "EmreY"
+        ],
+        "team2": [
+            "Meso",
+            "elbombas15Saniye",
+            "JusticeForAII",
+            "MuHasdas",
+            "Jassarez"
+        ]
+    },
+    {
+        "match": "matchzy_56_0",
+        "matchid": "56",
+        "timestamp": "2026-05-23 22:50:08",
+        "map": "de_dust2",
+        "score": "12-16",
+        "raw_score": "12-15",
+        "score_corrected": true,
+        "team1_score": 12,
+        "team2_score": 16,
+        "raw_team1_score": 12,
+        "raw_team2_score": 15,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_Jassarez",
+        "original_team2_name": "team_EmreY",
+        "team1": [
+            "Meso",
+            "elbombas15Saniye",
+            "JusticeForAII",
+            "MuHasdas",
+            "Jassarez"
+        ],
+        "team2": [
+            "AyB",
+            "RIKU",
+            "Gararki",
+            "poizon",
+            "EmreY"
+        ]
+    },
+    {
+        "match": "matchzy_57_0",
+        "matchid": "57",
+        "timestamp": "2026-05-23 23:32:51",
+        "map": "de_dust2",
+        "score": "5-13",
+        "raw_score": "5-12",
+        "score_corrected": true,
+        "team1_score": 5,
+        "team2_score": 13,
+        "raw_team1_score": 5,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_EmreY",
+        "original_team2_name": "team_Jassarez",
+        "team1": [
+            "RIKU",
+            "Meso",
+            "MuHasdas",
+            "EmreY",
+            "hanzala"
+        ],
+        "team2": [
+            "AyB",
+            "elbombas15Saniye",
+            "JusticeForAII",
+            "poizon",
+            "Jassarez"
+        ]
+    },
+    {
+        "match": "matchzy_58_0",
+        "matchid": "58",
+        "timestamp": "2026-05-24 00:09:38",
+        "map": "de_dust2",
+        "score": "13-10",
+        "raw_score": "12-10",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 10,
+        "raw_team1_score": 12,
+        "raw_team2_score": 10,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_Jassarez",
+        "original_team2_name": "team__hanzala",
+        "team1": [
+            "AyB",
+            "elbombas15Saniye",
+            "JusticeForAII",
+            "poizon",
+            "Jassarez"
+        ],
+        "team2": [
+            "RIKU",
+            "Meso",
+            "MuHasdas",
+            "EmreY",
+            "hanzala"
         ]
     }
 ]
