@@ -112,7 +112,16 @@ Promise.all([
     <div class="stat"><div class="value">${s[1]}</div><div class="label">${s[0]}</div></div>
   `).join("");
 
-  const history = (ex.match_history || []).slice().reverse();
+  function matchNumber(matchName){
+    const nums = String(matchName || "").match(/\d+/g);
+    if(!nums || !nums.length) return 0;
+    return Number(nums[0]);
+  }
+
+  const history = (ex.match_history || [])
+    .slice()
+    .sort((a,b)=>matchNumber(b.match)-matchNumber(a.match));
+
   document.getElementById("history").innerHTML = history.map(m=>{
     return `
       <div class="match" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'">
