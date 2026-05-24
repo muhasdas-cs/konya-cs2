@@ -5,35 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CS2 Konya Ligi</title>
 <style>
-:root{--bg:#050914;--card:#111827;--line:#263247;--orange:#f97316;--green:#22c55e;--red:#ef4444;--yellow:#facc15;--muted:#9ca3af;--text:#f8fafc}
+:root{
+  --bg:#050914; --card:#111827; --card2:#172033; --line:#263247;
+  --orange:#f97316; --green:#22c55e; --red:#ef4444; --yellow:#facc15;
+  --muted:#9ca3af; --text:#f8fafc;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:radial-gradient(circle at top,#172554 0,#020617 42%,#020617 100%)}
-.container{width:min(1200px,94%);margin:0 auto;padding:26px 0 60px}
-.header{text-align:center;padding:22px 0 18px}.header h1{margin:0;color:var(--orange);letter-spacing:.8px;font-size:34px}.sub{color:var(--muted);margin-top:8px}
-.toolbar{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:22px 0}
-.search{flex:1;background:rgba(17,24,39,.85);border:1px solid var(--line);color:white;border-radius:12px;padding:13px 15px;outline:none}
-.card{background:rgba(17,24,39,.88);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.25)}
-table{width:100%;border-collapse:collapse}th,td{padding:14px 12px;text-align:center;border-bottom:1px solid rgba(38,50,71,.7)}
-th{background:#0b1220;color:#cbd5e1;cursor:pointer;user-select:none;font-size:13px}td{font-weight:700}tr{transition:.18s}
-tbody tr:hover{background:rgba(249,115,22,.12);transform:scale(1.006);cursor:pointer}.player{text-align:left}.rank{color:var(--orange)}
-.good{color:var(--green)}.bad{color:var(--red)}.mid{color:var(--yellow)}
-.section-title{margin:34px 0 14px;font-size:24px}.matches{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.match-card{background:rgba(17,24,39,.88);border:1px solid var(--line);border-radius:16px;padding:14px;transition:.18s;cursor:pointer}
-.match-card:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 0 18px rgba(249,115,22,.25)}
-.match-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.match-name{font-weight:900;color:white}.score{font-weight:900;color:var(--orange);font-size:20px}
-.meta{color:var(--muted);font-size:13px;margin-top:8px}.winner{margin-top:10px;color:var(--green);font-weight:800}
-@media(max-width:720px){th:nth-child(4),td:nth-child(4),th:nth-child(8),td:nth-child(8),th:nth-child(9),td:nth-child(9){display:none}.header h1{font-size:26px}}
+body{
+  margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--text);
+  background:radial-gradient(circle at top,#172554 0,#020617 42%,#020617 100%);
+}
+.container{width:min(1200px,94%); margin:0 auto; padding:26px 0 60px}
+.header{text-align:center; padding:22px 0 18px}
+.header h1{margin:0; color:var(--orange); letter-spacing:.8px; font-size:34px}
+.sub{color:var(--muted); margin-top:8px}
+.toolbar{display:flex; gap:10px; justify-content:space-between; align-items:center; margin:22px 0}
+.search{
+  flex:1; background:rgba(17,24,39,.85); border:1px solid var(--line);
+  color:white; border-radius:12px; padding:13px 15px; outline:none;
+}
+.card{
+  background:rgba(17,24,39,.88); border:1px solid var(--line);
+  border-radius:18px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,.25);
+}
+table{width:100%; border-collapse:collapse}
+th,td{padding:14px 12px; text-align:center; border-bottom:1px solid rgba(38,50,71,.7)}
+th{background:#0b1220; color:#cbd5e1; cursor:pointer; user-select:none; font-size:13px}
+td{font-weight:700}
+tr{transition:.18s}
+tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:pointer}
+.player{text-align:left}
+.good{color:var(--green)} .bad{color:var(--red)} .mid{color:var(--yellow)}
+.section-title{margin:34px 0 14px; font-size:24px}
+.matches{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px}
+.match-card{
+  background:rgba(17,24,39,.88); border:1px solid var(--line); border-radius:16px;
+  padding:14px; transition:.18s; cursor:pointer;
+}
+.match-card:hover{transform:translateY(-3px); border-color:var(--orange); box-shadow:0 0 18px rgba(249,115,22,.25)}
+.match-top{display:flex; justify-content:space-between; gap:10px; align-items:center}
+.match-name{font-weight:900; color:white}
+.score{font-weight:900; color:var(--orange); font-size:20px}
+.meta{color:var(--muted); font-size:13px; margin-top:8px}
+.winner{margin-top:10px; color:var(--green); font-weight:800}
+@media(max-width:720px){
+  th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8){display:none}
+  .header h1{font-size:26px}
+}
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="header"><h1>🏆 CS2 KONYA LİGİ</h1><div class="sub">Oyuncu sıralaması, maç geçmişi ve detaylı istatistikler</div></div>
-  <div class="toolbar"><input id="search" class="search" placeholder="Oyuncu ara..."></div>
-  <div class="card"><table><thead><tr>
-    <th>#</th><th class="player">Oyuncu</th><th onclick="sortBy('elo')">ELO</th><th>Rank</th><th onclick="sortBy('winrate')">Win%</th><th onclick="sortBy('matches')">Maç</th><th onclick="sortBy('wins')">Win</th><th onclick="sortBy('kd')">K/D</th><th onclick="sortBy('adr')">ADR</th><th onclick="sortBy('hs_percent')">HS%</th><th onclick="sortBy('rounds')">Rounds</th>
-  </tr></thead><tbody id="playersBody"></tbody></table></div>
-  <h2 class="section-title">🎮 Maçlar</h2><div id="matches" class="matches"></div>
+  <div class="header">
+    <h1>🏆 CS2 KONYA LİGİ</h1>
+    <div class="sub">Oyuncu sıralaması, maç geçmişi ve detaylı istatistikler</div>
+  </div>
+
+  <div class="toolbar">
+    <input id="search" class="search" placeholder="Oyuncu ara...">
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class="player">Oyuncu</th>
+          <th onclick="sortBy('adr')">ADR</th>
+          <th onclick="sortBy('kd')">K/D</th>
+          <th onclick="sortBy('matches')">Maç</th>
+          <th onclick="sortBy('hs_percent')">HS%</th>
+          <th onclick="sortBy('rounds')">Rounds</th>
+        </tr>
+      </thead>
+      <tbody id="playersBody"></tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title">🎮 Maçlar</h2>
+  <div id="matches" class="matches"></div>
 </div>
+
 <script>
 
 const NAME_FIX = {
@@ -45,18 +97,78 @@ const NAME_FIX = {
 function displayName(name){
   return NAME_FIX[name] || name;
 }
-function samePlayer(a,b){
-  return displayName(a) === displayName(b) || a === b;
+
+let players = [];
+let filtered = [];
+let currentSort = "adr";
+let asc = false;
+
+Promise.all([
+  fetch("players.json").then(r=>r.json()),
+  fetch("matches.json").then(r=>r.json())
+]).then(([p,m])=>{
+  players = p || [];
+  filtered = [...players];
+  sortBy("adr", true);
+  renderMatches(m || []);
+});
+
+function safe(v, fallback=""){ return (v===undefined || v===null) ? fallback : v; }
+
+function renderPlayers(){
+  const body = document.getElementById("playersBody");
+  body.innerHTML = "";
+  filtered.forEach((p,i)=>{
+    const kdClass = p.kd >= 1.15 ? "good" : (p.kd < .85 ? "bad" : "mid");
+    body.innerHTML += `
+      <tr onclick="goProfile('${encodeURIComponent(p.name)}')">
+        <td>${i+1}</td>
+        <td class="player">🔫 ${displayName(p.name)}</td>
+        <td>${safe(p.adr,0)}</td>
+        <td class="${kdClass}">${safe(p.kd,0)}</td>
+        <td>${safe(p.matches,0)}</td>
+        <td>${safe(p.hs_percent,0)}%</td>
+        <td>${safe(p.rounds,0)}</td>
+      </tr>`;
+  });
 }
 
-let players=[], filtered=[], currentSort="elo", asc=false;
-Promise.all([fetch("players.json").then(r=>r.json()),fetch("matches.json").then(r=>r.json())]).then(([p,m])=>{players=p||[];filtered=[...players];renderPlayers();renderMatches(m||[]);});
-function safe(v,fallback=""){return(v===undefined||v===null)?fallback:v}
-function renderPlayers(){const body=document.getElementById("playersBody");body.innerHTML="";filtered.forEach((p,i)=>{const kdClass=p.kd>=1.15?"good":(p.kd<.85?"bad":"mid");const wrClass=p.winrate>=55?"good":(p.winrate<45?"bad":"mid");const shown=displayName(p.name);body.innerHTML+=`<tr onclick="goProfile('${encodeURIComponent(p.name)}')"><td>${i+1}</td><td class="player">🔫 ${shown}</td><td>${safe(p.elo)}</td><td class="rank">${safe(p.rank)}</td><td class="${wrClass}">%${safe(p.winrate,0)}</td><td>${safe(p.matches,0)}</td><td>${safe(p.wins,0)}</td><td class="${kdClass}">${safe(p.kd,0)}</td><td>${safe(p.adr,0)}</td><td>${safe(p.hs_percent,0)}%</td><td>${safe(p.rounds,0)}</td></tr>`;});}
-function renderMatches(matches){const el=document.getElementById("matches");el.innerHTML="";matches.slice().reverse().forEach(m=>{const winnerName=m.winner==1?m.team1_name:(m.winner==2?m.team2_name:"Berabere");el.innerHTML+=`<div class="match-card" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'"><div class="match-top"><div class="match-name">${m.match}</div><div class="score">${m.score}</div></div><div class="meta">${safe(m.map,"")} ${m.timestamp?"• "+m.timestamp:""}</div><div class="winner">Kazanan: ${winnerName}</div></div>`;});}
-function sortBy(key){if(currentSort===key)asc=!asc;else{currentSort=key;asc=false}filtered.sort((a,b)=>{const av=typeof a[key]==="string"?a[key].toLowerCase():Number(a[key]||0);const bv=typeof b[key]==="string"?b[key].toLowerCase():Number(b[key]||0);if(av<bv)return asc?-1:1;if(av>bv)return asc?1:-1;return 0});renderPlayers();}
-document.getElementById("search").addEventListener("input",e=>{const q=e.target.value.toLowerCase().trim();filtered=players.filter(p=>displayName(String(p.name||"")).toLowerCase().includes(q)||String(p.name||"").toLowerCase().includes(q));sortBy(currentSort);});
-function goProfile(name){location.href="profile.html?player="+name}
+function renderMatches(matches){
+  const el = document.getElementById("matches");
+  el.innerHTML = "";
+  matches.slice().reverse().forEach(m=>{
+    const winnerName = m.winner == 1 ? m.team1_name : (m.winner == 2 ? m.team2_name : "Berabere");
+    el.innerHTML += `
+      <div class="match-card" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'">
+        <div class="match-top">
+          <div class="match-name">${m.match}</div>
+          <div class="score">${m.score}</div>
+        </div>
+        <div class="meta">${safe(m.map,"")} ${m.timestamp ? "• " + m.timestamp : ""}</div>
+        <div class="winner">Kazanan: ${winnerName}</div>
+      </div>`;
+  });
+}
+
+function sortBy(key, forceDesc=false){
+  if(currentSort === key && !forceDesc) asc = !asc; else { currentSort = key; asc = false; }
+  filtered.sort((a,b)=>{
+    const av = typeof a[key] === "string" ? a[key].toLowerCase() : Number(a[key]||0);
+    const bv = typeof b[key] === "string" ? b[key].toLowerCase() : Number(b[key]||0);
+    if(av < bv) return asc ? -1 : 1;
+    if(av > bv) return asc ? 1 : -1;
+    return 0;
+  });
+  renderPlayers();
+}
+
+document.getElementById("search").addEventListener("input", e=>{
+  const q = e.target.value.toLowerCase().trim();
+  filtered = players.filter(p => displayName(String(p.name||"")).toLowerCase().includes(q) || String(p.name||"").toLowerCase().includes(q));
+  sortBy(currentSort, true);
+});
+
+function goProfile(name){ location.href = "profile.html?player=" + name; }
 </script>
 </body>
 </html>
