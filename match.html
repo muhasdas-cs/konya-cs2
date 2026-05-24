@@ -72,7 +72,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); cursor:pointer}
     <table>
       <thead><tr>
         <th class="player">Oyuncu</th><th onclick="sortTeam(1,'kills')">K</th><th onclick="sortTeam(1,'deaths')">D</th>
-        <th onclick="sortTeam(1,'assists')">A</th><th onclick="sortTeam(1,'kd')">K/D</th><th onclick="sortTeam(1,'damage')">DMG</th>
+        <th onclick="sortTeam(1,'assists')">A</th><th onclick="sortTeam(1,'mvps')">EDO</th><th onclick="sortTeam(1,'kd')">K/D</th><th onclick="sortTeam(1,'damage')">DMG</th>
         <th onclick="sortTeam(1,'hs_percent')">HS%</th><th onclick="sortTeam(1,'utility_damage')">Util</th><th onclick="sortTeam(1,'entry_count')">Entry</th>
       </tr></thead>
       <tbody id="team1Body"></tbody>
@@ -84,7 +84,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); cursor:pointer}
     <table>
       <thead><tr>
         <th class="player">Oyuncu</th><th onclick="sortTeam(2,'kills')">K</th><th onclick="sortTeam(2,'deaths')">D</th>
-        <th onclick="sortTeam(2,'assists')">A</th><th onclick="sortTeam(2,'kd')">K/D</th><th onclick="sortTeam(2,'damage')">DMG</th>
+        <th onclick="sortTeam(2,'assists')">A</th><th onclick="sortTeam(2,'mvps')">EDO</th><th onclick="sortTeam(2,'kd')">K/D</th><th onclick="sortTeam(2,'damage')">DMG</th>
         <th onclick="sortTeam(2,'hs_percent')">HS%</th><th onclick="sortTeam(2,'utility_damage')">Util</th><th onclick="sortTeam(2,'entry_count')">Entry</th>
       </tr></thead>
       <tbody id="team2Body"></tbody>
@@ -140,7 +140,7 @@ function drawTeam(players, bodyId){
     const kdClass = p.kd >= 1.15 ? "good" : (p.kd < .85 ? "bad" : "mid");
     return `<tr onclick="location.href='profile.html?player=${encodeURIComponent(p.name)}'">
       <td class="player">🔫 ${displayName(p.name)}</td>
-      <td>${p.kills}</td><td>${p.deaths}</td><td>${p.assists}</td>
+      <td>${p.kills}</td><td>${p.deaths}</td><td>${p.assists}</td><td>⭐ ${p.mvps || p.round_edo || 0}</td>
       <td class="${kdClass}">${p.kd}</td><td>${p.damage}</td><td>${p.hs_percent}%</td>
       <td>${p.utility_damage}</td><td>${p.entry_wins}/${p.entry_count}</td>
     </tr>`;

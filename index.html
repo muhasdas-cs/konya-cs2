@@ -109,7 +109,8 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <th onclick="sortBy('kd')">K/D</th>
           <th onclick="sortBy('matches')">Maç</th>
           <th onclick="sortBy('hs_percent')">HS%</th>
-          <th onclick="sortBy('edo')">EDO</th>
+          <th onclick="sortBy('edo')">MVP</th>
+          <th onclick="sortBy('round_edo')">Round EDO</th>
           <th onclick="sortBy('clutch_rate')">Clutch</th>
           <th onclick="sortBy('rounds')">Rounds</th>
         </tr>
@@ -129,6 +130,10 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <option value="">Kriter seç</option>
           <option value="adr">ADR'ye göre</option>
           <option value="kd">K/D'ye göre</option>
+        </select>
+        <select id="edoBalanceMode" class="select-mode">
+          <option value="without">EDO'suz</option>
+          <option value="with">EDO'lu</option>
         </select>
         <button class="build-btn" onclick="buildTeams()">Oluştur</button>
         <button class="clear-btn" onclick="clearSelection()">Temizle</button>
@@ -240,7 +245,7 @@ function playerMvpScore(p){
 function buildHtmlAwards(players, details){
   const map = {};
   (players || []).forEach(p=>{
-    map[p.name] = {edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
+    map[p.name] = {edo:0, round_edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
   });
 
   (details || []).forEach(m=>{
@@ -252,12 +257,13 @@ function buildHtmlAwards(players, details){
 
     all.forEach(p=>{
       const key = p.name;
-      if(!map[key]) map[key] = {edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
+      if(!map[key]) map[key] = {edo:0, round_edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
 
       const cw = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
       const cc = Number(p.clutch_1v1_count || 0) + Number(p.clutch_1v2_count || 0);
       map[key].clutch_wins += cw;
       map[key].clutch_count += cc;
+      map[key].round_edo += Number(p.mvps || p.round_edo || 0);
 
       const score = playerMvpScore(p);
       if(score > bestScore){
@@ -283,6 +289,7 @@ function enrichPlayersWithAwards(players, awards){
     return {
       ...p,
       edo: a.edo || 0,
+      round_edo: a.round_edo || 0,
       clutch_wins: a.clutch_wins || 0,
       clutch_count: a.clutch_count || 0,
       clutch_rate: a.clutch_rate || 0,
@@ -334,7 +341,7 @@ function buildHtmlAwards(players, details){
     all.forEach(p=>{
       const key = p.name;
       if(!map[key]){
-        map[key] = {edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
+        map[key] = {edo:0, round_edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
       }
 
       const cw = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
@@ -342,6 +349,7 @@ function buildHtmlAwards(players, details){
 
       map[key].clutch_wins += cw;
       map[key].clutch_count += cc;
+      map[key].round_edo += Number(p.mvps || p.round_edo || 0);
 
       const score = playerMvpScore(p);
       if(score > bestScore){
@@ -367,6 +375,7 @@ function enrichPlayersWithAwards(players, awards){
     return {
       ...p,
       edo: a.edo || 0,
+      round_edo: a.round_edo || 0,
       clutch_wins: a.clutch_wins || 0,
       clutch_count: a.clutch_count || 0,
       clutch_rate: a.clutch_rate || 0,
@@ -491,7 +500,8 @@ function renderPlayers(){
         <td class="${kdClass}">${safe(p.kd,0)}</td>
         <td>${safe(p.matches,0)}</td>
         <td>${safe(p.hs_percent,0)}%</td>
-        <td>🏅 ${safe(p.edo,0)}</td>
+        <td>🏆 ${safe(p.edo,0)}</td>
+        <td>⭐ ${safe(p.round_edo,0)}</td>
         <td>${safe(p.clutch_text,"0/0")}</td>
         <td>${safe(p.rounds,0)}</td>
       </tr>`;
@@ -548,7 +558,7 @@ function renderBuilderPlayers(){
     return `
       <div class="player-pill ${active}" onclick="togglePlayer('${encodeURIComponent(p.name)}')">
         <div class="pill-name">🔫 ${displayName(p.name)}</div>
-        <div class="pill-stat">ADR: ${p.adr || 0} • K/D: ${p.kd || 0}</div>
+        <div class="pill-stat">ADR: ${p.adr || 0} • K/D: ${p.kd || 0} • MVP: ${p.edo || 0} • EDO: ${p.round_edo || 0}</div>
       </div>`;
   }).join("");
 
@@ -603,8 +613,24 @@ function shuffleArray(arr){
   return copy;
 }
 
+function playerBalanceValue(p, mode){
+  const includeEdo = document.getElementById("edoBalanceMode")?.value === "with";
+  const base = Number(p[mode] || 0);
+
+  if(!includeEdo) return base;
+
+  const matches = Math.max(Number(p.matches || 1), 1);
+  const edoRate = Number(p.round_edo || 0) / matches;
+
+  // ADR büyük ölçekli, K/D küçük ölçekli olduğu için EDO etkisini ölçeğe göre ekliyoruz.
+  if(mode === "adr") return base + (edoRate * 15);
+  if(mode === "kd") return base + (edoRate * 0.25);
+
+  return base;
+}
+
 function teamScore(team, mode){
-  return team.reduce((sum,p)=>sum + Number(p[mode] || 0), 0);
+  return team.reduce((sum,p)=>sum + playerBalanceValue(p, mode), 0);
 }
 
 function teamAverage(team, mode){
@@ -667,6 +693,7 @@ function buildTeams(){
 
 function renderGeneratedTeams(teamA, teamB, mode){
   const label = mode === "adr" ? "ADR" : "K/D";
+  const includeEdo = document.getElementById("edoBalanceMode")?.value === "with";
   const avgA = teamAverage(teamA, mode).toFixed(mode === "adr" ? 1 : 2);
   const avgB = teamAverage(teamB, mode).toFixed(mode === "adr" ? 1 : 2);
 
@@ -677,10 +704,10 @@ function renderGeneratedTeams(teamA, teamB, mode){
         ${team.map(p=>`
           <div class="team-line">
             <span>${displayName(p.name)}</span>
-            <b>${label}: ${p[mode] || 0}</b>
+            <b>${label}: ${p[mode] || 0}${includeEdo ? " • ⭐ " + (p.round_edo || 0) : ""}</b>
           </div>
         `).join("")}
-        <div class="team-avg">Ortalama ${label}: ${avg}</div>
+        <div class="team-avg">Ortalama ${label}: ${avg}${includeEdo ? " • EDO dahil" : ""}</div>
       </div>`;
   }
 

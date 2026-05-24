@@ -203,6 +203,7 @@ function calcStatsFromAppearances(appearances){
   let utilityDamage = 0, flashCount = 0, flashSuccess = 0, entryCount = 0, entryWins = 0;
   let c1Count = 0, c1Wins = 0, c2Count = 0, c2Wins = 0;
   let edo = 0;
+  let roundEdo = 0;
 
   appearances.forEach(({match, player})=>{
     kills += Number(player.kills || 0);
@@ -222,6 +223,7 @@ function calcStatsFromAppearances(appearances){
     c1Wins += Number(player.clutch_1v1_wins || 0);
     c2Count += Number(player.clutch_1v2_count || 0);
     c2Wins += Number(player.clutch_1v2_wins || 0);
+    roundEdo += Number(player.mvps || player.round_edo || 0);
 
     const all = [...(match.team1_players || []), ...(match.team2_players || [])];
     let best = null;
@@ -252,7 +254,8 @@ function calcStatsFromAppearances(appearances){
     clutch1: `${c1Wins}/${c1Count}`,
     clutch2: `${c2Wins}/${c2Count}`,
     clutchTotal: `${c1Wins+c2Wins}/${c1Count+c2Count}`,
-    edo
+    edo,
+    roundEdo
   };
 }
 
@@ -276,7 +279,8 @@ function renderProfile(mode){
     ["K/D", st.kd], ["ADR", st.adr], ["Matches", st.matches],
     ["HS%", st.hsPercent + "%"], ["Kills", st.kills],
     ["Assists", st.assists], ["Deaths", st.deaths],
-    ["EDO", "🏅 " + st.edo],
+    ["MVP", "🏆 " + st.edo],
+    ["Round EDO", "⭐ " + st.roundEdo],
     ["1v1 Clutch", st.clutch1],
     ["1v2 Clutch", st.clutch2],
     ["Toplam Clutch", st.clutchTotal],
