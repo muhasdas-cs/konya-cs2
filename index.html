@@ -244,8 +244,16 @@ function playerMvpScore(p){
 
 function buildHtmlAwards(players, details){
   const map = {};
+
   (players || []).forEach(p=>{
-    map[p.name] = {edo:0, round_edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
+    map[p.name] = {
+      edo:0,
+      round_edo:Number(p.round_edo || p.mvps || 0),
+      clutch_wins:0,
+      clutch_count:0,
+      clutch_rate:0,
+      clutch_text:"0/0"
+    };
   });
 
   (details || []).forEach(m=>{
@@ -257,13 +265,26 @@ function buildHtmlAwards(players, details){
 
     all.forEach(p=>{
       const key = p.name;
-      if(!map[key]) map[key] = {edo:0, round_edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
+      if(!map[key]){
+        map[key] = {
+          edo:0,
+          round_edo:0,
+          clutch_wins:0,
+          clutch_count:0,
+          clutch_rate:0,
+          clutch_text:"0/0"
+        };
+      }
 
       const cw = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
       const cc = Number(p.clutch_1v1_count || 0) + Number(p.clutch_1v2_count || 0);
+
       map[key].clutch_wins += cw;
       map[key].clutch_count += cc;
-      map[key].round_edo += Number(p.mvps || p.round_edo || 0);
+
+      // Yeni script çalıştıysa match_details içinde round_edo/mvps gelir.
+      // Eski JSON varsa players.json içindeki round_edo zaten yukarıda başlangıçta alınır.
+      map[key].round_edo += Number(p.round_edo || p.mvps || 0);
 
       const score = playerMvpScore(p);
       if(score > bestScore){
@@ -276,6 +297,7 @@ function buildHtmlAwards(players, details){
   });
 
   Object.keys(map).forEach(k=>{
+    map[k].round_edo = Number(map[k].round_edo || 0);
     map[k].clutch_rate = clutchRate(map[k].clutch_wins, map[k].clutch_count);
     map[k].clutch_text = clutchText(map[k].clutch_wins, map[k].clutch_count);
   });
@@ -286,13 +308,16 @@ function buildHtmlAwards(players, details){
 function enrichPlayersWithAwards(players, awards){
   return (players || []).map(p=>{
     const a = awards[p.name] || {};
+    const roundEdo = Number(a.round_edo ?? p.round_edo ?? p.mvps ?? 0);
+
     return {
       ...p,
-      edo: a.edo || 0,
-      round_edo: a.round_edo || 0,
-      clutch_wins: a.clutch_wins || 0,
-      clutch_count: a.clutch_count || 0,
-      clutch_rate: a.clutch_rate || 0,
+      edo: Number(a.edo || 0),
+      round_edo: roundEdo,
+      mvps: roundEdo,
+      clutch_wins: Number(a.clutch_wins || 0),
+      clutch_count: Number(a.clutch_count || 0),
+      clutch_rate: Number(a.clutch_rate || 0),
       clutch_text: a.clutch_text || "0/0"
     };
   });
@@ -318,71 +343,9 @@ function playerMvpScore(p){
   );
 }
 
-function buildHtmlAwards(players, details){
-  const map = {};
 
-  (players || []).forEach(p=>{
-    map[p.name] = {
-      edo:0,
-      clutch_wins:0,
-      clutch_count:0,
-      clutch_rate:0,
-      clutch_text:"0/0"
-    };
-  });
 
-  (details || []).forEach(m=>{
-    const all = [...(m.team1_players || []), ...(m.team2_players || [])];
-    if(!all.length) return;
 
-    let best = null;
-    let bestScore = -999999;
-
-    all.forEach(p=>{
-      const key = p.name;
-      if(!map[key]){
-        map[key] = {edo:0, round_edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0"};
-      }
-
-      const cw = Number(p.clutch_1v1_wins || 0) + Number(p.clutch_1v2_wins || 0);
-      const cc = Number(p.clutch_1v1_count || 0) + Number(p.clutch_1v2_count || 0);
-
-      map[key].clutch_wins += cw;
-      map[key].clutch_count += cc;
-      map[key].round_edo += Number(p.mvps || p.round_edo || 0);
-
-      const score = playerMvpScore(p);
-      if(score > bestScore){
-        bestScore = score;
-        best = key;
-      }
-    });
-
-    if(best && map[best]) map[best].edo += 1;
-  });
-
-  Object.keys(map).forEach(k=>{
-    map[k].clutch_rate = clutchRate(map[k].clutch_wins, map[k].clutch_count);
-    map[k].clutch_text = clutchText(map[k].clutch_wins, map[k].clutch_count);
-  });
-
-  return map;
-}
-
-function enrichPlayersWithAwards(players, awards){
-  return (players || []).map(p=>{
-    const a = awards[p.name] || {};
-    return {
-      ...p,
-      edo: a.edo || 0,
-      round_edo: a.round_edo || 0,
-      clutch_wins: a.clutch_wins || 0,
-      clutch_count: a.clutch_count || 0,
-      clutch_rate: a.clutch_rate || 0,
-      clutch_text: a.clutch_text || "0/0"
-    };
-  });
-}
 
 function getLimitedDetails(details, limit){
   return (details || [])
@@ -429,7 +392,7 @@ function buildLimitedPlayers(players, details, limit){
           deaths: Number(found.deaths || 0),
           damage: Number(found.damage || 0),
           hs: Number(found.headshot_kills || 0),
-          round_edo: Number(found.mvps || found.round_edo || 0)
+          round_edo: Number(found.round_edo || found.mvps || 0)
         });
       }
     });
@@ -505,7 +468,7 @@ function renderPlayers(){
         <td>${safe(p.matches,0)}</td>
         <td>${safe(p.hs_percent,0)}%</td>
         <td>🏆 ${safe(p.edo,0)}</td>
-        <td>⭐ ${safe(p.round_edo,0)}</td>
+        <td>⭐ ${safe(p.round_edo ?? p.mvps,0)}</td>
         <td>${safe(p.clutch_text,"0/0")}</td>
         <td>${safe(p.rounds,0)}</td>
       </tr>`;
@@ -562,7 +525,7 @@ function renderBuilderPlayers(){
     return `
       <div class="player-pill ${active}" onclick="togglePlayer('${encodeURIComponent(p.name)}')">
         <div class="pill-name">🔫 ${displayName(p.name)}</div>
-        <div class="pill-stat">ADR: ${p.adr || 0} • K/D: ${p.kd || 0} • MVP: ${p.edo || 0} • EDO: ${p.round_edo || 0}</div>
+        <div class="pill-stat">ADR: ${p.adr || 0} • K/D: ${p.kd || 0} • MVP: ${p.edo || 0} • EDO: ${p.round_edo ?? p.mvps ?? 0}</div>
       </div>`;
   }).join("");
 
@@ -624,7 +587,7 @@ function playerBalanceValue(p, mode){
   if(!includeEdo) return base;
 
   const matches = Math.max(Number(p.matches || 1), 1);
-  const edoRate = Number(p.round_edo || 0) / matches;
+  const edoRate = Number(p.round_edo ?? p.mvps ?? 0) / matches;
 
   // ADR büyük ölçekli, K/D küçük ölçekli olduğu için EDO etkisini ölçeğe göre ekliyoruz.
   if(mode === "adr") return base + (edoRate * 15);
@@ -708,7 +671,7 @@ function renderGeneratedTeams(teamA, teamB, mode){
         ${team.map(p=>`
           <div class="team-line">
             <span>${displayName(p.name)}</span>
-            <b>${label}: ${p[mode] || 0}${includeEdo ? " • ⭐ " + (p.round_edo || 0) : ""}</b>
+            <b>${label}: ${p[mode] || 0}${includeEdo ? " • ⭐ " + (p.round_edo ?? p.mvps ?? 0) : ""}</b>
           </div>
         `).join("")}
         <div class="team-avg">Ortalama ${label}: ${avg}${includeEdo ? " • EDO dahil" : ""}</div>
