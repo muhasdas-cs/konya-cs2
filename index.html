@@ -215,8 +215,10 @@ Promise.all([
   matchesData = m || [];
   matchDetailsData = d || [];
 
-  const allAwards = buildHtmlAwards(p || [], matchDetailsData);
-  allPlayers = enrichOverall(enrichPlayersWithAwards(p || [], allAwards));
+  const basePlayers = enrichAllTimeKdaFromDetails(p || [], matchDetailsData);
+
+  const allAwards = buildHtmlAwards(basePlayers, matchDetailsData);
+  allPlayers = enrichOverall(enrichPlayersWithAwards(basePlayers, allAwards));
 
   last10Players = buildLast10Players(allPlayers, matchDetailsData);
   const last10Awards = buildHtmlAwards(last10Players, getLast10Details(matchDetailsData));
@@ -235,7 +237,41 @@ Promise.all([
 
 function safe(v, fallback=""){ return (v===undefined || v===null || Number.isNaN(v)) ? fallback : v; }
 
+
+function enrichAllTimeKdaFromDetails(players, details){
+  const assistMap = {};
+  const killMap = {};
+  const deathMap = {};
+
+  (details || []).forEach(m=>{
+    const all = [...(m.team1_players || []), ...(m.team2_players || [])];
+    all.forEach(p=>{
+      const name = p.name;
+      if(!name) return;
+      assistMap[name] = (assistMap[name] || 0) + Number(p.assists || 0);
+      killMap[name] = (killMap[name] || 0) + Number(p.kills || 0);
+      deathMap[name] = (deathMap[name] || 0) + Number(p.deaths || 0);
+    });
+  });
+
+  return (players || []).map(p=>{
+    const kills = Number(p.kills ?? killMap[p.name] ?? 0);
+    const assists = Number(p.assists ?? assistMap[p.name] ?? 0);
+    const deaths = Number(p.deaths ?? deathMap[p.name] ?? 0);
+    const kda = deaths ? Number(((kills + assists) / deaths).toFixed(2)) : kills + assists;
+
+    return {
+      ...p,
+      kills,
+      assists,
+      deaths,
+      kda
+    };
+  });
+}
+
 function kdaOf(p){
+  if(p.kda !== undefined && p.kda !== null && !Number.isNaN(Number(p.kda))) return Number(p.kda);
   const kills = Number(p.kills || 0);
   const assists = Number(p.assists || 0);
   const deaths = Number(p.deaths || 0);
