@@ -150,6 +150,13 @@ function playerKda(p){
   return Number(((kills + assists) / deaths).toFixed(2));
 }
 
+function kdaClass(p){
+  const v = playerKda(p);
+  if(v >= 1.55) return "good";
+  if(v < 1.15) return "bad";
+  return "mid";
+}
+
 function drawTeam(players, bodyId){
   const body = document.getElementById(bodyId);
   body.innerHTML = players.map(p=>{
@@ -157,7 +164,7 @@ function drawTeam(players, bodyId){
     return `<tr onclick="location.href='profile.html?player=${encodeURIComponent(p.name)}'">
       <td class="player">🔫 ${displayName(p.name)}</td>
       <td>${p.kills}</td><td>${p.deaths}</td><td>${p.assists}</td><td>⭐ ${p.mvps || p.round_edo || 0}</td>
-      <td class="${kdClass}">${p.kd}</td><td>${playerKda(p)}</td><td>${p.damage}</td><td>${p.hs_percent}%</td>
+      <td class="${kdClass}">${p.kd}</td><td class="${kdaClass(p)}">${playerKda(p)}</td><td>${p.damage}</td><td>${p.hs_percent}%</td>
       <td>${p.utility_damage}</td><td>${p.entry_wins}/${p.entry_count}</td>
     </tr>`;
   }).join("");

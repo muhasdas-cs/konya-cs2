@@ -113,6 +113,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
     <button id="allStatsBtn" class="filter-btn active" onclick="setStatsMode('all')">Tüm Maçlar</button>
     <button id="last10StatsBtn" class="filter-btn" onclick="setStatsMode('last10')">Son 10 Maç</button>
     <button id="last20StatsBtn" class="filter-btn" onclick="setStatsMode('last20')">Son 20 Maç</button>
+    <button id="min10Btn" class="filter-btn" onclick="toggleMin10()">En Az 10 Maç</button>
   </div>
 
   <div class="card">
@@ -206,6 +207,7 @@ let currentSort = "adr";
 let asc = false;
 let statsMode = "all";
 let builderMode = "all";
+let min10Only = false;
 
 Promise.all([
   fetch("players.json").then(r=>r.json()),
@@ -277,6 +279,13 @@ function kdaOf(p){
   const deaths = Number(p.deaths || 0);
   if(!deaths) return Number((kills + assists).toFixed(2));
   return Number(((kills + assists) / deaths).toFixed(2));
+}
+
+function kdaClass(p){
+  const v = kdaOf(p);
+  if(v >= 1.55) return "good";
+  if(v < 1.15) return "bad";
+  return "mid";
 }
 
 function winsOf(p){ return Number(p.wins || 0); }
@@ -618,6 +627,27 @@ function buildLast20Players(players, details){
   return buildLimitedPlayers(players, details, 20);
 }
 
+function applyPlayerFilters(){
+  const q = document.getElementById("search").value.toLowerCase().trim();
+
+  filtered = currentPlayers.filter(p => {
+    const nameOk =
+      displayName(String(p.name||"")).toLowerCase().includes(q) ||
+      String(p.name||"").toLowerCase().includes(q);
+
+    const min10Ok = !min10Only || Number(p.matches || 0) >= 10;
+
+    return nameOk && min10Ok;
+  });
+}
+
+function toggleMin10(){
+  min10Only = !min10Only;
+  document.getElementById("min10Btn").classList.toggle("active", min10Only);
+  applyPlayerFilters();
+  sortBy(currentSort, true);
+}
+
 function setStatsMode(mode){
   statsMode = mode;
   document.getElementById("allStatsBtn").classList.toggle("active", mode === "all");
@@ -625,8 +655,7 @@ function setStatsMode(mode){
   document.getElementById("last20StatsBtn").classList.toggle("active", mode === "last20");
 
   currentPlayers = mode === "all" ? allPlayers : (mode === "last20" ? last20Players : last10Players);
-  const q = document.getElementById("search").value.toLowerCase().trim();
-  filtered = currentPlayers.filter(p => displayName(String(p.name||"")).toLowerCase().includes(q) || String(p.name||"").toLowerCase().includes(q));
+  applyPlayerFilters();
   sortBy(currentSort, true);
 }
 
@@ -655,7 +684,7 @@ function renderPlayers(){
         <td class="player">🔫 ${displayName(p.name)}</td>
         <td>${safe(p.adr,0)}</td>
         <td class="${kdClass}">${safe(p.kd,0)}</td>
-        <td>${safe(p.kda ?? kdaOf(p),0)}</td>
+        <td class="${kdaClass(p)}">${safe(p.kda ?? kdaOf(p),0)}</td>
         <td>${safe(p.matches,0)}</td>
         <td class="wl-box"><span class="win-text">${winsOf(p)}</span>/<span class="loss-text">${lossesOf(p)}</span></td>
         <td class="${wrClass(wrOf(p))}">%${wrOf(p)}</td>
@@ -706,8 +735,7 @@ function sortBy(key, forceDesc=false){
 }
 
 document.getElementById("search").addEventListener("input", e=>{
-  const q = e.target.value.toLowerCase().trim();
-  filtered = currentPlayers.filter(p => displayName(String(p.name||"")).toLowerCase().includes(q) || String(p.name||"").toLowerCase().includes(q));
+  applyPlayerFilters();
   sortBy(currentSort, true);
 });
 
