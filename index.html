@@ -155,6 +155,10 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <option value="without">EDO'suz</option>
           <option value="with">EDO'lu</option>
         </select>
+        <select id="wrBalanceMode" class="select-mode">
+          <option value="without">WR'siz</option>
+          <option value="with">WR'li</option>
+        </select>
         <button class="build-btn" onclick="buildTeams()">Oluştur</button>
         <button class="clear-btn" onclick="clearSelection()">Temizle</button>
       </div>
@@ -285,6 +289,7 @@ function overallRank(score){
 function calculateOverall(p){
   const adrScore = normalize(p.adr, 45, 115);
   const kdScore = normalize(p.kd, 0.55, 1.75);
+  const wrScore = normalize(wrOf(p), 25, 75);
 
   const matches = Math.max(Number(p.matches || 1), 1);
   const edoPerMatch = Number(p.round_edo ?? p.mvps ?? 0) / matches;
@@ -295,10 +300,11 @@ function calculateOverall(p){
 
   const total =
     adrScore * 35 +
-    edoScore * 25 +
-    kdScore * 20 +
-    entry * 10 +
-    clutch * 10;
+    kdScore * 25 +
+    wrScore * 20 +
+    edoScore * 10 +
+    entry * 5 +
+    clutch * 5;
 
   return Math.round(total);
 }
@@ -665,7 +671,7 @@ function renderBuilderPlayers(){
     return `
       <div class="player-pill ${active}" onclick="togglePlayer('${encodeURIComponent(p.name)}')">
         <div class="pill-name">🔫 ${displayName(p.name)}</div>
-        <div class="pill-stat">Overall: ${p.overall || 0} • ADR: ${p.adr || 0} • K/D: ${p.kd || 0} • EDO: ${p.round_edo ?? p.mvps ?? 0}</div>
+        <div class="pill-stat">Overall: ${p.overall || 0} • WR: %${wrOf(p)} • ADR: ${p.adr || 0} • K/D: ${p.kd || 0}</div>
       </div>`;
   }).join("");
 
@@ -722,19 +728,28 @@ function shuffleArray(arr){
 
 function playerBalanceValue(p, mode){
   const includeEdo = document.getElementById("edoBalanceMode")?.value === "with";
+  const includeWr = document.getElementById("wrBalanceMode")?.value === "with";
   const base = Number(p[mode] || 0);
-
-  if(!includeEdo) return base;
 
   const matches = Math.max(Number(p.matches || 1), 1);
   const edoRate = Number(p.round_edo ?? p.mvps ?? 0) / matches;
+  const wrRate = wrOf(p) / 100;
 
-  // ADR büyük ölçekli, K/D küçük ölçekli olduğu için EDO etkisini ölçeğe göre ekliyoruz.
-  if(mode === "adr") return base + (edoRate * 15);
-  if(mode === "kd") return base + (edoRate * 0.25);
-  if(mode === "overall") return base + (includeEdo ? edoRate * 2 : 0);
+  let score = base;
 
-  return base;
+  if(includeEdo){
+    if(mode === "adr") score += edoRate * 15;
+    else if(mode === "kd") score += edoRate * 0.25;
+    else if(mode === "overall") score += edoRate * 2;
+  }
+
+  if(includeWr){
+    if(mode === "adr") score += wrRate * 20;
+    else if(mode === "kd") score += wrRate * 0.35;
+    else if(mode === "overall") score += wrRate * 6;
+  }
+
+  return score;
 }
 
 function teamScore(team, mode){
@@ -762,7 +777,7 @@ function buildTeams(){
   showBuilderMessage("");
 
   const shuffled = shuffleArray(selectedPlayers);
-  const sorted = shuffled.sort((a,b)=>Number(b[mode]||0)-Number(a[mode]||0));
+  const sorted = shuffled.sort((a,b)=>playerBalanceValue(b, mode)-playerBalanceValue(a, mode));
 
   let teamA = [];
   let teamB = [];
@@ -802,6 +817,7 @@ function buildTeams(){
 function renderGeneratedTeams(teamA, teamB, mode){
   const label = mode === "adr" ? "ADR" : (mode === "kd" ? "K/D" : "Overall");
   const includeEdo = document.getElementById("edoBalanceMode")?.value === "with";
+  const includeWr = document.getElementById("wrBalanceMode")?.value === "with";
   const avgA = teamAverage(teamA, mode).toFixed(mode === "adr" ? 1 : 2);
   const avgB = teamAverage(teamB, mode).toFixed(mode === "adr" ? 1 : 2);
 
@@ -812,10 +828,10 @@ function renderGeneratedTeams(teamA, teamB, mode){
         ${team.map(p=>`
           <div class="team-line">
             <span>${displayName(p.name)}</span>
-            <b>${label}: ${p[mode] || 0}${includeEdo ? " • ⭐ " + (p.round_edo ?? p.mvps ?? 0) : ""}</b>
+            <b>${label}: ${p[mode] || 0}${includeEdo ? " • ⭐ " + (p.round_edo ?? p.mvps ?? 0) : ""}${includeWr ? " • WR %" + wrOf(p) : ""}</b>
           </div>
         `).join("")}
-        <div class="team-avg">Ortalama ${label}: ${avg}${includeEdo ? " • EDO dahil" : ""}</div>
+        <div class="team-avg">Ortalama ${label}: ${avg}${includeEdo ? " • EDO dahil" : ""}${includeWr ? " • WR dahil" : ""}</div>
       </div>`;
   }
 
