@@ -262,6 +262,8 @@ function heroClass(rank){
 function calculateOverallFromStats(st){
   const adrScore = normalize(st.adr, 45, 115);
   const kdScore = normalize(st.kd, 0.55, 1.75);
+  const kdaScore = normalize(st.kda, 0.8, 2.4);
+  const wrScore = normalize(st.wr, 25, 75);
 
   const matches = Math.max(Number(st.matches || 1), 1);
   const edoPerMatch = Number(st.roundEdo || 0) / matches;
@@ -277,10 +279,12 @@ function calculateOverallFromStats(st){
 
   const total =
     adrScore * 35 +
-    edoScore * 25 +
-    kdScore * 20 +
-    entryScore * 10 +
-    clutchScore * 10;
+    kdScore * 15 +
+    kdaScore * 10 +
+    wrScore * 20 +
+    edoScore * 10 +
+    entryScore * 5 +
+    clutchScore * 5;
 
   return Math.round(total);
 }
@@ -351,6 +355,7 @@ function calcStatsFromAppearances(appearances){
   });
 
   const kd = deaths ? Number((kills/deaths).toFixed(2)) : kills;
+  const kda = deaths ? Number(((kills+assists)/deaths).toFixed(2)) : kills + assists;
   const adr = rounds ? Number((damage/rounds).toFixed(1)) : 0;
   const hsPercent = kills ? Number(((hs/kills)*100).toFixed(1)) : 0;
   const flashRate = flashCount ? Number(((flashSuccess/flashCount)*100).toFixed(1)) : 0;
@@ -362,7 +367,7 @@ function calcStatsFromAppearances(appearances){
     matches: appearances.length,
     wins, losses, wr,
     rounds, kills, deaths, assists, damage,
-    kd, adr, hsPercent, utilityDamage,
+    kd, kda, adr, hsPercent, utilityDamage,
     flashRate, entryRate,
     entryCount, entryWins,
     clutchWins: c1Wins + c2Wins,
@@ -401,7 +406,7 @@ function renderProfile(mode){
     ["Rank", rank],
     ["W/L", `<span class="win-text">${st.wins}</span>/<span class="loss-text">${st.losses}</span>`],
     ["WR", `<span class="${wrClass(st.wr)}">%${st.wr}</span>`],
-    ["K/D", st.kd], ["ADR", st.adr], ["Matches", st.matches],
+    ["K/D", st.kd], ["KDA", st.kda], ["ADR", st.adr], ["Matches", st.matches],
     ["HS%", st.hsPercent + "%"], ["Kills", st.kills],
     ["Assists", st.assists], ["Deaths", st.deaths],
     ["MVP", "🏆 " + st.edo],
@@ -427,7 +432,7 @@ function renderProfile(mode){
       <div class="match" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'">
         <div>
           <b>${m.match}</b> <span class="small">(${m.score})</span> <span class="${resultClass(m.result)}">${m.result || ""}</span>
-          <div class="small">K/D/A: ${m.kills}/${m.deaths}/${m.assists} • DMG: ${m.damage} • KD: ${m.kd}</div>
+          <div class="small">K/D/A: ${m.kills}/${m.deaths}/${m.assists} • KDA: ${m.deaths ? Number(((Number(m.kills||0)+Number(m.assists||0))/Number(m.deaths)).toFixed(2)) : Number(m.kills||0)+Number(m.assists||0)} • DMG: ${m.damage} • KD: ${m.kd}</div>
         </div>
         <div class="score-pill ${resultClass(m.result)}">${m.result || m.score}</div>
       </div>`;

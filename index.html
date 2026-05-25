@@ -93,7 +93,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 .matches-toggle-row .section-title{margin:0}
 .matches.collapsed{display:none}
 @media(max-width:720px){
-  th:nth-child(8),td:nth-child(8),th:nth-child(9),td:nth-child(9),th:nth-child(10),td:nth-child(10),th:nth-child(11),td:nth-child(11),th:nth-child(12),td:nth-child(12){display:none}
+  th:nth-child(9),td:nth-child(9),th:nth-child(10),td:nth-child(10),th:nth-child(11),td:nth-child(11),th:nth-child(12),td:nth-child(12),th:nth-child(13),td:nth-child(13){display:none}
   .header h1{font-size:26px}
 }
 </style>
@@ -123,6 +123,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <th class="player">Oyuncu</th>
           <th onclick="sortBy('adr')">ADR</th>
           <th onclick="sortBy('kd')">K/D</th>
+          <th onclick="sortBy('kda')">KDA</th>
           <th onclick="sortBy('matches')">Maç</th>
           <th onclick="sortBy('wins')">W/L</th>
           <th onclick="sortBy('wr')">WR</th>
@@ -234,6 +235,14 @@ Promise.all([
 
 function safe(v, fallback=""){ return (v===undefined || v===null || Number.isNaN(v)) ? fallback : v; }
 
+function kdaOf(p){
+  const kills = Number(p.kills || 0);
+  const assists = Number(p.assists || 0);
+  const deaths = Number(p.deaths || 0);
+  if(!deaths) return Number((kills + assists).toFixed(2));
+  return Number(((kills + assists) / deaths).toFixed(2));
+}
+
 function winsOf(p){ return Number(p.wins || 0); }
 
 function lossesOf(p){
@@ -289,6 +298,7 @@ function overallRank(score){
 function calculateOverall(p){
   const adrScore = normalize(p.adr, 45, 115);
   const kdScore = normalize(p.kd, 0.55, 1.75);
+  const kdaScore = normalize(kdaOf(p), 0.8, 2.4);
   const wrScore = normalize(wrOf(p), 25, 75);
 
   const matches = Math.max(Number(p.matches || 1), 1);
@@ -300,7 +310,8 @@ function calculateOverall(p){
 
   const total =
     adrScore * 35 +
-    kdScore * 25 +
+    kdScore * 15 +
+    kdaScore * 10 +
     wrScore * 20 +
     edoScore * 10 +
     entry * 5 +
@@ -317,6 +328,7 @@ function enrichOverall(players){
       wins: winsOf(p),
       losses: lossesOf(p),
       wr: wrOf(p),
+      kda: kdaOf(p),
       overall,
       elo: overall,
       rank: overallRank(overall)
@@ -505,6 +517,7 @@ function buildLimitedPlayers(players, details, limit){
           rounds: Number(m.rounds || matchRoundsFromScore(m.score) || 0),
           kills: Number(found.kills || 0),
           deaths: Number(found.deaths || 0),
+          assists: Number(found.assists || 0),
           damage: Number(found.damage || 0),
           hs: Number(found.headshot_kills || 0),
           round_edo: Number(found.round_edo || found.mvps || 0),
@@ -527,6 +540,7 @@ function buildLimitedPlayers(players, details, limit){
 
     const kills = last.reduce((s,x)=>s+x.kills,0);
     const deaths = last.reduce((s,x)=>s+x.deaths,0);
+    const assists = last.reduce((s,x)=>s+x.assists,0);
     const damage = last.reduce((s,x)=>s+x.damage,0);
     const hs = last.reduce((s,x)=>s+x.hs,0);
     const rounds = last.reduce((s,x)=>s+x.rounds,0);
@@ -540,6 +554,8 @@ function buildLimitedPlayers(players, details, limit){
     return {
       ...base,
       kd: deaths ? Number((kills/deaths).toFixed(2)) : kills,
+      kda: deaths ? Number(((kills+assists)/deaths).toFixed(2)) : kills + assists,
+      assists: assists,
       adr: rounds ? Number((damage/rounds).toFixed(1)) : 0,
       matches: last.length,
       wins: wins,
@@ -605,6 +621,7 @@ function renderPlayers(){
         <td class="player">🔫 ${displayName(p.name)}</td>
         <td>${safe(p.adr,0)}</td>
         <td class="${kdClass}">${safe(p.kd,0)}</td>
+        <td>${safe(p.kda ?? kdaOf(p),0)}</td>
         <td>${safe(p.matches,0)}</td>
         <td class="wl-box"><span class="win-text">${winsOf(p)}</span>/<span class="loss-text">${lossesOf(p)}</span></td>
         <td class="${wrClass(wrOf(p))}">%${wrOf(p)}</td>
@@ -671,7 +688,7 @@ function renderBuilderPlayers(){
     return `
       <div class="player-pill ${active}" onclick="togglePlayer('${encodeURIComponent(p.name)}')">
         <div class="pill-name">🔫 ${displayName(p.name)}</div>
-        <div class="pill-stat">Overall: ${p.overall || 0} • WR: %${wrOf(p)} • ADR: ${p.adr || 0} • K/D: ${p.kd || 0}</div>
+        <div class="pill-stat">Overall: ${p.overall || 0} • WR: %${wrOf(p)} • K/D: ${p.kd || 0} • KDA: ${p.kda ?? kdaOf(p)}</div>
       </div>`;
   }).join("");
 
