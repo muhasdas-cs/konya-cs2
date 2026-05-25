@@ -130,8 +130,16 @@ function render(){
   document.getElementById("team2Score").innerText = m.team2_score;
   document.getElementById("winner").innerText = m.winner == 1 ? `Kazanan: ${m.team1_name}` : (m.winner == 2 ? `Kazanan: ${m.team2_name}` : "Berabere");
 
-  drawTeam(m.team1_players || [], "team1Body");
-  drawTeam(m.team2_players || [], "team2Body");
+  matchData.team1_players = (m.team1_players || [])
+    .slice()
+    .sort((a,b)=>Number(b.damage||0)-Number(a.damage||0));
+
+  matchData.team2_players = (m.team2_players || [])
+    .slice()
+    .sort((a,b)=>Number(b.damage||0)-Number(a.damage||0));
+
+  drawTeam(matchData.team1_players, "team1Body");
+  drawTeam(matchData.team2_players, "team2Body");
 }
 
 function drawTeam(players, bodyId){
