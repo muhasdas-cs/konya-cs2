@@ -107,6 +107,15 @@ body{
 .match:hover{transform:translateY(-2px); border-color:#fb923c}
 .small{color:var(--muted); font-size:13px}
 .score-pill{font-weight:900; padding:7px 10px; border-radius:999px; background:rgba(249,115,22,.16); color:#fb923c}
+.wr-good{color:var(--green);font-weight:900}
+.wr-mid{color:var(--yellow);font-weight:900}
+.wr-bad{color:var(--red);font-weight:900}
+.wl-box{white-space:nowrap;font-weight:900}
+.win-text{color:var(--green)}
+.loss-text{color:var(--red)}
+.result-win{color:var(--green);font-weight:900}
+.result-lose{color:var(--red);font-weight:900}
+.result-draw{color:var(--yellow);font-weight:900}
 @media(max-width:650px){.match{grid-template-columns:1fr}.name{font-size:26px}}
 </style>
 </head>
@@ -186,6 +195,20 @@ Promise.all([
   document.getElementById("name").innerHTML = `🔫 ${shown} ${steamButton}`;
   renderProfile("all");
 });
+
+
+function wrClass(wr){
+  const v = Number(wr || 0);
+  if(v >= 60) return "wr-good";
+  if(v >= 45) return "wr-mid";
+  return "wr-bad";
+}
+
+function resultClass(result){
+  if(result === "WIN") return "result-win";
+  if(result === "LOSE") return "result-lose";
+  return "result-draw";
+}
 
 function matchNumber(matchName){
   const nums = String(matchName || "").match(/\d+/g);
@@ -286,6 +309,7 @@ function calcStatsFromAppearances(appearances){
   let c1Count = 0, c1Wins = 0, c2Count = 0, c2Wins = 0;
   let edo = 0;
   let roundEdo = 0;
+  let wins = 0;
 
   appearances.forEach(({match, player})=>{
     kills += Number(player.kills || 0);
@@ -307,6 +331,10 @@ function calcStatsFromAppearances(appearances){
     c2Wins += Number(player.clutch_1v2_wins || 0);
     roundEdo += Number(player.mvps || player.round_edo || 0);
 
+    const playerTeamScore = Number(player.team || 0) === 1 ? Number(match.team1_score || 0) : Number(match.team2_score || 0);
+    const opponentTeamScore = Number(player.team || 0) === 1 ? Number(match.team2_score || 0) : Number(match.team1_score || 0);
+    if(playerTeamScore > opponentTeamScore) wins += 1;
+
     const all = [...(match.team1_players || []), ...(match.team2_players || [])];
     let best = null;
     let bestScore = -999999;
@@ -327,9 +355,12 @@ function calcStatsFromAppearances(appearances){
   const hsPercent = kills ? Number(((hs/kills)*100).toFixed(1)) : 0;
   const flashRate = flashCount ? Number(((flashSuccess/flashCount)*100).toFixed(1)) : 0;
   const entryRate = entryCount ? Number(((entryWins/entryCount)*100).toFixed(1)) : 0;
+  const losses = Math.max(appearances.length - wins, 0);
+  const wr = appearances.length ? Number(((wins / appearances.length) * 100).toFixed(1)) : 0;
 
   return {
     matches: appearances.length,
+    wins, losses, wr,
     rounds, kills, deaths, assists, damage,
     kd, adr, hsPercent, utilityDamage,
     flashRate, entryRate,
@@ -363,11 +394,13 @@ function renderProfile(mode){
   const hero = document.getElementById("heroCard");
   hero.className = "hero " + heroClass(rank);
 
-  document.getElementById("meta").innerHTML = `${st.matches} maç • ${st.rounds} round • <span class="overall-badge">⚡ Overall ${overall}</span> <span class="rank-badge ${rankClass(rank)}">${rank}</span>`;
+  document.getElementById("meta").innerHTML = `${st.matches} maç • ${st.rounds} round • <span class="overall-badge">⚡ Overall ${overall}</span> <span class="rank-badge ${rankClass(rank)}">${rank}</span> • <span class="${wrClass(st.wr)}">WR %${st.wr}</span>`;
 
   const stats = [
     ["Overall", "⚡ " + overall],
     ["Rank", rank],
+    ["W/L", `<span class="win-text">${st.wins}</span>/<span class="loss-text">${st.losses}</span>`],
+    ["WR", `<span class="${wrClass(st.wr)}">%${st.wr}</span>`],
     ["K/D", st.kd], ["ADR", st.adr], ["Matches", st.matches],
     ["HS%", st.hsPercent + "%"], ["Kills", st.kills],
     ["Assists", st.assists], ["Deaths", st.deaths],
@@ -393,10 +426,10 @@ function renderProfile(mode){
     return `
       <div class="match" onclick="location.href='match.html?match=${encodeURIComponent(m.match)}'">
         <div>
-          <b>${m.match}</b> <span class="small">(${m.score})</span>
+          <b>${m.match}</b> <span class="small">(${m.score})</span> <span class="${resultClass(m.result)}">${m.result || ""}</span>
           <div class="small">K/D/A: ${m.kills}/${m.deaths}/${m.assists} • DMG: ${m.damage} • KD: ${m.kd}</div>
         </div>
-        <div class="score-pill">${m.score}</div>
+        <div class="score-pill ${resultClass(m.result)}">${m.result || m.score}</div>
       </div>`;
   }).join("");
 }
