@@ -261,7 +261,6 @@ function heroClass(rank){
 
 function calculateOverallFromStats(st){
   const adrScore = normalize(st.adr, 45, 115);
-  const kdScore = normalize(st.kd, 0.55, 1.75);
   const kdaScore = normalize(st.kda, 0.8, 2.4);
   const wrScore = normalize(st.wr, 25, 75);
 
@@ -279,10 +278,9 @@ function calculateOverallFromStats(st){
 
   const total =
     adrScore * 35 +
-    kdScore * 15 +
-    kdaScore * 10 +
-    wrScore * 20 +
-    edoScore * 10 +
+    kdaScore * 25 +
+    wrScore * 15 +
+    edoScore * 15 +
     entryScore * 5 +
     clutchScore * 5;
 

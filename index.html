@@ -340,11 +340,16 @@ function calculateOverall(p){
   const edoPerMatch = Number(p.round_edo ?? p.mvps ?? 0) / matches;
   const edoScore = normalize(edoPerMatch, 0, 3.2);
 
+  const clutch = clutchScore(p);
+  const entry = entryScore(p);
+
   const total =
     adrScore * 35 +
     kdaScore * 25 +
-    wrScore * 20 +
-    edoScore * 20;
+    wrScore * 15 +
+    edoScore * 15 +
+    entry * 5 +
+    clutch * 5;
 
   return Math.round(total);
 }
