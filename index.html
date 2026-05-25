@@ -333,7 +333,6 @@ function overallRank(score){
 
 function calculateOverall(p){
   const adrScore = normalize(p.adr, 45, 115);
-  const kdScore = normalize(p.kd, 0.55, 1.75);
   const kdaScore = normalize(kdaOf(p), 0.8, 2.4);
   const wrScore = normalize(wrOf(p), 25, 75);
 
@@ -341,17 +340,11 @@ function calculateOverall(p){
   const edoPerMatch = Number(p.round_edo ?? p.mvps ?? 0) / matches;
   const edoScore = normalize(edoPerMatch, 0, 3.2);
 
-  const clutch = clutchScore(p);
-  const entry = entryScore(p);
-
   const total =
     adrScore * 35 +
-    kdScore * 15 +
-    kdaScore * 10 +
+    kdaScore * 25 +
     wrScore * 20 +
-    edoScore * 10 +
-    entry * 5 +
-    clutch * 5;
+    edoScore * 20;
 
   return Math.round(total);
 }
