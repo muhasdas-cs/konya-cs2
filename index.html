@@ -37,6 +37,12 @@ tr{transition:.18s}
 tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:pointer}
 .player{text-align:left}
 .good{color:var(--green)} .bad{color:var(--red)} .mid{color:var(--yellow)}
+.wr-good{color:var(--green);font-weight:900}
+.wr-mid{color:var(--yellow);font-weight:900}
+.wr-bad{color:var(--red);font-weight:900}
+.wl-box{white-space:nowrap;font-weight:900}
+.win-text{color:var(--green)}
+.loss-text{color:var(--red)}
 .rank-badge{
   display:inline-block;
   margin-top:4px;
@@ -87,7 +93,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 .matches-toggle-row .section-title{margin:0}
 .matches.collapsed{display:none}
 @media(max-width:720px){
-  th:nth-child(7),td:nth-child(7),th:nth-child(8),td:nth-child(8),th:nth-child(9),td:nth-child(9){display:none}
+  th:nth-child(8),td:nth-child(8),th:nth-child(9),td:nth-child(9),th:nth-child(10),td:nth-child(10),th:nth-child(11),td:nth-child(11),th:nth-child(12),td:nth-child(12){display:none}
   .header h1{font-size:26px}
 }
 </style>
@@ -118,6 +124,8 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <th onclick="sortBy('adr')">ADR</th>
           <th onclick="sortBy('kd')">K/D</th>
           <th onclick="sortBy('matches')">Maç</th>
+          <th onclick="sortBy('wins')">W/L</th>
+          <th onclick="sortBy('wr')">WR</th>
           <th onclick="sortBy('hs_percent')">HS%</th>
           <th onclick="sortBy('edo')">MVP</th>
           <th onclick="sortBy('round_edo')">Round EDO</th>
@@ -222,6 +230,28 @@ Promise.all([
 
 function safe(v, fallback=""){ return (v===undefined || v===null || Number.isNaN(v)) ? fallback : v; }
 
+function winsOf(p){ return Number(p.wins || 0); }
+
+function lossesOf(p){
+  return Math.max(Number(p.matches || 0) - winsOf(p), 0);
+}
+
+function wrOf(p){
+  const matches = Number(p.matches || 0);
+  if(!matches) return 0;
+  if(p.wr !== undefined) return Number(p.wr || 0);
+  if(p.winrate !== undefined) return Number(p.winrate || 0);
+  return Number(((winsOf(p) / matches) * 100).toFixed(1));
+}
+
+function wrClass(wr){
+  const v = Number(wr || 0);
+  if(v >= 60) return "wr-good";
+  if(v >= 45) return "wr-mid";
+  return "wr-bad";
+}
+
+
 function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
 
 function normalize(v,min,max){
@@ -278,6 +308,9 @@ function enrichOverall(players){
     const overall = calculateOverall(p);
     return {
       ...p,
+      wins: winsOf(p),
+      losses: lossesOf(p),
+      wr: wrOf(p),
       overall,
       elo: overall,
       rank: overallRank(overall)
@@ -472,7 +505,13 @@ function buildLimitedPlayers(players, details, limit){
           entry_count: Number(found.entry_count || 0),
           entry_wins: Number(found.entry_wins || 0),
           clutch_wins: Number(found.clutch_1v1_wins || 0) + Number(found.clutch_1v2_wins || 0),
-          clutch_count: Number(found.clutch_1v1_count || 0) + Number(found.clutch_1v2_count || 0)
+          clutch_count: Number(found.clutch_1v1_count || 0) + Number(found.clutch_1v2_count || 0),
+          result: (
+            (Number(found.team || 0) === 1 && Number(m.team1_score || 0) > Number(m.team2_score || 0)) ||
+            (Number(found.team || 0) === 2 && Number(m.team2_score || 0) > Number(m.team1_score || 0))
+          ) ? "WIN" : (
+            Number(m.team1_score || 0) === Number(m.team2_score || 0) ? "DRAW" : "LOSE"
+          )
         });
       }
     });
@@ -490,12 +529,17 @@ function buildLimitedPlayers(players, details, limit){
     const entryWins = last.reduce((s,x)=>s+Number(x.entry_wins || 0),0);
     const clutchCount = last.reduce((s,x)=>s+Number(x.clutch_count || 0),0);
     const clutchWins = last.reduce((s,x)=>s+Number(x.clutch_wins || 0),0);
+    const wins = last.filter(x=>x.result === "WIN").length;
 
     return {
       ...base,
       kd: deaths ? Number((kills/deaths).toFixed(2)) : kills,
       adr: rounds ? Number((damage/rounds).toFixed(1)) : 0,
       matches: last.length,
+      wins: wins,
+      losses: Math.max(last.length - wins, 0),
+      wr: last.length ? Number(((wins / last.length) * 100).toFixed(1)) : 0,
+      winrate: last.length ? Number(((wins / last.length) * 100).toFixed(1)) : 0,
       hs_percent: kills ? Number(((hs/kills)*100).toFixed(1)) : 0,
       round_edo: roundEdo,
       mvps: roundEdo,
@@ -556,6 +600,8 @@ function renderPlayers(){
         <td>${safe(p.adr,0)}</td>
         <td class="${kdClass}">${safe(p.kd,0)}</td>
         <td>${safe(p.matches,0)}</td>
+        <td class="wl-box"><span class="win-text">${winsOf(p)}</span>/<span class="loss-text">${lossesOf(p)}</span></td>
+        <td class="${wrClass(wrOf(p))}">%${wrOf(p)}</td>
         <td>${safe(p.hs_percent,0)}%</td>
         <td>🏆 ${safe(p.edo,0)}</td>
         <td>⭐ ${safe(p.round_edo ?? p.mvps,0)}</td>
