@@ -96,6 +96,22 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
   th:nth-child(9),td:nth-child(9),th:nth-child(10),td:nth-child(10),th:nth-child(11),td:nth-child(11),th:nth-child(12),td:nth-child(12),th:nth-child(13),td:nth-child(13){display:none}
   .header h1{font-size:26px}
 }
+
+@media(max-width:768px){
+  .container{width:98%!important;padding:12px 0 40px!important}
+  .toolbar,.builder-head,.builder-controls,.filter-row,.matches-toggle-row{
+    flex-direction:column!important;
+    align-items:stretch!important;
+  }
+  .filter-btn,.build-btn,.clear-btn,.toggle-btn,.select-mode,.search{
+    width:100%!important;
+  }
+  .player-pills{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  .matches{grid-template-columns:1fr!important;}
+  table{font-size:12px}
+  th,td{padding:8px 6px}
+}
+
 </style>
 </head>
 <body>
