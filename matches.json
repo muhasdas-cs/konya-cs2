@@ -1372,6 +1372,63 @@
         ]
     },
     {
+        "match": "matchzy_51_0",
+        "matchid": "51",
+        "timestamp": "2026-05-23 19:39:01",
+        "map": "de_dust2",
+        "score": "0-3",
+        "raw_score": "0-3",
+        "score_corrected": false,
+        "team1_score": 0,
+        "team2_score": 3,
+        "raw_team1_score": 0,
+        "raw_team2_score": 3,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_RΛIKU雷",
+        "original_team2_name": "team_Jassarez",
+        "team1": [
+            "RIKU",
+            "AyB"
+        ],
+        "team2": [
+            "Jassarez",
+            "EmreY"
+        ]
+    },
+    {
+        "match": "matchzy_52_0",
+        "matchid": "52",
+        "timestamp": "2026-05-23 19:43:48",
+        "map": "de_dust2",
+        "score": "0-1",
+        "raw_score": "0-1",
+        "score_corrected": false,
+        "team1_score": 0,
+        "team2_score": 1,
+        "raw_team1_score": 0,
+        "raw_team2_score": 1,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_AyB",
+        "original_team2_name": "team_EmreY",
+        "team1": [
+            "RIKU",
+            "AyB",
+            "Meso",
+            "Gararki"
+        ],
+        "team2": [
+            "Jassarez",
+            "EmreY",
+            "poizon",
+            "JusticeForAII",
+            "elbombas15Saniye"
+        ]
+    },
+    {
         "match": "matchzy_53_0",
         "matchid": "53",
         "timestamp": "2026-05-23 20:23:05",
@@ -1785,6 +1842,262 @@
             "Gararki",
             "steam_141469239",
             "JusticeForAII"
+        ]
+    },
+    {
+        "match": "matchzy_67_0",
+        "matchid": "67",
+        "timestamp": "2026-06-06 20:30:51",
+        "map": "de_dust2",
+        "score": "11-13",
+        "raw_score": "11-12",
+        "score_corrected": true,
+        "team1_score": 11,
+        "team2_score": 13,
+        "raw_team1_score": 11,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_RΛIKU雷",
+        "team1": [
+            "MasterRoshi",
+            "TesserACT",
+            "MuHasdas",
+            "Meso",
+            "steam_141469239"
+        ],
+        "team2": [
+            "Gararki",
+            "JusticeForAII",
+            "poizon",
+            "steam_301208272",
+            "RIKU"
+        ]
+    },
+    {
+        "match": "matchzy_68_0",
+        "matchid": "68",
+        "timestamp": "2026-06-06 21:22:44",
+        "map": "de_dust2",
+        "score": "13-11",
+        "raw_score": "12-11",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 11,
+        "raw_team1_score": 12,
+        "raw_team2_score": 11,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_RΛIKU雷",
+        "original_team2_name": "team_",
+        "team1": [
+            "Gararki",
+            "JusticeForAII",
+            "poizon",
+            "steam_301208272",
+            "RIKU"
+        ],
+        "team2": [
+            "MasterRoshi",
+            "TesserACT",
+            "MuHasdas",
+            "Meso",
+            "steam_141469239"
+        ]
+    },
+    {
+        "match": "matchzy_69_0",
+        "matchid": "69",
+        "timestamp": "2026-06-06 22:16:32",
+        "map": "de_dust2",
+        "score": "11-13",
+        "raw_score": "11-12",
+        "score_corrected": true,
+        "team1_score": 11,
+        "team2_score": 13,
+        "raw_team1_score": 11,
+        "raw_team2_score": 12,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_RΛIKU雷",
+        "team1": [
+            "MasterRoshi",
+            "TesserACT",
+            "MuHasdas",
+            "Meso",
+            "steam_141469239"
+        ],
+        "team2": [
+            "Gararki",
+            "JusticeForAII",
+            "poizon",
+            "steam_301208272",
+            "RIKU"
+        ]
+    },
+    {
+        "match": "matchzy_70_0",
+        "matchid": "70",
+        "timestamp": "2026-06-06 22:31:57",
+        "map": "de_dust2",
+        "score": "0-0",
+        "raw_score": "0-0",
+        "score_corrected": false,
+        "team1_score": 0,
+        "team2_score": 0,
+        "raw_team1_score": 0,
+        "raw_team2_score": 0,
+        "winner": 0,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_poizon",
+        "team1": [
+            "MuHasdas",
+            "steam_301208272",
+            "RIKU",
+            "Meso",
+            "steam_141469239"
+        ],
+        "team2": [
+            "Gararki",
+            "MasterRoshi",
+            "JusticeForAII",
+            "TesserACT",
+            "poizon"
+        ]
+    },
+    {
+        "match": "matchzy_71_0",
+        "matchid": "71",
+        "timestamp": "2026-06-06 22:54:46",
+        "map": "de_dust2",
+        "score": "13-3",
+        "raw_score": "12-3",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 3,
+        "raw_team1_score": 12,
+        "raw_team2_score": 3,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_poizon",
+        "team1": [
+            "MuHasdas",
+            "steam_301208272",
+            "RIKU",
+            "Meso",
+            "steam_141469239"
+        ],
+        "team2": [
+            "Gararki",
+            "MasterRoshi",
+            "JusticeForAII",
+            "TesserACT",
+            "poizon"
+        ]
+    },
+    {
+        "match": "matchzy_73_0",
+        "matchid": "73",
+        "timestamp": "2026-06-06 23:31:03",
+        "map": "de_dust2",
+        "score": "13-4",
+        "raw_score": "12-4",
+        "score_corrected": true,
+        "team1_score": 13,
+        "team2_score": 4,
+        "raw_team1_score": 12,
+        "raw_team2_score": 4,
+        "winner": 1,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_poizon",
+        "original_team2_name": "team_",
+        "team1": [
+            "Gararki",
+            "MasterRoshi",
+            "JusticeForAII",
+            "TesserACT",
+            "poizon"
+        ],
+        "team2": [
+            "MuHasdas",
+            "steam_301208272",
+            "RIKU",
+            "Meso",
+            "steam_141469239"
+        ]
+    },
+    {
+        "match": "matchzy_74_0",
+        "matchid": "74",
+        "timestamp": "2026-06-06 23:38:49",
+        "map": "de_dust2",
+        "score": "0-0",
+        "raw_score": "0-0",
+        "score_corrected": false,
+        "team1_score": 0,
+        "team2_score": 0,
+        "raw_team1_score": 0,
+        "raw_team2_score": 0,
+        "winner": 0,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_poizon",
+        "team1": [
+            "MuHasdas",
+            "steam_301208272",
+            "RIKU",
+            "Meso",
+            "steam_141469239"
+        ],
+        "team2": [
+            "Gararki",
+            "MasterRoshi",
+            "JusticeForAII",
+            "TesserACT",
+            "poizon"
+        ]
+    },
+    {
+        "match": "matchzy_75_0",
+        "matchid": "75",
+        "timestamp": "2026-06-07 00:41:46",
+        "map": "de_dust2",
+        "score": "17-19",
+        "raw_score": "17-18",
+        "score_corrected": true,
+        "team1_score": 17,
+        "team2_score": 19,
+        "raw_team1_score": 17,
+        "raw_team2_score": 18,
+        "winner": 2,
+        "team1_name": "Team 1",
+        "team2_name": "Team 2",
+        "original_team1_name": "team_",
+        "original_team2_name": "team_poizon",
+        "team1": [
+            "MuHasdas",
+            "steam_301208272",
+            "RIKU",
+            "Meso",
+            "steam_141469239"
+        ],
+        "team2": [
+            "Gararki",
+            "MasterRoshi",
+            "JusticeForAII",
+            "TesserACT",
+            "poizon"
         ]
     }
 ]
