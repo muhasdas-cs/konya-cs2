@@ -1668,42 +1668,6 @@
         ]
     },
     {
-        "match": "matchzy_52_0",
-        "matchid": "52",
-        "timestamp": "2026-05-23 19:42:52",
-        "map": "de_dust2",
-        "score": "0-0",
-        "raw_score": "0-0",
-        "score_corrected": false,
-        "team1_score": 0,
-        "team2_score": 0,
-        "raw_team1_score": 0,
-        "raw_team2_score": 0,
-        "winner": 0,
-        "team1_name": "Team 1",
-        "team2_name": "Team 2",
-        "original_team1_name": "team_AyB",
-        "original_team2_name": "team_EmreY",
-        "ct_round_wins": 0,
-        "ct_rounds": 0,
-        "ct_wr": 0.0,
-        "t_round_wins": 0,
-        "t_rounds": 0,
-        "t_wr": 0.0,
-        "team1": [
-            "RIKU",
-            "AyB",
-            "Meso",
-            "Gararki"
-        ],
-        "team2": [
-            "Jassarez",
-            "EmreY",
-            "poizon",
-            "JusticeForAII"
-        ]
-    },
-    {
         "match": "matchzy_52_21",
         "matchid": "52",
         "timestamp": "2026-05-23 19:43:48",

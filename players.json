@@ -2,13 +2,13 @@
     {
         "name": "poizon",
         "steam_id": "365362563",
-        "elo": 1385,
-        "rank": "Diamond",
-        "winrate": 72.7,
-        "matches": 33,
+        "elo": 1410,
+        "rank": "Immortal",
+        "winrate": 75.0,
+        "matches": 32,
         "wins": 24,
         "kd": 1.39,
-        "adr": 93.6,
+        "adr": 93.8,
         "hs_percent": 38.2,
         "round_edo": 109,
         "mvps": 109,
@@ -18,18 +18,18 @@
         "t_round_wins": 182,
         "t_rounds": 335,
         "t_wr": 54.3,
-        "rounds": 727
+        "rounds": 726
     },
     {
         "name": "RIKU",
         "steam_id": "1557567091",
-        "elo": 1296,
+        "elo": 1321,
         "rank": "Diamond",
-        "winrate": 62.5,
-        "matches": 48,
+        "winrate": 63.8,
+        "matches": 47,
         "wins": 30,
         "kd": 0.85,
-        "adr": 67.3,
+        "adr": 67.4,
         "hs_percent": 32.8,
         "round_edo": 68,
         "mvps": 68,
@@ -39,18 +39,18 @@
         "t_round_wins": 247,
         "t_rounds": 494,
         "t_wr": 50.0,
-        "rounds": 1019
+        "rounds": 1018
     },
     {
         "name": "Gararki",
         "steam_id": "61818139",
-        "elo": 1174,
+        "elo": 1199,
         "rank": "Platinum",
-        "winrate": 64.0,
-        "matches": 25,
+        "winrate": 66.7,
+        "matches": 24,
         "wins": 16,
         "kd": 0.94,
-        "adr": 73.6,
+        "adr": 73.8,
         "hs_percent": 44.2,
         "round_edo": 49,
         "mvps": 49,
@@ -60,7 +60,7 @@
         "t_round_wins": 115,
         "t_rounds": 249,
         "t_wr": 46.2,
-        "rounds": 556
+        "rounds": 555
     },
     {
         "name": "steam_301208272",
@@ -86,10 +86,10 @@
     {
         "name": "AyB",
         "steam_id": "475438229",
-        "elo": 1078,
+        "elo": 1103,
         "rank": "Platinum",
-        "winrate": 52.9,
-        "matches": 51,
+        "winrate": 54.0,
+        "matches": 50,
         "wins": 27,
         "kd": 1.12,
         "adr": 82.3,
@@ -102,7 +102,7 @@
         "t_round_wins": 249,
         "t_rounds": 509,
         "t_wr": 48.9,
-        "rounds": 1083
+        "rounds": 1082
     },
     {
         "name": "MTB",
@@ -168,6 +168,27 @@
         "rounds": 288
     },
     {
+        "name": "Meso",
+        "steam_id": "315829696",
+        "elo": 1024,
+        "rank": "Platinum",
+        "winrate": 50.8,
+        "matches": 59,
+        "wins": 30,
+        "kd": 0.91,
+        "adr": 72.3,
+        "hs_percent": 48.7,
+        "round_edo": 109,
+        "mvps": 109,
+        "ct_round_wins": 303,
+        "ct_rounds": 595,
+        "ct_wr": 50.9,
+        "t_round_wins": 300,
+        "t_rounds": 613,
+        "t_wr": 48.9,
+        "rounds": 1320
+    },
+    {
         "name": "Eboss",
         "steam_id": "963885442",
         "elo": 1018,
@@ -208,27 +229,6 @@
         "t_rounds": 255,
         "t_wr": 49.8,
         "rounds": 544
-    },
-    {
-        "name": "Meso",
-        "steam_id": "315829696",
-        "elo": 999,
-        "rank": "Gold",
-        "winrate": 50.0,
-        "matches": 60,
-        "wins": 30,
-        "kd": 0.91,
-        "adr": 72.3,
-        "hs_percent": 48.7,
-        "round_edo": 109,
-        "mvps": 109,
-        "ct_round_wins": 303,
-        "ct_rounds": 595,
-        "ct_wr": 50.9,
-        "t_round_wins": 300,
-        "t_rounds": 613,
-        "t_wr": 48.9,
-        "rounds": 1321
     },
     {
         "name": "elbombas15Saniye",
@@ -357,6 +357,27 @@
         "rounds": 119
     },
     {
+        "name": "Jassarez",
+        "steam_id": "60037131",
+        "elo": 921,
+        "rank": "Gold",
+        "winrate": 36.4,
+        "matches": 11,
+        "wins": 4,
+        "kd": 0.84,
+        "adr": 68.9,
+        "hs_percent": 41.0,
+        "round_edo": 18,
+        "mvps": 18,
+        "ct_round_wins": 69,
+        "ct_rounds": 126,
+        "ct_wr": 54.8,
+        "t_round_wins": 47,
+        "t_rounds": 110,
+        "t_wr": 42.7,
+        "rounds": 260
+    },
+    {
         "name": "steam_141469239",
         "steam_id": "141469239",
         "elo": 920,
@@ -399,27 +420,6 @@
         "rounds": 68
     },
     {
-        "name": "Jassarez",
-        "steam_id": "60037131",
-        "elo": 896,
-        "rank": "Gold",
-        "winrate": 33.3,
-        "matches": 12,
-        "wins": 4,
-        "kd": 0.84,
-        "adr": 68.6,
-        "hs_percent": 41.0,
-        "round_edo": 18,
-        "mvps": 18,
-        "ct_round_wins": 69,
-        "ct_rounds": 126,
-        "ct_wr": 54.8,
-        "t_round_wins": 47,
-        "t_rounds": 110,
-        "t_wr": 42.7,
-        "rounds": 261
-    },
-    {
         "name": "MasterRoshi",
         "steam_id": "874637023",
         "elo": 890,
@@ -443,13 +443,13 @@
     {
         "name": "EmreY",
         "steam_id": "1234807161",
-        "elo": 842,
+        "elo": 867,
         "rank": "Gold",
-        "winrate": 43.2,
-        "matches": 44,
+        "winrate": 44.2,
+        "matches": 43,
         "wins": 19,
         "kd": 0.71,
-        "adr": 59.5,
+        "adr": 59.6,
         "hs_percent": 54.4,
         "round_edo": 52,
         "mvps": 52,
@@ -459,7 +459,7 @@
         "t_round_wins": 229,
         "t_rounds": 451,
         "t_wr": 50.8,
-        "rounds": 943
+        "rounds": 942
     },
     {
         "name": "TesserACT",
@@ -506,10 +506,10 @@
     {
         "name": "JusticeForAII",
         "steam_id": "393952146",
-        "elo": 696,
+        "elo": 721,
         "rank": "Silver",
-        "winrate": 38.9,
-        "matches": 54,
+        "winrate": 39.6,
+        "matches": 53,
         "wins": 21,
         "kd": 0.82,
         "adr": 67.0,
@@ -522,6 +522,6 @@
         "t_round_wins": 242,
         "t_rounds": 520,
         "t_wr": 46.5,
-        "rounds": 1196
+        "rounds": 1195
     }
 ]
