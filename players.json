@@ -12,6 +12,12 @@
         "hs_percent": 37.5,
         "round_edo": 102,
         "mvps": 102,
+        "ct_round_wins": 166,
+        "ct_rounds": 292,
+        "ct_wr": 56.8,
+        "t_round_wins": 177,
+        "t_rounds": 319,
+        "t_wr": 55.5,
         "rounds": 682
     },
     {
@@ -27,6 +33,12 @@
         "hs_percent": 44.8,
         "round_edo": 46,
         "mvps": 46,
+        "ct_round_wins": 129,
+        "ct_rounds": 233,
+        "ct_wr": 55.4,
+        "t_round_wins": 109,
+        "t_rounds": 232,
+        "t_wr": 47.0,
         "rounds": 511
     },
     {
@@ -42,6 +54,12 @@
         "hs_percent": 31.4,
         "round_edo": 67,
         "mvps": 67,
+        "ct_round_wins": 226,
+        "ct_rounds": 434,
+        "ct_wr": 52.1,
+        "t_round_wins": 227,
+        "t_rounds": 455,
+        "t_wr": 49.9,
         "rounds": 955
     },
     {
@@ -57,6 +75,12 @@
         "hs_percent": 36.4,
         "round_edo": 130,
         "mvps": 130,
+        "ct_round_wins": 273,
+        "ct_rounds": 555,
+        "ct_wr": 49.2,
+        "t_round_wins": 293,
+        "t_rounds": 557,
+        "t_wr": 52.6,
         "rounds": 1212
     },
     {
@@ -72,6 +96,12 @@
         "hs_percent": 32.1,
         "round_edo": 126,
         "mvps": 126,
+        "ct_round_wins": 253,
+        "ct_rounds": 508,
+        "ct_wr": 49.8,
+        "t_round_wins": 249,
+        "t_rounds": 509,
+        "t_wr": 48.9,
         "rounds": 1087
     },
     {
@@ -87,6 +117,12 @@
         "hs_percent": 45.1,
         "round_edo": 9,
         "mvps": 9,
+        "ct_round_wins": 19,
+        "ct_rounds": 36,
+        "ct_wr": 52.8,
+        "t_round_wins": 17,
+        "t_rounds": 26,
+        "t_wr": 65.4,
         "rounds": 65
     },
     {
@@ -102,6 +138,12 @@
         "hs_percent": 38.3,
         "round_edo": 67,
         "mvps": 67,
+        "ct_round_wins": 135,
+        "ct_rounds": 275,
+        "ct_wr": 49.1,
+        "t_round_wins": 148,
+        "t_rounds": 276,
+        "t_wr": 53.6,
         "rounds": 612
     },
     {
@@ -117,6 +159,12 @@
         "hs_percent": 42.9,
         "round_edo": 7,
         "mvps": 7,
+        "ct_round_wins": 43,
+        "ct_rounds": 70,
+        "ct_wr": 61.4,
+        "t_round_wins": 22,
+        "t_rounds": 58,
+        "t_wr": 37.9,
         "rounds": 142
     },
     {
@@ -132,6 +180,12 @@
         "hs_percent": 47.6,
         "round_edo": 31,
         "mvps": 31,
+        "ct_round_wins": 69,
+        "ct_rounds": 152,
+        "ct_wr": 45.4,
+        "t_round_wins": 71,
+        "t_rounds": 123,
+        "t_wr": 57.7,
         "rounds": 289
     },
     {
@@ -147,6 +201,12 @@
         "hs_percent": 54.1,
         "round_edo": 48,
         "mvps": 48,
+        "ct_round_wins": 124,
+        "ct_rounds": 256,
+        "ct_wr": 48.4,
+        "t_round_wins": 127,
+        "t_rounds": 255,
+        "t_wr": 49.8,
         "rounds": 544
     },
     {
@@ -162,6 +222,12 @@
         "hs_percent": 49.4,
         "round_edo": 106,
         "mvps": 106,
+        "ct_round_wins": 286,
+        "ct_rounds": 566,
+        "ct_wr": 50.5,
+        "t_round_wins": 284,
+        "t_rounds": 579,
+        "t_wr": 49.1,
         "rounds": 1254
     },
     {
@@ -177,6 +243,12 @@
         "hs_percent": 39.0,
         "round_edo": 8,
         "mvps": 8,
+        "ct_round_wins": 21,
+        "ct_rounds": 46,
+        "ct_wr": 45.7,
+        "t_round_wins": 26,
+        "t_rounds": 49,
+        "t_wr": 53.1,
         "rounds": 100
     },
     {
@@ -192,6 +264,12 @@
         "hs_percent": 41.1,
         "round_edo": 20,
         "mvps": 20,
+        "ct_round_wins": 69,
+        "ct_rounds": 126,
+        "ct_wr": 54.8,
+        "t_round_wins": 51,
+        "t_rounds": 114,
+        "t_wr": 44.7,
         "rounds": 264
     },
     {
@@ -207,6 +285,12 @@
         "hs_percent": 57.1,
         "round_edo": 3,
         "mvps": 3,
+        "ct_round_wins": 8,
+        "ct_rounds": 17,
+        "ct_wr": 47.1,
+        "t_round_wins": 7,
+        "t_rounds": 22,
+        "t_wr": 31.8,
         "rounds": 41
     },
     {
@@ -222,6 +306,12 @@
         "hs_percent": 54.6,
         "round_edo": 53,
         "mvps": 53,
+        "ct_round_wins": 197,
+        "ct_rounds": 415,
+        "ct_wr": 47.5,
+        "t_round_wins": 233,
+        "t_rounds": 455,
+        "t_wr": 51.2,
         "rounds": 947
     },
     {
@@ -237,6 +327,12 @@
         "hs_percent": 41.0,
         "round_edo": 12,
         "mvps": 12,
+        "ct_round_wins": 26,
+        "ct_rounds": 56,
+        "ct_wr": 46.4,
+        "t_round_wins": 26,
+        "t_rounds": 53,
+        "t_wr": 49.1,
         "rounds": 119
     },
     {
@@ -252,6 +348,12 @@
         "hs_percent": 25.0,
         "round_edo": 19,
         "mvps": 19,
+        "ct_round_wins": 49,
+        "ct_rounds": 102,
+        "ct_wr": 48.0,
+        "t_round_wins": 54,
+        "t_rounds": 105,
+        "t_wr": 51.4,
         "rounds": 250
     },
     {
@@ -267,6 +369,12 @@
         "hs_percent": 35.4,
         "round_edo": 82,
         "mvps": 82,
+        "ct_round_wins": 184,
+        "ct_rounds": 374,
+        "ct_wr": 49.2,
+        "t_round_wins": 182,
+        "t_rounds": 353,
+        "t_wr": 51.6,
         "rounds": 803
     },
     {
@@ -282,6 +390,12 @@
         "hs_percent": 31.5,
         "round_edo": 74,
         "mvps": 74,
+        "ct_round_wins": 256,
+        "ct_rounds": 520,
+        "ct_wr": 49.2,
+        "t_round_wins": 251,
+        "t_rounds": 497,
+        "t_wr": 50.5,
         "rounds": 1112
     },
     {
@@ -297,6 +411,12 @@
         "hs_percent": 35.7,
         "round_edo": 79,
         "mvps": 79,
+        "ct_round_wins": 257,
+        "ct_rounds": 539,
+        "ct_wr": 47.7,
+        "t_round_wins": 227,
+        "t_rounds": 487,
+        "t_wr": 46.6,
         "rounds": 1129
     },
     {
@@ -312,6 +432,12 @@
         "hs_percent": 41.0,
         "round_edo": 198,
         "mvps": 198,
+        "ct_round_wins": 301,
+        "ct_rounds": 620,
+        "ct_wr": 48.5,
+        "t_round_wins": 296,
+        "t_rounds": 619,
+        "t_wr": 47.8,
         "rounds": 1353
     }
 ]
