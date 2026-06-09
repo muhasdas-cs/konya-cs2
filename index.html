@@ -129,8 +129,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
     <button id="allStatsBtn" class="filter-btn active" onclick="setStatsMode('all')">Tüm Maçlar</button>
     <button id="last10StatsBtn" class="filter-btn" onclick="setStatsMode('last10')">Son 10 Maç</button>
     <button id="last20StatsBtn" class="filter-btn" onclick="setStatsMode('last20')">Son 20 Maç</button>
-    <button id="min10Btn" class="filter-btn" onclick="toggleMin10()">En Az 10 Maç</button>
-  </div>
+</div>
 
   <div class="card">
     <table>
@@ -225,7 +224,7 @@ let currentSort = "adr";
 let asc = false;
 let statsMode = "all";
 let builderMode = "all";
-let min10Only = false;
+let min10Only = true;
 
 Promise.all([
   fetch("players.json").then(r=>r.json()),
@@ -249,7 +248,7 @@ Promise.all([
   last20Players = enrichOverall(enrichPlayersWithAwards(last20Players, last20Awards));
 
   currentPlayers = allPlayers;
-  filtered = [...currentPlayers];
+  applyPlayerFilters();
   sortBy("overall", true);
   renderBuilderPlayers();
   renderMatches(matchesData);
@@ -658,12 +657,7 @@ function applyPlayerFilters(){
   });
 }
 
-function toggleMin10(){
-  min10Only = !min10Only;
-  document.getElementById("min10Btn").classList.toggle("active", min10Only);
-  applyPlayerFilters();
-  sortBy(currentSort, true);
-}
+function toggleMin10(){ return; }
 
 function setStatsMode(mode){
   statsMode = mode;
