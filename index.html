@@ -43,6 +43,9 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 .wl-box{white-space:nowrap;font-weight:900}
 .win-text{color:var(--green)}
 .loss-text{color:var(--red)}
+.side-wr-box{font-weight:900;line-height:1.25;white-space:nowrap}
+.t-wr-text{color:var(--yellow)}
+.ct-wr-text{color:#60a5fa}
 .rank-badge{
   display:inline-block;
   margin-top:4px;
@@ -93,7 +96,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 .matches-toggle-row .section-title{margin:0}
 .matches.collapsed{display:none}
 @media(max-width:720px){
-  th:nth-child(9),td:nth-child(9),th:nth-child(10),td:nth-child(10),th:nth-child(11),td:nth-child(11),th:nth-child(12),td:nth-child(12),th:nth-child(13),td:nth-child(13){display:none}
+  th:nth-child(10),td:nth-child(10),th:nth-child(11),td:nth-child(11),th:nth-child(12),td:nth-child(12),th:nth-child(13),td:nth-child(13),th:nth-child(14),td:nth-child(14){display:none}
   .header h1{font-size:26px}
 }
 
@@ -129,7 +132,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
     <button id="allStatsBtn" class="filter-btn active" onclick="setStatsMode('all')">Tüm Maçlar</button>
     <button id="last10StatsBtn" class="filter-btn" onclick="setStatsMode('last10')">Son 10 Maç</button>
     <button id="last20StatsBtn" class="filter-btn" onclick="setStatsMode('last20')">Son 20 Maç</button>
-    <button id="min10Btn" class="filter-btn" onclick="toggleMin10()">En Az 10 Maç</button>
+    
   </div>
 
   <div class="card">
@@ -143,6 +146,7 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
           <th onclick="sortBy('kda')">KDA</th>
           <th onclick="sortBy('matches')">Maç</th>
           <th onclick="sortBy('wins')">W/L</th>
+          <th>T/CT</th>
           <th onclick="sortBy('wr')">WR</th>
           <th onclick="sortBy('hs_percent')">HS%</th>
           <th onclick="sortBy('edo')">MVP</th>
@@ -207,31 +211,9 @@ const NAME_FIX = {
   "301208272": "RAİDER",
   "steam_141469239": "RBZ",
   "141469239": "RBZ",
-  "elbombas15Saniye": "elbombası",
-  "RIKU": "RAIKU",
-  "riku": "RAIKU"
+  "elbombas15Saniye": "elbombası"
 };
 function displayName(name){ return NAME_FIX[name] || name; }
-
-const HIDDEN_HOME_PLAYERS = [
-  "master roshi",
-  "elbo",
-  "ss",
-  "soez",
-  "mtb",
-  "hanzala"
-];
-
-function isHiddenHomePlayer(p){
-  const raw = String(p?.name || "").toLowerCase().trim();
-  const shown = displayName(String(p?.name || "")).toLowerCase().trim();
-  return HIDDEN_HOME_PLAYERS.includes(raw) || HIDDEN_HOME_PLAYERS.includes(shown);
-}
-
-function visibleHomePlayers(players){
-  return (players || []).filter(p => !isHiddenHomePlayer(p));
-}
-
 
 let allPlayers = [];
 let currentPlayers = [];
@@ -245,7 +227,7 @@ let currentSort = "adr";
 let asc = false;
 let statsMode = "all";
 let builderMode = "all";
-let min10Only = false;
+let min10Only = true;
 
 Promise.all([
   fetch("players.json").then(r=>r.json()),
@@ -258,15 +240,15 @@ Promise.all([
   const basePlayers = enrichAllTimeKdaFromDetails(p || [], matchDetailsData);
 
   const allAwards = buildHtmlAwards(basePlayers, matchDetailsData);
-  allPlayers = visibleHomePlayers(enrichOverall(enrichPlayersWithAwards(basePlayers, allAwards)));
+  allPlayers = enrichOverall(enrichPlayersWithAwards(basePlayers, allAwards));
 
   last10Players = buildLast10Players(allPlayers, matchDetailsData);
   const last10Awards = buildHtmlAwards(last10Players, getLast10Details(matchDetailsData));
-  last10Players = visibleHomePlayers(enrichOverall(enrichPlayersWithAwards(last10Players, last10Awards)));
+  last10Players = enrichOverall(enrichPlayersWithAwards(last10Players, last10Awards));
 
   last20Players = buildLast20Players(allPlayers, matchDetailsData);
   const last20Awards = buildHtmlAwards(last20Players, getLast20Details(matchDetailsData));
-  last20Players = visibleHomePlayers(enrichOverall(enrichPlayersWithAwards(last20Players, last20Awards)));
+  last20Players = enrichOverall(enrichPlayersWithAwards(last20Players, last20Awards));
 
   currentPlayers = allPlayers;
   filtered = [...currentPlayers];
@@ -347,6 +329,14 @@ function wrClass(wr){
   return "wr-bad";
 }
 
+function ctWrOf(p){
+  return Number(p.ct_wr || 0);
+}
+
+function tWrOf(p){
+  return Number(p.t_wr || 0);
+}
+
 
 function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
 
@@ -410,6 +400,8 @@ function enrichOverall(players){
       losses: lossesOf(p),
       wr: wrOf(p),
       kda: kdaOf(p),
+      ct_wr: ctWrOf(p),
+      t_wr: tWrOf(p),
       overall,
       elo: overall,
       rank: overallRank(overall)
@@ -606,6 +598,18 @@ function buildLimitedPlayers(players, details, limit){
           entry_wins: Number(found.entry_wins || 0),
           clutch_wins: Number(found.clutch_1v1_wins || 0) + Number(found.clutch_1v2_wins || 0),
           clutch_count: Number(found.clutch_1v1_count || 0) + Number(found.clutch_1v2_count || 0),
+          ct_round_wins: (
+            Number(found.team || 0) === 1 ? Number(m.team1_ct_round_wins || 0) : Number(m.team2_ct_round_wins || 0)
+          ),
+          ct_rounds: (
+            Number(found.team || 0) === 1 ? Number(m.team1_ct_rounds || 0) : Number(m.team2_ct_rounds || 0)
+          ),
+          t_round_wins: (
+            Number(found.team || 0) === 1 ? Number(m.team1_t_round_wins || 0) : Number(m.team2_t_round_wins || 0)
+          ),
+          t_rounds: (
+            Number(found.team || 0) === 1 ? Number(m.team1_t_rounds || 0) : Number(m.team2_t_rounds || 0)
+          ),
           result: (
             (Number(found.team || 0) === 1 && Number(m.team1_score || 0) > Number(m.team2_score || 0)) ||
             (Number(found.team || 0) === 2 && Number(m.team2_score || 0) > Number(m.team1_score || 0))
@@ -631,6 +635,10 @@ function buildLimitedPlayers(players, details, limit){
     const clutchCount = last.reduce((s,x)=>s+Number(x.clutch_count || 0),0);
     const clutchWins = last.reduce((s,x)=>s+Number(x.clutch_wins || 0),0);
     const wins = last.filter(x=>x.result === "WIN").length;
+    const ctRoundWins = last.reduce((s,x)=>s+Number(x.ct_round_wins || 0),0);
+    const ctRounds = last.reduce((s,x)=>s+Number(x.ct_rounds || 0),0);
+    const tRoundWins = last.reduce((s,x)=>s+Number(x.t_round_wins || 0),0);
+    const tRounds = last.reduce((s,x)=>s+Number(x.t_rounds || 0),0);
 
     return {
       ...base,
@@ -643,6 +651,12 @@ function buildLimitedPlayers(players, details, limit){
       losses: Math.max(last.length - wins, 0),
       wr: last.length ? Number(((wins / last.length) * 100).toFixed(1)) : 0,
       winrate: last.length ? Number(((wins / last.length) * 100).toFixed(1)) : 0,
+      ct_round_wins: ctRoundWins,
+      ct_rounds: ctRounds,
+      ct_wr: ctRounds ? Number(((ctRoundWins / ctRounds) * 100).toFixed(1)) : 0,
+      t_round_wins: tRoundWins,
+      t_rounds: tRounds,
+      t_wr: tRounds ? Number(((tRoundWins / tRounds) * 100).toFixed(1)) : 0,
       hs_percent: kills ? Number(((hs/kills)*100).toFixed(1)) : 0,
       round_edo: roundEdo,
       mvps: roundEdo,
@@ -674,17 +688,13 @@ function applyPlayerFilters(){
       String(p.name||"").toLowerCase().includes(q);
 
     const min10Ok = !min10Only || Number(p.matches || 0) >= 10;
-    const hiddenOk = !isHiddenHomePlayer(p);
 
-    return nameOk && min10Ok && hiddenOk;
+    return nameOk && min10Ok;
   });
 }
 
 function toggleMin10(){
-  min10Only = !min10Only;
-  document.getElementById("min10Btn").classList.toggle("active", min10Only);
-  applyPlayerFilters();
-  sortBy(currentSort, true);
+  return;
 }
 
 function setStatsMode(mode){
@@ -710,7 +720,7 @@ function setBuilderMode(mode){
   renderBuilderPlayers();
 }
 
-function playersForBuilder(){ return visibleHomePlayers(builderMode === "all" ? allPlayers : (builderMode === "last20" ? last20Players : last10Players)); }
+function playersForBuilder(){ return builderMode === "all" ? allPlayers : (builderMode === "last20" ? last20Players : last10Players); }
 
 function renderPlayers(){
   const body = document.getElementById("playersBody");
@@ -726,6 +736,7 @@ function renderPlayers(){
         <td class="${kdaClass(p)}">${safe(p.kda ?? kdaOf(p),0)}</td>
         <td>${safe(p.matches,0)}</td>
         <td class="wl-box"><span class="win-text">${winsOf(p)}</span>/<span class="loss-text">${lossesOf(p)}</span></td>
+        <td class="side-wr-box"><span class="t-wr-text">T %${tWrOf(p)}</span><br><span class="ct-wr-text">CT %${ctWrOf(p)}</span></td>
         <td class="${wrClass(wrOf(p))}">%${wrOf(p)}</td>
         <td>${safe(p.hs_percent,0)}%</td>
         <td>🏆 ${safe(p.edo,0)}</td>
