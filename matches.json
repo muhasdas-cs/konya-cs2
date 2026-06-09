@@ -1941,38 +1941,6 @@
         ]
     },
     {
-        "match": "matchzy_70_0",
-        "matchid": "70",
-        "timestamp": "2026-06-06 22:31:57",
-        "map": "de_dust2",
-        "score": "0-0",
-        "raw_score": "0-0",
-        "score_corrected": false,
-        "team1_score": 0,
-        "team2_score": 0,
-        "raw_team1_score": 0,
-        "raw_team2_score": 0,
-        "winner": 0,
-        "team1_name": "Team 1",
-        "team2_name": "Team 2",
-        "original_team1_name": "team_",
-        "original_team2_name": "team_poizon",
-        "team1": [
-            "MuHasdas",
-            "steam_301208272",
-            "RIKU",
-            "Meso",
-            "steam_141469239"
-        ],
-        "team2": [
-            "Gararki",
-            "MasterRoshi",
-            "JusticeForAII",
-            "TesserACT",
-            "poizon"
-        ]
-    },
-    {
         "match": "matchzy_71_0",
         "matchid": "71",
         "timestamp": "2026-06-06 22:54:46",
@@ -2034,38 +2002,6 @@
             "RIKU",
             "Meso",
             "steam_141469239"
-        ]
-    },
-    {
-        "match": "matchzy_74_0",
-        "matchid": "74",
-        "timestamp": "2026-06-06 23:38:49",
-        "map": "de_dust2",
-        "score": "0-0",
-        "raw_score": "0-0",
-        "score_corrected": false,
-        "team1_score": 0,
-        "team2_score": 0,
-        "raw_team1_score": 0,
-        "raw_team2_score": 0,
-        "winner": 0,
-        "team1_name": "Team 1",
-        "team2_name": "Team 2",
-        "original_team1_name": "team_",
-        "original_team2_name": "team_poizon",
-        "team1": [
-            "MuHasdas",
-            "steam_301208272",
-            "RIKU",
-            "Meso",
-            "steam_141469239"
-        ],
-        "team2": [
-            "Gararki",
-            "MasterRoshi",
-            "JusticeForAII",
-            "TesserACT",
-            "poizon"
         ]
     },
     {
