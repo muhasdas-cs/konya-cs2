@@ -133,6 +133,79 @@ body{
   th,td{padding:8px 6px}
 }
 
+
+.season-tabs{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin:14px 0 18px;
+}
+.season-tab{
+  border:1px solid var(--line);
+  color:white;
+  background:#0b1220;
+  border-radius:14px;
+  padding:13px 18px;
+  font-weight:1000;
+  cursor:pointer;
+  letter-spacing:.8px;
+  transition:.18s;
+  text-transform:uppercase;
+}
+.season-tab:hover{border-color:var(--orange);transform:translateY(-2px)}
+.season-tab.active{background:linear-gradient(135deg,#f97316,#c2410c);border-color:#fb923c}
+.season-lock{
+  color:#facc15;
+  font-weight:900;
+  font-size:13px;
+  padding:8px 10px;
+  border:1px solid rgba(250,204,21,.35);
+  border-radius:999px;
+  background:rgba(250,204,21,.08);
+}
+.podium{
+  display:none;
+  margin:0 0 18px;
+  background:rgba(17,24,39,.88);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 18px 50px rgba(0,0,0,.25);
+}
+.podium.active{display:block}
+.podium-title{
+  color:#fb923c;
+  font-size:22px;
+  font-weight:1000;
+  margin-bottom:12px;
+}
+.podium-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+}
+.podium-card{
+  background:rgba(2,6,23,.45);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+}
+.podium-place{font-size:28px;font-weight:1000}
+.podium-name{font-size:20px;font-weight:1000;margin-top:6px}
+.podium-sub{color:var(--muted);font-size:12px;margin-top:5px}
+.empty-season{
+  padding:28px;
+  text-align:center;
+  color:#cbd5e1;
+  background:rgba(17,24,39,.72);
+  border:1px dashed var(--line);
+  border-radius:18px;
+  font-weight:900;
+  margin:14px 0;
+}
+
 </style>
 </head>
 <body>
@@ -141,6 +214,11 @@ body{
 
   <div class="hero" id="heroCard">
     <div class="name" id="name">Yükleniyor...</div>
+    <div class="season-tabs">
+      <button id="profileSeason1Btn" class="season-tab active" onclick="setProfileSeason('s1')">SEZON 1</button>
+      <button id="profileSeason2Btn" class="season-tab" onclick="setProfileSeason('s2')">SEZON 2</button>
+      <span class="season-lock">🔒 SEZON 1 KİLİTLENDİ</span>
+    </div>
     <div class="meta" id="meta"></div>
     <div class="filter-row">
       <button id="allProfileBtn" class="filter-btn active" onclick="setProfileMode('all')">Tüm Maçlar</button>
@@ -188,6 +266,7 @@ let profilePlayer = null;
 let profileExtra = null;
 let matchDetails = [];
 let profileMode = "all";
+let currentSeason = 's1';
 
 Promise.all([
   fetch("players.json").then(r=>r.json()),
@@ -400,6 +479,23 @@ function setProfileMode(mode){
   renderProfile(mode);
 }
 
+
+function setProfileSeason(season){
+  currentSeason = season;
+  document.getElementById("profileSeason1Btn")?.classList.toggle("active", season === "s1");
+  document.getElementById("profileSeason2Btn")?.classList.toggle("active", season === "s2");
+  renderProfile(profileMode);
+}
+
+function zeroProfileStats(){
+  return {
+    matches:0,wins:0,losses:0,wr:0,rounds:0,kills:0,deaths:0,assists:0,damage:0,
+    kd:0,kda:0,adr:0,hsPercent:0,utilityDamage:0,flashRate:0,entryRate:0,
+    entryCount:0,entryWins:0,clutchWins:0,clutchCount:0,clutch1:"0/0",clutch2:"0/0",
+    clutchTotal:"0/0",edo:0,roundEdo:0
+  };
+}
+
 function renderProfile(mode){
   profileMode = mode;
 
@@ -407,8 +503,8 @@ function renderProfile(mode){
   document.getElementById("last10ProfileBtn").classList.toggle("active", mode === "last10");
   document.getElementById("last20ProfileBtn").classList.toggle("active", mode === "last20");
 
-  const appearances = collectPlayerMatches(mode);
-  const st = calcStatsFromAppearances(appearances);
+  const appearances = currentSeason === 's1' ? collectPlayerMatches(mode) : [];
+  const st = currentSeason === 's1' ? calcStatsFromAppearances(appearances) : zeroProfileStats();
   const overall = calculateOverallFromStats(st);
   const rank = overallRank(overall);
 
@@ -439,7 +535,7 @@ function renderProfile(mode){
     <div class="stat"><div class="value">${s[1]}</div><div class="label">${s[0]}</div></div>
   `).join("");
 
-  const history = (profileExtra?.match_history || [])
+  const history = (currentSeason === 's1' ? (profileExtra?.match_history || []) : [])
     .slice()
     .sort((a,b)=>matchNumber(b.match)-matchNumber(a.match));
 
@@ -453,6 +549,7 @@ function renderProfile(mode){
         <div class="score-pill ${resultClass(m.result)}">${m.result || m.score}</div>
       </div>`;
   }).join("");
+  if(currentSeason === "s2") document.getElementById("history").innerHTML = `<div class="empty-season">SEZON 2 profil istatistikleri henüz başlamadı.</div>`;
 }
 </script>
 </body>

@@ -112,6 +112,79 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
   th,td{padding:8px 6px}
 }
 
+
+.season-tabs{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin:14px 0 18px;
+}
+.season-tab{
+  border:1px solid var(--line);
+  color:white;
+  background:#0b1220;
+  border-radius:14px;
+  padding:13px 18px;
+  font-weight:1000;
+  cursor:pointer;
+  letter-spacing:.8px;
+  transition:.18s;
+  text-transform:uppercase;
+}
+.season-tab:hover{border-color:var(--orange);transform:translateY(-2px)}
+.season-tab.active{background:linear-gradient(135deg,#f97316,#c2410c);border-color:#fb923c}
+.season-lock{
+  color:#facc15;
+  font-weight:900;
+  font-size:13px;
+  padding:8px 10px;
+  border:1px solid rgba(250,204,21,.35);
+  border-radius:999px;
+  background:rgba(250,204,21,.08);
+}
+.podium{
+  display:none;
+  margin:0 0 18px;
+  background:rgba(17,24,39,.88);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 18px 50px rgba(0,0,0,.25);
+}
+.podium.active{display:block}
+.podium-title{
+  color:#fb923c;
+  font-size:22px;
+  font-weight:1000;
+  margin-bottom:12px;
+}
+.podium-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+}
+.podium-card{
+  background:rgba(2,6,23,.45);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+}
+.podium-place{font-size:28px;font-weight:1000}
+.podium-name{font-size:20px;font-weight:1000;margin-top:6px}
+.podium-sub{color:var(--muted);font-size:12px;margin-top:5px}
+.empty-season{
+  padding:28px;
+  text-align:center;
+  color:#cbd5e1;
+  background:rgba(17,24,39,.72);
+  border:1px dashed var(--line);
+  border-radius:18px;
+  font-weight:900;
+  margin:14px 0;
+}
+
 </style>
 </head>
 <body>
@@ -123,6 +196,21 @@ tbody tr:hover{background:rgba(249,115,22,.12); transform:scale(1.006); cursor:p
 
   <div class="toolbar">
     <input id="search" class="search" placeholder="Oyuncu ara...">
+  </div>
+
+  <div class="season-tabs">
+    <button id="season1Btn" class="season-tab active" onclick="setSeason('s1')">SEZON 1</button>
+    <button id="season2Btn" class="season-tab" onclick="setSeason('s2')">SEZON 2</button>
+    <span class="season-lock">🔒 SEZON 1 KİLİTLENDİ</span>
+  </div>
+
+  <div id="season1Podium" class="podium active">
+    <div class="podium-title">🏆 SEZON 1 PODYUMU</div>
+    <div class="podium-grid">
+      <div class="podium-card"><div class="podium-place">🥇 1.</div><div class="podium-name">MuHasdas</div><div class="podium-sub">Sezon 1 Kralı</div></div>
+      <div class="podium-card"><div class="podium-place">🥈 2.</div><div class="podium-name">Poizon</div><div class="podium-sub">Sezon 1 İkincisi</div></div>
+      <div class="podium-card"><div class="podium-place">🥉 3.</div><div class="podium-name">AyB</div><div class="podium-sub">Sezon 1 Üçüncüsü</div></div>
+    </div>
   </div>
 
   <div class="filter-row">
@@ -225,6 +313,7 @@ let asc = false;
 let statsMode = "all";
 let builderMode = "all";
 let min10Only = true;
+let currentSeason = 's1';
 
 Promise.all([
   fetch("players.json").then(r=>r.json()),
@@ -247,7 +336,7 @@ Promise.all([
   const last20Awards = buildHtmlAwards(last20Players, getLast20Details(matchDetailsData));
   last20Players = enrichOverall(enrichPlayersWithAwards(last20Players, last20Awards));
 
-  currentPlayers = allPlayers;
+  currentPlayers = seasonPlayers(allPlayers);
   applyPlayerFilters();
   sortBy("overall", true);
   renderBuilderPlayers();
@@ -643,6 +732,33 @@ function buildLast20Players(players, details){
   return buildLimitedPlayers(players, details, 20);
 }
 
+
+function zeroSeasonPlayers(players){
+  return (players || []).map(p=>({
+    ...p,
+    elo:0, rank:"Bronze", winrate:0, wins:0, losses:0, wr:0,
+    kd:0, kda:0, adr:0, hs_percent:0, round_edo:0, mvps:0,
+    edo:0, clutch_wins:0, clutch_count:0, clutch_rate:0, clutch_text:"0/0",
+    rounds:0, matches:0, assists:0, kills:0, deaths:0, overall:0,
+    entry_count:0, entry_wins:0
+  }));
+}
+
+function setSeason(season){
+  currentSeason = season;
+  document.getElementById("season1Btn")?.classList.toggle("active", season === "s1");
+  document.getElementById("season2Btn")?.classList.toggle("active", season === "s2");
+  document.getElementById("season1Podium")?.classList.toggle("active", season === "s1");
+
+  setStatsMode(statsMode);
+  renderBuilderPlayers();
+  renderMatches(season === "s1" ? matchesData : []);
+}
+
+function seasonPlayers(source){
+  return currentSeason === "s1" ? source : zeroSeasonPlayers(allPlayers);
+}
+
 function applyPlayerFilters(){
   const q = document.getElementById("search").value.toLowerCase().trim();
 
@@ -665,7 +781,7 @@ function setStatsMode(mode){
   document.getElementById("last10StatsBtn").classList.toggle("active", mode === "last10");
   document.getElementById("last20StatsBtn").classList.toggle("active", mode === "last20");
 
-  currentPlayers = mode === "all" ? allPlayers : (mode === "last20" ? last20Players : last10Players);
+  currentPlayers = seasonPlayers(mode === "all" ? allPlayers : (mode === "last20" ? last20Players : last10Players));
   applyPlayerFilters();
   sortBy(currentSort, true);
 }
@@ -682,7 +798,7 @@ function setBuilderMode(mode){
   renderBuilderPlayers();
 }
 
-function playersForBuilder(){ return builderMode === "all" ? allPlayers : (builderMode === "last20" ? last20Players : last10Players); }
+function playersForBuilder(){ return seasonPlayers(builderMode === "all" ? allPlayers : (builderMode === "last20" ? last20Players : last10Players)); }
 
 function renderPlayers(){
   const body = document.getElementById("playersBody");
@@ -715,6 +831,10 @@ function renderPlayers(){
 function renderMatches(matches){
   const el = document.getElementById("matches");
   el.innerHTML = "";
+  if(currentSeason === "s2"){
+    el.innerHTML = `<div class="empty-season">SEZON 2 maçları henüz başlamadı.</div>`;
+    return;
+  }
 
   matches
     .slice()
